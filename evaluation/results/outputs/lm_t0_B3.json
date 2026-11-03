@@ -1,0 +1,88 @@
+{
+  "claims": [
+    {
+      "citations": [
+        {
+          "document_id": "doc_lm_overview",
+          "document_version": 1,
+          "locator": {
+            "block_index": 0,
+            "kind": "pdf",
+            "page": 1
+          },
+          "quote": "Lumen Field Services source overview\nSYNTHETIC EDUCATIONAL DATA / FY2025 unless stated / v1\nSYNTHETIC. The supplied signed renewal copy states that the key client renews for 12\nmonths. Lumen FY2025 delivered 10,000 billable hours at USD 300/hour, revenue USD\n3,000,000, direct cost USD 1,800,000, operating expense excluding depreciation USD\n900,000, EBITDA USD 300,000. Key-client revenue USD 1,500,000.\nSYNTHETIC / No real company disclosures / Page 1 of 3"
+        }
+      ],
+      "entailment_supported": null,
+      "factual": true,
+      "matched_claim_id": "claim_lm",
+      "prediction_id": "claim_lm",
+      "text": "By 2027-10-31 key-client renewal, labor capacity and collection evidence support the operating plan."
+    }
+  ],
+  "contradiction_groups": [],
+  "eig": {},
+  "final_approvals_without_review": 0,
+  "hypothesis_statuses": {
+    "claim_lm": "partial"
+  },
+  "posterior": {},
+  "provenance": "deterministic-engine",
+  "questions": [
+    {
+      "artifact_present": true,
+      "criterion_present": true,
+      "family_id": "q_lm_labor",
+      "financial_relevance": true,
+      "match_rationale": "Identity mapping of the pre-authored request; not a semantic model prediction.",
+      "match_reviewed": true,
+      "output_id": "q_lm_labor",
+      "period_present": true,
+      "reviewer": "fixture-author (single-rater; provisional)",
+      "target_present": true,
+      "text": "Provide the FY2025 staffing roster and delivered-hours records reconciling 10,000 billed hours against 12,000 available hours, plus the capacity assumptions used for the 2026-11-01 through 2027-10-31 operating plan."
+    },
+    {
+      "artifact_present": true,
+      "criterion_present": true,
+      "family_id": "q_lm_margin",
+      "financial_relevance": true,
+      "match_rationale": "Identity mapping of the pre-authored request; not a semantic model prediction.",
+      "match_reviewed": true,
+      "output_id": "q_lm_margin",
+      "period_present": true,
+      "reviewer": "fixture-author (single-rater; provisional)",
+      "target_present": true,
+      "text": "Provide the FY2025 labor-cost ledger and contract margin bridge reconciling USD 3,000,000 revenue and USD 1,800,000 direct costs, identifying overtime, subcontracting and nonrecurring items."
+    },
+    {
+      "artifact_present": true,
+      "criterion_present": true,
+      "family_id": "q_lm_cash",
+      "financial_relevance": true,
+      "match_rationale": "Identity mapping of the pre-authored request; not a semantic model prediction.",
+      "match_reviewed": true,
+      "output_id": "q_lm_cash",
+      "period_present": true,
+      "reviewer": "fixture-author (single-rater; provisional)",
+      "target_present": true,
+      "text": "Provide subsequent bank receipts or settlement records matched to the key-client invoices included in FY2025 closing receivables, identifying invoice dates, collection dates and unresolved balances."
+    },
+    {
+      "artifact_present": true,
+      "criterion_present": true,
+      "family_id": "q_lm_capex",
+      "financial_relevance": true,
+      "match_rationale": "Identity mapping of the pre-authored request; not a semantic model prediction.",
+      "match_reviewed": true,
+      "output_id": "q_lm_capex",
+      "period_present": true,
+      "reviewer": "fixture-author (single-rater; provisional)",
+      "target_present": true,
+      "text": "Provide the equipment replacement schedule and supporting maintenance records for the 2026-11-01 through 2027-10-31 operating plan, separating maintenance expense from planned capital expenditure."
+    }
+  ],
+  "relationships": [],
+  "retrieved_evidence_ids": [],
+  "status": "completed"
+}

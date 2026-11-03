@@ -1,0 +1,6 @@
+mode: authored_fixture
+actual_llm_benchmark: false
+arms: [B0, B1, B2, B3, B1-R]
+locator_precision_target: 0.95
+top3_critical_coverage_target: 0.80
+hallucinated_citations_target: 0

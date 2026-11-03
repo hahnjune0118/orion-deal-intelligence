@@ -1,0 +1,279 @@
+{
+  "status": "pass",
+  "checked_at_utc": "2026-11-03T08:14:55.415122+00:00",
+  "document_count": 26,
+  "page_or_slide_count": 40,
+  "summary_by_format": {
+    "docx": {
+      "documents": 20,
+      "pages_or_slides": 21
+    },
+    "pdf": {
+      "documents": 3,
+      "pages_or_slides": 9
+    },
+    "pptx": {
+      "documents": 3,
+      "pages_or_slides": 10
+    }
+  },
+  "method": {
+    "docx": "Packaged render_docx.py via LibreOffice PDF and PNG output",
+    "pdf": "Bundled Poppler pdftoppm at 130 DPI",
+    "pptx": "LibreOffice PDF conversion followed by bundled Poppler pdftoppm at 130 DPI",
+    "inspection": "Each rendered page/slide image opened and visually inspected; later source changes re-rendered and re-inspected. Current SHA-256 values match reviewed bytes."
+  },
+  "checks": [
+    "Readable source text and tables",
+    "No clipped or overlapping content",
+    "Synthetic labels and document metadata visible",
+    "Native PDF page footer and PPTX footer visible",
+    "Manufacturing balance sheet kept together on second page"
+  ],
+  "resolved_issues": [
+    "Replaced native PDF Helvetica fallback with standard Courier after actual rendered glyph-spacing overlap was observed.",
+    "Removed default DOCX blue title border/heading styling and adjusted legacy table borders.",
+    "Replaced ineffective in-cell page break with standalone page break before manufacturing balance sheet; removed orphan last-row page."
+  ],
+  "limitations": [
+    "Visual QA is not an independent financial gold-label review or actual LLM performance measurement.",
+    "Microsoft Word/PowerPoint on Windows was not opened; layout verified through LibreOffice and Poppler on Linux.",
+    "Runtime-generated QA images and PDFs are internal verification intermediates, not delivery files."
+  ],
+  "sources": [
+    {
+      "source_path": "chunk3_synthetic_evaluation/data/synthetic_manufacturing/documents/mf_doc_count.docx",
+      "source_sha256": "80f14eb4f990e3992b4804f1743917273ec96b6d3c585c5a3418696ed6efc93d",
+      "format": "docx",
+      "page_or_slide_count": 1,
+      "render_exit_code": 0,
+      "all_pages_visually_inspected": true,
+      "visual_status": "pass"
+    },
+    {
+      "source_path": "chunk3_synthetic_evaluation/data/synthetic_manufacturing/documents/mf_doc_financial.docx",
+      "source_sha256": "7b79e238a4e175a02f13f677a5e5b9bec528319d2507de53a7045f412bd37587",
+      "format": "docx",
+      "page_or_slide_count": 2,
+      "render_exit_code": 0,
+      "all_pages_visually_inspected": true,
+      "visual_status": "pass"
+    },
+    {
+      "source_path": "chunk3_synthetic_evaluation/data/synthetic_manufacturing/documents/mf_doc_forecast.docx",
+      "source_sha256": "648184be7f933f34c69c13d53a2495f76d9f8abea048ca2b00977227ae7d22ef",
+      "format": "docx",
+      "page_or_slide_count": 1,
+      "render_exit_code": 0,
+      "all_pages_visually_inspected": true,
+      "visual_status": "pass"
+    },
+    {
+      "source_path": "chunk3_synthetic_evaluation/data/synthetic_manufacturing/documents/mf_doc_inventory.docx",
+      "source_sha256": "78508b756ad6cb4e654729b170ff5c3b1879fffdb8b6f3095b4afdfcb6698105",
+      "format": "docx",
+      "page_or_slide_count": 1,
+      "render_exit_code": 0,
+      "all_pages_visually_inspected": true,
+      "visual_status": "pass"
+    },
+    {
+      "source_path": "chunk3_synthetic_evaluation/data/synthetic_manufacturing/documents/mf_doc_plant.docx",
+      "source_sha256": "f8c6812d9de7c20aa6df0708f7fa65d09a28b6024c40990a482aa02df92d9d91",
+      "format": "docx",
+      "page_or_slide_count": 1,
+      "render_exit_code": 0,
+      "all_pages_visually_inspected": true,
+      "visual_status": "pass"
+    },
+    {
+      "source_path": "chunk3_synthetic_evaluation/data/synthetic_manufacturing/documents/mf_doc_sales.docx",
+      "source_sha256": "c3bd131b74a49b65a5fcd3e72aa9d6bc37f76f3eea8dd7d20f2475dd9c8931a5",
+      "format": "docx",
+      "page_or_slide_count": 1,
+      "render_exit_code": 0,
+      "all_pages_visually_inspected": true,
+      "visual_status": "pass"
+    },
+    {
+      "source_path": "chunk3_synthetic_evaluation/data/synthetic_northstar/documents/nb_doc_cim.docx",
+      "source_sha256": "8a26b1bf02329f94b18dcee061419598bda7a4ad963f84baf3e035cb605e592e",
+      "format": "docx",
+      "page_or_slide_count": 1,
+      "render_exit_code": 0,
+      "all_pages_visually_inspected": true,
+      "visual_status": "pass"
+    },
+    {
+      "source_path": "chunk3_synthetic_evaluation/data/synthetic_northstar/documents/nb_doc_contract.docx",
+      "source_sha256": "2c9ba23fd2609d49038947932af2a3e803697107f3f4217e3bb214583f1a7d57",
+      "format": "docx",
+      "page_or_slide_count": 1,
+      "render_exit_code": 0,
+      "all_pages_visually_inspected": true,
+      "visual_status": "pass"
+    },
+    {
+      "source_path": "chunk3_synthetic_evaluation/data/synthetic_northstar/documents/nb_doc_cost.docx",
+      "source_sha256": "71275860572a83bf8d323e99bba1ea9296d8b9532e3e420bd17137780d4f3bd9",
+      "format": "docx",
+      "page_or_slide_count": 1,
+      "render_exit_code": 0,
+      "all_pages_visually_inspected": true,
+      "visual_status": "pass"
+    },
+    {
+      "source_path": "chunk3_synthetic_evaluation/data/synthetic_northstar/documents/nb_doc_crm.docx",
+      "source_sha256": "2c4e6542ba45006ed4cbac612b9eead6e46f6e8d1364336a365393c351dbb042",
+      "format": "docx",
+      "page_or_slide_count": 1,
+      "render_exit_code": 0,
+      "all_pages_visually_inspected": true,
+      "visual_status": "pass"
+    },
+    {
+      "source_path": "chunk3_synthetic_evaluation/data/synthetic_northstar/documents/nb_doc_execution.docx",
+      "source_sha256": "59df96a580464716e9d2c93fcd8268d6332b5caed16172df7d15b9acd847b2dd",
+      "format": "docx",
+      "page_or_slide_count": 1,
+      "render_exit_code": 0,
+      "all_pages_visually_inspected": true,
+      "visual_status": "pass"
+    },
+    {
+      "source_path": "chunk3_synthetic_evaluation/data/synthetic_northstar/documents/nb_doc_financial.docx",
+      "source_sha256": "468640d7eeb3a19d8229b6e64340664025d58c6ab676590781f1414257e4b302",
+      "format": "docx",
+      "page_or_slide_count": 1,
+      "render_exit_code": 0,
+      "all_pages_visually_inspected": true,
+      "visual_status": "pass"
+    },
+    {
+      "source_path": "chunk3_synthetic_evaluation/data/synthetic_northstar/documents/nb_doc_followup.docx",
+      "source_sha256": "da1f4e39a97116739c5ae68bff76f8e39ab39d9fae4c92b6009fa13278831cb5",
+      "format": "docx",
+      "page_or_slide_count": 1,
+      "render_exit_code": 0,
+      "all_pages_visually_inspected": true,
+      "visual_status": "pass"
+    },
+    {
+      "source_path": "chunk3_synthetic_evaluation/data/synthetic_northstar/documents/nb_doc_plan.docx",
+      "source_sha256": "e14fa5674c724664a19eb699c3294f9ff0f84b0e5c80f9d0d9f940ca1c9e3119",
+      "format": "docx",
+      "page_or_slide_count": 1,
+      "render_exit_code": 0,
+      "all_pages_visually_inspected": true,
+      "visual_status": "pass"
+    },
+    {
+      "source_path": "data/synthetic/cd/cd_batch_acceptance.docx",
+      "source_sha256": "103bd080b1e4967fbe9af9909a197828dda622754a998c2e148813bbc5768801",
+      "format": "docx",
+      "page_or_slide_count": 1,
+      "render_exit_code": 0,
+      "all_pages_visually_inspected": true,
+      "visual_status": "pass"
+    },
+    {
+      "source_path": "data/synthetic/cd/cd_customers.pptx",
+      "source_sha256": "854f78cce457c496d95fd50b8f842548496c958277884862eb8e402559cbf546",
+      "format": "pptx",
+      "page_or_slide_count": 3,
+      "render_exit_code": 0,
+      "all_pages_visually_inspected": true,
+      "visual_status": "pass"
+    },
+    {
+      "source_path": "data/synthetic/cd/cd_finance.pdf",
+      "source_sha256": "31a9688f322d9be6c01e0ef7630d1b3f66e858aad1d2258b1d272b2d463c5473",
+      "format": "pdf",
+      "page_or_slide_count": 3,
+      "render_exit_code": 0,
+      "all_pages_visually_inspected": true,
+      "visual_status": "pass"
+    },
+    {
+      "source_path": "data/synthetic/cd/cd_operations.docx",
+      "source_sha256": "d4d4ede96179c17a7d4f7926d388bcc4f52f0de1e66d0eb92856427cac3648d1",
+      "format": "docx",
+      "page_or_slide_count": 1,
+      "render_exit_code": 0,
+      "all_pages_visually_inspected": true,
+      "visual_status": "pass"
+    },
+    {
+      "source_path": "data/synthetic/lm/lm_capacity.docx",
+      "source_sha256": "82180150a23beb714c2f2bc4b9b6e2639c83c50c11fb2b0dee4d61a9f6c1f867",
+      "format": "docx",
+      "page_or_slide_count": 1,
+      "render_exit_code": 0,
+      "all_pages_visually_inspected": true,
+      "visual_status": "pass"
+    },
+    {
+      "source_path": "data/synthetic/lm/lm_contracts.pdf",
+      "source_sha256": "9fa83b659c90f3a0769a10a8761ed490b02cd9cd41da112bd8ac3ea5945703ca",
+      "format": "pdf",
+      "page_or_slide_count": 3,
+      "render_exit_code": 0,
+      "all_pages_visually_inspected": true,
+      "visual_status": "pass"
+    },
+    {
+      "source_path": "data/synthetic/lm/lm_plan.pptx",
+      "source_sha256": "09750708a0925c763b926caf257ad130b5cefc64160f21aab17de5fc693916f1",
+      "format": "pptx",
+      "page_or_slide_count": 3,
+      "render_exit_code": 0,
+      "all_pages_visually_inspected": true,
+      "visual_status": "pass"
+    },
+    {
+      "source_path": "data/synthetic/lm/lm_side_letter.docx",
+      "source_sha256": "dd3c1dc415a120759cca29af681f5f6fa1bf3a25a6cc7cc63a5df5cb93f5f9af",
+      "format": "docx",
+      "page_or_slide_count": 1,
+      "render_exit_code": 0,
+      "all_pages_visually_inspected": true,
+      "visual_status": "pass"
+    },
+    {
+      "source_path": "data/synthetic/ns/ns_cim.pdf",
+      "source_sha256": "e711235afd09c26ea8d5678dd1db2390929133530693479c2c477df5e0d48f5e",
+      "format": "pdf",
+      "page_or_slide_count": 3,
+      "render_exit_code": 0,
+      "all_pages_visually_inspected": true,
+      "visual_status": "pass"
+    },
+    {
+      "source_path": "data/synthetic/ns/ns_contract_a.docx",
+      "source_sha256": "f95b9cafbf20728401a3c6a7fad7b159392af29bb23f010f1b16fcf0a5131bb3",
+      "format": "docx",
+      "page_or_slide_count": 1,
+      "render_exit_code": 0,
+      "all_pages_visually_inspected": true,
+      "visual_status": "pass"
+    },
+    {
+      "source_path": "data/synthetic/ns/ns_finance.docx",
+      "source_sha256": "d134e3c85e465b157ca917207223eec87868a889d8655731a06a21181d61ccf1",
+      "format": "docx",
+      "page_or_slide_count": 1,
+      "render_exit_code": 0,
+      "all_pages_visually_inspected": true,
+      "visual_status": "pass"
+    },
+    {
+      "source_path": "data/synthetic/ns/ns_pipeline.pptx",
+      "source_sha256": "cab36fd17e3deab007656ae58eaa8091270bc919524c1d97f22cf1dead06818e",
+      "format": "pptx",
+      "page_or_slide_count": 4,
+      "render_exit_code": 0,
+      "all_pages_visually_inspected": true,
+      "visual_status": "pass"
+    }
+  ]
+}

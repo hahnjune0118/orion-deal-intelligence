@@ -1,0 +1,28 @@
+{
+  "tests": {
+    "count": 12,
+    "changed": [],
+    "unchanged": true
+  },
+  "spec": {
+    "count": 47,
+    "changed": [],
+    "unchanged": true
+  },
+  "src/orion/resources/demo": {
+    "count": 6,
+    "changed": [],
+    "unchanged": true
+  },
+  "core_contract_and_score": {
+    "src/orion/domain/models.py": true,
+    "src/orion/domain/scoring.py": true,
+    "src/orion/domain/transitions.py": true
+  },
+  "locks": {
+    "requirements-win.lock": true,
+    "requirements-linux.lock": true,
+    "requirements-tooling.lock": true
+  },
+  "original_files_missing": []
+}

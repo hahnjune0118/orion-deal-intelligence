@@ -1,4 +1,4 @@
-name: Foundation
+name: Orion Foundation Core and Synthetic Evaluation
 on: [push, pull_request, workflow_dispatch]
 permissions:
   contents: read
@@ -39,6 +39,8 @@ jobs:
           python -m orion.cli replay --case ns --event staged --approve --output build/ns_after.json
           python -m orion.cli replay --case cd --event staged --approve --output build/cd_after.json
           python -m orion.cli replay --case lm --event staged --approve --output build/lm_after.json
+      - name: Generate and validate synthetic sources and evaluation
+        run: python scripts/validate_chunk03.py
       - run: git diff --exit-code -- spec
       - uses: actions/upload-artifact@v4
         if: always()
@@ -47,6 +49,10 @@ jobs:
           path: |
             foundation-tests.xml
             core-tests.xml
+            implementation_evidence/chunk03-pytest.xml
+            implementation_evidence/chunk03-validation.json
+            implementation_evidence/logs/chunk03-*.log
+            evaluation/results/
   dependency-audit:
     runs-on: ubuntu-latest
     steps:

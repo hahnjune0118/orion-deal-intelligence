@@ -1,0 +1,2154 @@
+{
+  "blueprint_binary": {
+    "negative": 0.09677419354838708,
+    "p_negative": 0.6199999999999999,
+    "p_positive": 0.38,
+    "positive": 0.631578947368421
+  },
+  "blueprint_eig": {
+    "answers": [
+      {
+        "answer": "positive",
+        "entropy_bits": 0.9494520153879484,
+        "posterior": 0.631578947368421,
+        "probability": 0.38
+      },
+      {
+        "answer": "negative",
+        "entropy_bits": 0.4586858162005402,
+        "posterior": 0.09677419354838708,
+        "probability": 0.6199999999999999
+      }
+    ],
+    "assumption_source": "Blueprint explicit illustrative hypothetical scenario",
+    "eig_bits": 0.23611392733893743,
+    "expected_posterior_entropy_bits": 0.6451769718917553,
+    "interpretation": "synthetic_scenario_not_empirical",
+    "prior": 0.3,
+    "prior_entropy_bits": 0.8812908992306927
+  },
+  "candidate_inputs": [
+    {
+      "days": 5.0,
+      "eig_assumption_source": "Independent synthetic research example: example_commercial_confirmation; analyst-authored p=0.3, P(positive|H)=0.9, P(positive|not H)=0.1; not empirical.",
+      "eig_bits": 0.45582311138374887,
+      "evidence_overlap": 0.0,
+      "external_cost_minor": 50000,
+      "gap": 4.0,
+      "materiality": 4.0,
+      "obtainability": 4.0,
+      "obtainability_includes_cost_time": false,
+      "question_id": "example_commercial_confirmation",
+      "resolved": false,
+      "review_status": "approved"
+    },
+    {
+      "days": 5.0,
+      "eig_assumption_source": "Independent synthetic research example: example_margin_reconciliation; analyst-authored p=0.65, P(positive|H)=0.6, P(positive|not H)=0.4; not empirical.",
+      "eig_bits": 0.026450994113071058,
+      "evidence_overlap": 0.0,
+      "external_cost_minor": 50000,
+      "gap": 4.0,
+      "materiality": 5.0,
+      "obtainability": 4.0,
+      "obtainability_includes_cost_time": false,
+      "question_id": "example_margin_reconciliation",
+      "resolved": false,
+      "review_status": "approved"
+    },
+    {
+      "days": 5.0,
+      "eig_assumption_source": "Independent synthetic research example: example_capacity_delivery; analyst-authored p=0.5, P(positive|H)=0.8, P(positive|not H)=0.2; not empirical.",
+      "eig_bits": 0.2780719051126377,
+      "evidence_overlap": 0.0,
+      "external_cost_minor": 50000,
+      "gap": 3.0,
+      "materiality": 3.0,
+      "obtainability": 4.0,
+      "obtainability_includes_cost_time": false,
+      "question_id": "example_capacity_delivery",
+      "resolved": false,
+      "review_status": "approved"
+    }
+  ],
+  "candidate_scope": "independent illustrative candidates, not extracted Northstar benchmark outputs",
+  "conditional_joint_example": {
+    "assumptions": [
+      {
+        "as_of": "2026-11-03",
+        "assumption_id": "worked_contract_v1",
+        "assumption_source": "Synthetic first contract example .3/.8/.2",
+        "author_id": "synthetic-analyst",
+        "interpretation": "synthetic_scenario_not_empirical",
+        "likelihood_h": 0.8,
+        "likelihood_not_h": 0.2,
+        "prior": 0.3,
+        "version": 1
+      },
+      {
+        "as_of": "2026-11-03",
+        "assumption_id": "worked_execution_v1",
+        "assumption_source": "Explicit conditional P(execution|H,contract)=.75 and P(execution|not H,contract)=.30",
+        "author_id": "synthetic-analyst",
+        "interpretation": "synthetic_scenario_not_empirical",
+        "likelihood_h": 0.75,
+        "likelihood_not_h": 0.3,
+        "prior": 0.631578947368421,
+        "version": 1
+      }
+    ],
+    "conditional_model": {
+      "assumption_id": "worked_execution_v1",
+      "assumption_source": "Reviewed synthetic chain-rule joint scenario, not independence multiplication",
+      "assumption_version": 1,
+      "conditioning_evidence_ids": [
+        "worked_contract"
+      ],
+      "conditioning_group_ids": [
+        "worked_customer_a"
+      ],
+      "evidence_id": "worked_execution",
+      "hypothesis_id": "worked_h1",
+      "likelihood_h": 0.75,
+      "likelihood_not_h": 0.3,
+      "model_id": "worked_joint_model_v1",
+      "review_status": "approved",
+      "reviewed_at": "2026-11-03",
+      "reviewer_id": "synthetic-reviewer",
+      "semantics": "given_complete_accepted_history"
+    },
+    "ledger": {
+      "beliefs": {
+        "worked_h1": 0.8108108108108107
+      },
+      "dependence_graph": {
+        "worked_h1": {
+          "worked_customer_a": [
+            "worked_customer_a"
+          ]
+        }
+      },
+      "history": [
+        {
+          "assumption_as_of": "2026-11-03",
+          "assumption_author_id": "synthetic-analyst",
+          "assumption_id": "worked_contract_v1",
+          "assumption_source": "Synthetic first contract example .3/.8/.2",
+          "assumption_version": 1,
+          "conditional_model_id": null,
+          "conditional_model_source": null,
+          "conditional_reviewed_at": null,
+          "conditional_reviewer_id": null,
+          "conditioning_evidence_ids": [],
+          "conditioning_group_ids": [],
+          "evidence_group_id": "worked_customer_a",
+          "evidence_id": "worked_contract",
+          "hypothesis_id": "worked_h1",
+          "likelihood_h": 0.8,
+          "likelihood_not_h": 0.2,
+          "posterior": 0.631578947368421,
+          "prior": 0.3,
+          "reason": "Approved source from a new analyst-defined independent group.",
+          "source_fingerprint": "6b85c3e321e4ec328753e461802aa84c0c697c4190d9e758cdb45e2745ac6f25",
+          "status": "applied"
+        },
+        {
+          "assumption_as_of": "2026-11-03",
+          "assumption_author_id": "synthetic-analyst",
+          "assumption_id": "worked_execution_v1",
+          "assumption_source": "Explicit conditional P(execution|H,contract)=.75 and P(execution|not H,contract)=.30",
+          "assumption_version": 1,
+          "conditional_model_id": null,
+          "conditional_model_source": null,
+          "conditional_reviewed_at": null,
+          "conditional_reviewer_id": null,
+          "conditioning_evidence_ids": [],
+          "conditioning_group_ids": [],
+          "evidence_group_id": "worked_customer_a",
+          "evidence_id": "worked_execution",
+          "hypothesis_id": "worked_h1",
+          "likelihood_h": 0.75,
+          "likelihood_not_h": 0.3,
+          "posterior": 0.631578947368421,
+          "prior": 0.631578947368421,
+          "reason": "Correlated evidence was not multiplied without a joint probability model.",
+          "source_fingerprint": "6b556fec3edf31f32baaac1c20bd70c343bfe523948e6062b7db7c5ee78b949a",
+          "status": "dependent"
+        },
+        {
+          "assumption_as_of": "2026-11-03",
+          "assumption_author_id": "synthetic-analyst",
+          "assumption_id": "worked_execution_v1",
+          "assumption_source": "Explicit conditional P(execution|H,contract)=.75 and P(execution|not H,contract)=.30",
+          "assumption_version": 1,
+          "conditional_model_id": "worked_joint_model_v1",
+          "conditional_model_source": "Reviewed synthetic chain-rule joint scenario, not independence multiplication",
+          "conditional_reviewed_at": "2026-11-03",
+          "conditional_reviewer_id": "synthetic-reviewer",
+          "conditioning_evidence_ids": [
+            "worked_contract"
+          ],
+          "conditioning_group_ids": [
+            "worked_customer_a"
+          ],
+          "evidence_group_id": "worked_customer_a",
+          "evidence_id": "worked_execution",
+          "hypothesis_id": "worked_h1",
+          "likelihood_h": 0.75,
+          "likelihood_not_h": 0.3,
+          "posterior": 0.8108108108108107,
+          "prior": 0.631578947368421,
+          "reason": "Applied reviewed P(new evidence | hypothesis, complete accepted history) chain-rule likelihoods; independence is not assumed.",
+          "source_fingerprint": "6b556fec3edf31f32baaac1c20bd70c343bfe523948e6062b7db7c5ee78b949a",
+          "status": "applied"
+        }
+      ],
+      "interpretation": "synthetic_scenario_not_empirical",
+      "quant_version": "1.0.0"
+    },
+    "reviewed_joint_model_result": {
+      "assumption_as_of": "2026-11-03",
+      "assumption_author_id": "synthetic-analyst",
+      "assumption_id": "worked_execution_v1",
+      "assumption_source": "Explicit conditional P(execution|H,contract)=.75 and P(execution|not H,contract)=.30",
+      "assumption_version": 1,
+      "conditional_model_id": "worked_joint_model_v1",
+      "conditional_model_source": "Reviewed synthetic chain-rule joint scenario, not independence multiplication",
+      "conditional_reviewed_at": "2026-11-03",
+      "conditional_reviewer_id": "synthetic-reviewer",
+      "conditioning_evidence_ids": [
+        "worked_contract"
+      ],
+      "conditioning_group_ids": [
+        "worked_customer_a"
+      ],
+      "evidence_group_id": "worked_customer_a",
+      "evidence_id": "worked_execution",
+      "hypothesis_id": "worked_h1",
+      "likelihood_h": 0.75,
+      "likelihood_not_h": 0.3,
+      "posterior": 0.8108108108108107,
+      "prior": 0.631578947368421,
+      "reason": "Applied reviewed P(new evidence | hypothesis, complete accepted history) chain-rule likelihoods; independence is not assumed.",
+      "source_fingerprint": "6b556fec3edf31f32baaac1c20bd70c343bfe523948e6062b7db7c5ee78b949a",
+      "status": "applied"
+    },
+    "unreviewed_joint_model_result": {
+      "assumption_as_of": "2026-11-03",
+      "assumption_author_id": "synthetic-analyst",
+      "assumption_id": "worked_execution_v1",
+      "assumption_source": "Explicit conditional P(execution|H,contract)=.75 and P(execution|not H,contract)=.30",
+      "assumption_version": 1,
+      "conditional_model_id": null,
+      "conditional_model_source": null,
+      "conditional_reviewed_at": null,
+      "conditional_reviewer_id": null,
+      "conditioning_evidence_ids": [],
+      "conditioning_group_ids": [],
+      "evidence_group_id": "worked_customer_a",
+      "evidence_id": "worked_execution",
+      "hypothesis_id": "worked_h1",
+      "likelihood_h": 0.75,
+      "likelihood_not_h": 0.3,
+      "posterior": 0.631578947368421,
+      "prior": 0.631578947368421,
+      "reason": "Correlated evidence was not multiplied without a joint probability model.",
+      "source_fingerprint": "6b556fec3edf31f32baaac1c20bd70c343bfe523948e6062b7db7c5ee78b949a",
+      "status": "dependent"
+    }
+  },
+  "limitations": [
+    "All probabilities and review decisions are explicitly authored synthetic assumptions.",
+    "Rank changes establish sensitivity to the disclosed policy, not optimal investment decisions.",
+    "The original production ranking policy is unchanged; research no-EIG ablation is a distinct experiment.",
+    "Dependence groups require a trusted source registry/analyst; content hashes cannot detect every semantic paraphrase."
+  ],
+  "live_api_calls": 0,
+  "model_benchmark": "not_run",
+  "null_eig_fallback": {
+    "assumptions": [
+      {
+        "assumption_author": "synthetic-research-author",
+        "assumption_date": "2026-11-03",
+        "assumption_source": "Independent synthetic research example: example_commercial_confirmation; analyst-authored p=0.3, P(positive|H)=0.9, P(positive|not H)=0.1; not empirical.",
+        "eig": null,
+        "likelihood_positive_h": null,
+        "likelihood_positive_not_h": 0.1,
+        "prior": 0.3,
+        "question_id": "example_commercial_confirmation"
+      },
+      {
+        "assumption_author": "synthetic-research-author",
+        "assumption_date": "2026-11-03",
+        "assumption_source": "Independent synthetic research example: example_margin_reconciliation; analyst-authored p=0.65, P(positive|H)=0.6, P(positive|not H)=0.4; not empirical.",
+        "eig": {
+          "answers": [
+            {
+              "answer": "positive",
+              "entropy_bits": 0.8329458235361398,
+              "posterior": 0.7358490566037736,
+              "probability": 0.53
+            },
+            {
+              "answer": "negative",
+              "entropy_bits": 0.9918207974218424,
+              "posterior": 0.5531914893617021,
+              "probability": 0.47
+            }
+          ],
+          "assumption_source": "Independent synthetic research example: example_margin_reconciliation; analyst-authored p=0.65, P(positive|H)=0.6, P(positive|not H)=0.4; not empirical.",
+          "eig_bits": 0.026450994113071058,
+          "expected_posterior_entropy_bits": 0.9076170612624199,
+          "interpretation": "synthetic_scenario_not_empirical",
+          "prior": 0.65,
+          "prior_entropy_bits": 0.934068055375491
+        },
+        "likelihood_positive_h": 0.6,
+        "likelihood_positive_not_h": 0.4,
+        "prior": 0.65,
+        "question_id": "example_margin_reconciliation"
+      },
+      {
+        "assumption_author": "synthetic-research-author",
+        "assumption_date": "2026-11-03",
+        "assumption_source": "Independent synthetic research example: example_capacity_delivery; analyst-authored p=0.5, P(positive|H)=0.8, P(positive|not H)=0.2; not empirical.",
+        "eig": {
+          "answers": [
+            {
+              "answer": "positive",
+              "entropy_bits": 0.7219280948873623,
+              "posterior": 0.8,
+              "probability": 0.5
+            },
+            {
+              "answer": "negative",
+              "entropy_bits": 0.7219280948873623,
+              "posterior": 0.19999999999999996,
+              "probability": 0.5
+            }
+          ],
+          "assumption_source": "Independent synthetic research example: example_capacity_delivery; analyst-authored p=0.5, P(positive|H)=0.8, P(positive|not H)=0.2; not empirical.",
+          "eig_bits": 0.2780719051126377,
+          "expected_posterior_entropy_bits": 0.7219280948873623,
+          "interpretation": "synthetic_scenario_not_empirical",
+          "prior": 0.5,
+          "prior_entropy_bits": 1.0
+        },
+        "likelihood_positive_h": 0.8,
+        "likelihood_positive_not_h": 0.2,
+        "prior": 0.5,
+        "question_id": "example_capacity_delivery"
+      }
+    ],
+    "ranking": [
+      {
+        "components": {
+          "eig": null,
+          "gap": 0.8,
+          "materiality": 0.8,
+          "obtainability": 0.8,
+          "time_cost": 0.5
+        },
+        "effective_weights": {
+          "eig": 0.0,
+          "gap": 0.3125,
+          "materiality": 0.37499999999999994,
+          "obtainability": 0.18749999999999997,
+          "time_cost": 0.125
+        },
+        "novelty_multiplier": 1.0,
+        "policy_version": "research-priority-1.0.0",
+        "provisional": true,
+        "question_id": "example_commercial_confirmation",
+        "rank": 1,
+        "reasons": [
+          "EIG_MISSING_QUALITATIVE_FALLBACK"
+        ],
+        "score": 76.25
+      },
+      {
+        "components": {
+          "eig": 0.026450994113071058,
+          "gap": 0.8,
+          "materiality": 1.0,
+          "obtainability": 0.8,
+          "time_cost": 0.5
+        },
+        "effective_weights": {
+          "eig": 0.2,
+          "gap": 0.25,
+          "materiality": 0.3,
+          "obtainability": 0.15,
+          "time_cost": 0.1
+        },
+        "novelty_multiplier": 1.0,
+        "policy_version": "research-priority-1.0.0",
+        "provisional": false,
+        "question_id": "example_margin_reconciliation",
+        "rank": 2,
+        "reasons": [],
+        "score": 67.52901988226142
+      },
+      {
+        "components": {
+          "eig": 0.2780719051126377,
+          "gap": 0.6,
+          "materiality": 0.6,
+          "obtainability": 0.8,
+          "time_cost": 0.5
+        },
+        "effective_weights": {
+          "eig": 0.2,
+          "gap": 0.25,
+          "materiality": 0.3,
+          "obtainability": 0.15,
+          "time_cost": 0.1
+        },
+        "novelty_multiplier": 1.0,
+        "policy_version": "research-priority-1.0.0",
+        "provisional": false,
+        "question_id": "example_capacity_delivery",
+        "rank": 3,
+        "reasons": [],
+        "score": 55.56143810225276
+      }
+    ]
+  },
+  "prior_likelihood_sensitivity": [
+    {
+      "assumptions": [
+        {
+          "assumption_author": "synthetic-research-author",
+          "assumption_date": "2026-11-03",
+          "assumption_source": "Independent synthetic research example: example_commercial_confirmation; analyst-authored p=0.3, P(positive|H)=0.9, P(positive|not H)=0.1; not empirical.",
+          "eig": {
+            "answers": [
+              {
+                "answer": "positive",
+                "entropy_bits": 0.7335379291086666,
+                "posterior": 0.7941176470588235,
+                "probability": 0.34
+              },
+              {
+                "answer": "negative",
+                "entropy_bits": 0.266764987803026,
+                "posterior": 0.045454545454545435,
+                "probability": 0.66
+              }
+            ],
+            "assumption_source": "Independent synthetic research example: example_commercial_confirmation; analyst-authored p=0.3, P(positive|H)=0.9, P(positive|not H)=0.1; not empirical.",
+            "eig_bits": 0.45582311138374887,
+            "expected_posterior_entropy_bits": 0.42546778784694383,
+            "interpretation": "synthetic_scenario_not_empirical",
+            "prior": 0.3,
+            "prior_entropy_bits": 0.8812908992306927
+          },
+          "likelihood_positive_h": 0.9,
+          "likelihood_positive_not_h": 0.1,
+          "prior": 0.3,
+          "question_id": "example_commercial_confirmation"
+        },
+        {
+          "assumption_author": "synthetic-research-author",
+          "assumption_date": "2026-11-03",
+          "assumption_source": "Independent synthetic research example: example_margin_reconciliation; analyst-authored p=0.65, P(positive|H)=0.6, P(positive|not H)=0.4; not empirical.",
+          "eig": {
+            "answers": [
+              {
+                "answer": "positive",
+                "entropy_bits": 0.8329458235361398,
+                "posterior": 0.7358490566037736,
+                "probability": 0.53
+              },
+              {
+                "answer": "negative",
+                "entropy_bits": 0.9918207974218424,
+                "posterior": 0.5531914893617021,
+                "probability": 0.47
+              }
+            ],
+            "assumption_source": "Independent synthetic research example: example_margin_reconciliation; analyst-authored p=0.65, P(positive|H)=0.6, P(positive|not H)=0.4; not empirical.",
+            "eig_bits": 0.026450994113071058,
+            "expected_posterior_entropy_bits": 0.9076170612624199,
+            "interpretation": "synthetic_scenario_not_empirical",
+            "prior": 0.65,
+            "prior_entropy_bits": 0.934068055375491
+          },
+          "likelihood_positive_h": 0.6,
+          "likelihood_positive_not_h": 0.4,
+          "prior": 0.65,
+          "question_id": "example_margin_reconciliation"
+        },
+        {
+          "assumption_author": "synthetic-research-author",
+          "assumption_date": "2026-11-03",
+          "assumption_source": "Independent synthetic research example: example_capacity_delivery; analyst-authored p=0.5, P(positive|H)=0.8, P(positive|not H)=0.2; not empirical.",
+          "eig": {
+            "answers": [
+              {
+                "answer": "positive",
+                "entropy_bits": 0.7219280948873623,
+                "posterior": 0.8,
+                "probability": 0.5
+              },
+              {
+                "answer": "negative",
+                "entropy_bits": 0.7219280948873623,
+                "posterior": 0.19999999999999996,
+                "probability": 0.5
+              }
+            ],
+            "assumption_source": "Independent synthetic research example: example_capacity_delivery; analyst-authored p=0.5, P(positive|H)=0.8, P(positive|not H)=0.2; not empirical.",
+            "eig_bits": 0.2780719051126377,
+            "expected_posterior_entropy_bits": 0.7219280948873623,
+            "interpretation": "synthetic_scenario_not_empirical",
+            "prior": 0.5,
+            "prior_entropy_bits": 1.0
+          },
+          "likelihood_positive_h": 0.8,
+          "likelihood_positive_not_h": 0.2,
+          "prior": 0.5,
+          "question_id": "example_capacity_delivery"
+        }
+      ],
+      "label": "base",
+      "ranking": [
+        {
+          "components": {
+            "eig": 0.45582311138374887,
+            "gap": 0.8,
+            "materiality": 0.8,
+            "obtainability": 0.8,
+            "time_cost": 0.5
+          },
+          "effective_weights": {
+            "eig": 0.2,
+            "gap": 0.25,
+            "materiality": 0.3,
+            "obtainability": 0.15,
+            "time_cost": 0.1
+          },
+          "novelty_multiplier": 1.0,
+          "policy_version": "research-priority-1.0.0",
+          "provisional": false,
+          "question_id": "example_commercial_confirmation",
+          "rank": 1,
+          "reasons": [],
+          "score": 70.11646222767499
+        },
+        {
+          "components": {
+            "eig": 0.026450994113071058,
+            "gap": 0.8,
+            "materiality": 1.0,
+            "obtainability": 0.8,
+            "time_cost": 0.5
+          },
+          "effective_weights": {
+            "eig": 0.2,
+            "gap": 0.25,
+            "materiality": 0.3,
+            "obtainability": 0.15,
+            "time_cost": 0.1
+          },
+          "novelty_multiplier": 1.0,
+          "policy_version": "research-priority-1.0.0",
+          "provisional": false,
+          "question_id": "example_margin_reconciliation",
+          "rank": 2,
+          "reasons": [],
+          "score": 67.52901988226142
+        },
+        {
+          "components": {
+            "eig": 0.2780719051126377,
+            "gap": 0.6,
+            "materiality": 0.6,
+            "obtainability": 0.8,
+            "time_cost": 0.5
+          },
+          "effective_weights": {
+            "eig": 0.2,
+            "gap": 0.25,
+            "materiality": 0.3,
+            "obtainability": 0.15,
+            "time_cost": 0.1
+          },
+          "novelty_multiplier": 1.0,
+          "policy_version": "research-priority-1.0.0",
+          "provisional": false,
+          "question_id": "example_capacity_delivery",
+          "rank": 3,
+          "reasons": [],
+          "score": 55.56143810225276
+        }
+      ],
+      "top3": [
+        "example_commercial_confirmation",
+        "example_margin_reconciliation",
+        "example_capacity_delivery"
+      ]
+    },
+    {
+      "assumptions": [
+        {
+          "assumption_author": "synthetic-research-author",
+          "assumption_date": "2026-11-03",
+          "assumption_source": "Independent synthetic research example: example_commercial_confirmation; analyst-authored p=0.1, P(positive|H)=0.9, P(positive|not H)=0.1; not empirical.",
+          "eig": {
+            "answers": [
+              {
+                "answer": "positive",
+                "entropy_bits": 1.0,
+                "posterior": 0.5,
+                "probability": 0.18000000000000002
+              },
+              {
+                "answer": "negative",
+                "entropy_bits": 0.09501724567107633,
+                "posterior": 0.01219512195121951,
+                "probability": 0.8200000000000001
+              }
+            ],
+            "assumption_source": "Independent synthetic research example: example_commercial_confirmation; analyst-authored p=0.1, P(positive|H)=0.9, P(positive|not H)=0.1; not empirical.",
+            "eig_bits": 0.2110814521389986,
+            "expected_posterior_entropy_bits": 0.25791414145028263,
+            "interpretation": "synthetic_scenario_not_empirical",
+            "prior": 0.1,
+            "prior_entropy_bits": 0.4689955935892812
+          },
+          "likelihood_positive_h": 0.9,
+          "likelihood_positive_not_h": 0.1,
+          "prior": 0.1,
+          "question_id": "example_commercial_confirmation"
+        },
+        {
+          "assumption_author": "synthetic-research-author",
+          "assumption_date": "2026-11-03",
+          "assumption_source": "Independent synthetic research example: example_margin_reconciliation; analyst-authored p=0.65, P(positive|H)=0.6, P(positive|not H)=0.4; not empirical.",
+          "eig": {
+            "answers": [
+              {
+                "answer": "positive",
+                "entropy_bits": 0.8329458235361398,
+                "posterior": 0.7358490566037736,
+                "probability": 0.53
+              },
+              {
+                "answer": "negative",
+                "entropy_bits": 0.9918207974218424,
+                "posterior": 0.5531914893617021,
+                "probability": 0.47
+              }
+            ],
+            "assumption_source": "Independent synthetic research example: example_margin_reconciliation; analyst-authored p=0.65, P(positive|H)=0.6, P(positive|not H)=0.4; not empirical.",
+            "eig_bits": 0.026450994113071058,
+            "expected_posterior_entropy_bits": 0.9076170612624199,
+            "interpretation": "synthetic_scenario_not_empirical",
+            "prior": 0.65,
+            "prior_entropy_bits": 0.934068055375491
+          },
+          "likelihood_positive_h": 0.6,
+          "likelihood_positive_not_h": 0.4,
+          "prior": 0.65,
+          "question_id": "example_margin_reconciliation"
+        },
+        {
+          "assumption_author": "synthetic-research-author",
+          "assumption_date": "2026-11-03",
+          "assumption_source": "Independent synthetic research example: example_capacity_delivery; analyst-authored p=0.5, P(positive|H)=0.8, P(positive|not H)=0.2; not empirical.",
+          "eig": {
+            "answers": [
+              {
+                "answer": "positive",
+                "entropy_bits": 0.7219280948873623,
+                "posterior": 0.8,
+                "probability": 0.5
+              },
+              {
+                "answer": "negative",
+                "entropy_bits": 0.7219280948873623,
+                "posterior": 0.19999999999999996,
+                "probability": 0.5
+              }
+            ],
+            "assumption_source": "Independent synthetic research example: example_capacity_delivery; analyst-authored p=0.5, P(positive|H)=0.8, P(positive|not H)=0.2; not empirical.",
+            "eig_bits": 0.2780719051126377,
+            "expected_posterior_entropy_bits": 0.7219280948873623,
+            "interpretation": "synthetic_scenario_not_empirical",
+            "prior": 0.5,
+            "prior_entropy_bits": 1.0
+          },
+          "likelihood_positive_h": 0.8,
+          "likelihood_positive_not_h": 0.2,
+          "prior": 0.5,
+          "question_id": "example_capacity_delivery"
+        }
+      ],
+      "label": "lower_prior",
+      "ranking": [
+        {
+          "components": {
+            "eig": 0.026450994113071058,
+            "gap": 0.8,
+            "materiality": 1.0,
+            "obtainability": 0.8,
+            "time_cost": 0.5
+          },
+          "effective_weights": {
+            "eig": 0.2,
+            "gap": 0.25,
+            "materiality": 0.3,
+            "obtainability": 0.15,
+            "time_cost": 0.1
+          },
+          "novelty_multiplier": 1.0,
+          "policy_version": "research-priority-1.0.0",
+          "provisional": false,
+          "question_id": "example_margin_reconciliation",
+          "rank": 1,
+          "reasons": [],
+          "score": 67.52901988226142
+        },
+        {
+          "components": {
+            "eig": 0.2110814521389986,
+            "gap": 0.8,
+            "materiality": 0.8,
+            "obtainability": 0.8,
+            "time_cost": 0.5
+          },
+          "effective_weights": {
+            "eig": 0.2,
+            "gap": 0.25,
+            "materiality": 0.3,
+            "obtainability": 0.15,
+            "time_cost": 0.1
+          },
+          "novelty_multiplier": 1.0,
+          "policy_version": "research-priority-1.0.0",
+          "provisional": false,
+          "question_id": "example_commercial_confirmation",
+          "rank": 2,
+          "reasons": [],
+          "score": 65.22162904277997
+        },
+        {
+          "components": {
+            "eig": 0.2780719051126377,
+            "gap": 0.6,
+            "materiality": 0.6,
+            "obtainability": 0.8,
+            "time_cost": 0.5
+          },
+          "effective_weights": {
+            "eig": 0.2,
+            "gap": 0.25,
+            "materiality": 0.3,
+            "obtainability": 0.15,
+            "time_cost": 0.1
+          },
+          "novelty_multiplier": 1.0,
+          "policy_version": "research-priority-1.0.0",
+          "provisional": false,
+          "question_id": "example_capacity_delivery",
+          "rank": 3,
+          "reasons": [],
+          "score": 55.56143810225276
+        }
+      ],
+      "top3": [
+        "example_margin_reconciliation",
+        "example_commercial_confirmation",
+        "example_capacity_delivery"
+      ]
+    },
+    {
+      "assumptions": [
+        {
+          "assumption_author": "synthetic-research-author",
+          "assumption_date": "2026-11-03",
+          "assumption_source": "Independent synthetic research example: example_commercial_confirmation; analyst-authored p=0.5, P(positive|H)=0.9, P(positive|not H)=0.1; not empirical.",
+          "eig": {
+            "answers": [
+              {
+                "answer": "positive",
+                "entropy_bits": 0.46899559358928145,
+                "posterior": 0.8999999999999999,
+                "probability": 0.5
+              },
+              {
+                "answer": "negative",
+                "entropy_bits": 0.4689955935892811,
+                "posterior": 0.09999999999999996,
+                "probability": 0.5
+              }
+            ],
+            "assumption_source": "Independent synthetic research example: example_commercial_confirmation; analyst-authored p=0.5, P(positive|H)=0.9, P(positive|not H)=0.1; not empirical.",
+            "eig_bits": 0.5310044064107187,
+            "expected_posterior_entropy_bits": 0.4689955935892813,
+            "interpretation": "synthetic_scenario_not_empirical",
+            "prior": 0.5,
+            "prior_entropy_bits": 1.0
+          },
+          "likelihood_positive_h": 0.9,
+          "likelihood_positive_not_h": 0.1,
+          "prior": 0.5,
+          "question_id": "example_commercial_confirmation"
+        },
+        {
+          "assumption_author": "synthetic-research-author",
+          "assumption_date": "2026-11-03",
+          "assumption_source": "Independent synthetic research example: example_margin_reconciliation; analyst-authored p=0.65, P(positive|H)=0.6, P(positive|not H)=0.4; not empirical.",
+          "eig": {
+            "answers": [
+              {
+                "answer": "positive",
+                "entropy_bits": 0.8329458235361398,
+                "posterior": 0.7358490566037736,
+                "probability": 0.53
+              },
+              {
+                "answer": "negative",
+                "entropy_bits": 0.9918207974218424,
+                "posterior": 0.5531914893617021,
+                "probability": 0.47
+              }
+            ],
+            "assumption_source": "Independent synthetic research example: example_margin_reconciliation; analyst-authored p=0.65, P(positive|H)=0.6, P(positive|not H)=0.4; not empirical.",
+            "eig_bits": 0.026450994113071058,
+            "expected_posterior_entropy_bits": 0.9076170612624199,
+            "interpretation": "synthetic_scenario_not_empirical",
+            "prior": 0.65,
+            "prior_entropy_bits": 0.934068055375491
+          },
+          "likelihood_positive_h": 0.6,
+          "likelihood_positive_not_h": 0.4,
+          "prior": 0.65,
+          "question_id": "example_margin_reconciliation"
+        },
+        {
+          "assumption_author": "synthetic-research-author",
+          "assumption_date": "2026-11-03",
+          "assumption_source": "Independent synthetic research example: example_capacity_delivery; analyst-authored p=0.5, P(positive|H)=0.8, P(positive|not H)=0.2; not empirical.",
+          "eig": {
+            "answers": [
+              {
+                "answer": "positive",
+                "entropy_bits": 0.7219280948873623,
+                "posterior": 0.8,
+                "probability": 0.5
+              },
+              {
+                "answer": "negative",
+                "entropy_bits": 0.7219280948873623,
+                "posterior": 0.19999999999999996,
+                "probability": 0.5
+              }
+            ],
+            "assumption_source": "Independent synthetic research example: example_capacity_delivery; analyst-authored p=0.5, P(positive|H)=0.8, P(positive|not H)=0.2; not empirical.",
+            "eig_bits": 0.2780719051126377,
+            "expected_posterior_entropy_bits": 0.7219280948873623,
+            "interpretation": "synthetic_scenario_not_empirical",
+            "prior": 0.5,
+            "prior_entropy_bits": 1.0
+          },
+          "likelihood_positive_h": 0.8,
+          "likelihood_positive_not_h": 0.2,
+          "prior": 0.5,
+          "question_id": "example_capacity_delivery"
+        }
+      ],
+      "label": "higher_prior",
+      "ranking": [
+        {
+          "components": {
+            "eig": 0.5310044064107187,
+            "gap": 0.8,
+            "materiality": 0.8,
+            "obtainability": 0.8,
+            "time_cost": 0.5
+          },
+          "effective_weights": {
+            "eig": 0.2,
+            "gap": 0.25,
+            "materiality": 0.3,
+            "obtainability": 0.15,
+            "time_cost": 0.1
+          },
+          "novelty_multiplier": 1.0,
+          "policy_version": "research-priority-1.0.0",
+          "provisional": false,
+          "question_id": "example_commercial_confirmation",
+          "rank": 1,
+          "reasons": [],
+          "score": 71.62008812821438
+        },
+        {
+          "components": {
+            "eig": 0.026450994113071058,
+            "gap": 0.8,
+            "materiality": 1.0,
+            "obtainability": 0.8,
+            "time_cost": 0.5
+          },
+          "effective_weights": {
+            "eig": 0.2,
+            "gap": 0.25,
+            "materiality": 0.3,
+            "obtainability": 0.15,
+            "time_cost": 0.1
+          },
+          "novelty_multiplier": 1.0,
+          "policy_version": "research-priority-1.0.0",
+          "provisional": false,
+          "question_id": "example_margin_reconciliation",
+          "rank": 2,
+          "reasons": [],
+          "score": 67.52901988226142
+        },
+        {
+          "components": {
+            "eig": 0.2780719051126377,
+            "gap": 0.6,
+            "materiality": 0.6,
+            "obtainability": 0.8,
+            "time_cost": 0.5
+          },
+          "effective_weights": {
+            "eig": 0.2,
+            "gap": 0.25,
+            "materiality": 0.3,
+            "obtainability": 0.15,
+            "time_cost": 0.1
+          },
+          "novelty_multiplier": 1.0,
+          "policy_version": "research-priority-1.0.0",
+          "provisional": false,
+          "question_id": "example_capacity_delivery",
+          "rank": 3,
+          "reasons": [],
+          "score": 55.56143810225276
+        }
+      ],
+      "top3": [
+        "example_commercial_confirmation",
+        "example_margin_reconciliation",
+        "example_capacity_delivery"
+      ]
+    },
+    {
+      "assumptions": [
+        {
+          "assumption_author": "synthetic-research-author",
+          "assumption_date": "2026-11-03",
+          "assumption_source": "Independent synthetic research example: example_commercial_confirmation; analyst-authored p=0.3, P(positive|H)=0.8, P(positive|not H)=0.2; not empirical.",
+          "eig": {
+            "answers": [
+              {
+                "answer": "positive",
+                "entropy_bits": 0.9494520153879484,
+                "posterior": 0.631578947368421,
+                "probability": 0.38
+              },
+              {
+                "answer": "negative",
+                "entropy_bits": 0.4586858162005402,
+                "posterior": 0.09677419354838708,
+                "probability": 0.6199999999999999
+              }
+            ],
+            "assumption_source": "Independent synthetic research example: example_commercial_confirmation; analyst-authored p=0.3, P(positive|H)=0.8, P(positive|not H)=0.2; not empirical.",
+            "eig_bits": 0.23611392733893743,
+            "expected_posterior_entropy_bits": 0.6451769718917553,
+            "interpretation": "synthetic_scenario_not_empirical",
+            "prior": 0.3,
+            "prior_entropy_bits": 0.8812908992306927
+          },
+          "likelihood_positive_h": 0.8,
+          "likelihood_positive_not_h": 0.2,
+          "prior": 0.3,
+          "question_id": "example_commercial_confirmation"
+        },
+        {
+          "assumption_author": "synthetic-research-author",
+          "assumption_date": "2026-11-03",
+          "assumption_source": "Independent synthetic research example: example_margin_reconciliation; analyst-authored p=0.65, P(positive|H)=0.6, P(positive|not H)=0.4; not empirical.",
+          "eig": {
+            "answers": [
+              {
+                "answer": "positive",
+                "entropy_bits": 0.8329458235361398,
+                "posterior": 0.7358490566037736,
+                "probability": 0.53
+              },
+              {
+                "answer": "negative",
+                "entropy_bits": 0.9918207974218424,
+                "posterior": 0.5531914893617021,
+                "probability": 0.47
+              }
+            ],
+            "assumption_source": "Independent synthetic research example: example_margin_reconciliation; analyst-authored p=0.65, P(positive|H)=0.6, P(positive|not H)=0.4; not empirical.",
+            "eig_bits": 0.026450994113071058,
+            "expected_posterior_entropy_bits": 0.9076170612624199,
+            "interpretation": "synthetic_scenario_not_empirical",
+            "prior": 0.65,
+            "prior_entropy_bits": 0.934068055375491
+          },
+          "likelihood_positive_h": 0.6,
+          "likelihood_positive_not_h": 0.4,
+          "prior": 0.65,
+          "question_id": "example_margin_reconciliation"
+        },
+        {
+          "assumption_author": "synthetic-research-author",
+          "assumption_date": "2026-11-03",
+          "assumption_source": "Independent synthetic research example: example_capacity_delivery; analyst-authored p=0.5, P(positive|H)=0.8, P(positive|not H)=0.2; not empirical.",
+          "eig": {
+            "answers": [
+              {
+                "answer": "positive",
+                "entropy_bits": 0.7219280948873623,
+                "posterior": 0.8,
+                "probability": 0.5
+              },
+              {
+                "answer": "negative",
+                "entropy_bits": 0.7219280948873623,
+                "posterior": 0.19999999999999996,
+                "probability": 0.5
+              }
+            ],
+            "assumption_source": "Independent synthetic research example: example_capacity_delivery; analyst-authored p=0.5, P(positive|H)=0.8, P(positive|not H)=0.2; not empirical.",
+            "eig_bits": 0.2780719051126377,
+            "expected_posterior_entropy_bits": 0.7219280948873623,
+            "interpretation": "synthetic_scenario_not_empirical",
+            "prior": 0.5,
+            "prior_entropy_bits": 1.0
+          },
+          "likelihood_positive_h": 0.8,
+          "likelihood_positive_not_h": 0.2,
+          "prior": 0.5,
+          "question_id": "example_capacity_delivery"
+        }
+      ],
+      "label": "moderate_discrimination",
+      "ranking": [
+        {
+          "components": {
+            "eig": 0.026450994113071058,
+            "gap": 0.8,
+            "materiality": 1.0,
+            "obtainability": 0.8,
+            "time_cost": 0.5
+          },
+          "effective_weights": {
+            "eig": 0.2,
+            "gap": 0.25,
+            "materiality": 0.3,
+            "obtainability": 0.15,
+            "time_cost": 0.1
+          },
+          "novelty_multiplier": 1.0,
+          "policy_version": "research-priority-1.0.0",
+          "provisional": false,
+          "question_id": "example_margin_reconciliation",
+          "rank": 1,
+          "reasons": [],
+          "score": 67.52901988226142
+        },
+        {
+          "components": {
+            "eig": 0.23611392733893743,
+            "gap": 0.8,
+            "materiality": 0.8,
+            "obtainability": 0.8,
+            "time_cost": 0.5
+          },
+          "effective_weights": {
+            "eig": 0.2,
+            "gap": 0.25,
+            "materiality": 0.3,
+            "obtainability": 0.15,
+            "time_cost": 0.1
+          },
+          "novelty_multiplier": 1.0,
+          "policy_version": "research-priority-1.0.0",
+          "provisional": false,
+          "question_id": "example_commercial_confirmation",
+          "rank": 2,
+          "reasons": [],
+          "score": 65.72227854677874
+        },
+        {
+          "components": {
+            "eig": 0.2780719051126377,
+            "gap": 0.6,
+            "materiality": 0.6,
+            "obtainability": 0.8,
+            "time_cost": 0.5
+          },
+          "effective_weights": {
+            "eig": 0.2,
+            "gap": 0.25,
+            "materiality": 0.3,
+            "obtainability": 0.15,
+            "time_cost": 0.1
+          },
+          "novelty_multiplier": 1.0,
+          "policy_version": "research-priority-1.0.0",
+          "provisional": false,
+          "question_id": "example_capacity_delivery",
+          "rank": 3,
+          "reasons": [],
+          "score": 55.56143810225276
+        }
+      ],
+      "top3": [
+        "example_margin_reconciliation",
+        "example_commercial_confirmation",
+        "example_capacity_delivery"
+      ]
+    },
+    {
+      "assumptions": [
+        {
+          "assumption_author": "synthetic-research-author",
+          "assumption_date": "2026-11-03",
+          "assumption_source": "Independent synthetic research example: example_commercial_confirmation; analyst-authored p=0.3, P(positive|H)=0.7, P(positive|not H)=0.3; not empirical.",
+          "eig": {
+            "answers": [
+              {
+                "answer": "positive",
+                "entropy_bits": 1.0,
+                "posterior": 0.5,
+                "probability": 0.42
+              },
+              {
+                "answer": "negative",
+                "entropy_bits": 0.6226343162547098,
+                "posterior": 0.15517241379310348,
+                "probability": 0.58
+              }
+            ],
+            "assumption_source": "Independent synthetic research example: example_commercial_confirmation; analyst-authored p=0.3, P(positive|H)=0.7, P(positive|not H)=0.3; not empirical.",
+            "eig_bits": 0.10016299580296106,
+            "expected_posterior_entropy_bits": 0.7811279034277316,
+            "interpretation": "synthetic_scenario_not_empirical",
+            "prior": 0.3,
+            "prior_entropy_bits": 0.8812908992306927
+          },
+          "likelihood_positive_h": 0.7,
+          "likelihood_positive_not_h": 0.3,
+          "prior": 0.3,
+          "question_id": "example_commercial_confirmation"
+        },
+        {
+          "assumption_author": "synthetic-research-author",
+          "assumption_date": "2026-11-03",
+          "assumption_source": "Independent synthetic research example: example_margin_reconciliation; analyst-authored p=0.65, P(positive|H)=0.6, P(positive|not H)=0.4; not empirical.",
+          "eig": {
+            "answers": [
+              {
+                "answer": "positive",
+                "entropy_bits": 0.8329458235361398,
+                "posterior": 0.7358490566037736,
+                "probability": 0.53
+              },
+              {
+                "answer": "negative",
+                "entropy_bits": 0.9918207974218424,
+                "posterior": 0.5531914893617021,
+                "probability": 0.47
+              }
+            ],
+            "assumption_source": "Independent synthetic research example: example_margin_reconciliation; analyst-authored p=0.65, P(positive|H)=0.6, P(positive|not H)=0.4; not empirical.",
+            "eig_bits": 0.026450994113071058,
+            "expected_posterior_entropy_bits": 0.9076170612624199,
+            "interpretation": "synthetic_scenario_not_empirical",
+            "prior": 0.65,
+            "prior_entropy_bits": 0.934068055375491
+          },
+          "likelihood_positive_h": 0.6,
+          "likelihood_positive_not_h": 0.4,
+          "prior": 0.65,
+          "question_id": "example_margin_reconciliation"
+        },
+        {
+          "assumption_author": "synthetic-research-author",
+          "assumption_date": "2026-11-03",
+          "assumption_source": "Independent synthetic research example: example_capacity_delivery; analyst-authored p=0.5, P(positive|H)=0.8, P(positive|not H)=0.2; not empirical.",
+          "eig": {
+            "answers": [
+              {
+                "answer": "positive",
+                "entropy_bits": 0.7219280948873623,
+                "posterior": 0.8,
+                "probability": 0.5
+              },
+              {
+                "answer": "negative",
+                "entropy_bits": 0.7219280948873623,
+                "posterior": 0.19999999999999996,
+                "probability": 0.5
+              }
+            ],
+            "assumption_source": "Independent synthetic research example: example_capacity_delivery; analyst-authored p=0.5, P(positive|H)=0.8, P(positive|not H)=0.2; not empirical.",
+            "eig_bits": 0.2780719051126377,
+            "expected_posterior_entropy_bits": 0.7219280948873623,
+            "interpretation": "synthetic_scenario_not_empirical",
+            "prior": 0.5,
+            "prior_entropy_bits": 1.0
+          },
+          "likelihood_positive_h": 0.8,
+          "likelihood_positive_not_h": 0.2,
+          "prior": 0.5,
+          "question_id": "example_capacity_delivery"
+        }
+      ],
+      "label": "weak_discrimination",
+      "ranking": [
+        {
+          "components": {
+            "eig": 0.026450994113071058,
+            "gap": 0.8,
+            "materiality": 1.0,
+            "obtainability": 0.8,
+            "time_cost": 0.5
+          },
+          "effective_weights": {
+            "eig": 0.2,
+            "gap": 0.25,
+            "materiality": 0.3,
+            "obtainability": 0.15,
+            "time_cost": 0.1
+          },
+          "novelty_multiplier": 1.0,
+          "policy_version": "research-priority-1.0.0",
+          "provisional": false,
+          "question_id": "example_margin_reconciliation",
+          "rank": 1,
+          "reasons": [],
+          "score": 67.52901988226142
+        },
+        {
+          "components": {
+            "eig": 0.10016299580296106,
+            "gap": 0.8,
+            "materiality": 0.8,
+            "obtainability": 0.8,
+            "time_cost": 0.5
+          },
+          "effective_weights": {
+            "eig": 0.2,
+            "gap": 0.25,
+            "materiality": 0.3,
+            "obtainability": 0.15,
+            "time_cost": 0.1
+          },
+          "novelty_multiplier": 1.0,
+          "policy_version": "research-priority-1.0.0",
+          "provisional": false,
+          "question_id": "example_commercial_confirmation",
+          "rank": 2,
+          "reasons": [],
+          "score": 63.00325991605922
+        },
+        {
+          "components": {
+            "eig": 0.2780719051126377,
+            "gap": 0.6,
+            "materiality": 0.6,
+            "obtainability": 0.8,
+            "time_cost": 0.5
+          },
+          "effective_weights": {
+            "eig": 0.2,
+            "gap": 0.25,
+            "materiality": 0.3,
+            "obtainability": 0.15,
+            "time_cost": 0.1
+          },
+          "novelty_multiplier": 1.0,
+          "policy_version": "research-priority-1.0.0",
+          "provisional": false,
+          "question_id": "example_capacity_delivery",
+          "rank": 3,
+          "reasons": [],
+          "score": 55.56143810225276
+        }
+      ],
+      "top3": [
+        "example_margin_reconciliation",
+        "example_commercial_confirmation",
+        "example_capacity_delivery"
+      ]
+    }
+  ],
+  "probability_assumptions": [
+    {
+      "assumption_author": "synthetic-research-author",
+      "assumption_date": "2026-11-03",
+      "assumption_source": "Independent synthetic research example: example_commercial_confirmation; analyst-authored p=0.3, P(positive|H)=0.9, P(positive|not H)=0.1; not empirical.",
+      "eig": {
+        "answers": [
+          {
+            "answer": "positive",
+            "entropy_bits": 0.7335379291086666,
+            "posterior": 0.7941176470588235,
+            "probability": 0.34
+          },
+          {
+            "answer": "negative",
+            "entropy_bits": 0.266764987803026,
+            "posterior": 0.045454545454545435,
+            "probability": 0.66
+          }
+        ],
+        "assumption_source": "Independent synthetic research example: example_commercial_confirmation; analyst-authored p=0.3, P(positive|H)=0.9, P(positive|not H)=0.1; not empirical.",
+        "eig_bits": 0.45582311138374887,
+        "expected_posterior_entropy_bits": 0.42546778784694383,
+        "interpretation": "synthetic_scenario_not_empirical",
+        "prior": 0.3,
+        "prior_entropy_bits": 0.8812908992306927
+      },
+      "likelihood_positive_h": 0.9,
+      "likelihood_positive_not_h": 0.1,
+      "prior": 0.3,
+      "question_id": "example_commercial_confirmation"
+    },
+    {
+      "assumption_author": "synthetic-research-author",
+      "assumption_date": "2026-11-03",
+      "assumption_source": "Independent synthetic research example: example_margin_reconciliation; analyst-authored p=0.65, P(positive|H)=0.6, P(positive|not H)=0.4; not empirical.",
+      "eig": {
+        "answers": [
+          {
+            "answer": "positive",
+            "entropy_bits": 0.8329458235361398,
+            "posterior": 0.7358490566037736,
+            "probability": 0.53
+          },
+          {
+            "answer": "negative",
+            "entropy_bits": 0.9918207974218424,
+            "posterior": 0.5531914893617021,
+            "probability": 0.47
+          }
+        ],
+        "assumption_source": "Independent synthetic research example: example_margin_reconciliation; analyst-authored p=0.65, P(positive|H)=0.6, P(positive|not H)=0.4; not empirical.",
+        "eig_bits": 0.026450994113071058,
+        "expected_posterior_entropy_bits": 0.9076170612624199,
+        "interpretation": "synthetic_scenario_not_empirical",
+        "prior": 0.65,
+        "prior_entropy_bits": 0.934068055375491
+      },
+      "likelihood_positive_h": 0.6,
+      "likelihood_positive_not_h": 0.4,
+      "prior": 0.65,
+      "question_id": "example_margin_reconciliation"
+    },
+    {
+      "assumption_author": "synthetic-research-author",
+      "assumption_date": "2026-11-03",
+      "assumption_source": "Independent synthetic research example: example_capacity_delivery; analyst-authored p=0.5, P(positive|H)=0.8, P(positive|not H)=0.2; not empirical.",
+      "eig": {
+        "answers": [
+          {
+            "answer": "positive",
+            "entropy_bits": 0.7219280948873623,
+            "posterior": 0.8,
+            "probability": 0.5
+          },
+          {
+            "answer": "negative",
+            "entropy_bits": 0.7219280948873623,
+            "posterior": 0.19999999999999996,
+            "probability": 0.5
+          }
+        ],
+        "assumption_source": "Independent synthetic research example: example_capacity_delivery; analyst-authored p=0.5, P(positive|H)=0.8, P(positive|not H)=0.2; not empirical.",
+        "eig_bits": 0.2780719051126377,
+        "expected_posterior_entropy_bits": 0.7219280948873623,
+        "interpretation": "synthetic_scenario_not_empirical",
+        "prior": 0.5,
+        "prior_entropy_bits": 1.0
+      },
+      "likelihood_positive_h": 0.8,
+      "likelihood_positive_not_h": 0.2,
+      "prior": 0.5,
+      "question_id": "example_capacity_delivery"
+    }
+  ],
+  "production_no_bayes_invariance": [
+    {
+      "after_digest": "2f4b4451677b6a07f061576b7783cfb3bfbcc10576a143d7347d6f3adb11ac68",
+      "before_digest": "2f4b4451677b6a07f061576b7783cfb3bfbcc10576a143d7347d6f3adb11ac68",
+      "case": "ns",
+      "panel_disabled_rank": [
+        {
+          "gap": 5.0,
+          "materiality": 5,
+          "obtainability": 5,
+          "provisional": false,
+          "question_id": "q_ns_contract_a",
+          "rank": 1,
+          "reason_codes": [
+            "EVIDENCE_GAP"
+          ],
+          "score": 100.0
+        },
+        {
+          "gap": 5.0,
+          "materiality": 5,
+          "obtainability": 4,
+          "provisional": false,
+          "question_id": "q_ns_contract_b",
+          "rank": 2,
+          "reason_codes": [
+            "EVIDENCE_GAP"
+          ],
+          "score": 97.0
+        },
+        {
+          "gap": 5.0,
+          "materiality": 4,
+          "obtainability": 4,
+          "provisional": false,
+          "question_id": "q_ns_accept_collect",
+          "rank": 3,
+          "reason_codes": [
+            "EVIDENCE_GAP"
+          ],
+          "score": 89.0
+        },
+        {
+          "gap": 5.0,
+          "materiality": 4,
+          "obtainability": 3,
+          "provisional": false,
+          "question_id": "q_ns_concentration",
+          "rank": 4,
+          "reason_codes": [
+            "EVIDENCE_GAP"
+          ],
+          "score": 86.0
+        },
+        {
+          "gap": 5.0,
+          "materiality": 3,
+          "obtainability": 3,
+          "provisional": false,
+          "question_id": "q_ns_unit_econ",
+          "rank": 5,
+          "reason_codes": [
+            "EVIDENCE_GAP"
+          ],
+          "score": 78.0
+        }
+      ],
+      "panel_enabled_rank": [
+        {
+          "gap": 5.0,
+          "materiality": 5,
+          "obtainability": 5,
+          "provisional": false,
+          "question_id": "q_ns_contract_a",
+          "rank": 1,
+          "reason_codes": [
+            "EVIDENCE_GAP"
+          ],
+          "score": 100.0
+        },
+        {
+          "gap": 5.0,
+          "materiality": 5,
+          "obtainability": 4,
+          "provisional": false,
+          "question_id": "q_ns_contract_b",
+          "rank": 2,
+          "reason_codes": [
+            "EVIDENCE_GAP"
+          ],
+          "score": 97.0
+        },
+        {
+          "gap": 5.0,
+          "materiality": 4,
+          "obtainability": 4,
+          "provisional": false,
+          "question_id": "q_ns_accept_collect",
+          "rank": 3,
+          "reason_codes": [
+            "EVIDENCE_GAP"
+          ],
+          "score": 89.0
+        },
+        {
+          "gap": 5.0,
+          "materiality": 4,
+          "obtainability": 3,
+          "provisional": false,
+          "question_id": "q_ns_concentration",
+          "rank": 4,
+          "reason_codes": [
+            "EVIDENCE_GAP"
+          ],
+          "score": 86.0
+        },
+        {
+          "gap": 5.0,
+          "materiality": 3,
+          "obtainability": 3,
+          "provisional": false,
+          "question_id": "q_ns_unit_econ",
+          "rank": 5,
+          "reason_codes": [
+            "EVIDENCE_GAP"
+          ],
+          "score": 78.0
+        }
+      ],
+      "unchanged": true
+    },
+    {
+      "after_digest": "79bcba185195d7f8292d1242e14acb39cd20e53891e8a6ef80d85bb312bd135c",
+      "before_digest": "79bcba185195d7f8292d1242e14acb39cd20e53891e8a6ef80d85bb312bd135c",
+      "case": "cd",
+      "panel_disabled_rank": [
+        {
+          "gap": 5.0,
+          "materiality": 5,
+          "obtainability": 5,
+          "provisional": false,
+          "question_id": "q_cd_cutoff",
+          "rank": 1,
+          "reason_codes": [
+            "EVIDENCE_GAP"
+          ],
+          "score": 100.0
+        },
+        {
+          "gap": 5.0,
+          "materiality": 5,
+          "obtainability": 3,
+          "provisional": false,
+          "question_id": "q_cd_warranty",
+          "rank": 2,
+          "reason_codes": [
+            "EVIDENCE_GAP"
+          ],
+          "score": 94.0
+        },
+        {
+          "gap": 5.0,
+          "materiality": 4,
+          "obtainability": 4,
+          "provisional": false,
+          "question_id": "q_cd_inventory",
+          "rank": 3,
+          "reason_codes": [
+            "EVIDENCE_GAP"
+          ],
+          "score": 89.0
+        },
+        {
+          "gap": 5.0,
+          "materiality": 4,
+          "obtainability": 3,
+          "provisional": false,
+          "question_id": "q_cd_receivable",
+          "rank": 4,
+          "reason_codes": [
+            "EVIDENCE_GAP"
+          ],
+          "score": 86.0
+        }
+      ],
+      "panel_enabled_rank": [
+        {
+          "gap": 5.0,
+          "materiality": 5,
+          "obtainability": 5,
+          "provisional": false,
+          "question_id": "q_cd_cutoff",
+          "rank": 1,
+          "reason_codes": [
+            "EVIDENCE_GAP"
+          ],
+          "score": 100.0
+        },
+        {
+          "gap": 5.0,
+          "materiality": 5,
+          "obtainability": 3,
+          "provisional": false,
+          "question_id": "q_cd_warranty",
+          "rank": 2,
+          "reason_codes": [
+            "EVIDENCE_GAP"
+          ],
+          "score": 94.0
+        },
+        {
+          "gap": 5.0,
+          "materiality": 4,
+          "obtainability": 4,
+          "provisional": false,
+          "question_id": "q_cd_inventory",
+          "rank": 3,
+          "reason_codes": [
+            "EVIDENCE_GAP"
+          ],
+          "score": 89.0
+        },
+        {
+          "gap": 5.0,
+          "materiality": 4,
+          "obtainability": 3,
+          "provisional": false,
+          "question_id": "q_cd_receivable",
+          "rank": 4,
+          "reason_codes": [
+            "EVIDENCE_GAP"
+          ],
+          "score": 86.0
+        }
+      ],
+      "unchanged": true
+    },
+    {
+      "after_digest": "931ba09371dc7207c78886777fb0e99a80c0f67edbc3635465c887462897b95d",
+      "before_digest": "931ba09371dc7207c78886777fb0e99a80c0f67edbc3635465c887462897b95d",
+      "case": "lm",
+      "panel_disabled_rank": [
+        {
+          "gap": 5.0,
+          "materiality": 4,
+          "obtainability": 5,
+          "provisional": false,
+          "question_id": "q_lm_labor",
+          "rank": 1,
+          "reason_codes": [
+            "EVIDENCE_GAP"
+          ],
+          "score": 92.0
+        },
+        {
+          "gap": 5.0,
+          "materiality": 4,
+          "obtainability": 4,
+          "provisional": false,
+          "question_id": "q_lm_margin",
+          "rank": 2,
+          "reason_codes": [
+            "EVIDENCE_GAP"
+          ],
+          "score": 89.0
+        },
+        {
+          "gap": 5.0,
+          "materiality": 3,
+          "obtainability": 5,
+          "provisional": false,
+          "question_id": "q_lm_cash",
+          "rank": 3,
+          "reason_codes": [
+            "EVIDENCE_GAP"
+          ],
+          "score": 84.0
+        },
+        {
+          "gap": 5.0,
+          "materiality": 2,
+          "obtainability": 4,
+          "provisional": false,
+          "question_id": "q_lm_capex",
+          "rank": 4,
+          "reason_codes": [
+            "EVIDENCE_GAP"
+          ],
+          "score": 73.0
+        }
+      ],
+      "panel_enabled_rank": [
+        {
+          "gap": 5.0,
+          "materiality": 4,
+          "obtainability": 5,
+          "provisional": false,
+          "question_id": "q_lm_labor",
+          "rank": 1,
+          "reason_codes": [
+            "EVIDENCE_GAP"
+          ],
+          "score": 92.0
+        },
+        {
+          "gap": 5.0,
+          "materiality": 4,
+          "obtainability": 4,
+          "provisional": false,
+          "question_id": "q_lm_margin",
+          "rank": 2,
+          "reason_codes": [
+            "EVIDENCE_GAP"
+          ],
+          "score": 89.0
+        },
+        {
+          "gap": 5.0,
+          "materiality": 3,
+          "obtainability": 5,
+          "provisional": false,
+          "question_id": "q_lm_cash",
+          "rank": 3,
+          "reason_codes": [
+            "EVIDENCE_GAP"
+          ],
+          "score": 84.0
+        },
+        {
+          "gap": 5.0,
+          "materiality": 2,
+          "obtainability": 4,
+          "provisional": false,
+          "question_id": "q_lm_capex",
+          "rank": 4,
+          "reason_codes": [
+            "EVIDENCE_GAP"
+          ],
+          "score": 73.0
+        }
+      ],
+      "unchanged": true
+    }
+  ],
+  "production_policy": {
+    "bayesian_panel_affects_rank": false,
+    "formula": "9*gap + 8*materiality + 3*obtainability",
+    "normalized_weights": {
+      "gap": 0.45,
+      "materiality": 0.4,
+      "obtainability": 0.15
+    },
+    "scoring_version": "1.0.0"
+  },
+  "ranking_changes_observed": true,
+  "report_version": "1.0.0",
+  "research_policy": {
+    "cost_scale_minor": 100000,
+    "formula": "100*(1-overlap)*sum(effective_weight*normalized_component)",
+    "missing_policy": "Null EIG is excluded and weights renormalized; never invent probability",
+    "time_scale_days": 10,
+    "type": "weighted_heuristic_not_EVSI",
+    "version": "research-priority-1.0.0",
+    "weights": {
+      "cost_scale_minor": 100000,
+      "eig_weight": 0.2,
+      "gap_weight": 0.25,
+      "label": "balanced",
+      "materiality_weight": 0.3,
+      "obtainability_weight": 0.15,
+      "policy_version": "research-priority-1.0.0",
+      "time_cost_weight": 0.1,
+      "time_scale_days": 10.0,
+      "use_eig": true
+    }
+  },
+  "result_kind": "executed_deterministic_fixture_calculations",
+  "weight_sensitivity": {
+    "policy_version": "research-priority-1.0.0",
+    "production_scoring_version": "1.0.0_unchanged",
+    "scope": "optional_research_heuristic_not_EVSI",
+    "variants": [
+      {
+        "policy": {
+          "cost_scale_minor": 100000,
+          "eig_weight": 0.2,
+          "gap_weight": 0.25,
+          "label": "balanced",
+          "materiality_weight": 0.3,
+          "obtainability_weight": 0.15,
+          "policy_version": "research-priority-1.0.0",
+          "time_cost_weight": 0.1,
+          "time_scale_days": 10.0,
+          "use_eig": true
+        },
+        "rank_delta_from_first": {
+          "example_capacity_delivery": 0,
+          "example_commercial_confirmation": 0,
+          "example_margin_reconciliation": 0
+        },
+        "ranking": [
+          {
+            "components": {
+              "eig": 0.45582311138374887,
+              "gap": 0.8,
+              "materiality": 0.8,
+              "obtainability": 0.8,
+              "time_cost": 0.5
+            },
+            "effective_weights": {
+              "eig": 0.2,
+              "gap": 0.25,
+              "materiality": 0.3,
+              "obtainability": 0.15,
+              "time_cost": 0.1
+            },
+            "novelty_multiplier": 1.0,
+            "policy_version": "research-priority-1.0.0",
+            "provisional": false,
+            "question_id": "example_commercial_confirmation",
+            "rank": 1,
+            "reasons": [],
+            "score": 70.11646222767499
+          },
+          {
+            "components": {
+              "eig": 0.026450994113071058,
+              "gap": 0.8,
+              "materiality": 1.0,
+              "obtainability": 0.8,
+              "time_cost": 0.5
+            },
+            "effective_weights": {
+              "eig": 0.2,
+              "gap": 0.25,
+              "materiality": 0.3,
+              "obtainability": 0.15,
+              "time_cost": 0.1
+            },
+            "novelty_multiplier": 1.0,
+            "policy_version": "research-priority-1.0.0",
+            "provisional": false,
+            "question_id": "example_margin_reconciliation",
+            "rank": 2,
+            "reasons": [],
+            "score": 67.52901988226142
+          },
+          {
+            "components": {
+              "eig": 0.2780719051126377,
+              "gap": 0.6,
+              "materiality": 0.6,
+              "obtainability": 0.8,
+              "time_cost": 0.5
+            },
+            "effective_weights": {
+              "eig": 0.2,
+              "gap": 0.25,
+              "materiality": 0.3,
+              "obtainability": 0.15,
+              "time_cost": 0.1
+            },
+            "novelty_multiplier": 1.0,
+            "policy_version": "research-priority-1.0.0",
+            "provisional": false,
+            "question_id": "example_capacity_delivery",
+            "rank": 3,
+            "reasons": [],
+            "score": 55.56143810225276
+          }
+        ],
+        "top3": [
+          "example_commercial_confirmation",
+          "example_margin_reconciliation",
+          "example_capacity_delivery"
+        ]
+      },
+      {
+        "policy": {
+          "cost_scale_minor": 100000,
+          "eig_weight": 0.15,
+          "gap_weight": 0.2,
+          "label": "financial_materiality",
+          "materiality_weight": 0.45,
+          "obtainability_weight": 0.1,
+          "policy_version": "research-priority-1.0.0",
+          "time_cost_weight": 0.1,
+          "time_scale_days": 10.0,
+          "use_eig": true
+        },
+        "rank_delta_from_first": {
+          "example_capacity_delivery": 0,
+          "example_commercial_confirmation": -1,
+          "example_margin_reconciliation": 1
+        },
+        "ranking": [
+          {
+            "components": {
+              "eig": 0.026450994113071058,
+              "gap": 0.8,
+              "materiality": 1.0,
+              "obtainability": 0.8,
+              "time_cost": 0.5
+            },
+            "effective_weights": {
+              "eig": 0.15,
+              "gap": 0.2,
+              "materiality": 0.45,
+              "obtainability": 0.1,
+              "time_cost": 0.1
+            },
+            "novelty_multiplier": 1.0,
+            "policy_version": "research-priority-1.0.0",
+            "provisional": false,
+            "question_id": "example_margin_reconciliation",
+            "rank": 1,
+            "reasons": [],
+            "score": 74.39676491169607
+          },
+          {
+            "components": {
+              "eig": 0.45582311138374887,
+              "gap": 0.8,
+              "materiality": 0.8,
+              "obtainability": 0.8,
+              "time_cost": 0.5
+            },
+            "effective_weights": {
+              "eig": 0.15,
+              "gap": 0.2,
+              "materiality": 0.45,
+              "obtainability": 0.1,
+              "time_cost": 0.1
+            },
+            "novelty_multiplier": 1.0,
+            "policy_version": "research-priority-1.0.0",
+            "provisional": false,
+            "question_id": "example_commercial_confirmation",
+            "rank": 2,
+            "reasons": [],
+            "score": 71.83734667075625
+          },
+          {
+            "components": {
+              "eig": 0.2780719051126377,
+              "gap": 0.6,
+              "materiality": 0.6,
+              "obtainability": 0.8,
+              "time_cost": 0.5
+            },
+            "effective_weights": {
+              "eig": 0.15,
+              "gap": 0.2,
+              "materiality": 0.45,
+              "obtainability": 0.1,
+              "time_cost": 0.1
+            },
+            "novelty_multiplier": 1.0,
+            "policy_version": "research-priority-1.0.0",
+            "provisional": false,
+            "question_id": "example_capacity_delivery",
+            "rank": 3,
+            "reasons": [],
+            "score": 56.17107857668957
+          }
+        ],
+        "top3": [
+          "example_margin_reconciliation",
+          "example_commercial_confirmation",
+          "example_capacity_delivery"
+        ]
+      },
+      {
+        "policy": {
+          "cost_scale_minor": 100000,
+          "eig_weight": 0.4,
+          "gap_weight": 0.2,
+          "label": "information_first",
+          "materiality_weight": 0.2,
+          "obtainability_weight": 0.1,
+          "policy_version": "research-priority-1.0.0",
+          "time_cost_weight": 0.1,
+          "time_scale_days": 10.0,
+          "use_eig": true
+        },
+        "rank_delta_from_first": {
+          "example_capacity_delivery": 0,
+          "example_commercial_confirmation": 0,
+          "example_margin_reconciliation": 0
+        },
+        "ranking": [
+          {
+            "components": {
+              "eig": 0.45582311138374887,
+              "gap": 0.8,
+              "materiality": 0.8,
+              "obtainability": 0.8,
+              "time_cost": 0.5
+            },
+            "effective_weights": {
+              "eig": 0.4,
+              "gap": 0.2,
+              "materiality": 0.2,
+              "obtainability": 0.1,
+              "time_cost": 0.1
+            },
+            "novelty_multiplier": 1.0,
+            "policy_version": "research-priority-1.0.0",
+            "provisional": false,
+            "question_id": "example_commercial_confirmation",
+            "rank": 1,
+            "reasons": [],
+            "score": 63.23292445534996
+          },
+          {
+            "components": {
+              "eig": 0.026450994113071058,
+              "gap": 0.8,
+              "materiality": 1.0,
+              "obtainability": 0.8,
+              "time_cost": 0.5
+            },
+            "effective_weights": {
+              "eig": 0.4,
+              "gap": 0.2,
+              "materiality": 0.2,
+              "obtainability": 0.1,
+              "time_cost": 0.1
+            },
+            "novelty_multiplier": 1.0,
+            "policy_version": "research-priority-1.0.0",
+            "provisional": false,
+            "question_id": "example_margin_reconciliation",
+            "rank": 2,
+            "reasons": [],
+            "score": 50.058039764522846
+          },
+          {
+            "components": {
+              "eig": 0.2780719051126377,
+              "gap": 0.6,
+              "materiality": 0.6,
+              "obtainability": 0.8,
+              "time_cost": 0.5
+            },
+            "effective_weights": {
+              "eig": 0.4,
+              "gap": 0.2,
+              "materiality": 0.2,
+              "obtainability": 0.1,
+              "time_cost": 0.1
+            },
+            "novelty_multiplier": 1.0,
+            "policy_version": "research-priority-1.0.0",
+            "provisional": false,
+            "question_id": "example_capacity_delivery",
+            "rank": 3,
+            "reasons": [],
+            "score": 48.12287620450551
+          }
+        ],
+        "top3": [
+          "example_commercial_confirmation",
+          "example_margin_reconciliation",
+          "example_capacity_delivery"
+        ]
+      },
+      {
+        "policy": {
+          "cost_scale_minor": 100000,
+          "eig_weight": 0.2,
+          "gap_weight": 0.25,
+          "label": "no_bayesian_eig",
+          "materiality_weight": 0.3,
+          "obtainability_weight": 0.15,
+          "policy_version": "research-priority-1.0.0",
+          "time_cost_weight": 0.1,
+          "time_scale_days": 10.0,
+          "use_eig": false
+        },
+        "rank_delta_from_first": {
+          "example_capacity_delivery": 0,
+          "example_commercial_confirmation": -1,
+          "example_margin_reconciliation": 1
+        },
+        "ranking": [
+          {
+            "components": {
+              "eig": null,
+              "gap": 0.8,
+              "materiality": 1.0,
+              "obtainability": 0.8,
+              "time_cost": 0.5
+            },
+            "effective_weights": {
+              "eig": 0.0,
+              "gap": 0.3125,
+              "materiality": 0.37499999999999994,
+              "obtainability": 0.18749999999999997,
+              "time_cost": 0.125
+            },
+            "novelty_multiplier": 1.0,
+            "policy_version": "research-priority-1.0.0",
+            "provisional": false,
+            "question_id": "example_margin_reconciliation",
+            "rank": 1,
+            "reasons": [
+              "EIG_DISABLED"
+            ],
+            "score": 83.74999999999999
+          },
+          {
+            "components": {
+              "eig": null,
+              "gap": 0.8,
+              "materiality": 0.8,
+              "obtainability": 0.8,
+              "time_cost": 0.5
+            },
+            "effective_weights": {
+              "eig": 0.0,
+              "gap": 0.3125,
+              "materiality": 0.37499999999999994,
+              "obtainability": 0.18749999999999997,
+              "time_cost": 0.125
+            },
+            "novelty_multiplier": 1.0,
+            "policy_version": "research-priority-1.0.0",
+            "provisional": false,
+            "question_id": "example_commercial_confirmation",
+            "rank": 2,
+            "reasons": [
+              "EIG_DISABLED"
+            ],
+            "score": 76.25
+          },
+          {
+            "components": {
+              "eig": null,
+              "gap": 0.6,
+              "materiality": 0.6,
+              "obtainability": 0.8,
+              "time_cost": 0.5
+            },
+            "effective_weights": {
+              "eig": 0.0,
+              "gap": 0.3125,
+              "materiality": 0.37499999999999994,
+              "obtainability": 0.18749999999999997,
+              "time_cost": 0.125
+            },
+            "novelty_multiplier": 1.0,
+            "policy_version": "research-priority-1.0.0",
+            "provisional": false,
+            "question_id": "example_capacity_delivery",
+            "rank": 3,
+            "reasons": [
+              "EIG_DISABLED"
+            ],
+            "score": 62.5
+          }
+        ],
+        "top3": [
+          "example_margin_reconciliation",
+          "example_commercial_confirmation",
+          "example_capacity_delivery"
+        ]
+      }
+    ]
+  }
+}

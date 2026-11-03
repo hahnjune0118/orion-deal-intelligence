@@ -1,0 +1,167 @@
+{
+  "balance_2024": {
+    "accrued": 300000,
+    "ap": 900000,
+    "ar": 1200000,
+    "assets": 5400000,
+    "cash": 600000,
+    "debt": 1800000,
+    "deferred": 0,
+    "equity": 2400000,
+    "inventory": 1500000,
+    "ppe": 2000000,
+    "prepaid": 100000
+  },
+  "balance_2025": {
+    "accrued": 400000,
+    "ap": 1100000,
+    "ar": 1600000,
+    "assets": 7000000,
+    "cash": 300000,
+    "debt": 2400000,
+    "deferred": 0,
+    "equity": 3100000,
+    "inventory": 2400000,
+    "ppe": 2600000,
+    "prepaid": 100000
+  },
+  "capex": {
+    "cfo_less_maintenance": -600000,
+    "expansion": 400000,
+    "maintenance": 600000,
+    "total": 1000000
+  },
+  "cashflow_2025": {
+    "capex": 1000000,
+    "cash_change": -300000,
+    "cfo": 0,
+    "debt_raised": 600000,
+    "dividends": 100000,
+    "equity_raised": 200000
+  },
+  "currency": "USD",
+  "customers_revenue_2025": {
+    "Brindle Retail": 4500000,
+    "Direct to consumer": 2000000,
+    "Fern Wholesale": 2000000,
+    "Hearth Distribution": 1500000
+  },
+  "forecast": {
+    "accrued": 400000,
+    "ap": 1200000,
+    "ar": 1800000,
+    "capacity_equivalents": 100000,
+    "cogs": 7560000,
+    "ebitda": 1700000,
+    "inventory": 1200000,
+    "nwc": 1500000,
+    "nwc_release_vs_2025": 1100000,
+    "opex": 2740000,
+    "per_equivalent": 100,
+    "planned_equivalents": 120000,
+    "prepaid": 100000,
+    "revenue": 12000000,
+    "supported_revenue": 10000000
+  },
+  "geography_revenue_2025": {
+    "domestic": 8000000,
+    "export": 2000000
+  },
+  "income_2024": {
+    "cogs": 4800000,
+    "depreciation": 300000,
+    "ebitda": 1200000,
+    "interest": 100000,
+    "net_income": 600000,
+    "opex": 2000000,
+    "revenue": 8000000,
+    "tax": 200000
+  },
+  "income_2025": {
+    "cogs": 6400000,
+    "depreciation": 400000,
+    "ebitda": 1300000,
+    "interest": 150000,
+    "net_income": 600000,
+    "opex": 2300000,
+    "revenue": 10000000,
+    "tax": 150000
+  },
+  "intentional_exceptions": [
+    {
+      "documents": [
+        "inventory"
+      ],
+      "fact": "Management no-write-down claim conflicts with a USD 200,000 estimated NRV shortfall. Historical statements intentionally preserve unadjusted book inventory; the estimate is provisional.",
+      "id": "mf_exception_inventory",
+      "visible_stage": 0
+    },
+    {
+      "documents": [
+        "financial"
+      ],
+      "fact": "Reported EBITDA increases while CFO is zero and CFO after maintenance CAPEX is negative USD 600,000.",
+      "id": "mf_exception_cash",
+      "visible_stage": 0
+    },
+    {
+      "documents": [
+        "plant"
+      ],
+      "fact": "Management calls all CAPEX expansion although engineering schedules identify USD 600,000 maintenance.",
+      "id": "mf_exception_capex",
+      "visible_stage": 0
+    },
+    {
+      "documents": [
+        "plant",
+        "forecast"
+      ],
+      "fact": "Forecast requires 120,000 production-slot equivalents against existing capacity of 100,000 with no funded additional press.",
+      "id": "mf_exception_capacity",
+      "visible_stage": 0
+    },
+    {
+      "documents": [
+        "inventory",
+        "forecast"
+      ],
+      "fact": "Inventory halves while planned cost of sales grows; the calculated 57.9365 closing-inventory days lack documented clearance or lead-time support.",
+      "id": "mf_exception_inventory_plan",
+      "visible_stage": 0
+    },
+    {
+      "documents": [
+        "sales"
+      ],
+      "fact": "A diversified-customer claim conflicts with the 45% Brindle concentration and nonbinding orders.",
+      "id": "mf_exception_concentration",
+      "visible_stage": 0
+    }
+  ],
+  "inventory_2025": {
+    "aged_finished_cost": 700000,
+    "aged_finished_estimated_nrv": 500000,
+    "count_variance": 0,
+    "finished_goods": 1200000,
+    "potential_write_down": 200000,
+    "raw_materials": 800000,
+    "total": 2400000,
+    "wip": 400000
+  },
+  "normalization": {
+    "insurance_recovery": 300000,
+    "provisional_normalized_ebitda": 1100000,
+    "relocation_addback": 100000,
+    "reported_ebitda": 1300000
+  },
+  "product_revenue_2025": {
+    "cookware_price": 200,
+    "cookware_revenue": 4000000,
+    "cookware_units": 20000,
+    "storage_price": 100,
+    "storage_revenue": 6000000,
+    "storage_units": 60000
+  },
+  "synthetic": true
+}

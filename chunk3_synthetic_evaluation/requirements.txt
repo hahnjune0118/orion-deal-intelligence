@@ -1,0 +1,5 @@
+# Install from repository root: python -m pip install -e ".[parsers,test]"
+# Dependency versions are managed by the unchanged root platform lock files.
+pydantic==2.11.7
+python-docx==1.2.0
+pytest==9.0.3

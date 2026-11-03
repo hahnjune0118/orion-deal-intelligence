@@ -1,0 +1,327 @@
+{
+  "analyst_note": "Aster acceptance and first receipt satisfy the execution request. The USD 30,000 unpaid balance remains a separate question.",
+  "base_revision": 2,
+  "contract_version": "1.0.0",
+  "created_at": "2026-11-12T00:00:00Z",
+  "deal_id": "deal_nb",
+  "documents": [
+    {
+      "asset_status": "file_verified",
+      "created_at": "2026-11-12T00:00:00Z",
+      "deal_id": "deal_nb",
+      "document_version": 1,
+      "entity_version": 1,
+      "file_sha256": "922ef6a53501228b3aa805349f39b1cc4d9482f5469fd458167db2367fb2c544",
+      "filename": "nb_doc_execution.docx",
+      "format": "docx",
+      "id": "nb_doc_execution",
+      "origin_key": "nb_doc_execution",
+      "parse_status": "parsed",
+      "parser_version": "orion-native-1.0.0",
+      "source_origin": "counterparty"
+    }
+  ],
+  "evidence": [
+    {
+      "claim_id": "nb_claim_h1",
+      "created_at": "2026-11-12T00:00:00Z",
+      "criterion_keys": [
+        "accept_a"
+      ],
+      "deal_id": "deal_nb",
+      "entity_version": 1,
+      "id": "nb_ev_accept_a",
+      "independent_check_reference": null,
+      "lifecycle": "active",
+      "origin_key": "nb_aster_execution",
+      "provenance": "counterparty_reported",
+      "reliability_rationale": "Scenario author assessed documentary specificity; simulated counterparties are not actual independent authentication.",
+      "review_status": "draft",
+      "source_reliability": 4,
+      "source_span_ids": [
+        "span_nb_doc_execution_7f5cd2852d230ec58bcc"
+      ],
+      "stance": "supports",
+      "verification_level": "document_only"
+    },
+    {
+      "claim_id": "nb_claim_h1",
+      "created_at": "2026-11-12T00:00:00Z",
+      "criterion_keys": [
+        "cash_a"
+      ],
+      "deal_id": "deal_nb",
+      "entity_version": 1,
+      "id": "nb_ev_cash_a",
+      "independent_check_reference": null,
+      "lifecycle": "active",
+      "origin_key": "nb_aster_execution",
+      "provenance": "counterparty_reported",
+      "reliability_rationale": "Scenario author assessed documentary specificity; simulated counterparties are not actual independent authentication.",
+      "review_status": "draft",
+      "source_reliability": 4,
+      "source_span_ids": [
+        "span_nb_doc_execution_8ad74238a4409864ea82"
+      ],
+      "stance": "supports",
+      "verification_level": "document_only"
+    },
+    {
+      "claim_id": "nb_claim_h3",
+      "created_at": "2026-11-12T00:00:00Z",
+      "criterion_keys": [],
+      "deal_id": "deal_nb",
+      "entity_version": 1,
+      "id": "nb_ev_invoice_a",
+      "independent_check_reference": null,
+      "lifecycle": "active",
+      "origin_key": "nb_aster_execution",
+      "provenance": "counterparty_reported",
+      "reliability_rationale": "Scenario author assessed documentary specificity; simulated counterparties are not actual independent authentication.",
+      "review_status": "draft",
+      "source_reliability": 4,
+      "source_span_ids": [
+        "span_nb_doc_execution_9fa7c862c23f65f55d21"
+      ],
+      "stance": "context",
+      "verification_level": "document_only"
+    },
+    {
+      "claim_id": "nb_claim_h3",
+      "created_at": "2026-11-12T00:00:00Z",
+      "criterion_keys": [],
+      "deal_id": "deal_nb",
+      "entity_version": 1,
+      "id": "nb_ev_recognition",
+      "independent_check_reference": null,
+      "lifecycle": "active",
+      "origin_key": "nb_aster_execution",
+      "provenance": "counterparty_reported",
+      "reliability_rationale": "Scenario author assessed documentary specificity; simulated counterparties are not actual independent authentication.",
+      "review_status": "draft",
+      "source_reliability": 3,
+      "source_span_ids": [
+        "span_nb_doc_execution_06c2292df11836bad402"
+      ],
+      "stance": "context",
+      "verification_level": "document_only"
+    }
+  ],
+  "evidence_relations": [],
+  "id": "nb_update_t2",
+  "idempotency_key": "nb:t2",
+  "kind": "staged_evidence_update",
+  "source_spans": [
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_execution",
+      "document_version": 1,
+      "end": 58,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_execution_952080d6602429696fc4",
+      "locator": {
+        "block_index": 0,
+        "heading_path": [],
+        "kind": "docx_paragraph",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml"
+      },
+      "locator_status": "validated",
+      "normalized_text": "Northstar Aster Deployment Billing and Collection Evidence",
+      "quote": "Northstar Aster Deployment Billing and Collection Evidence",
+      "start": 0,
+      "text_sha256": "c6682d2a936f4609941d153982febf613c95faea36a988388018955ddedf6544"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_execution",
+      "document_version": 1,
+      "end": 53,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_execution_e9db2a1dae04484a68d6",
+      "locator": {
+        "block_index": 1,
+        "heading_path": [],
+        "kind": "docx_paragraph",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml"
+      },
+      "locator_status": "validated",
+      "normalized_text": "SYNTHETIC | nb_doc_execution | 2026-11-12 | Version 1",
+      "quote": "SYNTHETIC | nb_doc_execution | 2026-11-12 | Version 1",
+      "start": 0,
+      "text_sha256": "e76f1cb2f7c1f3b59f04c19cf30384f01f8840457c197508573e9e7451e73ef7"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_execution",
+      "document_version": 1,
+      "end": 28,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_execution_264894cfa701956c394d",
+      "locator": {
+        "block_index": 2,
+        "heading_path": [],
+        "kind": "docx_paragraph",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml"
+      },
+      "locator_status": "validated",
+      "normalized_text": "Reporting period: 2026-11-12",
+      "quote": "Reporting period: 2026-11-12",
+      "start": 0,
+      "text_sha256": "5f51c4f40ca9f309ab79296e253daeb1141b2981fcf234525bf8eabc6378848b"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_execution",
+      "document_version": 1,
+      "end": 155,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_execution_afac185e766614a20384",
+      "locator": {
+        "block_index": 3,
+        "heading_path": [],
+        "kind": "docx_paragraph",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml"
+      },
+      "locator_status": "validated",
+      "normalized_text": "Independent expanded research scenario NB version 3.0.0. This is not a continuation of legacy Northstar NS; contract, cash and customer assumptions differ.",
+      "quote": "Independent expanded research scenario NB version 3.0.0. This is not a continuation of legacy Northstar NS; contract, cash and customer assumptions differ.",
+      "start": 0,
+      "text_sha256": "9d225433a95c28903c8f68929f3ef8c4737d81ce8e4b713cf3816ad4ecea3f93"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_execution",
+      "document_version": 1,
+      "end": 120,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_execution_ba37e77c5f34726b7171",
+      "locator": {
+        "block_index": 4,
+        "heading_path": [],
+        "kind": "docx_paragraph",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml"
+      },
+      "locator_status": "validated",
+      "normalized_text": "SYNTHETIC DATA. Simulated acceptance, invoice and bank remittance extracts. No actual customer or bank records are used.",
+      "quote": "SYNTHETIC DATA. Simulated acceptance, invoice and bank remittance extracts. No actual customer or bank records are used.",
+      "start": 0,
+      "text_sha256": "4b3ffb11f4e91f84ce1f1bb4c78ec75131db8e0e915a6fe491342d9db60f8696"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_execution",
+      "document_version": 1,
+      "end": 168,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_execution_7f5cd2852d230ec58bcc",
+      "locator": {
+        "block_index": 5,
+        "heading_path": [],
+        "kind": "docx_paragraph",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml"
+      },
+      "locator_status": "validated",
+      "normalized_text": "Aster signed acceptance certificate AC-01 on 2026-11-12 after all contractual benchmark tests passed. Deployment status is accepted; this certificate covers Aster only.",
+      "quote": "Aster signed acceptance certificate AC-01 on 2026-11-12 after all contractual benchmark tests passed. Deployment status is accepted; this certificate covers Aster only.",
+      "start": 0,
+      "text_sha256": "6b1c76286039c386c04135287b5b00285a1ae992562cb6790b2f4f2dae82ff6d"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_execution",
+      "document_version": 1,
+      "end": 190,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_execution_9fa7c862c23f65f55d21",
+      "locator": {
+        "block_index": 6,
+        "heading_path": [],
+        "kind": "docx_paragraph",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml"
+      },
+      "locator_status": "validated",
+      "normalized_text": "Invoice INV-01 dated 2026-11-12 is USD 120,000: implementation USD 60,000 and subscription prebilling USD 60,000. The invoice face amount is not recognized subscription revenue on that date.",
+      "quote": "Invoice INV-01 dated 2026-11-12 is USD 120,000: implementation USD 60,000 and subscription prebilling USD 60,000. The invoice face amount is not recognized subscription revenue on that date.",
+      "start": 0,
+      "text_sha256": "f9010f730b5e7f141acd00ab006c2cf2f28b07f9a0aae8748f74de31c2ac2e81"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_execution",
+      "document_version": 1,
+      "end": 174,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_execution_8ad74238a4409864ea82",
+      "locator": {
+        "block_index": 7,
+        "heading_path": [],
+        "kind": "docx_paragraph",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml"
+      },
+      "locator_status": "validated",
+      "normalized_text": "Remittance RC-01 matched to INV-01 records USD 90,000 cash received on 2026-11-12. USD 30,000 remains outstanding; neither full collection nor an overdue balance is asserted.",
+      "quote": "Remittance RC-01 matched to INV-01 records USD 90,000 cash received on 2026-11-12. USD 30,000 remains outstanding; neither full collection nor an overdue balance is asserted.",
+      "start": 0,
+      "text_sha256": "6fbe0f67ba0ca8a1ef3ae654c90676159449b364da83329264dea86376986361"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_execution",
+      "document_version": 1,
+      "end": 178,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_execution_06c2292df11836bad402",
+      "locator": {
+        "block_index": 8,
+        "heading_path": [],
+        "kind": "docx_paragraph",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml"
+      },
+      "locator_status": "validated",
+      "normalized_text": "On acceptance USD 60,000 implementation revenue is recognized. Subscription revenue begins on 2026-12-01. The remaining USD 60,000 of invoicing is deferred revenue at 2026-11-12.",
+      "quote": "On acceptance USD 60,000 implementation revenue is recognized. Subscription revenue begins on 2026-12-01. The remaining USD 60,000 of invoicing is deferred revenue at 2026-11-12.",
+      "start": 0,
+      "text_sha256": "5ebc0f7f39b12ebe2cc2c6b3cbe6df1b9576664cf7d0df97c90d9347f4e039bd"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_execution",
+      "document_version": 1,
+      "end": 139,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_execution_79bc3357191d3e05ade2",
+      "locator": {
+        "block_index": 9,
+        "heading_path": [],
+        "kind": "docx_paragraph",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml"
+      },
+      "locator_status": "validated",
+      "normalized_text": "No new Birch contract or customer ownership confirmation is included. Aster acceptance and cash evidence must not be extrapolated to Birch.",
+      "quote": "No new Birch contract or customer ownership confirmation is included. Aster acceptance and cash evidence must not be extrapolated to Birch.",
+      "start": 0,
+      "text_sha256": "6ad7c8120718e707c579a869af813eb560f00c0372c976377d699a8fdf08b348"
+    }
+  ],
+  "validation_status": "validated"
+}

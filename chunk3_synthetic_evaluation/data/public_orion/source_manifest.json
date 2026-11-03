@@ -1,0 +1,26 @@
+{
+  "case": "public_orion",
+  "documents": [],
+  "evaluation_specification": {
+    "metrics": [
+      "claim_recall",
+      "locator_accuracy",
+      "unsupported_claim_rate"
+    ],
+    "requires": [
+      "verified source inventory",
+      "period-specific claim and citation gold",
+      "independent review"
+    ],
+    "status": "not_run"
+  },
+  "public_facts": [],
+  "requirements": [
+    "Actual issuer identity and reporting period must be confirmed before ingestion.",
+    "Only verifiable primary disclosures and issuer IR documents; retain URL, access date, checksum, locator and license/public-use basis.",
+    "No actual Orion fact or synthetic replacement is populated.",
+    "Keep any future synthetic supplemental scenario separately labelled and outside public-source facts."
+  ],
+  "status": "pending_verified_sources",
+  "synthetic": false
+}

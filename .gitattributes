@@ -1,4 +1,8 @@
 * text=auto eol=lf
+*.pdf binary
+*.docx binary
+*.pptx binary
+*.whl binary
 # Preserve supplied specifications, source attachments and upstream licenses byte-for-byte.
 spec/** -text
 reference_inputs/** -text

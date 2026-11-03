@@ -1,0 +1,1025 @@
+[
+  {
+    "after": [
+      [
+        "q_ns_contract_a",
+        1,
+        100.0,
+        5.0
+      ],
+      [
+        "q_ns_contract_b",
+        2,
+        97.0,
+        5.0
+      ],
+      [
+        "q_ns_accept_collect",
+        3,
+        89.0,
+        5.0
+      ],
+      [
+        "q_ns_concentration",
+        4,
+        86.0,
+        5.0
+      ],
+      [
+        "q_ns_unit_econ",
+        5,
+        78.0,
+        5.0
+      ]
+    ],
+    "before": [
+      [
+        "q_ns_contract_a",
+        1,
+        100.0,
+        5.0
+      ],
+      [
+        "q_ns_contract_b",
+        2,
+        97.0,
+        5.0
+      ],
+      [
+        "q_ns_accept_collect",
+        3,
+        89.0,
+        5.0
+      ],
+      [
+        "q_ns_concentration",
+        4,
+        86.0,
+        5.0
+      ],
+      [
+        "q_ns_unit_econ",
+        5,
+        78.0,
+        5.0
+      ]
+    ],
+    "case": "ns",
+    "control": "duplicate",
+    "error_code": null,
+    "expected_change": false,
+    "expected_rejection": false,
+    "passed": true,
+    "rejected": false,
+    "repeated_group_attempts": 1,
+    "repeated_group_updates": 0,
+    "source_mode": "native-source",
+    "transition_pass": true
+  },
+  {
+    "after": [
+      [
+        "q_ns_contract_a",
+        1,
+        100.0,
+        5.0
+      ],
+      [
+        "q_ns_contract_b",
+        2,
+        97.0,
+        5.0
+      ],
+      [
+        "q_ns_accept_collect",
+        3,
+        89.0,
+        5.0
+      ],
+      [
+        "q_ns_concentration",
+        4,
+        86.0,
+        5.0
+      ],
+      [
+        "q_ns_unit_econ",
+        5,
+        78.0,
+        5.0
+      ]
+    ],
+    "before": [
+      [
+        "q_ns_contract_a",
+        1,
+        100.0,
+        5.0
+      ],
+      [
+        "q_ns_contract_b",
+        2,
+        97.0,
+        5.0
+      ],
+      [
+        "q_ns_accept_collect",
+        3,
+        89.0,
+        5.0
+      ],
+      [
+        "q_ns_concentration",
+        4,
+        86.0,
+        5.0
+      ],
+      [
+        "q_ns_unit_econ",
+        5,
+        78.0,
+        5.0
+      ]
+    ],
+    "case": "ns",
+    "control": "unrelated",
+    "error_code": null,
+    "expected_change": false,
+    "expected_rejection": false,
+    "passed": true,
+    "rejected": false,
+    "repeated_group_attempts": 0,
+    "repeated_group_updates": 0,
+    "source_mode": "native-source",
+    "transition_pass": true
+  },
+  {
+    "after": [
+      [
+        "q_ns_contract_a",
+        1,
+        100.0,
+        5.0
+      ],
+      [
+        "q_ns_contract_b",
+        2,
+        97.0,
+        5.0
+      ],
+      [
+        "q_ns_accept_collect",
+        3,
+        89.0,
+        5.0
+      ],
+      [
+        "q_ns_concentration",
+        4,
+        86.0,
+        5.0
+      ],
+      [
+        "q_ns_unit_econ",
+        5,
+        78.0,
+        5.0
+      ]
+    ],
+    "before": [
+      [
+        "q_ns_contract_a",
+        1,
+        100.0,
+        5.0
+      ],
+      [
+        "q_ns_contract_b",
+        2,
+        97.0,
+        5.0
+      ],
+      [
+        "q_ns_accept_collect",
+        3,
+        89.0,
+        5.0
+      ],
+      [
+        "q_ns_concentration",
+        4,
+        86.0,
+        5.0
+      ],
+      [
+        "q_ns_unit_econ",
+        5,
+        78.0,
+        5.0
+      ]
+    ],
+    "case": "ns",
+    "control": "invalid_locator",
+    "error_code": "SOURCE_MISMATCH",
+    "expected_change": false,
+    "expected_rejection": true,
+    "passed": true,
+    "rejected": true,
+    "repeated_group_attempts": 0,
+    "repeated_group_updates": 0,
+    "source_mode": "native-source",
+    "transition_pass": true
+  },
+  {
+    "after": [
+      [
+        "q_ns_contract_a",
+        1,
+        100.0,
+        5.0
+      ],
+      [
+        "q_ns_contract_b",
+        2,
+        97.0,
+        5.0
+      ],
+      [
+        "q_ns_accept_collect",
+        3,
+        89.0,
+        5.0
+      ],
+      [
+        "q_ns_concentration",
+        4,
+        86.0,
+        5.0
+      ],
+      [
+        "q_ns_unit_econ",
+        5,
+        78.0,
+        5.0
+      ]
+    ],
+    "before": [
+      [
+        "q_ns_contract_a",
+        1,
+        100.0,
+        5.0
+      ],
+      [
+        "q_ns_contract_b",
+        2,
+        97.0,
+        5.0
+      ],
+      [
+        "q_ns_accept_collect",
+        3,
+        89.0,
+        5.0
+      ],
+      [
+        "q_ns_concentration",
+        4,
+        86.0,
+        5.0
+      ],
+      [
+        "q_ns_unit_econ",
+        5,
+        78.0,
+        5.0
+      ]
+    ],
+    "case": "ns",
+    "control": "unapproved",
+    "error_code": null,
+    "expected_change": false,
+    "expected_rejection": false,
+    "passed": true,
+    "rejected": false,
+    "repeated_group_attempts": 0,
+    "repeated_group_updates": 0,
+    "source_mode": "native-source",
+    "transition_pass": true
+  },
+  {
+    "after": [
+      [
+        "q_ns_contract_b",
+        1,
+        97.0,
+        5.0
+      ],
+      [
+        "q_ns_accept_collect",
+        2,
+        89.0,
+        5.0
+      ],
+      [
+        "q_ns_concentration",
+        3,
+        86.0,
+        5.0
+      ],
+      [
+        "q_ns_unit_econ",
+        4,
+        78.0,
+        5.0
+      ]
+    ],
+    "before": [
+      [
+        "q_ns_contract_b",
+        1,
+        97.0,
+        5.0
+      ],
+      [
+        "q_ns_accept_collect",
+        2,
+        89.0,
+        5.0
+      ],
+      [
+        "q_ns_concentration",
+        3,
+        86.0,
+        5.0
+      ],
+      [
+        "q_ns_unit_econ",
+        4,
+        78.0,
+        5.0
+      ]
+    ],
+    "case": "ns",
+    "control": "stale_revision",
+    "error_code": "REVISION_CONFLICT",
+    "expected_change": false,
+    "expected_rejection": true,
+    "passed": true,
+    "rejected": true,
+    "repeated_group_attempts": 0,
+    "repeated_group_updates": 0,
+    "source_mode": "native-source",
+    "transition_pass": true
+  },
+  {
+    "after": [
+      [
+        "q_cd_cutoff",
+        1,
+        100.0,
+        5.0
+      ],
+      [
+        "q_cd_warranty",
+        2,
+        94.0,
+        5.0
+      ],
+      [
+        "q_cd_inventory",
+        3,
+        89.0,
+        5.0
+      ],
+      [
+        "q_cd_receivable",
+        4,
+        86.0,
+        5.0
+      ]
+    ],
+    "before": [
+      [
+        "q_cd_cutoff",
+        1,
+        100.0,
+        5.0
+      ],
+      [
+        "q_cd_warranty",
+        2,
+        94.0,
+        5.0
+      ],
+      [
+        "q_cd_inventory",
+        3,
+        89.0,
+        5.0
+      ],
+      [
+        "q_cd_receivable",
+        4,
+        86.0,
+        5.0
+      ]
+    ],
+    "case": "cd",
+    "control": "duplicate",
+    "error_code": null,
+    "expected_change": false,
+    "expected_rejection": false,
+    "passed": true,
+    "rejected": false,
+    "repeated_group_attempts": 1,
+    "repeated_group_updates": 0,
+    "source_mode": "native-source",
+    "transition_pass": true
+  },
+  {
+    "after": [
+      [
+        "q_cd_cutoff",
+        1,
+        100.0,
+        5.0
+      ],
+      [
+        "q_cd_warranty",
+        2,
+        94.0,
+        5.0
+      ],
+      [
+        "q_cd_inventory",
+        3,
+        89.0,
+        5.0
+      ],
+      [
+        "q_cd_receivable",
+        4,
+        86.0,
+        5.0
+      ]
+    ],
+    "before": [
+      [
+        "q_cd_cutoff",
+        1,
+        100.0,
+        5.0
+      ],
+      [
+        "q_cd_warranty",
+        2,
+        94.0,
+        5.0
+      ],
+      [
+        "q_cd_inventory",
+        3,
+        89.0,
+        5.0
+      ],
+      [
+        "q_cd_receivable",
+        4,
+        86.0,
+        5.0
+      ]
+    ],
+    "case": "cd",
+    "control": "unrelated",
+    "error_code": null,
+    "expected_change": false,
+    "expected_rejection": false,
+    "passed": true,
+    "rejected": false,
+    "repeated_group_attempts": 0,
+    "repeated_group_updates": 0,
+    "source_mode": "native-source",
+    "transition_pass": true
+  },
+  {
+    "after": [
+      [
+        "q_cd_cutoff",
+        1,
+        100.0,
+        5.0
+      ],
+      [
+        "q_cd_warranty",
+        2,
+        94.0,
+        5.0
+      ],
+      [
+        "q_cd_inventory",
+        3,
+        89.0,
+        5.0
+      ],
+      [
+        "q_cd_receivable",
+        4,
+        86.0,
+        5.0
+      ]
+    ],
+    "before": [
+      [
+        "q_cd_cutoff",
+        1,
+        100.0,
+        5.0
+      ],
+      [
+        "q_cd_warranty",
+        2,
+        94.0,
+        5.0
+      ],
+      [
+        "q_cd_inventory",
+        3,
+        89.0,
+        5.0
+      ],
+      [
+        "q_cd_receivable",
+        4,
+        86.0,
+        5.0
+      ]
+    ],
+    "case": "cd",
+    "control": "invalid_locator",
+    "error_code": "SOURCE_MISMATCH",
+    "expected_change": false,
+    "expected_rejection": true,
+    "passed": true,
+    "rejected": true,
+    "repeated_group_attempts": 0,
+    "repeated_group_updates": 0,
+    "source_mode": "native-source",
+    "transition_pass": true
+  },
+  {
+    "after": [
+      [
+        "q_cd_cutoff",
+        1,
+        100.0,
+        5.0
+      ],
+      [
+        "q_cd_warranty",
+        2,
+        94.0,
+        5.0
+      ],
+      [
+        "q_cd_inventory",
+        3,
+        89.0,
+        5.0
+      ],
+      [
+        "q_cd_receivable",
+        4,
+        86.0,
+        5.0
+      ]
+    ],
+    "before": [
+      [
+        "q_cd_cutoff",
+        1,
+        100.0,
+        5.0
+      ],
+      [
+        "q_cd_warranty",
+        2,
+        94.0,
+        5.0
+      ],
+      [
+        "q_cd_inventory",
+        3,
+        89.0,
+        5.0
+      ],
+      [
+        "q_cd_receivable",
+        4,
+        86.0,
+        5.0
+      ]
+    ],
+    "case": "cd",
+    "control": "unapproved",
+    "error_code": null,
+    "expected_change": false,
+    "expected_rejection": false,
+    "passed": true,
+    "rejected": false,
+    "repeated_group_attempts": 0,
+    "repeated_group_updates": 0,
+    "source_mode": "native-source",
+    "transition_pass": true
+  },
+  {
+    "after": [
+      [
+        "q_cd_warranty",
+        1,
+        94.0,
+        5.0
+      ],
+      [
+        "q_cd_inventory",
+        2,
+        89.0,
+        5.0
+      ],
+      [
+        "q_cd_receivable",
+        3,
+        86.0,
+        5.0
+      ]
+    ],
+    "before": [
+      [
+        "q_cd_warranty",
+        1,
+        94.0,
+        5.0
+      ],
+      [
+        "q_cd_inventory",
+        2,
+        89.0,
+        5.0
+      ],
+      [
+        "q_cd_receivable",
+        3,
+        86.0,
+        5.0
+      ]
+    ],
+    "case": "cd",
+    "control": "stale_revision",
+    "error_code": "REVISION_CONFLICT",
+    "expected_change": false,
+    "expected_rejection": true,
+    "passed": true,
+    "rejected": true,
+    "repeated_group_attempts": 0,
+    "repeated_group_updates": 0,
+    "source_mode": "native-source",
+    "transition_pass": true
+  },
+  {
+    "after": [
+      [
+        "q_lm_labor",
+        1,
+        92.0,
+        5.0
+      ],
+      [
+        "q_lm_margin",
+        2,
+        89.0,
+        5.0
+      ],
+      [
+        "q_lm_cash",
+        3,
+        84.0,
+        5.0
+      ],
+      [
+        "q_lm_capex",
+        4,
+        73.0,
+        5.0
+      ]
+    ],
+    "before": [
+      [
+        "q_lm_labor",
+        1,
+        92.0,
+        5.0
+      ],
+      [
+        "q_lm_margin",
+        2,
+        89.0,
+        5.0
+      ],
+      [
+        "q_lm_cash",
+        3,
+        84.0,
+        5.0
+      ],
+      [
+        "q_lm_capex",
+        4,
+        73.0,
+        5.0
+      ]
+    ],
+    "case": "lm",
+    "control": "duplicate",
+    "error_code": null,
+    "expected_change": false,
+    "expected_rejection": false,
+    "passed": true,
+    "rejected": false,
+    "repeated_group_attempts": 1,
+    "repeated_group_updates": 0,
+    "source_mode": "native-source",
+    "transition_pass": true
+  },
+  {
+    "after": [
+      [
+        "q_lm_labor",
+        1,
+        92.0,
+        5.0
+      ],
+      [
+        "q_lm_margin",
+        2,
+        89.0,
+        5.0
+      ],
+      [
+        "q_lm_cash",
+        3,
+        84.0,
+        5.0
+      ],
+      [
+        "q_lm_capex",
+        4,
+        73.0,
+        5.0
+      ]
+    ],
+    "before": [
+      [
+        "q_lm_labor",
+        1,
+        92.0,
+        5.0
+      ],
+      [
+        "q_lm_margin",
+        2,
+        89.0,
+        5.0
+      ],
+      [
+        "q_lm_cash",
+        3,
+        84.0,
+        5.0
+      ],
+      [
+        "q_lm_capex",
+        4,
+        73.0,
+        5.0
+      ]
+    ],
+    "case": "lm",
+    "control": "unrelated",
+    "error_code": null,
+    "expected_change": false,
+    "expected_rejection": false,
+    "passed": true,
+    "rejected": false,
+    "repeated_group_attempts": 0,
+    "repeated_group_updates": 0,
+    "source_mode": "native-source",
+    "transition_pass": true
+  },
+  {
+    "after": [
+      [
+        "q_lm_labor",
+        1,
+        92.0,
+        5.0
+      ],
+      [
+        "q_lm_margin",
+        2,
+        89.0,
+        5.0
+      ],
+      [
+        "q_lm_cash",
+        3,
+        84.0,
+        5.0
+      ],
+      [
+        "q_lm_capex",
+        4,
+        73.0,
+        5.0
+      ]
+    ],
+    "before": [
+      [
+        "q_lm_labor",
+        1,
+        92.0,
+        5.0
+      ],
+      [
+        "q_lm_margin",
+        2,
+        89.0,
+        5.0
+      ],
+      [
+        "q_lm_cash",
+        3,
+        84.0,
+        5.0
+      ],
+      [
+        "q_lm_capex",
+        4,
+        73.0,
+        5.0
+      ]
+    ],
+    "case": "lm",
+    "control": "invalid_locator",
+    "error_code": "SOURCE_MISMATCH",
+    "expected_change": false,
+    "expected_rejection": true,
+    "passed": true,
+    "rejected": true,
+    "repeated_group_attempts": 0,
+    "repeated_group_updates": 0,
+    "source_mode": "native-source",
+    "transition_pass": true
+  },
+  {
+    "after": [
+      [
+        "q_lm_labor",
+        1,
+        92.0,
+        5.0
+      ],
+      [
+        "q_lm_margin",
+        2,
+        89.0,
+        5.0
+      ],
+      [
+        "q_lm_cash",
+        3,
+        84.0,
+        5.0
+      ],
+      [
+        "q_lm_capex",
+        4,
+        73.0,
+        5.0
+      ]
+    ],
+    "before": [
+      [
+        "q_lm_labor",
+        1,
+        92.0,
+        5.0
+      ],
+      [
+        "q_lm_margin",
+        2,
+        89.0,
+        5.0
+      ],
+      [
+        "q_lm_cash",
+        3,
+        84.0,
+        5.0
+      ],
+      [
+        "q_lm_capex",
+        4,
+        73.0,
+        5.0
+      ]
+    ],
+    "case": "lm",
+    "control": "unapproved",
+    "error_code": null,
+    "expected_change": false,
+    "expected_rejection": false,
+    "passed": true,
+    "rejected": false,
+    "repeated_group_attempts": 0,
+    "repeated_group_updates": 0,
+    "source_mode": "native-source",
+    "transition_pass": true
+  },
+  {
+    "after": [
+      [
+        "q_lm_renewal",
+        1,
+        97.0,
+        5.0
+      ],
+      [
+        "q_lm_labor",
+        2,
+        92.0,
+        5.0
+      ],
+      [
+        "q_lm_margin",
+        3,
+        89.0,
+        5.0
+      ],
+      [
+        "q_lm_cash",
+        4,
+        84.0,
+        5.0
+      ],
+      [
+        "q_lm_capex",
+        5,
+        73.0,
+        5.0
+      ]
+    ],
+    "before": [
+      [
+        "q_lm_renewal",
+        1,
+        97.0,
+        5.0
+      ],
+      [
+        "q_lm_labor",
+        2,
+        92.0,
+        5.0
+      ],
+      [
+        "q_lm_margin",
+        3,
+        89.0,
+        5.0
+      ],
+      [
+        "q_lm_cash",
+        4,
+        84.0,
+        5.0
+      ],
+      [
+        "q_lm_capex",
+        5,
+        73.0,
+        5.0
+      ]
+    ],
+    "case": "lm",
+    "control": "stale_revision",
+    "error_code": "REVISION_CONFLICT",
+    "expected_change": false,
+    "expected_rejection": true,
+    "passed": true,
+    "rejected": true,
+    "repeated_group_attempts": 0,
+    "repeated_group_updates": 0,
+    "source_mode": "native-source",
+    "transition_pass": true
+  }
+]

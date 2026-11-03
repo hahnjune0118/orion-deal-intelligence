@@ -1,0 +1,68 @@
+[
+  {
+    "available_stage": 0,
+    "date": "2026-11-03",
+    "document_id": "mf_doc_financial",
+    "filename": "mf_doc_financial.docx",
+    "machine_sha256": "d03b2e9960ccbce8f2dc2d8d6fc95a5de3119f87e57235b1aa40eda9680eced7",
+    "reporting_period": "FY2024 and FY2025",
+    "sha256": "49c9a08173ce5b965091ece640a4354dc5eaed033eb06311f88475dfd69584a8",
+    "synthetic": true,
+    "version": 1
+  },
+  {
+    "available_stage": 0,
+    "date": "2026-11-03",
+    "document_id": "mf_doc_sales",
+    "filename": "mf_doc_sales.docx",
+    "machine_sha256": "6ca7ff8e1ecb2031d937a3df75425a8a2840ff4caba91244b6318d3287e2098a",
+    "reporting_period": "FY2025",
+    "sha256": "489019642220fb11135065dcf5bab08f3ad80cad09bbce2116754b9531b33c52",
+    "synthetic": true,
+    "version": 1
+  },
+  {
+    "available_stage": 0,
+    "date": "2026-11-03",
+    "document_id": "mf_doc_inventory",
+    "filename": "mf_doc_inventory.docx",
+    "machine_sha256": "7868a96d9174e283dd973e9dc74d3575fd87680ebe271e5a1afc9c3849905b7d",
+    "reporting_period": "2024-12-31 and 2025-12-31",
+    "sha256": "866f882e4a3661eca918966b0f499ebe526bb0b5b718952affdd7fedbe68e787",
+    "synthetic": true,
+    "version": 1
+  },
+  {
+    "available_stage": 0,
+    "date": "2026-11-03",
+    "document_id": "mf_doc_plant",
+    "filename": "mf_doc_plant.docx",
+    "machine_sha256": "3cd3aa55ab321c1f6d6952357dde301867423faa4d15157d23539570ecc9e8d0",
+    "reporting_period": "FY2025 actual and FY2027 capacity",
+    "sha256": "a14f1a44cdcab9d3ca85f3e00e72bd9ed2eb0a9110745a7e143d919f8c9e8c37",
+    "synthetic": true,
+    "version": 1
+  },
+  {
+    "available_stage": 0,
+    "date": "2026-11-03",
+    "document_id": "mf_doc_forecast",
+    "filename": "mf_doc_forecast.docx",
+    "machine_sha256": "27a7a6f6109df9863906d3531dd2f27759cad2db37a462e47490ce56a4c27e93",
+    "reporting_period": "FY2027",
+    "sha256": "30663fe418cba45eacfe9eae76913de36194a2bb3fcefa103c5b431134f0c094",
+    "synthetic": true,
+    "version": 1
+  },
+  {
+    "available_stage": 1,
+    "date": "2026-11-05",
+    "document_id": "mf_doc_count",
+    "filename": "mf_doc_count.docx",
+    "machine_sha256": "c1d86eb78035e65b5faa79e69ff7c34b2ab78d66bb400fd55b81b5fe6501d59b",
+    "reporting_period": "Count date 2025-12-31; received 2026-11-05",
+    "sha256": "54726ef649b75e1d37670b8ae50862259aefe6c9e3726c929e50e21b5f2afb0c",
+    "synthetic": true,
+    "version": 1
+  }
+]

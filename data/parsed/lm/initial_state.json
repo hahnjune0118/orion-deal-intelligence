@@ -1,0 +1,1394 @@
+{
+  "kind": "deal_state",
+  "contract_version": "1.0.0",
+  "state_revision": 1,
+  "mode": "demo",
+  "deal": {
+    "id": "deal_lm",
+    "entity_version": 1,
+    "name": "Lumen Field Services",
+    "business_model": "Labor-intensive recurring field maintenance",
+    "currency": "USD",
+    "synthetic": true,
+    "as_of": "2026-11-03",
+    "thesis_ids": [
+      "thesis_lm"
+    ]
+  },
+  "documents": [
+    {
+      "id": "doc_lm_overview",
+      "entity_version": 1,
+      "deal_id": "deal_lm",
+      "filename": "lm_contracts.pdf",
+      "format": "pdf",
+      "document_version": 1,
+      "asset_status": "file_verified",
+      "file_sha256": "9fa83b659c90f3a0769a10a8761ed490b02cd9cd41da112bd8ac3ea5945703ca",
+      "parse_status": "parsed",
+      "parser_version": "orion-native-1.0.0",
+      "source_origin": "company",
+      "origin_key": "lm_overview",
+      "created_at": "2026-11-03T00:00:00Z"
+    },
+    {
+      "id": "doc_lm_finance_native",
+      "entity_version": 1,
+      "deal_id": "deal_lm",
+      "filename": "lm_capacity.docx",
+      "format": "docx",
+      "document_version": 1,
+      "asset_status": "file_verified",
+      "file_sha256": "760d0e1b7fe116f93972bb632aafe9df645951906456fafd849db43f2d2dc82d",
+      "parse_status": "parsed",
+      "parser_version": "orion-native-1.0.0",
+      "source_origin": "company",
+      "origin_key": "lm:native:finance",
+      "created_at": "2026-11-03T00:00:00Z"
+    },
+    {
+      "id": "doc_lm_schedule_native",
+      "entity_version": 1,
+      "deal_id": "deal_lm",
+      "filename": "lm_plan.pptx",
+      "format": "pptx",
+      "document_version": 1,
+      "asset_status": "file_verified",
+      "file_sha256": "db7c615e3d409fccfac61246efbe72bdfc1d884bbeeac92e0f78123a57381259",
+      "parse_status": "parsed",
+      "parser_version": "orion-native-1.0.0",
+      "source_origin": "company",
+      "origin_key": "lm:native:schedule",
+      "created_at": "2026-11-03T00:00:00Z"
+    }
+  ],
+  "source_spans": [
+    {
+      "id": "span_lm_overview",
+      "entity_version": 1,
+      "deal_id": "deal_lm",
+      "document_id": "doc_lm_overview",
+      "document_version": 1,
+      "locator": {
+        "kind": "pdf",
+        "page": 1,
+        "block_index": 0
+      },
+      "normalized_text": "Lumen Field Services source overview\nSYNTHETIC EDUCATIONAL DATA / FY2025 unless stated / v1\nSYNTHETIC. The supplied signed renewal copy states that the key client renews for 12\nmonths. Lumen FY2025 delivered 10,000 billable hours at USD 300/hour, revenue USD\n3,000,000, direct cost USD 1,800,000, operating expense excluding depreciation USD\n900,000, EBITDA USD 300,000. Key-client revenue USD 1,500,000.\nSYNTHETIC / No real company disclosures / Page 1 of 3",
+      "text_sha256": "55b6b9f510aa3fb27fa73cd18019cd89e71d206e3e7cd780675d9f614113202c",
+      "quote": "Lumen Field Services source overview\nSYNTHETIC EDUCATIONAL DATA / FY2025 unless stated / v1\nSYNTHETIC. The supplied signed renewal copy states that the key client renews for 12\nmonths. Lumen FY2025 delivered 10,000 billable hours at USD 300/hour, revenue USD\n3,000,000, direct cost USD 1,800,000, operating expense excluding depreciation USD\n900,000, EBITDA USD 300,000. Key-client revenue USD 1,500,000.\nSYNTHETIC / No real company disclosures / Page 1 of 3",
+      "start": 0,
+      "end": 458,
+      "locator_status": "validated",
+      "extraction_method": "parsed"
+    },
+    {
+      "id": "span_doc_lm_overview_71d96781c987ada95d9d",
+      "entity_version": 1,
+      "deal_id": "deal_lm",
+      "document_id": "doc_lm_overview",
+      "document_version": 1,
+      "locator": {
+        "kind": "pdf",
+        "page": 2,
+        "block_index": 0
+      },
+      "normalized_text": "Lumen Field Services source overview\nSYNTHETIC EDUCATIONAL DATA / FY2025 unless stated / v1\nFY2025 Revenue: USD 3,000,000.\nFY2025 Cogs: USD 1,800,000.\nFY2025 Opex Excluding Da: USD 900,000.\nFY2025 Ebitda: USD 300,000.\nFY2025 Ar: USD 500,000.\nSYNTHETIC / No real company disclosures / Page 2 of 3",
+      "text_sha256": "98f8f404aa93bbd2a830308efd99b6796d862b537cb13a52fa703fb6d997ed37",
+      "quote": "Lumen Field Services source overview\nSYNTHETIC EDUCATIONAL DATA / FY2025 unless stated / v1\nFY2025 Revenue: USD 3,000,000.\nFY2025 Cogs: USD 1,800,000.\nFY2025 Opex Excluding Da: USD 900,000.\nFY2025 Ebitda: USD 300,000.\nFY2025 Ar: USD 500,000.\nSYNTHETIC / No real company disclosures / Page 2 of 3",
+      "start": 0,
+      "end": 295,
+      "locator_status": "validated",
+      "extraction_method": "parsed"
+    },
+    {
+      "id": "span_doc_lm_overview_188a6355f8558e67049d",
+      "entity_version": 1,
+      "deal_id": "deal_lm",
+      "document_id": "doc_lm_overview",
+      "document_version": 1,
+      "locator": {
+        "kind": "pdf",
+        "page": 3,
+        "block_index": 0
+      },
+      "normalized_text": "Lumen Field Services source overview\nSYNTHETIC EDUCATIONAL DATA / FY2025 unless stated / v1\nFY2025 Inventory: USD 0.\nFY2025 Ap: USD 200,000.\nFY2025 Nwc Operating: USD 300,000.\nFY2025 Cash: USD 250,000.\nFY2025 Debt: USD 300,000.\nSYNTHETIC / No real company disclosures / Page 3 of 3",
+      "text_sha256": "bb62ed0b6028649d20fb60e5996a91a293312c88bd7948ae00a8d017a397b784",
+      "quote": "Lumen Field Services source overview\nSYNTHETIC EDUCATIONAL DATA / FY2025 unless stated / v1\nFY2025 Inventory: USD 0.\nFY2025 Ap: USD 200,000.\nFY2025 Nwc Operating: USD 300,000.\nFY2025 Cash: USD 250,000.\nFY2025 Debt: USD 300,000.\nSYNTHETIC / No real company disclosures / Page 3 of 3",
+      "start": 0,
+      "end": 281,
+      "locator_status": "validated",
+      "extraction_method": "parsed"
+    },
+    {
+      "id": "span_doc_lm_finance_native_110e3495c50a254ae542",
+      "entity_version": 1,
+      "deal_id": "deal_lm",
+      "document_id": "doc_lm_finance_native",
+      "document_version": 1,
+      "locator": {
+        "kind": "docx_paragraph",
+        "part_uri": "word/document.xml",
+        "block_index": 0,
+        "paragraph_index": 0,
+        "heading_path": []
+      },
+      "normalized_text": "Lumen Field Services capacity schedule",
+      "text_sha256": "229f9a73e089974f40d288402b43b846bb297c8100d72c36c19ef56b33d500ef",
+      "quote": "Lumen Field Services capacity schedule",
+      "start": 0,
+      "end": 38,
+      "locator_status": "validated",
+      "extraction_method": "parsed"
+    },
+    {
+      "id": "span_doc_lm_finance_native_32c5025ed1baae6cddeb",
+      "entity_version": 1,
+      "deal_id": "deal_lm",
+      "document_id": "doc_lm_finance_native",
+      "document_version": 1,
+      "locator": {
+        "kind": "docx_paragraph",
+        "part_uri": "word/document.xml",
+        "block_index": 1,
+        "paragraph_index": 0,
+        "heading_path": []
+      },
+      "normalized_text": "SYNTHETIC EDUCATIONAL DATA. Independently authored fictional company records. Version 1, dated 2026-11-03.",
+      "text_sha256": "3b907eea7b92c462cf34ab43d407d6842411cdd3b89de5e36dc18908241d73ca",
+      "quote": "SYNTHETIC EDUCATIONAL DATA. Independently authored fictional company records. Version 1, dated 2026-11-03.",
+      "start": 0,
+      "end": 106,
+      "locator_status": "validated",
+      "extraction_method": "parsed"
+    },
+    {
+      "id": "span_doc_lm_finance_native_ef7fef4481bc3b785027",
+      "entity_version": 1,
+      "deal_id": "deal_lm",
+      "document_id": "doc_lm_finance_native",
+      "document_version": 1,
+      "locator": {
+        "kind": "docx_paragraph",
+        "part_uri": "word/document.xml",
+        "block_index": 2,
+        "paragraph_index": 0,
+        "heading_path": [
+          "Source narrative"
+        ]
+      },
+      "normalized_text": "Source narrative",
+      "text_sha256": "4676267a112f9c0ca1514c81693b256e577ee3876e86a669a5098141cd945d62",
+      "quote": "Source narrative",
+      "start": 0,
+      "end": 16,
+      "locator_status": "validated",
+      "extraction_method": "parsed"
+    },
+    {
+      "id": "span_doc_lm_finance_native_a3e9e98acedd4980d566",
+      "entity_version": 1,
+      "deal_id": "deal_lm",
+      "document_id": "doc_lm_finance_native",
+      "document_version": 1,
+      "locator": {
+        "kind": "docx_paragraph",
+        "part_uri": "word/document.xml",
+        "block_index": 3,
+        "paragraph_index": 0,
+        "heading_path": [
+          "Source narrative"
+        ]
+      },
+      "normalized_text": "FY2025 delivered hours 10,000 at USD 300 per hour. Available capacity is 12,000 hours. Direct cost is USD 180 per delivered hour.",
+      "text_sha256": "21fc47e54d2e2f96b2b3b054fce5fe73d5cfa42b9b46b07e12182fd511b0e45d",
+      "quote": "FY2025 delivered hours 10,000 at USD 300 per hour. Available capacity is 12,000 hours. Direct cost is USD 180 per delivered hour.",
+      "start": 0,
+      "end": 129,
+      "locator_status": "validated",
+      "extraction_method": "parsed"
+    },
+    {
+      "id": "span_doc_lm_finance_native_229cfa04a4cd44d3ee72",
+      "entity_version": 1,
+      "deal_id": "deal_lm",
+      "document_id": "doc_lm_finance_native",
+      "document_version": 1,
+      "locator": {
+        "kind": "docx_paragraph",
+        "part_uri": "word/document.xml",
+        "block_index": 4,
+        "paragraph_index": 0,
+        "heading_path": [
+          "Supporting schedule"
+        ]
+      },
+      "normalized_text": "Supporting schedule",
+      "text_sha256": "7decbc99c75521e4fda12c01f9fe822dad952494b7e566d35006fc6f62990054",
+      "quote": "Supporting schedule",
+      "start": 0,
+      "end": 19,
+      "locator_status": "validated",
+      "extraction_method": "parsed"
+    },
+    {
+      "id": "span_doc_lm_finance_native_951fd38b5131dba74984",
+      "entity_version": 1,
+      "deal_id": "deal_lm",
+      "document_id": "doc_lm_finance_native",
+      "document_version": 1,
+      "locator": {
+        "kind": "docx_table_cell",
+        "part_uri": "word/document.xml",
+        "table_index": 0,
+        "row": 0,
+        "column": 0,
+        "paragraph_index": 0,
+        "heading_path": [
+          "Supporting schedule"
+        ]
+      },
+      "normalized_text": "Item",
+      "text_sha256": "652bcc3a478428893cc505ae19f847b49be52f861bedc64bb192ceed409fa733",
+      "quote": "Item",
+      "start": 0,
+      "end": 4,
+      "locator_status": "validated",
+      "extraction_method": "parsed"
+    },
+    {
+      "id": "span_doc_lm_finance_native_8e421c727fa16d50fc48",
+      "entity_version": 1,
+      "deal_id": "deal_lm",
+      "document_id": "doc_lm_finance_native",
+      "document_version": 1,
+      "locator": {
+        "kind": "docx_table_cell",
+        "part_uri": "word/document.xml",
+        "table_index": 0,
+        "row": 0,
+        "column": 1,
+        "paragraph_index": 0,
+        "heading_path": [
+          "Supporting schedule"
+        ]
+      },
+      "normalized_text": "Reported value",
+      "text_sha256": "0dae640ac8d9cc108a0357181d0ffbca5dc98e24959e6e1513635f9453130bf2",
+      "quote": "Reported value",
+      "start": 0,
+      "end": 14,
+      "locator_status": "validated",
+      "extraction_method": "parsed"
+    },
+    {
+      "id": "span_doc_lm_finance_native_d2a2a6988335d57276e2",
+      "entity_version": 1,
+      "deal_id": "deal_lm",
+      "document_id": "doc_lm_finance_native",
+      "document_version": 1,
+      "locator": {
+        "kind": "docx_table_cell",
+        "part_uri": "word/document.xml",
+        "table_index": 0,
+        "row": 1,
+        "column": 0,
+        "paragraph_index": 0,
+        "heading_path": [
+          "Supporting schedule"
+        ]
+      },
+      "normalized_text": "Revenue",
+      "text_sha256": "c4b7330bd91e0c971041618056cb7201fd3f384e5db390bc89230d70712d7a47",
+      "quote": "Revenue",
+      "start": 0,
+      "end": 7,
+      "locator_status": "validated",
+      "extraction_method": "parsed"
+    },
+    {
+      "id": "span_doc_lm_finance_native_4e9c13fe8e8d42fd3cfa",
+      "entity_version": 1,
+      "deal_id": "deal_lm",
+      "document_id": "doc_lm_finance_native",
+      "document_version": 1,
+      "locator": {
+        "kind": "docx_table_cell",
+        "part_uri": "word/document.xml",
+        "table_index": 0,
+        "row": 1,
+        "column": 1,
+        "paragraph_index": 0,
+        "heading_path": [
+          "Supporting schedule"
+        ]
+      },
+      "normalized_text": "USD 3,000,000",
+      "text_sha256": "013ce5554c97e7c90da8681fa7544d25ead44fb84cadc997688814b9b42f1c41",
+      "quote": "USD 3,000,000",
+      "start": 0,
+      "end": 13,
+      "locator_status": "validated",
+      "extraction_method": "parsed"
+    },
+    {
+      "id": "span_doc_lm_finance_native_8645d3508fb596edd032",
+      "entity_version": 1,
+      "deal_id": "deal_lm",
+      "document_id": "doc_lm_finance_native",
+      "document_version": 1,
+      "locator": {
+        "kind": "docx_table_cell",
+        "part_uri": "word/document.xml",
+        "table_index": 0,
+        "row": 2,
+        "column": 0,
+        "paragraph_index": 0,
+        "heading_path": [
+          "Supporting schedule"
+        ]
+      },
+      "normalized_text": "Cogs",
+      "text_sha256": "7d9bd4cbd637e1ba0a803fc9ad7844979d8adc8d5f60f35f29db5116ab8cb4b7",
+      "quote": "Cogs",
+      "start": 0,
+      "end": 4,
+      "locator_status": "validated",
+      "extraction_method": "parsed"
+    },
+    {
+      "id": "span_doc_lm_finance_native_26599c91b32a1391da26",
+      "entity_version": 1,
+      "deal_id": "deal_lm",
+      "document_id": "doc_lm_finance_native",
+      "document_version": 1,
+      "locator": {
+        "kind": "docx_table_cell",
+        "part_uri": "word/document.xml",
+        "table_index": 0,
+        "row": 2,
+        "column": 1,
+        "paragraph_index": 0,
+        "heading_path": [
+          "Supporting schedule"
+        ]
+      },
+      "normalized_text": "USD 1,800,000",
+      "text_sha256": "4f6215495d4298da286561df43d4b83d6ecb9b14a71400d385e43b6493f14fd1",
+      "quote": "USD 1,800,000",
+      "start": 0,
+      "end": 13,
+      "locator_status": "validated",
+      "extraction_method": "parsed"
+    },
+    {
+      "id": "span_doc_lm_finance_native_3f4c417f6a9cea048e7f",
+      "entity_version": 1,
+      "deal_id": "deal_lm",
+      "document_id": "doc_lm_finance_native",
+      "document_version": 1,
+      "locator": {
+        "kind": "docx_table_cell",
+        "part_uri": "word/document.xml",
+        "table_index": 0,
+        "row": 3,
+        "column": 0,
+        "paragraph_index": 0,
+        "heading_path": [
+          "Supporting schedule"
+        ]
+      },
+      "normalized_text": "Opex Excluding Da",
+      "text_sha256": "17f9927c3b0922289daa19ab93073807ac2f2f2793c31cb00778e16b7f15a08a",
+      "quote": "Opex Excluding Da",
+      "start": 0,
+      "end": 17,
+      "locator_status": "validated",
+      "extraction_method": "parsed"
+    },
+    {
+      "id": "span_doc_lm_finance_native_de8848e509cc35803fc6",
+      "entity_version": 1,
+      "deal_id": "deal_lm",
+      "document_id": "doc_lm_finance_native",
+      "document_version": 1,
+      "locator": {
+        "kind": "docx_table_cell",
+        "part_uri": "word/document.xml",
+        "table_index": 0,
+        "row": 3,
+        "column": 1,
+        "paragraph_index": 0,
+        "heading_path": [
+          "Supporting schedule"
+        ]
+      },
+      "normalized_text": "USD 900,000",
+      "text_sha256": "9ee683bb5f2f422a0803856046f24cd34791d8634fbab916d7d5800ed68dfc26",
+      "quote": "USD 900,000",
+      "start": 0,
+      "end": 11,
+      "locator_status": "validated",
+      "extraction_method": "parsed"
+    },
+    {
+      "id": "span_doc_lm_finance_native_bf913c81d0add2fe8608",
+      "entity_version": 1,
+      "deal_id": "deal_lm",
+      "document_id": "doc_lm_finance_native",
+      "document_version": 1,
+      "locator": {
+        "kind": "docx_table_cell",
+        "part_uri": "word/document.xml",
+        "table_index": 0,
+        "row": 4,
+        "column": 0,
+        "paragraph_index": 0,
+        "heading_path": [
+          "Supporting schedule"
+        ]
+      },
+      "normalized_text": "Ebitda",
+      "text_sha256": "a1e7ee790853e0d8c31a974f11937316cd534558972c9e0b8a6dc6535c9594a2",
+      "quote": "Ebitda",
+      "start": 0,
+      "end": 6,
+      "locator_status": "validated",
+      "extraction_method": "parsed"
+    },
+    {
+      "id": "span_doc_lm_finance_native_71a1e065f07bbf71f8c1",
+      "entity_version": 1,
+      "deal_id": "deal_lm",
+      "document_id": "doc_lm_finance_native",
+      "document_version": 1,
+      "locator": {
+        "kind": "docx_table_cell",
+        "part_uri": "word/document.xml",
+        "table_index": 0,
+        "row": 4,
+        "column": 1,
+        "paragraph_index": 0,
+        "heading_path": [
+          "Supporting schedule"
+        ]
+      },
+      "normalized_text": "USD 300,000",
+      "text_sha256": "a44b4b6b84bae317f432a180cb8e1411003bf3f5e98502db67ea5cb1927a78d7",
+      "quote": "USD 300,000",
+      "start": 0,
+      "end": 11,
+      "locator_status": "validated",
+      "extraction_method": "parsed"
+    },
+    {
+      "id": "span_doc_lm_finance_native_ba53849d3553b02b86d8",
+      "entity_version": 1,
+      "deal_id": "deal_lm",
+      "document_id": "doc_lm_finance_native",
+      "document_version": 1,
+      "locator": {
+        "kind": "docx_table_cell",
+        "part_uri": "word/document.xml",
+        "table_index": 0,
+        "row": 5,
+        "column": 0,
+        "paragraph_index": 0,
+        "heading_path": [
+          "Supporting schedule"
+        ]
+      },
+      "normalized_text": "Ar",
+      "text_sha256": "29f94193b135c8842b64a72126ec8145a2b47c7d346e6919fa6a8ba1331d352f",
+      "quote": "Ar",
+      "start": 0,
+      "end": 2,
+      "locator_status": "validated",
+      "extraction_method": "parsed"
+    },
+    {
+      "id": "span_doc_lm_finance_native_d5f800a520bbbd83b24f",
+      "entity_version": 1,
+      "deal_id": "deal_lm",
+      "document_id": "doc_lm_finance_native",
+      "document_version": 1,
+      "locator": {
+        "kind": "docx_table_cell",
+        "part_uri": "word/document.xml",
+        "table_index": 0,
+        "row": 5,
+        "column": 1,
+        "paragraph_index": 0,
+        "heading_path": [
+          "Supporting schedule"
+        ]
+      },
+      "normalized_text": "USD 500,000",
+      "text_sha256": "9e7e1ad41358a59d2b4dfce913cb40077dab47df358a115de76ca7f3b1b62312",
+      "quote": "USD 500,000",
+      "start": 0,
+      "end": 11,
+      "locator_status": "validated",
+      "extraction_method": "parsed"
+    },
+    {
+      "id": "span_doc_lm_finance_native_ccf7a60d60d04d3392d5",
+      "entity_version": 1,
+      "deal_id": "deal_lm",
+      "document_id": "doc_lm_finance_native",
+      "document_version": 1,
+      "locator": {
+        "kind": "docx_table_cell",
+        "part_uri": "word/document.xml",
+        "table_index": 0,
+        "row": 6,
+        "column": 0,
+        "paragraph_index": 0,
+        "heading_path": [
+          "Supporting schedule"
+        ]
+      },
+      "normalized_text": "Inventory",
+      "text_sha256": "758f487fe8e9fcc59cec4694d95a9032224f967b29f39543a1fb04e2901b079e",
+      "quote": "Inventory",
+      "start": 0,
+      "end": 9,
+      "locator_status": "validated",
+      "extraction_method": "parsed"
+    },
+    {
+      "id": "span_doc_lm_finance_native_2373f8acb6dd782e68f0",
+      "entity_version": 1,
+      "deal_id": "deal_lm",
+      "document_id": "doc_lm_finance_native",
+      "document_version": 1,
+      "locator": {
+        "kind": "docx_table_cell",
+        "part_uri": "word/document.xml",
+        "table_index": 0,
+        "row": 6,
+        "column": 1,
+        "paragraph_index": 0,
+        "heading_path": [
+          "Supporting schedule"
+        ]
+      },
+      "normalized_text": "USD 0",
+      "text_sha256": "366de01a9f80b6405134669b69c4ec4b6a5265e19cde9955328d6ae6dd15125a",
+      "quote": "USD 0",
+      "start": 0,
+      "end": 5,
+      "locator_status": "validated",
+      "extraction_method": "parsed"
+    },
+    {
+      "id": "span_doc_lm_finance_native_773ee2a677e06fabacb2",
+      "entity_version": 1,
+      "deal_id": "deal_lm",
+      "document_id": "doc_lm_finance_native",
+      "document_version": 1,
+      "locator": {
+        "kind": "docx_table_cell",
+        "part_uri": "word/document.xml",
+        "table_index": 0,
+        "row": 7,
+        "column": 0,
+        "paragraph_index": 0,
+        "heading_path": [
+          "Supporting schedule"
+        ]
+      },
+      "normalized_text": "Ap",
+      "text_sha256": "e7d8ccd805a78737f3b7904df3217d2a473cbdee698a90f14443018e1a0fc925",
+      "quote": "Ap",
+      "start": 0,
+      "end": 2,
+      "locator_status": "validated",
+      "extraction_method": "parsed"
+    },
+    {
+      "id": "span_doc_lm_finance_native_c82577118591733c8618",
+      "entity_version": 1,
+      "deal_id": "deal_lm",
+      "document_id": "doc_lm_finance_native",
+      "document_version": 1,
+      "locator": {
+        "kind": "docx_table_cell",
+        "part_uri": "word/document.xml",
+        "table_index": 0,
+        "row": 7,
+        "column": 1,
+        "paragraph_index": 0,
+        "heading_path": [
+          "Supporting schedule"
+        ]
+      },
+      "normalized_text": "USD 200,000",
+      "text_sha256": "33931a5a57428e86f8bfa447c2e00e2e769f8763d648f1cc58413219be0da556",
+      "quote": "USD 200,000",
+      "start": 0,
+      "end": 11,
+      "locator_status": "validated",
+      "extraction_method": "parsed"
+    },
+    {
+      "id": "span_doc_lm_finance_native_5007db5633854f42a732",
+      "entity_version": 1,
+      "deal_id": "deal_lm",
+      "document_id": "doc_lm_finance_native",
+      "document_version": 1,
+      "locator": {
+        "kind": "docx_table_cell",
+        "part_uri": "word/document.xml",
+        "table_index": 0,
+        "row": 8,
+        "column": 0,
+        "paragraph_index": 0,
+        "heading_path": [
+          "Supporting schedule"
+        ]
+      },
+      "normalized_text": "Nwc Operating",
+      "text_sha256": "ebb4aef61f1baa1da993098fc276809f3ec55f7500ae6f755e19aa3512bd2643",
+      "quote": "Nwc Operating",
+      "start": 0,
+      "end": 13,
+      "locator_status": "validated",
+      "extraction_method": "parsed"
+    },
+    {
+      "id": "span_doc_lm_finance_native_77daf4d8ee3046296a7c",
+      "entity_version": 1,
+      "deal_id": "deal_lm",
+      "document_id": "doc_lm_finance_native",
+      "document_version": 1,
+      "locator": {
+        "kind": "docx_table_cell",
+        "part_uri": "word/document.xml",
+        "table_index": 0,
+        "row": 8,
+        "column": 1,
+        "paragraph_index": 0,
+        "heading_path": [
+          "Supporting schedule"
+        ]
+      },
+      "normalized_text": "USD 300,000",
+      "text_sha256": "a44b4b6b84bae317f432a180cb8e1411003bf3f5e98502db67ea5cb1927a78d7",
+      "quote": "USD 300,000",
+      "start": 0,
+      "end": 11,
+      "locator_status": "validated",
+      "extraction_method": "parsed"
+    },
+    {
+      "id": "span_doc_lm_finance_native_58012ed432f6a29ee560",
+      "entity_version": 1,
+      "deal_id": "deal_lm",
+      "document_id": "doc_lm_finance_native",
+      "document_version": 1,
+      "locator": {
+        "kind": "docx_table_cell",
+        "part_uri": "word/document.xml",
+        "table_index": 0,
+        "row": 9,
+        "column": 0,
+        "paragraph_index": 0,
+        "heading_path": [
+          "Supporting schedule"
+        ]
+      },
+      "normalized_text": "Cash",
+      "text_sha256": "e2da108f63008e441619d6e89d6389cafcb9a80dd4fe7059c677e1a54fa07bbe",
+      "quote": "Cash",
+      "start": 0,
+      "end": 4,
+      "locator_status": "validated",
+      "extraction_method": "parsed"
+    },
+    {
+      "id": "span_doc_lm_finance_native_25d9ce2798d285da6ff2",
+      "entity_version": 1,
+      "deal_id": "deal_lm",
+      "document_id": "doc_lm_finance_native",
+      "document_version": 1,
+      "locator": {
+        "kind": "docx_table_cell",
+        "part_uri": "word/document.xml",
+        "table_index": 0,
+        "row": 9,
+        "column": 1,
+        "paragraph_index": 0,
+        "heading_path": [
+          "Supporting schedule"
+        ]
+      },
+      "normalized_text": "USD 250,000",
+      "text_sha256": "93e1ea8c570ca98dc0af99a2b6c5382c623b1eb229d9278147ca45c12d51f2f3",
+      "quote": "USD 250,000",
+      "start": 0,
+      "end": 11,
+      "locator_status": "validated",
+      "extraction_method": "parsed"
+    },
+    {
+      "id": "span_doc_lm_finance_native_7f9852fb69f06ab34599",
+      "entity_version": 1,
+      "deal_id": "deal_lm",
+      "document_id": "doc_lm_finance_native",
+      "document_version": 1,
+      "locator": {
+        "kind": "docx_table_cell",
+        "part_uri": "word/document.xml",
+        "table_index": 0,
+        "row": 10,
+        "column": 0,
+        "paragraph_index": 0,
+        "heading_path": [
+          "Supporting schedule"
+        ]
+      },
+      "normalized_text": "Debt",
+      "text_sha256": "026e2f9afbc7c2e32aa17e5f4d16b3229de4042c46ecb233b9d204d438d0bfa7",
+      "quote": "Debt",
+      "start": 0,
+      "end": 4,
+      "locator_status": "validated",
+      "extraction_method": "parsed"
+    },
+    {
+      "id": "span_doc_lm_finance_native_c1903a543495dd6e9178",
+      "entity_version": 1,
+      "deal_id": "deal_lm",
+      "document_id": "doc_lm_finance_native",
+      "document_version": 1,
+      "locator": {
+        "kind": "docx_table_cell",
+        "part_uri": "word/document.xml",
+        "table_index": 0,
+        "row": 10,
+        "column": 1,
+        "paragraph_index": 0,
+        "heading_path": [
+          "Supporting schedule"
+        ]
+      },
+      "normalized_text": "USD 300,000",
+      "text_sha256": "a44b4b6b84bae317f432a180cb8e1411003bf3f5e98502db67ea5cb1927a78d7",
+      "quote": "USD 300,000",
+      "start": 0,
+      "end": 11,
+      "locator_status": "validated",
+      "extraction_method": "parsed"
+    },
+    {
+      "id": "span_doc_lm_schedule_native_603afc096c3cce9e5e12",
+      "entity_version": 1,
+      "deal_id": "deal_lm",
+      "document_id": "doc_lm_schedule_native",
+      "document_version": 1,
+      "locator": {
+        "kind": "pptx",
+        "slide": 1,
+        "shape_id": 2,
+        "paragraph_index": 0,
+        "table_cell": null
+      },
+      "normalized_text": "Lumen operating capacity",
+      "text_sha256": "9c04e6c2aceee9c13fa2176a813090ca0f8a4aba906099450c6f677ce3a64218",
+      "quote": "Lumen operating capacity",
+      "start": 0,
+      "end": 24,
+      "locator_status": "validated",
+      "extraction_method": "parsed"
+    },
+    {
+      "id": "span_doc_lm_schedule_native_7f61b2ac684ffb70e694",
+      "entity_version": 1,
+      "deal_id": "deal_lm",
+      "document_id": "doc_lm_schedule_native",
+      "document_version": 1,
+      "locator": {
+        "kind": "pptx",
+        "slide": 1,
+        "shape_id": 3,
+        "paragraph_index": 0,
+        "table_cell": null
+      },
+      "normalized_text": "FY2025 delivered 10,000 billable hours from 12,000 available hours.",
+      "text_sha256": "e4b2578999b96a240879c1d913be44f5d8ecd40cacfc120a62d80a589edaebda",
+      "quote": "FY2025 delivered 10,000 billable hours from 12,000 available hours.",
+      "start": 0,
+      "end": 67,
+      "locator_status": "validated",
+      "extraction_method": "parsed"
+    },
+    {
+      "id": "span_doc_lm_schedule_native_d57108b3e53952fe23a4",
+      "entity_version": 1,
+      "deal_id": "deal_lm",
+      "document_id": "doc_lm_schedule_native",
+      "document_version": 1,
+      "locator": {
+        "kind": "pptx",
+        "slide": 1,
+        "shape_id": 3,
+        "paragraph_index": 1,
+        "table_cell": null
+      },
+      "normalized_text": "USD 300 revenue and USD 180 direct cost per delivered hour.",
+      "text_sha256": "8bca70a98d71776b3758b3de3e3f71c20e5c0c9a6c9f29cea153ccae6a22c84b",
+      "quote": "USD 300 revenue and USD 180 direct cost per delivered hour.",
+      "start": 0,
+      "end": 59,
+      "locator_status": "validated",
+      "extraction_method": "parsed"
+    },
+    {
+      "id": "span_doc_lm_schedule_native_1cdc55c779abb10836e3",
+      "entity_version": 1,
+      "deal_id": "deal_lm",
+      "document_id": "doc_lm_schedule_native",
+      "document_version": 1,
+      "locator": {
+        "kind": "pptx",
+        "slide": 1,
+        "shape_id": 4,
+        "paragraph_index": 0,
+        "table_cell": null
+      },
+      "normalized_text": "SYNTHETIC EDUCATIONAL DATA / v1 / 2026-11-03 / No real company disclosure",
+      "text_sha256": "17e02858a0d61cf5c0ba4c9658ab6ab24341bc97c88848a06d03a0ef2efdebaf",
+      "quote": "SYNTHETIC EDUCATIONAL DATA / v1 / 2026-11-03 / No real company disclosure",
+      "start": 0,
+      "end": 73,
+      "locator_status": "validated",
+      "extraction_method": "parsed"
+    },
+    {
+      "id": "span_doc_lm_schedule_native_90c3e786bf39e269f66b",
+      "entity_version": 1,
+      "deal_id": "deal_lm",
+      "document_id": "doc_lm_schedule_native",
+      "document_version": 1,
+      "locator": {
+        "kind": "pptx",
+        "slide": 2,
+        "shape_id": 2,
+        "paragraph_index": 0,
+        "table_cell": null
+      },
+      "normalized_text": "Lumen customer concentration",
+      "text_sha256": "7213db6d93a74b22c5520b585f7732bc66649d87b23e8b70ba074af4e2e899b8",
+      "quote": "Lumen customer concentration",
+      "start": 0,
+      "end": 28,
+      "locator_status": "validated",
+      "extraction_method": "parsed"
+    },
+    {
+      "id": "span_doc_lm_schedule_native_6eab24dc2ebdf0b49249",
+      "entity_version": 1,
+      "deal_id": "deal_lm",
+      "document_id": "doc_lm_schedule_native",
+      "document_version": 1,
+      "locator": {
+        "kind": "pptx",
+        "slide": 2,
+        "shape_id": 3,
+        "paragraph_index": 0,
+        "table_cell": null
+      },
+      "normalized_text": "Fictional existing customer 1: USD 1,500,000 FY2025 revenue.",
+      "text_sha256": "dc1a55be7ebd0906e3501566da96873740409d1b0be7a33992a00bda4e65d371",
+      "quote": "Fictional existing customer 1: USD 1,500,000 FY2025 revenue.",
+      "start": 0,
+      "end": 60,
+      "locator_status": "validated",
+      "extraction_method": "parsed"
+    },
+    {
+      "id": "span_doc_lm_schedule_native_267757806f25d98a030c",
+      "entity_version": 1,
+      "deal_id": "deal_lm",
+      "document_id": "doc_lm_schedule_native",
+      "document_version": 1,
+      "locator": {
+        "kind": "pptx",
+        "slide": 2,
+        "shape_id": 3,
+        "paragraph_index": 1,
+        "table_cell": null
+      },
+      "normalized_text": "Fictional existing customer 2: USD 600,000 FY2025 revenue.",
+      "text_sha256": "8c2cdb9eab33001108d1041d12cb4a42c728fd313d80938a0123374b5d76b33f",
+      "quote": "Fictional existing customer 2: USD 600,000 FY2025 revenue.",
+      "start": 0,
+      "end": 58,
+      "locator_status": "validated",
+      "extraction_method": "parsed"
+    },
+    {
+      "id": "span_doc_lm_schedule_native_1dccdbe4d899920dab00",
+      "entity_version": 1,
+      "deal_id": "deal_lm",
+      "document_id": "doc_lm_schedule_native",
+      "document_version": 1,
+      "locator": {
+        "kind": "pptx",
+        "slide": 2,
+        "shape_id": 4,
+        "paragraph_index": 0,
+        "table_cell": null
+      },
+      "normalized_text": "SYNTHETIC EDUCATIONAL DATA / v1 / 2026-11-03 / No real company disclosure",
+      "text_sha256": "17e02858a0d61cf5c0ba4c9658ab6ab24341bc97c88848a06d03a0ef2efdebaf",
+      "quote": "SYNTHETIC EDUCATIONAL DATA / v1 / 2026-11-03 / No real company disclosure",
+      "start": 0,
+      "end": 73,
+      "locator_status": "validated",
+      "extraction_method": "parsed"
+    },
+    {
+      "id": "span_doc_lm_schedule_native_29a48f71b6beda05e92e",
+      "entity_version": 1,
+      "deal_id": "deal_lm",
+      "document_id": "doc_lm_schedule_native",
+      "document_version": 1,
+      "locator": {
+        "kind": "pptx",
+        "slide": 3,
+        "shape_id": 2,
+        "paragraph_index": 0,
+        "table_cell": null
+      },
+      "normalized_text": "Lumen remaining customer revenue",
+      "text_sha256": "374f4a24254a21c63ad1ad6ef7ee47159eecf3f25b6a35be0889c74ad156f1c7",
+      "quote": "Lumen remaining customer revenue",
+      "start": 0,
+      "end": 32,
+      "locator_status": "validated",
+      "extraction_method": "parsed"
+    },
+    {
+      "id": "span_doc_lm_schedule_native_be000cb21ca693e8ea95",
+      "entity_version": 1,
+      "deal_id": "deal_lm",
+      "document_id": "doc_lm_schedule_native",
+      "document_version": 1,
+      "locator": {
+        "kind": "pptx",
+        "slide": 3,
+        "shape_id": 3,
+        "paragraph_index": 0,
+        "table_cell": null
+      },
+      "normalized_text": "Fictional existing customer 3: USD 450,000 FY2025 revenue.",
+      "text_sha256": "fceac7920c5f36ca6c34a048e45aebce8100eab14454cdac75c0de3cea8c5e0b",
+      "quote": "Fictional existing customer 3: USD 450,000 FY2025 revenue.",
+      "start": 0,
+      "end": 58,
+      "locator_status": "validated",
+      "extraction_method": "parsed"
+    },
+    {
+      "id": "span_doc_lm_schedule_native_0542a3dd5ca60e5efd76",
+      "entity_version": 1,
+      "deal_id": "deal_lm",
+      "document_id": "doc_lm_schedule_native",
+      "document_version": 1,
+      "locator": {
+        "kind": "pptx",
+        "slide": 3,
+        "shape_id": 3,
+        "paragraph_index": 1,
+        "table_cell": null
+      },
+      "normalized_text": "Fictional existing customer 4: USD 450,000 FY2025 revenue.",
+      "text_sha256": "9ac7af4c3de70488996b29f0faa7a0b61556f5edbb2874ef24be0d30752be607",
+      "quote": "Fictional existing customer 4: USD 450,000 FY2025 revenue.",
+      "start": 0,
+      "end": 58,
+      "locator_status": "validated",
+      "extraction_method": "parsed"
+    },
+    {
+      "id": "span_doc_lm_schedule_native_e765263b5073e11b7d87",
+      "entity_version": 1,
+      "deal_id": "deal_lm",
+      "document_id": "doc_lm_schedule_native",
+      "document_version": 1,
+      "locator": {
+        "kind": "pptx",
+        "slide": 3,
+        "shape_id": 4,
+        "paragraph_index": 0,
+        "table_cell": null
+      },
+      "normalized_text": "SYNTHETIC EDUCATIONAL DATA / v1 / 2026-11-03 / No real company disclosure",
+      "text_sha256": "17e02858a0d61cf5c0ba4c9658ab6ab24341bc97c88848a06d03a0ef2efdebaf",
+      "quote": "SYNTHETIC EDUCATIONAL DATA / v1 / 2026-11-03 / No real company disclosure",
+      "start": 0,
+      "end": 73,
+      "locator_status": "validated",
+      "extraction_method": "parsed"
+    }
+  ],
+  "theses": [
+    {
+      "id": "thesis_lm",
+      "entity_version": 1,
+      "deal_id": "deal_lm",
+      "title": "By 2027-10-31 key-client renewal, labor capacity and collection evidence support the operating plan.",
+      "counter_thesis": "Commercial assumptions may not be supported by sufficient records.",
+      "claim_ids": [
+        "claim_lm"
+      ],
+      "review_status": "approved"
+    }
+  ],
+  "claims": [
+    {
+      "id": "claim_lm",
+      "entity_version": 1,
+      "deal_id": "deal_lm",
+      "thesis_id": "thesis_lm",
+      "statement": "By 2027-10-31 key-client renewal, labor capacity and collection evidence support the operating plan.",
+      "subject_key": "lm",
+      "period_start": "2026-11-01",
+      "period_end": "2027-10-31",
+      "claim_kind": "binary_hypothesis",
+      "source_span_ids": [
+        "span_lm_overview"
+      ],
+      "required_criterion_keys": [
+        "renewal",
+        "labor",
+        "margin",
+        "collection",
+        "capex"
+      ],
+      "support_status": "partial",
+      "truth_status": "document_only",
+      "review_status": "approved"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "ev_lm_initial",
+      "entity_version": 1,
+      "deal_id": "deal_lm",
+      "claim_id": "claim_lm",
+      "source_span_ids": [
+        "span_lm_overview"
+      ],
+      "stance": "supports",
+      "criterion_keys": [
+        "renewal"
+      ],
+      "provenance": "company_reported",
+      "source_reliability": 3,
+      "reliability_rationale": "Synthetic document inspected by fixture author; no independent authentication.",
+      "verification_level": "document_only",
+      "independent_check_reference": null,
+      "origin_key": "lm_initial",
+      "review_status": "approved",
+      "lifecycle": "active",
+      "created_at": "2026-11-03T00:00:00Z"
+    }
+  ],
+  "evidence_relations": [],
+  "dd_questions": [
+    {
+      "id": "q_lm_renewal",
+      "entity_version": 1,
+      "deal_id": "deal_lm",
+      "claim_id": "claim_lm",
+      "canonical_key": "lm.customer.renewal",
+      "issue": "Key-client renewal and termination rights",
+      "request_text": "Provide the complete key-client renewal agreement and all side letters effective during 2026-11-01 through 2027-10-31. Reconcile the renewal term and termination rights, explicitly resolving the 30-day termination conflict if present.",
+      "financial_driver": "customer_concentration",
+      "requirements": [
+        {
+          "key": "renewal",
+          "label": "renewal",
+          "min_reliability": 3,
+          "require_independent": false
+        }
+      ],
+      "materiality": {
+        "score": 5,
+        "basis": "analyst_rubric",
+        "exposure_minor": null,
+        "denominator_minor": null,
+        "rationale": "Predeclared synthetic scenario materiality; not a measured loss estimate.",
+        "source_span_ids": []
+      },
+      "obtainability": {
+        "score": 4,
+        "basis": "analyst_estimate",
+        "days": null,
+        "external_cost_minor": null,
+        "rationale": "Predeclared analyst estimate; validate with document owner in Local Live."
+      },
+      "review_status": "approved",
+      "workflow_status": "resolved",
+      "duplicate_of": null,
+      "owner_label": "Demo analyst"
+    },
+    {
+      "id": "q_lm_labor",
+      "entity_version": 1,
+      "deal_id": "deal_lm",
+      "claim_id": "claim_lm",
+      "canonical_key": "lm.labor.capacity",
+      "issue": "Roster and delivered hours support capacity",
+      "request_text": "Provide the FY2025 staffing roster and delivered-hours records reconciling 10,000 billed hours against 12,000 available hours, plus the capacity assumptions used for the 2026-11-01 through 2027-10-31 operating plan.",
+      "financial_driver": "unit_economics",
+      "requirements": [
+        {
+          "key": "labor",
+          "label": "labor",
+          "min_reliability": 3,
+          "require_independent": false
+        }
+      ],
+      "materiality": {
+        "score": 4,
+        "basis": "analyst_rubric",
+        "exposure_minor": null,
+        "denominator_minor": null,
+        "rationale": "Predeclared synthetic scenario materiality; not a measured loss estimate.",
+        "source_span_ids": []
+      },
+      "obtainability": {
+        "score": 5,
+        "basis": "analyst_estimate",
+        "days": null,
+        "external_cost_minor": null,
+        "rationale": "Predeclared analyst estimate; validate with document owner in Local Live."
+      },
+      "review_status": "approved",
+      "workflow_status": "open",
+      "duplicate_of": null,
+      "owner_label": "Demo analyst"
+    },
+    {
+      "id": "q_lm_margin",
+      "entity_version": 1,
+      "deal_id": "deal_lm",
+      "claim_id": "claim_lm",
+      "canonical_key": "lm.margin.bridge",
+      "issue": "Labor cost and contract margin reconciliation",
+      "request_text": "Provide the FY2025 labor-cost ledger and contract margin bridge reconciling USD 3,000,000 revenue and USD 1,800,000 direct costs, identifying overtime, subcontracting and nonrecurring items.",
+      "financial_driver": "ebitda",
+      "requirements": [
+        {
+          "key": "margin",
+          "label": "margin",
+          "min_reliability": 3,
+          "require_independent": false
+        }
+      ],
+      "materiality": {
+        "score": 4,
+        "basis": "analyst_rubric",
+        "exposure_minor": null,
+        "denominator_minor": null,
+        "rationale": "Predeclared synthetic scenario materiality; not a measured loss estimate.",
+        "source_span_ids": []
+      },
+      "obtainability": {
+        "score": 4,
+        "basis": "analyst_estimate",
+        "days": null,
+        "external_cost_minor": null,
+        "rationale": "Predeclared analyst estimate; validate with document owner in Local Live."
+      },
+      "review_status": "approved",
+      "workflow_status": "open",
+      "duplicate_of": null,
+      "owner_label": "Demo analyst"
+    },
+    {
+      "id": "q_lm_cash",
+      "entity_version": 1,
+      "deal_id": "deal_lm",
+      "claim_id": "claim_lm",
+      "canonical_key": "lm.collection",
+      "issue": "Subsequent collection of key-client invoices",
+      "request_text": "Provide subsequent bank receipts or settlement records matched to the key-client invoices included in FY2025 closing receivables, identifying invoice dates, collection dates and unresolved balances.",
+      "financial_driver": "nwc",
+      "requirements": [
+        {
+          "key": "collection",
+          "label": "collection",
+          "min_reliability": 3,
+          "require_independent": false
+        }
+      ],
+      "materiality": {
+        "score": 3,
+        "basis": "analyst_rubric",
+        "exposure_minor": null,
+        "denominator_minor": null,
+        "rationale": "Predeclared synthetic scenario materiality; not a measured loss estimate.",
+        "source_span_ids": []
+      },
+      "obtainability": {
+        "score": 5,
+        "basis": "analyst_estimate",
+        "days": null,
+        "external_cost_minor": null,
+        "rationale": "Predeclared analyst estimate; validate with document owner in Local Live."
+      },
+      "review_status": "approved",
+      "workflow_status": "open",
+      "duplicate_of": null,
+      "owner_label": "Demo analyst"
+    },
+    {
+      "id": "q_lm_capex",
+      "entity_version": 1,
+      "deal_id": "deal_lm",
+      "claim_id": "claim_lm",
+      "canonical_key": "lm.capex",
+      "issue": "Replacement equipment requirements",
+      "request_text": "Provide the equipment replacement schedule and supporting maintenance records for the 2026-11-01 through 2027-10-31 operating plan, separating maintenance expense from planned capital expenditure.",
+      "financial_driver": "capex",
+      "requirements": [
+        {
+          "key": "capex",
+          "label": "capex",
+          "min_reliability": 3,
+          "require_independent": false
+        }
+      ],
+      "materiality": {
+        "score": 2,
+        "basis": "analyst_rubric",
+        "exposure_minor": null,
+        "denominator_minor": null,
+        "rationale": "Predeclared synthetic scenario materiality; not a measured loss estimate.",
+        "source_span_ids": []
+      },
+      "obtainability": {
+        "score": 4,
+        "basis": "analyst_estimate",
+        "days": null,
+        "external_cost_minor": null,
+        "rationale": "Predeclared analyst estimate; validate with document owner in Local Live."
+      },
+      "review_status": "approved",
+      "workflow_status": "open",
+      "duplicate_of": null,
+      "owner_label": "Demo analyst"
+    }
+  ],
+  "ranking_snapshots": [
+    {
+      "id": "snap_lm_initial",
+      "entity_version": 1,
+      "deal_id": "deal_lm",
+      "state_revision": 1,
+      "scoring_version": "1.0.0",
+      "input_digest": "68ec6be528506760c1024b32c7f1a996cbdf2c8f62eb5ad3a8172f47a2d87ad0",
+      "created_at": "2026-11-03T00:00:00Z",
+      "trigger_event_id": null,
+      "rows": [
+        {
+          "question_id": "q_lm_labor",
+          "rank": 1,
+          "gap": 5.0,
+          "materiality": 4,
+          "obtainability": 5,
+          "score": 92.0,
+          "provisional": false,
+          "reason_codes": [
+            "EVIDENCE_GAP"
+          ]
+        },
+        {
+          "question_id": "q_lm_margin",
+          "rank": 2,
+          "gap": 5.0,
+          "materiality": 4,
+          "obtainability": 4,
+          "score": 89.0,
+          "provisional": false,
+          "reason_codes": [
+            "EVIDENCE_GAP"
+          ]
+        },
+        {
+          "question_id": "q_lm_cash",
+          "rank": 3,
+          "gap": 5.0,
+          "materiality": 3,
+          "obtainability": 5,
+          "score": 84.0,
+          "provisional": false,
+          "reason_codes": [
+            "EVIDENCE_GAP"
+          ]
+        },
+        {
+          "question_id": "q_lm_capex",
+          "rank": 4,
+          "gap": 5.0,
+          "materiality": 2,
+          "obtainability": 4,
+          "score": 73.0,
+          "provisional": false,
+          "reason_codes": [
+            "EVIDENCE_GAP"
+          ]
+        }
+      ],
+      "top3": [
+        "q_lm_labor",
+        "q_lm_margin",
+        "q_lm_cash"
+      ]
+    }
+  ],
+  "analyst_decisions": [
+    {
+      "id": "decision_lm_seed",
+      "entity_version": 1,
+      "deal_id": "deal_lm",
+      "actor_id": "actor_fixture_reviewer",
+      "actor_role": "reviewer",
+      "target_type": "seed",
+      "target_id": "deal_lm",
+      "target_version": 1,
+      "selection_digest": null,
+      "action": "approve",
+      "reason": "Authored synthetic initial state for specification arithmetic only.",
+      "base_revision": 0,
+      "decided_at": "2026-11-03T00:00:00Z"
+    }
+  ],
+  "audit_events": [
+    {
+      "id": "audit_lm_seed",
+      "entity_version": 1,
+      "deal_id": "deal_lm",
+      "sequence": 1,
+      "event_type": "seed_created",
+      "actor_id": "actor_fixture_reviewer",
+      "decision_id": "decision_lm_seed",
+      "before_revision": 0,
+      "after_revision": 1,
+      "idempotency_key": "lm_seed_v1",
+      "before_snapshot_id": null,
+      "after_snapshot_id": "snap_lm_initial",
+      "reason": "Initial synthetic branch.",
+      "created_at": "2026-11-03T00:00:00Z",
+      "previous_hash": null,
+      "event_hash": "e6565f138c45850e00d50571e49e08b3bea543912ddec96456c06bc3c2582a64"
+    }
+  ],
+  "analysis_runs": [],
+  "head_snapshot_id": "snap_lm_initial"
+}

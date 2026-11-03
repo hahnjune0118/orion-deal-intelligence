@@ -1,0 +1,345 @@
+{
+  "analyst_note": "Birch contract and execution resolve; common ownership contradicts independent customer validation. Corrected historical count resolves only the taxonomy request.",
+  "base_revision": 4,
+  "contract_version": "1.0.0",
+  "created_at": "2026-11-25T00:00:00Z",
+  "deal_id": "deal_nb",
+  "documents": [
+    {
+      "asset_status": "file_verified",
+      "created_at": "2026-11-25T00:00:00Z",
+      "deal_id": "deal_nb",
+      "document_version": 1,
+      "entity_version": 1,
+      "file_sha256": "94ec30ff50213a46760681db4512b727db4d9f685f946f150a8d4132c20d6e47",
+      "filename": "nb_doc_followup.docx",
+      "format": "docx",
+      "id": "nb_doc_followup",
+      "origin_key": "nb_doc_followup",
+      "parse_status": "parsed",
+      "parser_version": "orion-native-1.0.0",
+      "source_origin": "counterparty"
+    }
+  ],
+  "evidence": [
+    {
+      "claim_id": "nb_claim_h1",
+      "created_at": "2026-11-25T00:00:00Z",
+      "criterion_keys": [
+        "contract_b",
+        "accept_b",
+        "cash_b"
+      ],
+      "deal_id": "deal_nb",
+      "entity_version": 1,
+      "id": "nb_ev_contract_b",
+      "independent_check_reference": null,
+      "lifecycle": "active",
+      "origin_key": "nb_birch_contract_execution",
+      "provenance": "counterparty_reported",
+      "reliability_rationale": "Scenario author assessed documentary specificity; simulated counterparties are not actual independent authentication.",
+      "review_status": "draft",
+      "source_reliability": 4,
+      "source_span_ids": [
+        "span_nb_doc_followup_d8931cc8487c2c94e6e3"
+      ],
+      "stance": "supports",
+      "verification_level": "document_only"
+    },
+    {
+      "claim_id": "nb_claim_h1",
+      "created_at": "2026-11-25T00:00:00Z",
+      "criterion_keys": [
+        "independence"
+      ],
+      "deal_id": "deal_nb",
+      "entity_version": 1,
+      "id": "nb_ev_ownership",
+      "independent_check_reference": null,
+      "lifecycle": "active",
+      "origin_key": "nb_ownership_registry",
+      "provenance": "counterparty_reported",
+      "reliability_rationale": "Scenario author assessed documentary specificity; simulated counterparties are not actual independent authentication.",
+      "review_status": "draft",
+      "source_reliability": 4,
+      "source_span_ids": [
+        "span_nb_doc_followup_fc41a606074581e3373c"
+      ],
+      "stance": "refutes",
+      "verification_level": "document_only"
+    },
+    {
+      "claim_id": "nb_claim_h3",
+      "created_at": "2026-11-25T00:00:00Z",
+      "criterion_keys": [
+        "count"
+      ],
+      "deal_id": "deal_nb",
+      "entity_version": 1,
+      "id": "nb_ev_count_corrected",
+      "independent_check_reference": null,
+      "lifecycle": "active",
+      "origin_key": "nb_taxonomy_correction",
+      "provenance": "company_reported",
+      "reliability_rationale": "Scenario author assessed documentary specificity; simulated counterparties are not actual independent authentication.",
+      "review_status": "draft",
+      "source_reliability": 3,
+      "source_span_ids": [
+        "span_nb_doc_followup_68afd63803495778c62d"
+      ],
+      "stance": "supports",
+      "verification_level": "document_only"
+    },
+    {
+      "claim_id": "nb_claim_h2",
+      "created_at": "2026-11-25T00:00:00Z",
+      "criterion_keys": [],
+      "deal_id": "deal_nb",
+      "entity_version": 1,
+      "id": "nb_ev_cost_residual",
+      "independent_check_reference": null,
+      "lifecycle": "active",
+      "origin_key": "nb_aster_cost_v2",
+      "provenance": "company_reported",
+      "reliability_rationale": "Scenario author assessed documentary specificity; simulated counterparties are not actual independent authentication.",
+      "review_status": "draft",
+      "source_reliability": 3,
+      "source_span_ids": [
+        "span_nb_doc_followup_2e38a29426458d1b2417"
+      ],
+      "stance": "context",
+      "verification_level": "document_only"
+    }
+  ],
+  "evidence_relations": [
+    {
+      "deal_id": "deal_nb",
+      "entity_version": 1,
+      "from_evidence_id": "nb_ev_count_corrected",
+      "id": "nb_rel_taxonomy_correction",
+      "rationale": "Dated correction explicitly replaces the initial taxonomy dispute, while ARR and ownership remain unresolved.",
+      "relation_type": "supersedes",
+      "review_status": "draft",
+      "scope_criterion_keys": [
+        "count"
+      ],
+      "to_evidence_id": "nb_ev_taxonomy"
+    }
+  ],
+  "id": "nb_update_t4",
+  "idempotency_key": "nb:t4",
+  "kind": "staged_evidence_update",
+  "source_spans": [
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_followup",
+      "document_version": 1,
+      "end": 53,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_followup_299a67e94a02783d9a36",
+      "locator": {
+        "block_index": 0,
+        "heading_path": [],
+        "kind": "docx_paragraph",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml"
+      },
+      "locator_status": "validated",
+      "normalized_text": "Northstar Follow Up Commercial and Ownership Evidence",
+      "quote": "Northstar Follow Up Commercial and Ownership Evidence",
+      "start": 0,
+      "text_sha256": "8ad6b654d96f6634ef78d985d5b4ee8fc945f61550170b6bb0ecda99f385f577"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_followup",
+      "document_version": 1,
+      "end": 52,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_followup_1b7ea6ff154d021ed813",
+      "locator": {
+        "block_index": 1,
+        "heading_path": [],
+        "kind": "docx_paragraph",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml"
+      },
+      "locator_status": "validated",
+      "normalized_text": "SYNTHETIC | nb_doc_followup | 2026-11-25 | Version 1",
+      "quote": "SYNTHETIC | nb_doc_followup | 2026-11-25 | Version 1",
+      "start": 0,
+      "text_sha256": "9cc2d5dd655d1cf4211a57c4e22cb3c31a4bc8458a4eddc8abb5d3ca79175bdb"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_followup",
+      "document_version": 1,
+      "end": 47,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_followup_b0cc2d9641501f2a098c",
+      "locator": {
+        "block_index": 2,
+        "heading_path": [],
+        "kind": "docx_paragraph",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml"
+      },
+      "locator_status": "validated",
+      "normalized_text": "Reporting period: 2026-11-22 through 2026-11-25",
+      "quote": "Reporting period: 2026-11-22 through 2026-11-25",
+      "start": 0,
+      "text_sha256": "a957c3d5dd6637bacbb872dcdd7ba3796f13a61a8f3c5ef98018318148af5034"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_followup",
+      "document_version": 1,
+      "end": 155,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_followup_7050bdf735475e075e5e",
+      "locator": {
+        "block_index": 3,
+        "heading_path": [],
+        "kind": "docx_paragraph",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml"
+      },
+      "locator_status": "validated",
+      "normalized_text": "Independent expanded research scenario NB version 3.0.0. This is not a continuation of legacy Northstar NS; contract, cash and customer assumptions differ.",
+      "quote": "Independent expanded research scenario NB version 3.0.0. This is not a continuation of legacy Northstar NS; contract, cash and customer assumptions differ.",
+      "start": 0,
+      "text_sha256": "9d225433a95c28903c8f68929f3ef8c4737d81ce8e4b713cf3816ad4ecea3f93"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_followup",
+      "document_version": 1,
+      "end": 132,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_followup_1b51d0e537ff5c3b5ef6",
+      "locator": {
+        "block_index": 4,
+        "heading_path": [],
+        "kind": "docx_paragraph",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml"
+      },
+      "locator_status": "validated",
+      "normalized_text": "SYNTHETIC DATA. Fictional follow-up management response with simulated contract, acceptance and ownership extracts dated 2026-11-25.",
+      "quote": "SYNTHETIC DATA. Fictional follow-up management response with simulated contract, acceptance and ownership extracts dated 2026-11-25.",
+      "start": 0,
+      "text_sha256": "f38606adf36c86322abb4c087a6cee8e89f7bf328afef4a52471c11aea5bba5e"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_followup",
+      "document_version": 1,
+      "end": 219,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_followup_d8931cc8487c2c94e6e3",
+      "locator": {
+        "block_index": 5,
+        "heading_path": [],
+        "kind": "docx_paragraph",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml"
+      },
+      "locator_status": "validated",
+      "normalized_text": "Birch signed an annual subscription contract for USD 360,000 on 2026-11-22. Its acceptance certificate dated 2026-11-25 records benchmark completion; the first USD 90,000 quarterly invoice was paid in full on that date.",
+      "quote": "Birch signed an annual subscription contract for USD 360,000 on 2026-11-22. Its acceptance certificate dated 2026-11-25 records benchmark completion; the first USD 90,000 quarterly invoice was paid in full on that date.",
+      "start": 0,
+      "text_sha256": "2b1285f25fd8d80ed85dbd4fd8f5365851451ff99155d978e14b96885c97c8b0"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_followup",
+      "document_version": 1,
+      "end": 180,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_followup_fc41a606074581e3373c",
+      "locator": {
+        "block_index": 6,
+        "heading_path": [],
+        "kind": "docx_paragraph",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml"
+      },
+      "locator_status": "validated",
+      "normalized_text": "The simulated ownership registry states that Birch is wholly owned by Aster. These two legal counterparties therefore do not establish two independently controlled customer groups.",
+      "quote": "The simulated ownership registry states that Birch is wholly owned by Aster. These two legal counterparties therefore do not establish two independently controlled customer groups.",
+      "start": 0,
+      "text_sha256": "04f212107f9264744685ab09784666d4e90e212dc973184e44683cf220d9e526"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_followup",
+      "document_version": 1,
+      "end": 210,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_followup_68afd63803495778c62d",
+      "locator": {
+        "block_index": 7,
+        "heading_path": [],
+        "kind": "docx_paragraph",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml"
+      },
+      "locator_status": "validated",
+      "normalized_text": "Management corrects the initial customer taxonomy: on 2026-11-03 there were two paying customers, one PoC and one unsigned prospect. On 2026-11-25 Aster and Birch have paid contracts but form one control group.",
+      "quote": "Management corrects the initial customer taxonomy: on 2026-11-03 there were two paying customers, one PoC and one unsigned prospect. On 2026-11-25 Aster and Birch have paid contracts but form one control group.",
+      "start": 0,
+      "text_sha256": "3591126dfd262bed4d31df98e7b3eb1dd0621aa65d4cf50831739714780e2fe4"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_followup",
+      "document_version": 1,
+      "end": 192,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_followup_2e38a29426458d1b2417",
+      "locator": {
+        "block_index": 8,
+        "heading_path": [],
+        "kind": "docx_paragraph",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml"
+      },
+      "locator_status": "validated",
+      "normalized_text": "No revised pricing agreement, inference-usage reduction or independently verified customer cost reduction is supplied. Aster contribution remains negative in the latest supplied cost schedule.",
+      "quote": "No revised pricing agreement, inference-usage reduction or independently verified customer cost reduction is supplied. Aster contribution remains negative in the latest supplied cost schedule.",
+      "start": 0,
+      "text_sha256": "75c51c5fc355d3c240b6ce7288c9fe49ac693a9e73079638c53ee35c0458ffd8"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_followup",
+      "document_version": 1,
+      "end": 157,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_followup_13880e4d29a85c16d1f1",
+      "locator": {
+        "block_index": 9,
+        "heading_path": [],
+        "kind": "docx_paragraph",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml"
+      },
+      "locator_status": "validated",
+      "normalized_text": "Management has not produced an additional independently controlled new customer, Aster remaining cash receipt, or a supported eight-deployment capacity plan.",
+      "quote": "Management has not produced an additional independently controlled new customer, Aster remaining cash receipt, or a supported eight-deployment capacity plan.",
+      "start": 0,
+      "text_sha256": "b55b2706e874a060a47fa5ba7c9ac7c325c8a86f9993fdd3b672dbf5332a4c93"
+    }
+  ],
+  "validation_status": "validated"
+}

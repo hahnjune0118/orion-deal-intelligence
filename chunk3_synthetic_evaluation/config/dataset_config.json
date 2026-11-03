@@ -1,0 +1,35 @@
+{
+  "case_summaries": [
+    {
+      "case": "nb",
+      "documents": 8,
+      "events": 4,
+      "evidence": 26,
+      "hypotheses": 3,
+      "questions": 13
+    },
+    {
+      "case": "mf",
+      "documents": 6,
+      "events": 1,
+      "evidence": 23,
+      "hypotheses": 3,
+      "questions": 9
+    }
+  ],
+  "dataset_version": "3.0.0",
+  "development": [
+    "nb"
+  ],
+  "frozen_rule_regression": [
+    "mf"
+  ],
+  "generation": "deterministic original authored worlds; no stochastic calls",
+  "legacy_cases": [
+    "ns",
+    "cd",
+    "lm"
+  ],
+  "seed": 20261103,
+  "statistical_holdout": false
+}

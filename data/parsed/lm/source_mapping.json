@@ -1,0 +1,47 @@
+{
+  "case_id": "lm",
+  "fixture_input_digest": "931ba09371dc7207c78886777fb0e99a80c0f67edbc3635465c887462897b95d",
+  "parser_version": "orion-native-1.0.0",
+  "spans": [
+    {
+      "source_span_id": "span_lm_overview",
+      "old_locator": {
+        "kind": "pdf",
+        "page": 1,
+        "block_index": 0
+      },
+      "native_locator": {
+        "kind": "pdf",
+        "page": 1,
+        "block_index": 0
+      },
+      "old_text_sha256": "8f4d54dba4488f516cffb2c1d9fe7539750b7a302df3850f6bbfe6ad8102d163",
+      "native_text_sha256": "55b6b9f510aa3fb27fa73cd18019cd89e71d206e3e7cd780675d9f614113202c"
+    },
+    {
+      "source_span_id": "span_lm_update",
+      "old_locator": {
+        "kind": "docx_paragraph",
+        "part_uri": "word/document.xml",
+        "block_index": 0,
+        "paragraph_index": 0,
+        "heading_path": [
+          "Synthetic source"
+        ]
+      },
+      "native_locator": {
+        "kind": "docx_paragraph",
+        "part_uri": "word/document.xml",
+        "block_index": 3,
+        "paragraph_index": 0,
+        "heading_path": [
+          "Source narrative"
+        ]
+      },
+      "old_text_sha256": "c338f07d5a0c439668c136d9999e656febaddbe6b34d4a55b7f431b3517788cf",
+      "native_text_sha256": "c338f07d5a0c439668c136d9999e656febaddbe6b34d4a55b7f431b3517788cf"
+    }
+  ],
+  "note": "New native runtime seed. Historical fixture snapshots remain unchanged.",
+  "native_input_digest": "68ec6be528506760c1024b32c7f1a996cbdf2c8f62eb5ad3a8172f47a2d87ad0"
+}

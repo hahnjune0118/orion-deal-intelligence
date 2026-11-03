@@ -1,0 +1,77 @@
+{
+  "claims": [
+    {
+      "citations": [],
+      "entailment_supported": null,
+      "factual": true,
+      "matched_claim_id": "claim_cd",
+      "prediction_id": "claim_cd",
+      "text": "By 2027-10-31 revenue cut-off, warranty exposure and inventory recoverability are documented."
+    }
+  ],
+  "contradiction_groups": [],
+  "eig": {},
+  "final_approvals_without_review": 0,
+  "hypothesis_statuses": {
+    "claim_cd": "missing"
+  },
+  "posterior": {},
+  "provenance": "authored-fixture",
+  "questions": [
+    {
+      "artifact_present": true,
+      "criterion_present": true,
+      "family_id": "q_cd_cutoff",
+      "financial_relevance": true,
+      "match_rationale": "Identity mapping of the pre-authored request; not a semantic model prediction.",
+      "match_reviewed": true,
+      "output_id": "q_cd_cutoff",
+      "period_present": true,
+      "reviewer": "fixture-author (single-rater; provisional)",
+      "target_present": true,
+      "text": "Provide the dispatch record and customer acceptance for batch C-17, and match both to the USD 180,000 invoice and FY2025 reporting cut-off. Explain any difference in dispatch, acceptance and recognition dates."
+    },
+    {
+      "artifact_present": true,
+      "criterion_present": true,
+      "family_id": "q_cd_warranty",
+      "financial_relevance": true,
+      "match_rationale": "Identity mapping of the pre-authored request; not a semantic model prediction.",
+      "match_reviewed": true,
+      "output_id": "q_cd_warranty",
+      "period_present": true,
+      "reviewer": "fixture-author (single-rater; provisional)",
+      "target_present": true,
+      "text": "Provide FY2025 warranty claims, settlement records and the closing warranty reserve reconciliation, identifying the products and periods covered and explaining any unresolved differences."
+    },
+    {
+      "artifact_present": true,
+      "criterion_present": true,
+      "family_id": "q_cd_inventory",
+      "financial_relevance": true,
+      "match_rationale": "Identity mapping of the pre-authored request; not a semantic model prediction.",
+      "match_reviewed": true,
+      "output_id": "q_cd_inventory",
+      "period_present": true,
+      "reviewer": "fixture-author (single-rater; provisional)",
+      "target_present": true,
+      "text": "Provide the FY2025 closing inventory ageing and recoverability assessment, including subsequent usage or sales support for slow-moving items and reconciliation to USD 1,200,000 inventory."
+    },
+    {
+      "artifact_present": true,
+      "criterion_present": true,
+      "family_id": "q_cd_receivable",
+      "financial_relevance": true,
+      "match_rationale": "Identity mapping of the pre-authored request; not a semantic model prediction.",
+      "match_reviewed": true,
+      "output_id": "q_cd_receivable",
+      "period_present": true,
+      "reviewer": "fixture-author (single-rater; provisional)",
+      "target_present": true,
+      "text": "Provide independent customer confirmations or subsequent settlement records for FY2025 closing receivables, with invoice-level reconciliation to USD 900,000 and dates of collection."
+    }
+  ],
+  "relationships": [],
+  "retrieved_evidence_ids": [],
+  "status": "completed"
+}

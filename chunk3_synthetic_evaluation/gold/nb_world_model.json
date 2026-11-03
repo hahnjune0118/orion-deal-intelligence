@@ -1,0 +1,139 @@
+{
+  "aster": {
+    "billed": 120000,
+    "cash_received": 90000,
+    "cloud": 84000,
+    "deferred": 60000,
+    "first_year_contribution": -54000,
+    "implementation_cost": 90000,
+    "implementation_revenue": 60000,
+    "inference": 108000,
+    "receivable": 30000,
+    "recognized_on_acceptance": 60000,
+    "recurring_contribution": -24000,
+    "subscription": 240000,
+    "support": 72000
+  },
+  "balance_2024": {
+    "accrued": 80000,
+    "ap": 60000,
+    "ar": 100000,
+    "assets": 620000,
+    "cash": 300000,
+    "debt": 200000,
+    "deferred": 100000,
+    "equity": 180000,
+    "ppe": 180000,
+    "prepaid": 40000
+  },
+  "balance_2025": {
+    "accrued": 110000,
+    "ap": 90000,
+    "ar": 180000,
+    "assets": 910000,
+    "cash": 450000,
+    "debt": 250000,
+    "deferred": 160000,
+    "equity": 300000,
+    "ppe": 220000,
+    "prepaid": 60000
+  },
+  "cashflow_2025": {
+    "capex": 80000,
+    "cash_change": 150000,
+    "cfo": 110000,
+    "debt_raised": 50000,
+    "equity_raised": 70000
+  },
+  "currency": "USD",
+  "customers_revenue_2025": {
+    "Aster": 0,
+    "Birch": 0,
+    "Quartz": 720000,
+    "Vale": 480000
+  },
+  "forecast": {
+    "capacity_per_squad": 2,
+    "deployments": 8,
+    "existing": 1200000,
+    "per_deployment": 100000,
+    "revenue": 2000000,
+    "squads": 2,
+    "supported_revenue": 1600000
+  },
+  "income_2024": {
+    "cogs": 280000,
+    "depreciation": 30000,
+    "ebitda": -100000,
+    "interest": 20000,
+    "net_income": -150000,
+    "opex": 620000,
+    "revenue": 800000,
+    "tax": 0
+  },
+  "income_2025": {
+    "cogs": 360000,
+    "depreciation": 40000,
+    "ebitda": 120000,
+    "interest": 20000,
+    "net_income": 50000,
+    "opex": 720000,
+    "revenue": 1200000,
+    "tax": 10000
+  },
+  "intentional_exceptions": [
+    {
+      "documents": [
+        "cim",
+        "crm"
+      ],
+      "fact": "USD 600,000 unsigned pipeline is included in CIM committed ARR; supported signed ARR on T0 is USD 1,200,000.",
+      "id": "nb_exception_arr",
+      "visible_stage": 0
+    },
+    {
+      "documents": [
+        "cim",
+        "crm"
+      ],
+      "fact": "Four enterprise labels include two paying customers, one PoC and one prospect.",
+      "id": "nb_exception_count",
+      "visible_stage": 0
+    },
+    {
+      "documents": [
+        "plan"
+      ],
+      "fact": "Eight deployments exceed documented capacity of four; arithmetic of management forecast still reconciles.",
+      "id": "nb_exception_capacity",
+      "visible_stage": 0
+    },
+    {
+      "documents": [
+        "cim",
+        "cost"
+      ],
+      "fact": "Management margin excludes inference and incremental support; revised cost coverage gives negative contribution.",
+      "id": "nb_exception_margin",
+      "visible_stage": 3
+    },
+    {
+      "documents": [
+        "plan",
+        "contract"
+      ],
+      "fact": "The old USD 100,000 per-deployment planning assumption is not updated for Aster signed fees. Eleven FY2027 service months imply USD 220,000 subscription revenue if contractual performance occurs; a revised forecast and recognition bridge are missing.",
+      "id": "nb_exception_contract_forecast",
+      "visible_stage": 1
+    },
+    {
+      "documents": [
+        "followup"
+      ],
+      "fact": "Aster owns Birch; two legal customers do not make two independent groups.",
+      "id": "nb_exception_ownership",
+      "visible_stage": 4
+    }
+  ],
+  "synthetic": true
+}

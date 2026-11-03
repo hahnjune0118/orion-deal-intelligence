@@ -1,0 +1,173 @@
+{
+  "claims": [
+    {
+      "citations": [],
+      "entailment_supported": null,
+      "factual": true,
+      "matched_claim_id": "nb_claim_h1",
+      "prediction_id": "nb_claim_h1",
+      "text": "By 2027-10-31 at least two newly acquired independently controlled enterprise customer groups have signed paid contracts, accepted deployment and a matched first cash receipt."
+    },
+    {
+      "citations": [],
+      "entailment_supported": null,
+      "factual": true,
+      "matched_claim_id": "nb_claim_h2",
+      "prediction_id": "nb_claim_h2",
+      "text": "For the Aster and Birch first contract years recurring customer contribution is positive and total first-year contribution is nonnegative after all implementation and delivery costs."
+    },
+    {
+      "citations": [],
+      "entailment_supported": null,
+      "factual": true,
+      "matched_claim_id": "nb_claim_h3",
+      "prediction_id": "nb_claim_h3",
+      "text": "The FY2025 recognized revenue and 2026-11-03 commercial claims reconcile within 5 percent and the FY2027 forecast is supported by documented delivery capacity."
+    }
+  ],
+  "contradiction_groups": [],
+  "eig": {},
+  "final_approvals_without_review": 0,
+  "hypothesis_statuses": {
+    "nb_claim_h1": "missing",
+    "nb_claim_h2": "missing",
+    "nb_claim_h3": "contradicted"
+  },
+  "posterior": {},
+  "provenance": "authored-fixture",
+  "questions": [
+    {
+      "artifact_present": true,
+      "criterion_present": true,
+      "family_id": "nb.contract_a",
+      "financial_relevance": true,
+      "match_rationale": "Identity mapping of the pre-authored request; not a semantic model prediction.",
+      "match_reviewed": true,
+      "output_id": "nb_q_contract_a",
+      "period_present": true,
+      "reviewer": "fixture-author (single-rater; provisional)",
+      "target_present": true,
+      "text": "For 2026-11-01 through 2027-11-30, provide Executed Aster commercial contract. Verify counterparty signatures, annual fee, term and acceptance conditions."
+    },
+    {
+      "artifact_present": true,
+      "criterion_present": true,
+      "family_id": "nb.contract_b",
+      "financial_relevance": true,
+      "match_rationale": "Identity mapping of the pre-authored request; not a semantic model prediction.",
+      "match_reviewed": true,
+      "output_id": "nb_q_contract_b",
+      "period_present": true,
+      "reviewer": "fixture-author (single-rater; provisional)",
+      "target_present": true,
+      "text": "For 2026-11-01 through 2027-11-30, provide Executed Birch commercial contract. Verify signatures, service term and binding recurring consideration."
+    },
+    {
+      "artifact_present": true,
+      "criterion_present": true,
+      "family_id": "nb.execution_a",
+      "financial_relevance": true,
+      "match_rationale": "Identity mapping of the pre-authored request; not a semantic model prediction.",
+      "match_reviewed": true,
+      "output_id": "nb_q_execution_a",
+      "period_present": true,
+      "reviewer": "fixture-author (single-rater; provisional)",
+      "target_present": true,
+      "text": "For 2026-11-01 through 2027-10-31, provide Aster acceptance certificate and matched bank remittance. Match acceptance tests and first cash receipt to an issued invoice; identify the unpaid balance separately."
+    },
+    {
+      "artifact_present": true,
+      "criterion_present": true,
+      "family_id": "nb.margin_a",
+      "financial_relevance": true,
+      "match_rationale": "Identity mapping of the pre-authored request; not a semantic model prediction.",
+      "match_reviewed": true,
+      "output_id": "nb_q_margin_a",
+      "period_present": true,
+      "reviewer": "fixture-author (single-rater; provisional)",
+      "target_present": true,
+      "text": "For Aster contract year 2026-12-01 through 2027-11-30, provide Aster complete recurring and implementation cost bridge. Show positive recurring contribution after cloud, inference and support and nonnegative total first-year contribution after implementation."
+    },
+    {
+      "artifact_present": true,
+      "criterion_present": true,
+      "family_id": "nb.independence",
+      "financial_relevance": true,
+      "match_rationale": "Identity mapping of the pre-authored request; not a semantic model prediction.",
+      "match_reviewed": true,
+      "output_id": "nb_q_independence",
+      "period_present": true,
+      "reviewer": "fixture-author (single-rater; provisional)",
+      "target_present": true,
+      "text": "For 2026-11-01 through 2027-10-31, provide Beneficial ownership and customer group confirmation. Demonstrate that the two new paying customers are not under common control."
+    },
+    {
+      "artifact_present": true,
+      "criterion_present": true,
+      "family_id": "nb.execution_b",
+      "financial_relevance": true,
+      "match_rationale": "Identity mapping of the pre-authored request; not a semantic model prediction.",
+      "match_reviewed": true,
+      "output_id": "nb_q_execution_b",
+      "period_present": true,
+      "reviewer": "fixture-author (single-rater; provisional)",
+      "target_present": true,
+      "text": "For 2026-11-01 through 2027-10-31, provide Birch acceptance certificate and matched bank remittance. Match completed benchmarks and the first payment to the Birch contract and invoice."
+    },
+    {
+      "artifact_present": true,
+      "criterion_present": true,
+      "family_id": "nb.count",
+      "financial_relevance": true,
+      "match_rationale": "Identity mapping of the pre-authored request; not a semantic model prediction.",
+      "match_reviewed": true,
+      "output_id": "nb_q_count",
+      "period_present": true,
+      "reviewer": "fixture-author (single-rater; provisional)",
+      "target_present": true,
+      "text": "For customer classification as of 2026-11-03, provide Dated customer taxonomy bridge. Reconcile paying customers, PoCs and unsigned prospects across CIM and CRM on 2026-11-03."
+    },
+    {
+      "artifact_present": true,
+      "criterion_present": true,
+      "family_id": "nb.arr",
+      "financial_relevance": true,
+      "match_rationale": "Identity mapping of the pre-authored request; not a semantic model prediction.",
+      "match_reviewed": true,
+      "output_id": "nb_q_arr",
+      "period_present": true,
+      "reviewer": "fixture-author (single-rater; provisional)",
+      "target_present": true,
+      "text": "For signed recurring obligations as of 2026-11-03, provide Signed contract ARR reconciliation. Reconcile USD 1,800,000 presented ARR to signed recurring obligations as of 2026-11-03; exclude unsigned pipeline."
+    },
+    {
+      "artifact_present": true,
+      "criterion_present": true,
+      "family_id": "nb.capacity",
+      "financial_relevance": true,
+      "match_rationale": "Identity mapping of the pre-authored request; not a semantic model prediction.",
+      "match_reviewed": true,
+      "output_id": "nb_q_capacity",
+      "period_present": true,
+      "reviewer": "fixture-author (single-rater; provisional)",
+      "target_present": true,
+      "text": "For calendar FY2027, provide Signed hiring or outsourcing plan and deployment model. Reconcile eight planned deployments to two squads at two deployments each, or revise forecast to supported capacity."
+    },
+    {
+      "artifact_present": true,
+      "criterion_present": true,
+      "family_id": "nb.margin_b",
+      "financial_relevance": true,
+      "match_rationale": "Identity mapping of the pre-authored request; not a semantic model prediction.",
+      "match_reviewed": true,
+      "output_id": "nb_q_margin_b",
+      "period_present": true,
+      "reviewer": "fixture-author (single-rater; provisional)",
+      "target_present": true,
+      "text": "For Birch first contract year beginning 2026-11-22, provide Birch measured workload and complete cost schedule. Confirm positive recurring contribution from measured live costs, not planned margins."
+    }
+  ],
+  "relationships": [],
+  "retrieved_evidence_ids": [],
+  "status": "completed"
+}

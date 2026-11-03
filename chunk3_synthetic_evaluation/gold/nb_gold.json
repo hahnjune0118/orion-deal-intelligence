@@ -1,0 +1,2705 @@
+{
+  "answer_key_rules": {
+    "future_evidence_must_not_support_earlier_stage_labels": true,
+    "source_quote_does_not_imply_independent_truth": true,
+    "world_truth_is_not_agent_visible": true
+  },
+  "case": "nb",
+  "claims": [
+    {
+      "claim_type": "binary_hypothesis",
+      "evidence_relationships": [
+        {
+          "evidence_id": "nb_ev_cim_traction",
+          "relation": "context"
+        },
+        {
+          "evidence_id": "nb_ev_qa_repeat",
+          "relation": "context"
+        },
+        {
+          "evidence_id": "nb_ev_contract_a",
+          "relation": "supports"
+        },
+        {
+          "evidence_id": "nb_ev_contract_conditions",
+          "relation": "context"
+        },
+        {
+          "evidence_id": "nb_ev_accept_a",
+          "relation": "supports"
+        },
+        {
+          "evidence_id": "nb_ev_cash_a",
+          "relation": "supports"
+        },
+        {
+          "evidence_id": "nb_ev_contract_b",
+          "relation": "supports"
+        },
+        {
+          "evidence_id": "nb_ev_ownership",
+          "relation": "refutes"
+        }
+      ],
+      "financial_driver": "revenue_quality",
+      "ground_truth_status": "future_outcome_unobserved",
+      "hypothesis_id": "nb_hyp_h1",
+      "materiality": "analyst_defined_per_question",
+      "rationale": "Scenario-designed hypothesis; document-visible support status is separate from terminal world truth.",
+      "record": {
+        "claim_kind": "binary_hypothesis",
+        "deal_id": "deal_nb",
+        "entity_version": 1,
+        "id": "nb_claim_h1",
+        "period_end": "2027-10-31",
+        "period_start": "2026-11-01",
+        "required_criterion_keys": [
+          "contract_a",
+          "contract_b",
+          "accept_a",
+          "cash_a",
+          "independence",
+          "accept_b",
+          "cash_b"
+        ],
+        "review_status": "approved",
+        "source_span_ids": [],
+        "statement": "By 2027-10-31 at least two newly acquired independently controlled enterprise customer groups have signed paid contracts, accepted deployment and a matched first cash receipt.",
+        "subject_key": "nb_h1",
+        "support_status": "missing",
+        "thesis_id": "nb_thesis",
+        "truth_status": "document_only"
+      },
+      "source_locators": []
+    },
+    {
+      "claim_type": "binary_hypothesis",
+      "evidence_relationships": [
+        {
+          "evidence_id": "nb_ev_cim_margin",
+          "relation": "context"
+        },
+        {
+          "evidence_id": "nb_ev_cim_aster",
+          "relation": "supports"
+        },
+        {
+          "evidence_id": "nb_ev_fin_income",
+          "relation": "context"
+        },
+        {
+          "evidence_id": "nb_ev_qa_cost",
+          "relation": "context"
+        },
+        {
+          "evidence_id": "nb_ev_cost_a",
+          "relation": "refutes"
+        },
+        {
+          "evidence_id": "nb_ev_cost_coverage",
+          "relation": "supports"
+        },
+        {
+          "evidence_id": "nb_ev_birch_plan",
+          "relation": "context"
+        },
+        {
+          "evidence_id": "nb_ev_cost_residual",
+          "relation": "context"
+        }
+      ],
+      "financial_driver": "unit_economics",
+      "ground_truth_status": "scenario_provisional",
+      "hypothesis_id": "nb_hyp_h2",
+      "materiality": "analyst_defined_per_question",
+      "rationale": "Scenario-designed hypothesis; document-visible support status is separate from terminal world truth.",
+      "record": {
+        "claim_kind": "binary_hypothesis",
+        "deal_id": "deal_nb",
+        "entity_version": 1,
+        "id": "nb_claim_h2",
+        "period_end": "2027-11-30",
+        "period_start": "2026-11-01",
+        "required_criterion_keys": [
+          "margin_a",
+          "margin_b",
+          "costs"
+        ],
+        "review_status": "approved",
+        "source_span_ids": [],
+        "statement": "For the Aster and Birch first contract years recurring customer contribution is positive and total first-year contribution is nonnegative after all implementation and delivery costs.",
+        "subject_key": "nb_h2",
+        "support_status": "missing",
+        "thesis_id": "nb_thesis",
+        "truth_status": "document_only"
+      },
+      "source_locators": []
+    },
+    {
+      "claim_type": "binary_hypothesis",
+      "evidence_relationships": [
+        {
+          "evidence_id": "nb_ev_cim_strength",
+          "relation": "context"
+        },
+        {
+          "evidence_id": "nb_ev_fin_revenue",
+          "relation": "context"
+        },
+        {
+          "evidence_id": "nb_ev_fin_cash",
+          "relation": "context"
+        },
+        {
+          "evidence_id": "nb_ev_forecast",
+          "relation": "context"
+        },
+        {
+          "evidence_id": "nb_ev_capacity",
+          "relation": "refutes"
+        },
+        {
+          "evidence_id": "nb_ev_taxonomy",
+          "relation": "refutes"
+        },
+        {
+          "evidence_id": "nb_ev_arr",
+          "relation": "refutes"
+        },
+        {
+          "evidence_id": "nb_ev_invoice_a",
+          "relation": "context"
+        },
+        {
+          "evidence_id": "nb_ev_recognition",
+          "relation": "context"
+        },
+        {
+          "evidence_id": "nb_ev_count_corrected",
+          "relation": "supports"
+        }
+      ],
+      "financial_driver": "revenue_quality",
+      "ground_truth_status": "scenario_provisional",
+      "hypothesis_id": "nb_hyp_h3",
+      "materiality": "analyst_defined_per_question",
+      "rationale": "Scenario-designed hypothesis; document-visible support status is separate from terminal world truth.",
+      "record": {
+        "claim_kind": "binary_hypothesis",
+        "deal_id": "deal_nb",
+        "entity_version": 2,
+        "id": "nb_claim_h3",
+        "period_end": "2027-12-31",
+        "period_start": "2025-01-01",
+        "required_criterion_keys": [
+          "count",
+          "arr",
+          "capacity",
+          "revenue",
+          "balance"
+        ],
+        "review_status": "approved",
+        "source_span_ids": [],
+        "statement": "The FY2025 recognized revenue and 2026-11-03 commercial claims reconcile within 5 percent and the FY2027 forecast is supported by documented delivery capacity.",
+        "subject_key": "nb_h3",
+        "support_status": "contradicted",
+        "thesis_id": "nb_thesis",
+        "truth_status": "disputed"
+      },
+      "source_locators": []
+    },
+    {
+      "available_stage": 0,
+      "claim_type": "company_reported",
+      "evidence_relationships": [
+        {
+          "available_stage": 0,
+          "evidence_id": "nb_ev_cim_traction",
+          "relation": "context"
+        },
+        {
+          "available_stage": 0,
+          "evidence_id": "nb_ev_taxonomy",
+          "relation": "refutes"
+        },
+        {
+          "available_stage": 0,
+          "evidence_id": "nb_ev_arr",
+          "relation": "refutes"
+        }
+      ],
+      "exact_source_excerpt": "Management reports four enterprise customers and committed annual recurring revenue of USD 1,800,000: Quartz USD 720,000, Vale USD 480,000, Aster USD 240,000 and Birch USD 360,000.",
+      "financial_driver": "revenue_quality",
+      "ground_truth_status": "contradicted",
+      "hypothesis_id": "nb_hyp_h3",
+      "label_stage": 0,
+      "lifecycle_evidence_relationships": [
+        {
+          "available_stage": 0,
+          "evidence_id": "nb_ev_cim_traction",
+          "relation": "context"
+        },
+        {
+          "available_stage": 0,
+          "evidence_id": "nb_ev_taxonomy",
+          "relation": "refutes"
+        },
+        {
+          "available_stage": 0,
+          "evidence_id": "nb_ev_arr",
+          "relation": "refutes"
+        },
+        {
+          "available_stage": 4,
+          "evidence_id": "nb_ev_count_corrected",
+          "relation": "supports"
+        }
+      ],
+      "materiality": "analyst_defined_per_question",
+      "rationale": "Actual company assertion extraction label; original source establishes reported wording, while conflicting documents determine support. Analyst-defined hypotheses are a separate annotation class.",
+      "record": {
+        "claim_kind": "company_reported",
+        "deal_id": "deal_nb",
+        "entity_version": 1,
+        "id": "nb_assertion_traction",
+        "period_end": "2027-12-31",
+        "period_start": "2025-01-01",
+        "required_criterion_keys": [
+          "arr",
+          "count"
+        ],
+        "review_status": "draft",
+        "source_span_ids": [
+          "span_nb_doc_cim_be80e6daae111bf09f2c"
+        ],
+        "statement": "Four customers and committed ARR USD 1,800,000",
+        "subject_key": "nb_traction",
+        "support_status": "contradicted",
+        "thesis_id": "nb_thesis",
+        "truth_status": "disputed"
+      },
+      "source_locators": [
+        {
+          "deal_id": "deal_nb",
+          "document_id": "nb_doc_cim",
+          "document_version": 1,
+          "end": 180,
+          "entity_version": 1,
+          "extraction_method": "parsed",
+          "id": "span_nb_doc_cim_be80e6daae111bf09f2c",
+          "locator": {
+            "block_index": 5,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "locator_status": "validated",
+          "normalized_text": "Management reports four enterprise customers and committed annual recurring revenue of USD 1,800,000: Quartz USD 720,000, Vale USD 480,000, Aster USD 240,000 and Birch USD 360,000.",
+          "quote": "Management reports four enterprise customers and committed annual recurring revenue of USD 1,800,000: Quartz USD 720,000, Vale USD 480,000, Aster USD 240,000 and Birch USD 360,000.",
+          "start": 0,
+          "text_sha256": "a40e26e24c39310271d37087f4ca35ec6f34486fd1d700286cd1b9ff1af7e3db"
+        }
+      ]
+    },
+    {
+      "available_stage": 0,
+      "claim_type": "company_reported",
+      "evidence_relationships": [
+        {
+          "available_stage": 0,
+          "evidence_id": "nb_ev_cim_aster",
+          "relation": "supports"
+        }
+      ],
+      "exact_source_excerpt": "Management estimates Aster annual subscription revenue of USD 240,000 and annual delivery costs of USD 96,000, giving positive contribution of USD 144,000. Implementation effort and incremental inference usage have not been costed.",
+      "financial_driver": "unit_economics",
+      "ground_truth_status": "partial",
+      "hypothesis_id": "nb_hyp_h2",
+      "label_stage": 0,
+      "lifecycle_evidence_relationships": [
+        {
+          "available_stage": 0,
+          "evidence_id": "nb_ev_cim_aster",
+          "relation": "supports"
+        },
+        {
+          "available_stage": 3,
+          "evidence_id": "nb_ev_cost_a",
+          "relation": "refutes"
+        }
+      ],
+      "materiality": "analyst_defined_per_question",
+      "rationale": "Actual company assertion extraction label; original source establishes reported wording, while conflicting documents determine support. Analyst-defined hypotheses are a separate annotation class.",
+      "record": {
+        "claim_kind": "company_reported",
+        "deal_id": "deal_nb",
+        "entity_version": 1,
+        "id": "nb_assertion_margin",
+        "period_end": "2027-12-31",
+        "period_start": "2025-01-01",
+        "required_criterion_keys": [
+          "margin_a"
+        ],
+        "review_status": "draft",
+        "source_span_ids": [
+          "span_nb_doc_cim_656a34fbdd98493ccc4b"
+        ],
+        "statement": "Aster has positive customer contribution",
+        "subject_key": "nb_margin",
+        "support_status": "partial",
+        "thesis_id": "nb_thesis",
+        "truth_status": "document_only"
+      },
+      "source_locators": [
+        {
+          "deal_id": "deal_nb",
+          "document_id": "nb_doc_cim",
+          "document_version": 1,
+          "end": 231,
+          "entity_version": 1,
+          "extraction_method": "parsed",
+          "id": "span_nb_doc_cim_656a34fbdd98493ccc4b",
+          "locator": {
+            "block_index": 7,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "locator_status": "validated",
+          "normalized_text": "Management estimates Aster annual subscription revenue of USD 240,000 and annual delivery costs of USD 96,000, giving positive contribution of USD 144,000. Implementation effort and incremental inference usage have not been costed.",
+          "quote": "Management estimates Aster annual subscription revenue of USD 240,000 and annual delivery costs of USD 96,000, giving positive contribution of USD 144,000. Implementation effort and incremental inference usage have not been costed.",
+          "start": 0,
+          "text_sha256": "4c06a660098198dc9c7c7b7ce9a0baefcce5a2f807b05b4c5b3e80c8ef8b5581"
+        }
+      ]
+    },
+    {
+      "available_stage": 0,
+      "claim_type": "company_reported",
+      "evidence_relationships": [
+        {
+          "available_stage": 0,
+          "evidence_id": "nb_ev_forecast",
+          "relation": "context"
+        },
+        {
+          "available_stage": 0,
+          "evidence_id": "nb_ev_capacity",
+          "relation": "refutes"
+        }
+      ],
+      "exact_source_excerpt": "The FY2027 plan comprises USD 1,200,000 from existing customers plus eight new deployments at USD 100,000 recognized revenue each, totaling USD 2,000,000. Cost of revenue is USD 600,000, operating expense USD 1,000,000 and EBITDA USD 400,000.",
+      "financial_driver": "revenue_quality",
+      "ground_truth_status": "contradicted",
+      "hypothesis_id": "nb_hyp_h3",
+      "label_stage": 0,
+      "lifecycle_evidence_relationships": [
+        {
+          "available_stage": 0,
+          "evidence_id": "nb_ev_forecast",
+          "relation": "context"
+        },
+        {
+          "available_stage": 0,
+          "evidence_id": "nb_ev_capacity",
+          "relation": "refutes"
+        }
+      ],
+      "materiality": "analyst_defined_per_question",
+      "rationale": "Actual company assertion extraction label; original source establishes reported wording, while conflicting documents determine support. Analyst-defined hypotheses are a separate annotation class.",
+      "record": {
+        "claim_kind": "company_reported",
+        "deal_id": "deal_nb",
+        "entity_version": 1,
+        "id": "nb_assertion_capacity",
+        "period_end": "2027-12-31",
+        "period_start": "2025-01-01",
+        "required_criterion_keys": [
+          "capacity"
+        ],
+        "review_status": "draft",
+        "source_span_ids": [
+          "span_nb_doc_plan_246f26ebc01c3f1d9fd9"
+        ],
+        "statement": "Eight new deployments support FY2027 revenue USD 2,000,000",
+        "subject_key": "nb_capacity",
+        "support_status": "contradicted",
+        "thesis_id": "nb_thesis",
+        "truth_status": "disputed"
+      },
+      "source_locators": [
+        {
+          "deal_id": "deal_nb",
+          "document_id": "nb_doc_plan",
+          "document_version": 1,
+          "end": 242,
+          "entity_version": 1,
+          "extraction_method": "parsed",
+          "id": "span_nb_doc_plan_246f26ebc01c3f1d9fd9",
+          "locator": {
+            "block_index": 5,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "locator_status": "validated",
+          "normalized_text": "The FY2027 plan comprises USD 1,200,000 from existing customers plus eight new deployments at USD 100,000 recognized revenue each, totaling USD 2,000,000. Cost of revenue is USD 600,000, operating expense USD 1,000,000 and EBITDA USD 400,000.",
+          "quote": "The FY2027 plan comprises USD 1,200,000 from existing customers plus eight new deployments at USD 100,000 recognized revenue each, totaling USD 2,000,000. Cost of revenue is USD 600,000, operating expense USD 1,000,000 and EBITDA USD 400,000.",
+          "start": 0,
+          "text_sha256": "e8d17dee74bae8400f7fb4be49b0b5585df0b48c3b756c65b57233d8d9c98a09"
+        }
+      ]
+    }
+  ],
+  "dataset_version": "3.0.0",
+  "documentary_assertions": [
+    [
+      "traction",
+      "cim",
+      "traction",
+      "company_reported",
+      "Four customers and committed ARR USD 1,800,000",
+      "h3",
+      "contradicted"
+    ],
+    [
+      "margin",
+      "cim",
+      "margin_a",
+      "company_reported",
+      "Aster has positive customer contribution",
+      "h2",
+      "partial"
+    ],
+    [
+      "capacity",
+      "plan",
+      "forecast",
+      "company_reported",
+      "Eight new deployments support FY2027 revenue USD 2,000,000",
+      "h3",
+      "contradicted"
+    ]
+  ],
+  "documentary_claims": [
+    {
+      "available_stage": 0,
+      "claim_type": "company_reported",
+      "evidence_relationships": [
+        {
+          "available_stage": 0,
+          "evidence_id": "nb_ev_cim_traction",
+          "relation": "context"
+        },
+        {
+          "available_stage": 0,
+          "evidence_id": "nb_ev_taxonomy",
+          "relation": "refutes"
+        },
+        {
+          "available_stage": 0,
+          "evidence_id": "nb_ev_arr",
+          "relation": "refutes"
+        }
+      ],
+      "exact_source_excerpt": "Management reports four enterprise customers and committed annual recurring revenue of USD 1,800,000: Quartz USD 720,000, Vale USD 480,000, Aster USD 240,000 and Birch USD 360,000.",
+      "financial_driver": "revenue_quality",
+      "ground_truth_status": "contradicted",
+      "hypothesis_id": "nb_hyp_h3",
+      "label_stage": 0,
+      "lifecycle_evidence_relationships": [
+        {
+          "available_stage": 0,
+          "evidence_id": "nb_ev_cim_traction",
+          "relation": "context"
+        },
+        {
+          "available_stage": 0,
+          "evidence_id": "nb_ev_taxonomy",
+          "relation": "refutes"
+        },
+        {
+          "available_stage": 0,
+          "evidence_id": "nb_ev_arr",
+          "relation": "refutes"
+        },
+        {
+          "available_stage": 4,
+          "evidence_id": "nb_ev_count_corrected",
+          "relation": "supports"
+        }
+      ],
+      "materiality": "analyst_defined_per_question",
+      "rationale": "Actual company assertion extraction label; original source establishes reported wording, while conflicting documents determine support. Analyst-defined hypotheses are a separate annotation class.",
+      "record": {
+        "claim_kind": "company_reported",
+        "deal_id": "deal_nb",
+        "entity_version": 1,
+        "id": "nb_assertion_traction",
+        "period_end": "2027-12-31",
+        "period_start": "2025-01-01",
+        "required_criterion_keys": [
+          "arr",
+          "count"
+        ],
+        "review_status": "draft",
+        "source_span_ids": [
+          "span_nb_doc_cim_be80e6daae111bf09f2c"
+        ],
+        "statement": "Four customers and committed ARR USD 1,800,000",
+        "subject_key": "nb_traction",
+        "support_status": "contradicted",
+        "thesis_id": "nb_thesis",
+        "truth_status": "disputed"
+      },
+      "source_locators": [
+        {
+          "deal_id": "deal_nb",
+          "document_id": "nb_doc_cim",
+          "document_version": 1,
+          "end": 180,
+          "entity_version": 1,
+          "extraction_method": "parsed",
+          "id": "span_nb_doc_cim_be80e6daae111bf09f2c",
+          "locator": {
+            "block_index": 5,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "locator_status": "validated",
+          "normalized_text": "Management reports four enterprise customers and committed annual recurring revenue of USD 1,800,000: Quartz USD 720,000, Vale USD 480,000, Aster USD 240,000 and Birch USD 360,000.",
+          "quote": "Management reports four enterprise customers and committed annual recurring revenue of USD 1,800,000: Quartz USD 720,000, Vale USD 480,000, Aster USD 240,000 and Birch USD 360,000.",
+          "start": 0,
+          "text_sha256": "a40e26e24c39310271d37087f4ca35ec6f34486fd1d700286cd1b9ff1af7e3db"
+        }
+      ]
+    },
+    {
+      "available_stage": 0,
+      "claim_type": "company_reported",
+      "evidence_relationships": [
+        {
+          "available_stage": 0,
+          "evidence_id": "nb_ev_cim_aster",
+          "relation": "supports"
+        }
+      ],
+      "exact_source_excerpt": "Management estimates Aster annual subscription revenue of USD 240,000 and annual delivery costs of USD 96,000, giving positive contribution of USD 144,000. Implementation effort and incremental inference usage have not been costed.",
+      "financial_driver": "unit_economics",
+      "ground_truth_status": "partial",
+      "hypothesis_id": "nb_hyp_h2",
+      "label_stage": 0,
+      "lifecycle_evidence_relationships": [
+        {
+          "available_stage": 0,
+          "evidence_id": "nb_ev_cim_aster",
+          "relation": "supports"
+        },
+        {
+          "available_stage": 3,
+          "evidence_id": "nb_ev_cost_a",
+          "relation": "refutes"
+        }
+      ],
+      "materiality": "analyst_defined_per_question",
+      "rationale": "Actual company assertion extraction label; original source establishes reported wording, while conflicting documents determine support. Analyst-defined hypotheses are a separate annotation class.",
+      "record": {
+        "claim_kind": "company_reported",
+        "deal_id": "deal_nb",
+        "entity_version": 1,
+        "id": "nb_assertion_margin",
+        "period_end": "2027-12-31",
+        "period_start": "2025-01-01",
+        "required_criterion_keys": [
+          "margin_a"
+        ],
+        "review_status": "draft",
+        "source_span_ids": [
+          "span_nb_doc_cim_656a34fbdd98493ccc4b"
+        ],
+        "statement": "Aster has positive customer contribution",
+        "subject_key": "nb_margin",
+        "support_status": "partial",
+        "thesis_id": "nb_thesis",
+        "truth_status": "document_only"
+      },
+      "source_locators": [
+        {
+          "deal_id": "deal_nb",
+          "document_id": "nb_doc_cim",
+          "document_version": 1,
+          "end": 231,
+          "entity_version": 1,
+          "extraction_method": "parsed",
+          "id": "span_nb_doc_cim_656a34fbdd98493ccc4b",
+          "locator": {
+            "block_index": 7,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "locator_status": "validated",
+          "normalized_text": "Management estimates Aster annual subscription revenue of USD 240,000 and annual delivery costs of USD 96,000, giving positive contribution of USD 144,000. Implementation effort and incremental inference usage have not been costed.",
+          "quote": "Management estimates Aster annual subscription revenue of USD 240,000 and annual delivery costs of USD 96,000, giving positive contribution of USD 144,000. Implementation effort and incremental inference usage have not been costed.",
+          "start": 0,
+          "text_sha256": "4c06a660098198dc9c7c7b7ce9a0baefcce5a2f807b05b4c5b3e80c8ef8b5581"
+        }
+      ]
+    },
+    {
+      "available_stage": 0,
+      "claim_type": "company_reported",
+      "evidence_relationships": [
+        {
+          "available_stage": 0,
+          "evidence_id": "nb_ev_forecast",
+          "relation": "context"
+        },
+        {
+          "available_stage": 0,
+          "evidence_id": "nb_ev_capacity",
+          "relation": "refutes"
+        }
+      ],
+      "exact_source_excerpt": "The FY2027 plan comprises USD 1,200,000 from existing customers plus eight new deployments at USD 100,000 recognized revenue each, totaling USD 2,000,000. Cost of revenue is USD 600,000, operating expense USD 1,000,000 and EBITDA USD 400,000.",
+      "financial_driver": "revenue_quality",
+      "ground_truth_status": "contradicted",
+      "hypothesis_id": "nb_hyp_h3",
+      "label_stage": 0,
+      "lifecycle_evidence_relationships": [
+        {
+          "available_stage": 0,
+          "evidence_id": "nb_ev_forecast",
+          "relation": "context"
+        },
+        {
+          "available_stage": 0,
+          "evidence_id": "nb_ev_capacity",
+          "relation": "refutes"
+        }
+      ],
+      "materiality": "analyst_defined_per_question",
+      "rationale": "Actual company assertion extraction label; original source establishes reported wording, while conflicting documents determine support. Analyst-defined hypotheses are a separate annotation class.",
+      "record": {
+        "claim_kind": "company_reported",
+        "deal_id": "deal_nb",
+        "entity_version": 1,
+        "id": "nb_assertion_capacity",
+        "period_end": "2027-12-31",
+        "period_start": "2025-01-01",
+        "required_criterion_keys": [
+          "capacity"
+        ],
+        "review_status": "draft",
+        "source_span_ids": [
+          "span_nb_doc_plan_246f26ebc01c3f1d9fd9"
+        ],
+        "statement": "Eight new deployments support FY2027 revenue USD 2,000,000",
+        "subject_key": "nb_capacity",
+        "support_status": "contradicted",
+        "thesis_id": "nb_thesis",
+        "truth_status": "disputed"
+      },
+      "source_locators": [
+        {
+          "deal_id": "deal_nb",
+          "document_id": "nb_doc_plan",
+          "document_version": 1,
+          "end": 242,
+          "entity_version": 1,
+          "extraction_method": "parsed",
+          "id": "span_nb_doc_plan_246f26ebc01c3f1d9fd9",
+          "locator": {
+            "block_index": 5,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "locator_status": "validated",
+          "normalized_text": "The FY2027 plan comprises USD 1,200,000 from existing customers plus eight new deployments at USD 100,000 recognized revenue each, totaling USD 2,000,000. Cost of revenue is USD 600,000, operating expense USD 1,000,000 and EBITDA USD 400,000.",
+          "quote": "The FY2027 plan comprises USD 1,200,000 from existing customers plus eight new deployments at USD 100,000 recognized revenue each, totaling USD 2,000,000. Cost of revenue is USD 600,000, operating expense USD 1,000,000 and EBITDA USD 400,000.",
+          "start": 0,
+          "text_sha256": "e8d17dee74bae8400f7fb4be49b0b5585df0b48c3b756c65b57233d8d9c98a09"
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "available_stage": 0,
+      "contradiction_group": null,
+      "document_visible_status": "document_only",
+      "evidence_group_id": "nb_management_crm",
+      "evidence_type": "cim",
+      "exact_source_excerpt": "Management reports four enterprise customers and committed annual recurring revenue of USD 1,800,000: Quartz USD 720,000, Vale USD 480,000, Aster USD 240,000 and Birch USD 360,000.",
+      "rationale": "The exact source supports what this fictional document reports; neither source presence nor analyst approval asserts real-world verification.",
+      "record": {
+        "claim_id": "nb_claim_h1",
+        "created_at": "2026-11-03T00:00:00Z",
+        "criterion_keys": [],
+        "deal_id": "deal_nb",
+        "entity_version": 1,
+        "id": "nb_ev_cim_traction",
+        "independent_check_reference": null,
+        "lifecycle": "active",
+        "origin_key": "nb_management_crm",
+        "provenance": "company_reported",
+        "reliability_rationale": "Scenario author assessed documentary specificity; simulated counterparties are not actual independent authentication.",
+        "review_status": "approved",
+        "source_reliability": 2,
+        "source_span_ids": [
+          "span_nb_doc_cim_be80e6daae111bf09f2c"
+        ],
+        "stance": "context",
+        "verification_level": "document_only"
+      },
+      "world_truth_status": "synthetic observation only; future outcome unobserved"
+    },
+    {
+      "available_stage": 0,
+      "contradiction_group": null,
+      "document_visible_status": "document_only",
+      "evidence_group_id": "nb_management_margin",
+      "evidence_type": "cim",
+      "exact_source_excerpt": "FY2025 revenue was USD 1,200,000 and reported gross profit was USD 840,000, a 70% gross margin. The presentation includes only cloud hosting and routine support within cost of revenue.",
+      "rationale": "The exact source supports what this fictional document reports; neither source presence nor analyst approval asserts real-world verification.",
+      "record": {
+        "claim_id": "nb_claim_h2",
+        "created_at": "2026-11-03T00:00:00Z",
+        "criterion_keys": [],
+        "deal_id": "deal_nb",
+        "entity_version": 1,
+        "id": "nb_ev_cim_margin",
+        "independent_check_reference": null,
+        "lifecycle": "active",
+        "origin_key": "nb_management_margin",
+        "provenance": "company_reported",
+        "reliability_rationale": "Scenario author assessed documentary specificity; simulated counterparties are not actual independent authentication.",
+        "review_status": "approved",
+        "source_reliability": 2,
+        "source_span_ids": [
+          "span_nb_doc_cim_eb762df260cc83832677"
+        ],
+        "stance": "context",
+        "verification_level": "document_only"
+      },
+      "world_truth_status": "synthetic observation only; future outcome unobserved"
+    },
+    {
+      "available_stage": 0,
+      "contradiction_group": "aster_margin",
+      "document_visible_status": "document_only",
+      "evidence_group_id": "nb_management_aster_cost",
+      "evidence_type": "cim",
+      "exact_source_excerpt": "Management estimates Aster annual subscription revenue of USD 240,000 and annual delivery costs of USD 96,000, giving positive contribution of USD 144,000. Implementation effort and incremental inference usage have not been costed.",
+      "rationale": "The exact source supports what this fictional document reports; neither source presence nor analyst approval asserts real-world verification.",
+      "record": {
+        "claim_id": "nb_claim_h2",
+        "created_at": "2026-11-03T00:00:00Z",
+        "criterion_keys": [
+          "margin_a"
+        ],
+        "deal_id": "deal_nb",
+        "entity_version": 1,
+        "id": "nb_ev_cim_aster",
+        "independent_check_reference": null,
+        "lifecycle": "active",
+        "origin_key": "nb_management_aster_cost",
+        "provenance": "company_reported",
+        "reliability_rationale": "Scenario author assessed documentary specificity; simulated counterparties are not actual independent authentication.",
+        "review_status": "approved",
+        "source_reliability": 2,
+        "source_span_ids": [
+          "span_nb_doc_cim_656a34fbdd98493ccc4b"
+        ],
+        "stance": "supports",
+        "verification_level": "document_only"
+      },
+      "world_truth_status": "synthetic observation only; future outcome unobserved"
+    },
+    {
+      "available_stage": 0,
+      "contradiction_group": null,
+      "document_visible_status": "document_only",
+      "evidence_group_id": "nb_management_history",
+      "evidence_type": "cim",
+      "exact_source_excerpt": "Quartz and Vale renewed their support subscriptions during FY2025. The delivery team retained the same four senior engineers throughout the year. Product use remains concentrated in document analytics.",
+      "rationale": "The exact source supports what this fictional document reports; neither source presence nor analyst approval asserts real-world verification.",
+      "record": {
+        "claim_id": "nb_claim_h3",
+        "created_at": "2026-11-03T00:00:00Z",
+        "criterion_keys": [],
+        "deal_id": "deal_nb",
+        "entity_version": 1,
+        "id": "nb_ev_cim_strength",
+        "independent_check_reference": null,
+        "lifecycle": "active",
+        "origin_key": "nb_management_history",
+        "provenance": "company_reported",
+        "reliability_rationale": "Scenario author assessed documentary specificity; simulated counterparties are not actual independent authentication.",
+        "review_status": "approved",
+        "source_reliability": 2,
+        "source_span_ids": [
+          "span_nb_doc_cim_015433b83837c6a2009c"
+        ],
+        "stance": "context",
+        "verification_level": "document_only"
+      },
+      "world_truth_status": "synthetic observation only; future outcome unobserved"
+    },
+    {
+      "available_stage": 0,
+      "contradiction_group": null,
+      "document_visible_status": "document_only",
+      "evidence_group_id": "nb_fy25_accounting",
+      "evidence_type": "financial",
+      "exact_source_excerpt": "FY2025 recognized revenue is Quartz USD 720,000 plus Vale USD 480,000. Aster and Birch contributed zero recognized revenue in FY2025. Contract headline values and forecast ARR are excluded.",
+      "rationale": "The exact source supports what this fictional document reports; neither source presence nor analyst approval asserts real-world verification.",
+      "record": {
+        "claim_id": "nb_claim_h3",
+        "created_at": "2026-11-03T00:00:00Z",
+        "criterion_keys": [],
+        "deal_id": "deal_nb",
+        "entity_version": 1,
+        "id": "nb_ev_fin_revenue",
+        "independent_check_reference": null,
+        "lifecycle": "active",
+        "origin_key": "nb_fy25_accounting",
+        "provenance": "company_reported",
+        "reliability_rationale": "Scenario author assessed documentary specificity; simulated counterparties are not actual independent authentication.",
+        "review_status": "approved",
+        "source_reliability": 3,
+        "source_span_ids": [
+          "span_nb_doc_financial_71a48082d7803c7ce150"
+        ],
+        "stance": "context",
+        "verification_level": "document_only"
+      },
+      "world_truth_status": "synthetic observation only; future outcome unobserved"
+    },
+    {
+      "available_stage": 0,
+      "contradiction_group": null,
+      "document_visible_status": "document_only",
+      "evidence_group_id": "nb_fy25_accounting",
+      "evidence_type": "financial",
+      "exact_source_excerpt": "FY2025 revenue USD 1,200,000 less reported cost of revenue USD 360,000 and operating expense excluding depreciation USD 720,000 equals EBITDA USD 120,000. Depreciation USD 40,000, interest USD 20,000 and tax USD 10,000 yield net income USD 50,000.",
+      "rationale": "The exact source supports what this fictional document reports; neither source presence nor analyst approval asserts real-world verification.",
+      "record": {
+        "claim_id": "nb_claim_h2",
+        "created_at": "2026-11-03T00:00:00Z",
+        "criterion_keys": [],
+        "deal_id": "deal_nb",
+        "entity_version": 1,
+        "id": "nb_ev_fin_income",
+        "independent_check_reference": null,
+        "lifecycle": "active",
+        "origin_key": "nb_fy25_accounting",
+        "provenance": "company_reported",
+        "reliability_rationale": "Scenario author assessed documentary specificity; simulated counterparties are not actual independent authentication.",
+        "review_status": "approved",
+        "source_reliability": 3,
+        "source_span_ids": [
+          "span_nb_doc_financial_04e1ca3af6b2d935a3e9"
+        ],
+        "stance": "context",
+        "verification_level": "document_only"
+      },
+      "world_truth_status": "synthetic observation only; future outcome unobserved"
+    },
+    {
+      "available_stage": 0,
+      "contradiction_group": null,
+      "document_visible_status": "document_only",
+      "evidence_group_id": "nb_fy25_accounting",
+      "evidence_type": "financial",
+      "exact_source_excerpt": "FY2025 cash increased by USD 150,000: cash from operations USD 110,000, CAPEX USD 80,000, new debt USD 50,000 and new equity USD 70,000. Opening cash USD 300,000 and closing cash USD 450,000.",
+      "rationale": "The exact source supports what this fictional document reports; neither source presence nor analyst approval asserts real-world verification.",
+      "record": {
+        "claim_id": "nb_claim_h3",
+        "created_at": "2026-11-03T00:00:00Z",
+        "criterion_keys": [],
+        "deal_id": "deal_nb",
+        "entity_version": 1,
+        "id": "nb_ev_fin_cash",
+        "independent_check_reference": null,
+        "lifecycle": "active",
+        "origin_key": "nb_fy25_accounting",
+        "provenance": "company_reported",
+        "reliability_rationale": "Scenario author assessed documentary specificity; simulated counterparties are not actual independent authentication.",
+        "review_status": "approved",
+        "source_reliability": 3,
+        "source_span_ids": [
+          "span_nb_doc_financial_aefa091f804bd3d76d73"
+        ],
+        "stance": "context",
+        "verification_level": "document_only"
+      },
+      "world_truth_status": "synthetic observation only; future outcome unobserved"
+    },
+    {
+      "available_stage": 0,
+      "contradiction_group": null,
+      "document_visible_status": "document_only",
+      "evidence_group_id": "nb_forecast_v1",
+      "evidence_type": "plan",
+      "exact_source_excerpt": "The FY2027 plan comprises USD 1,200,000 from existing customers plus eight new deployments at USD 100,000 recognized revenue each, totaling USD 2,000,000. Cost of revenue is USD 600,000, operating expense USD 1,000,000 and EBITDA USD 400,000.",
+      "rationale": "The exact source supports what this fictional document reports; neither source presence nor analyst approval asserts real-world verification.",
+      "record": {
+        "claim_id": "nb_claim_h3",
+        "created_at": "2026-11-03T00:00:00Z",
+        "criterion_keys": [],
+        "deal_id": "deal_nb",
+        "entity_version": 1,
+        "id": "nb_ev_forecast",
+        "independent_check_reference": null,
+        "lifecycle": "active",
+        "origin_key": "nb_forecast_v1",
+        "provenance": "company_reported",
+        "reliability_rationale": "Scenario author assessed documentary specificity; simulated counterparties are not actual independent authentication.",
+        "review_status": "approved",
+        "source_reliability": 2,
+        "source_span_ids": [
+          "span_nb_doc_plan_246f26ebc01c3f1d9fd9"
+        ],
+        "stance": "context",
+        "verification_level": "document_only"
+      },
+      "world_truth_status": "synthetic observation only; future outcome unobserved"
+    },
+    {
+      "available_stage": 0,
+      "contradiction_group": "capacity",
+      "document_visible_status": "document_only",
+      "evidence_group_id": "nb_capacity_budget",
+      "evidence_type": "plan",
+      "exact_source_excerpt": "Two delivery squads can each complete two new deployments per year under the current staffing model, for four deployments. No signed outsourcing arrangement, approved hiring plan or faster delivery validation is provided.",
+      "rationale": "The exact source supports what this fictional document reports; neither source presence nor analyst approval asserts real-world verification.",
+      "record": {
+        "claim_id": "nb_claim_h3",
+        "created_at": "2026-11-03T00:00:00Z",
+        "criterion_keys": [
+          "capacity"
+        ],
+        "deal_id": "deal_nb",
+        "entity_version": 1,
+        "id": "nb_ev_capacity",
+        "independent_check_reference": null,
+        "lifecycle": "active",
+        "origin_key": "nb_capacity_budget",
+        "provenance": "company_reported",
+        "reliability_rationale": "Scenario author assessed documentary specificity; simulated counterparties are not actual independent authentication.",
+        "review_status": "approved",
+        "source_reliability": 3,
+        "source_span_ids": [
+          "span_nb_doc_plan_4ac96b659af9f8fdb0a7"
+        ],
+        "stance": "refutes",
+        "verification_level": "document_only"
+      },
+      "world_truth_status": "synthetic observation only; future outcome unobserved"
+    },
+    {
+      "available_stage": 0,
+      "contradiction_group": "customer_count",
+      "document_visible_status": "document_only",
+      "evidence_group_id": "nb_management_crm",
+      "evidence_type": "crm",
+      "exact_source_excerpt": "Quartz and Vale are existing paying customers. Aster has a completed technical proof of concept but no executed commercial contract in the supplied pack. Birch has a nonbinding letter of interest, no executed contract and no deployment.",
+      "rationale": "The exact source supports what this fictional document reports; neither source presence nor analyst approval asserts real-world verification.",
+      "record": {
+        "claim_id": "nb_claim_h3",
+        "created_at": "2026-11-03T00:00:00Z",
+        "criterion_keys": [
+          "count"
+        ],
+        "deal_id": "deal_nb",
+        "entity_version": 1,
+        "id": "nb_ev_taxonomy",
+        "independent_check_reference": null,
+        "lifecycle": "active",
+        "origin_key": "nb_management_crm",
+        "provenance": "company_reported",
+        "reliability_rationale": "Scenario author assessed documentary specificity; simulated counterparties are not actual independent authentication.",
+        "review_status": "approved",
+        "source_reliability": 3,
+        "source_span_ids": [
+          "span_nb_doc_crm_e7401740cca2729eb6ad"
+        ],
+        "stance": "refutes",
+        "verification_level": "document_only"
+      },
+      "world_truth_status": "synthetic observation only; future outcome unobserved"
+    },
+    {
+      "available_stage": 0,
+      "contradiction_group": "arr",
+      "document_visible_status": "document_only",
+      "evidence_group_id": "nb_management_crm",
+      "evidence_type": "crm",
+      "exact_source_excerpt": "Management labels the Aster USD 240,000 and Birch USD 360,000 pipeline opportunities as committed ARR in the CIM. Under this CRM snapshot they remain unsigned opportunities and are not committed recurring contract revenue.",
+      "rationale": "The exact source supports what this fictional document reports; neither source presence nor analyst approval asserts real-world verification.",
+      "record": {
+        "claim_id": "nb_claim_h3",
+        "created_at": "2026-11-03T00:00:00Z",
+        "criterion_keys": [
+          "arr"
+        ],
+        "deal_id": "deal_nb",
+        "entity_version": 1,
+        "id": "nb_ev_arr",
+        "independent_check_reference": null,
+        "lifecycle": "active",
+        "origin_key": "nb_management_crm",
+        "provenance": "company_reported",
+        "reliability_rationale": "Scenario author assessed documentary specificity; simulated counterparties are not actual independent authentication.",
+        "review_status": "approved",
+        "source_reliability": 3,
+        "source_span_ids": [
+          "span_nb_doc_crm_4bbfbc93ee01208af15b"
+        ],
+        "stance": "refutes",
+        "verification_level": "document_only"
+      },
+      "world_truth_status": "synthetic observation only; future outcome unobserved"
+    },
+    {
+      "available_stage": 0,
+      "contradiction_group": null,
+      "document_visible_status": "document_only",
+      "evidence_group_id": "nb_management_crm",
+      "evidence_type": "crm",
+      "exact_source_excerpt": "Management repeats that there are four enterprise customers. This answer is based on the same CRM export used for the CIM and is not a separate customer confirmation.",
+      "rationale": "The exact source supports what this fictional document reports; neither source presence nor analyst approval asserts real-world verification.",
+      "record": {
+        "claim_id": "nb_claim_h1",
+        "created_at": "2026-11-03T00:00:00Z",
+        "criterion_keys": [],
+        "deal_id": "deal_nb",
+        "entity_version": 1,
+        "id": "nb_ev_qa_repeat",
+        "independent_check_reference": null,
+        "lifecycle": "active",
+        "origin_key": "nb_management_crm",
+        "provenance": "company_reported",
+        "reliability_rationale": "Scenario author assessed documentary specificity; simulated counterparties are not actual independent authentication.",
+        "review_status": "approved",
+        "source_reliability": 2,
+        "source_span_ids": [
+          "span_nb_doc_crm_fb573c86c4b052803e21"
+        ],
+        "stance": "context",
+        "verification_level": "document_only"
+      },
+      "world_truth_status": "synthetic observation only; future outcome unobserved"
+    },
+    {
+      "available_stage": 0,
+      "contradiction_group": null,
+      "document_visible_status": "document_only",
+      "evidence_group_id": "nb_management_margin",
+      "evidence_type": "crm",
+      "exact_source_excerpt": "Management says cloud and standard support are included in gross margin, but states that implementation payroll and variable inference usage require a separate allocation exercise.",
+      "rationale": "The exact source supports what this fictional document reports; neither source presence nor analyst approval asserts real-world verification.",
+      "record": {
+        "claim_id": "nb_claim_h2",
+        "created_at": "2026-11-03T00:00:00Z",
+        "criterion_keys": [],
+        "deal_id": "deal_nb",
+        "entity_version": 1,
+        "id": "nb_ev_qa_cost",
+        "independent_check_reference": null,
+        "lifecycle": "active",
+        "origin_key": "nb_management_margin",
+        "provenance": "company_reported",
+        "reliability_rationale": "Scenario author assessed documentary specificity; simulated counterparties are not actual independent authentication.",
+        "review_status": "approved",
+        "source_reliability": 3,
+        "source_span_ids": [
+          "span_nb_doc_crm_38902aaf113786712c55"
+        ],
+        "stance": "context",
+        "verification_level": "document_only"
+      },
+      "world_truth_status": "synthetic observation only; future outcome unobserved"
+    },
+    {
+      "available_stage": 1,
+      "contradiction_group": null,
+      "document_visible_status": "document_only",
+      "evidence_group_id": "nb_aster_contract",
+      "evidence_type": "contract",
+      "exact_source_excerpt": "Aster and Northstar signed a commercial contract for annual subscription fees USD 240,000 and a one-time implementation fee USD 60,000. Total first-year contractual value is USD 300,000. The PoC memorandum has been replaced by the commercial contract.",
+      "rationale": "The exact source supports what this fictional document reports; neither source presence nor analyst approval asserts real-world verification.",
+      "record": {
+        "claim_id": "nb_claim_h1",
+        "created_at": "2026-11-05T00:00:00Z",
+        "criterion_keys": [
+          "contract_a"
+        ],
+        "deal_id": "deal_nb",
+        "entity_version": 1,
+        "id": "nb_ev_contract_a",
+        "independent_check_reference": null,
+        "lifecycle": "active",
+        "origin_key": "nb_aster_contract",
+        "provenance": "counterparty_reported",
+        "reliability_rationale": "Scenario author assessed documentary specificity; simulated counterparties are not actual independent authentication.",
+        "review_status": "draft",
+        "source_reliability": 4,
+        "source_span_ids": [
+          "span_nb_doc_contract_950aa2d077dd2c0b8795"
+        ],
+        "stance": "supports",
+        "verification_level": "document_only"
+      },
+      "world_truth_status": "synthetic observation only; future outcome unobserved"
+    },
+    {
+      "available_stage": 1,
+      "contradiction_group": null,
+      "document_visible_status": "document_only",
+      "evidence_group_id": "nb_aster_contract",
+      "evidence_type": "contract",
+      "exact_source_excerpt": "Acceptance requires an agreed benchmark test and a customer acceptance certificate. The first invoice is USD 120,000 comprising USD 60,000 implementation plus USD 60,000 for the first subscription quarter.",
+      "rationale": "The exact source supports what this fictional document reports; neither source presence nor analyst approval asserts real-world verification.",
+      "record": {
+        "claim_id": "nb_claim_h1",
+        "created_at": "2026-11-05T00:00:00Z",
+        "criterion_keys": [],
+        "deal_id": "deal_nb",
+        "entity_version": 1,
+        "id": "nb_ev_contract_conditions",
+        "independent_check_reference": null,
+        "lifecycle": "active",
+        "origin_key": "nb_aster_contract",
+        "provenance": "counterparty_reported",
+        "reliability_rationale": "Scenario author assessed documentary specificity; simulated counterparties are not actual independent authentication.",
+        "review_status": "draft",
+        "source_reliability": 4,
+        "source_span_ids": [
+          "span_nb_doc_contract_63501df525df35744402"
+        ],
+        "stance": "context",
+        "verification_level": "document_only"
+      },
+      "world_truth_status": "synthetic observation only; future outcome unobserved"
+    },
+    {
+      "available_stage": 2,
+      "contradiction_group": null,
+      "document_visible_status": "document_only",
+      "evidence_group_id": "nb_aster_execution",
+      "evidence_type": "execution",
+      "exact_source_excerpt": "Aster signed acceptance certificate AC-01 on 2026-11-12 after all contractual benchmark tests passed. Deployment status is accepted; this certificate covers Aster only.",
+      "rationale": "The exact source supports what this fictional document reports; neither source presence nor analyst approval asserts real-world verification.",
+      "record": {
+        "claim_id": "nb_claim_h1",
+        "created_at": "2026-11-12T00:00:00Z",
+        "criterion_keys": [
+          "accept_a"
+        ],
+        "deal_id": "deal_nb",
+        "entity_version": 1,
+        "id": "nb_ev_accept_a",
+        "independent_check_reference": null,
+        "lifecycle": "active",
+        "origin_key": "nb_aster_execution",
+        "provenance": "counterparty_reported",
+        "reliability_rationale": "Scenario author assessed documentary specificity; simulated counterparties are not actual independent authentication.",
+        "review_status": "draft",
+        "source_reliability": 4,
+        "source_span_ids": [
+          "span_nb_doc_execution_7f5cd2852d230ec58bcc"
+        ],
+        "stance": "supports",
+        "verification_level": "document_only"
+      },
+      "world_truth_status": "synthetic observation only; future outcome unobserved"
+    },
+    {
+      "available_stage": 2,
+      "contradiction_group": null,
+      "document_visible_status": "document_only",
+      "evidence_group_id": "nb_aster_execution",
+      "evidence_type": "execution",
+      "exact_source_excerpt": "Remittance RC-01 matched to INV-01 records USD 90,000 cash received on 2026-11-12. USD 30,000 remains outstanding; neither full collection nor an overdue balance is asserted.",
+      "rationale": "The exact source supports what this fictional document reports; neither source presence nor analyst approval asserts real-world verification.",
+      "record": {
+        "claim_id": "nb_claim_h1",
+        "created_at": "2026-11-12T00:00:00Z",
+        "criterion_keys": [
+          "cash_a"
+        ],
+        "deal_id": "deal_nb",
+        "entity_version": 1,
+        "id": "nb_ev_cash_a",
+        "independent_check_reference": null,
+        "lifecycle": "active",
+        "origin_key": "nb_aster_execution",
+        "provenance": "counterparty_reported",
+        "reliability_rationale": "Scenario author assessed documentary specificity; simulated counterparties are not actual independent authentication.",
+        "review_status": "draft",
+        "source_reliability": 4,
+        "source_span_ids": [
+          "span_nb_doc_execution_8ad74238a4409864ea82"
+        ],
+        "stance": "supports",
+        "verification_level": "document_only"
+      },
+      "world_truth_status": "synthetic observation only; future outcome unobserved"
+    },
+    {
+      "available_stage": 2,
+      "contradiction_group": null,
+      "document_visible_status": "document_only",
+      "evidence_group_id": "nb_aster_execution",
+      "evidence_type": "execution",
+      "exact_source_excerpt": "Invoice INV-01 dated 2026-11-12 is USD 120,000: implementation USD 60,000 and subscription prebilling USD 60,000. The invoice face amount is not recognized subscription revenue on that date.",
+      "rationale": "The exact source supports what this fictional document reports; neither source presence nor analyst approval asserts real-world verification.",
+      "record": {
+        "claim_id": "nb_claim_h3",
+        "created_at": "2026-11-12T00:00:00Z",
+        "criterion_keys": [],
+        "deal_id": "deal_nb",
+        "entity_version": 1,
+        "id": "nb_ev_invoice_a",
+        "independent_check_reference": null,
+        "lifecycle": "active",
+        "origin_key": "nb_aster_execution",
+        "provenance": "counterparty_reported",
+        "reliability_rationale": "Scenario author assessed documentary specificity; simulated counterparties are not actual independent authentication.",
+        "review_status": "draft",
+        "source_reliability": 4,
+        "source_span_ids": [
+          "span_nb_doc_execution_9fa7c862c23f65f55d21"
+        ],
+        "stance": "context",
+        "verification_level": "document_only"
+      },
+      "world_truth_status": "synthetic observation only; future outcome unobserved"
+    },
+    {
+      "available_stage": 2,
+      "contradiction_group": null,
+      "document_visible_status": "document_only",
+      "evidence_group_id": "nb_aster_execution",
+      "evidence_type": "execution",
+      "exact_source_excerpt": "On acceptance USD 60,000 implementation revenue is recognized. Subscription revenue begins on 2026-12-01. The remaining USD 60,000 of invoicing is deferred revenue at 2026-11-12.",
+      "rationale": "The exact source supports what this fictional document reports; neither source presence nor analyst approval asserts real-world verification.",
+      "record": {
+        "claim_id": "nb_claim_h3",
+        "created_at": "2026-11-12T00:00:00Z",
+        "criterion_keys": [],
+        "deal_id": "deal_nb",
+        "entity_version": 1,
+        "id": "nb_ev_recognition",
+        "independent_check_reference": null,
+        "lifecycle": "active",
+        "origin_key": "nb_aster_execution",
+        "provenance": "counterparty_reported",
+        "reliability_rationale": "Scenario author assessed documentary specificity; simulated counterparties are not actual independent authentication.",
+        "review_status": "draft",
+        "source_reliability": 3,
+        "source_span_ids": [
+          "span_nb_doc_execution_06c2292df11836bad402"
+        ],
+        "stance": "context",
+        "verification_level": "document_only"
+      },
+      "world_truth_status": "synthetic observation only; future outcome unobserved"
+    },
+    {
+      "available_stage": 3,
+      "contradiction_group": "aster_margin",
+      "document_visible_status": "document_only",
+      "evidence_group_id": "nb_aster_cost_v2",
+      "evidence_type": "cost",
+      "exact_source_excerpt": "For Aster, annual subscription revenue USD 240,000 less cloud USD 84,000, inference USD 108,000 and recurring support USD 72,000 gives recurring contribution negative USD 24,000. Implementation revenue USD 60,000 less implementation labor USD 90,000 gives negative USD 30,000; full first-year contribution is negative USD 54,000.",
+      "rationale": "The exact source supports what this fictional document reports; neither source presence nor analyst approval asserts real-world verification.",
+      "record": {
+        "claim_id": "nb_claim_h2",
+        "created_at": "2026-11-18T00:00:00Z",
+        "criterion_keys": [
+          "margin_a"
+        ],
+        "deal_id": "deal_nb",
+        "entity_version": 1,
+        "id": "nb_ev_cost_a",
+        "independent_check_reference": null,
+        "lifecycle": "active",
+        "origin_key": "nb_aster_cost_v2",
+        "provenance": "company_reported",
+        "reliability_rationale": "Scenario author assessed documentary specificity; simulated counterparties are not actual independent authentication.",
+        "review_status": "draft",
+        "source_reliability": 3,
+        "source_span_ids": [
+          "span_nb_doc_cost_f1f2de6f00171809d2f3"
+        ],
+        "stance": "refutes",
+        "verification_level": "document_only"
+      },
+      "world_truth_status": "synthetic observation only; future outcome unobserved"
+    },
+    {
+      "available_stage": 3,
+      "contradiction_group": null,
+      "document_visible_status": "document_only",
+      "evidence_group_id": "nb_aster_cost_v2",
+      "evidence_type": "cost",
+      "exact_source_excerpt": "The cost schedule explicitly includes implementation, cloud, inference and support categories. Customer-specific usage logs, time sheets and third-party invoice checks have not been provided; economic recovery remains unverified.",
+      "rationale": "The exact source supports what this fictional document reports; neither source presence nor analyst approval asserts real-world verification.",
+      "record": {
+        "claim_id": "nb_claim_h2",
+        "created_at": "2026-11-18T00:00:00Z",
+        "criterion_keys": [
+          "costs"
+        ],
+        "deal_id": "deal_nb",
+        "entity_version": 1,
+        "id": "nb_ev_cost_coverage",
+        "independent_check_reference": null,
+        "lifecycle": "active",
+        "origin_key": "nb_aster_cost_v2",
+        "provenance": "company_reported",
+        "reliability_rationale": "Scenario author assessed documentary specificity; simulated counterparties are not actual independent authentication.",
+        "review_status": "draft",
+        "source_reliability": 3,
+        "source_span_ids": [
+          "span_nb_doc_cost_83950928f98bfcb92b85"
+        ],
+        "stance": "supports",
+        "verification_level": "document_only"
+      },
+      "world_truth_status": "synthetic observation only; future outcome unobserved"
+    },
+    {
+      "available_stage": 3,
+      "contradiction_group": null,
+      "document_visible_status": "document_only",
+      "evidence_group_id": "nb_birch_cost_plan",
+      "evidence_type": "cost",
+      "exact_source_excerpt": "Birch planned annual revenue USD 360,000, recurring costs USD 240,000 and planned contribution USD 120,000 remain estimates because no live workload measurement is supplied.",
+      "rationale": "The exact source supports what this fictional document reports; neither source presence nor analyst approval asserts real-world verification.",
+      "record": {
+        "claim_id": "nb_claim_h2",
+        "created_at": "2026-11-18T00:00:00Z",
+        "criterion_keys": [],
+        "deal_id": "deal_nb",
+        "entity_version": 1,
+        "id": "nb_ev_birch_plan",
+        "independent_check_reference": null,
+        "lifecycle": "active",
+        "origin_key": "nb_birch_cost_plan",
+        "provenance": "company_reported",
+        "reliability_rationale": "Scenario author assessed documentary specificity; simulated counterparties are not actual independent authentication.",
+        "review_status": "draft",
+        "source_reliability": 2,
+        "source_span_ids": [
+          "span_nb_doc_cost_0f671f3bc7f6863e43e1"
+        ],
+        "stance": "context",
+        "verification_level": "document_only"
+      },
+      "world_truth_status": "synthetic observation only; future outcome unobserved"
+    },
+    {
+      "available_stage": 4,
+      "contradiction_group": null,
+      "document_visible_status": "document_only",
+      "evidence_group_id": "nb_birch_contract_execution",
+      "evidence_type": "followup",
+      "exact_source_excerpt": "Birch signed an annual subscription contract for USD 360,000 on 2026-11-22. Its acceptance certificate dated 2026-11-25 records benchmark completion; the first USD 90,000 quarterly invoice was paid in full on that date.",
+      "rationale": "The exact source supports what this fictional document reports; neither source presence nor analyst approval asserts real-world verification.",
+      "record": {
+        "claim_id": "nb_claim_h1",
+        "created_at": "2026-11-25T00:00:00Z",
+        "criterion_keys": [
+          "contract_b",
+          "accept_b",
+          "cash_b"
+        ],
+        "deal_id": "deal_nb",
+        "entity_version": 1,
+        "id": "nb_ev_contract_b",
+        "independent_check_reference": null,
+        "lifecycle": "active",
+        "origin_key": "nb_birch_contract_execution",
+        "provenance": "counterparty_reported",
+        "reliability_rationale": "Scenario author assessed documentary specificity; simulated counterparties are not actual independent authentication.",
+        "review_status": "draft",
+        "source_reliability": 4,
+        "source_span_ids": [
+          "span_nb_doc_followup_d8931cc8487c2c94e6e3"
+        ],
+        "stance": "supports",
+        "verification_level": "document_only"
+      },
+      "world_truth_status": "synthetic observation only; future outcome unobserved"
+    },
+    {
+      "available_stage": 4,
+      "contradiction_group": "ownership",
+      "document_visible_status": "document_only",
+      "evidence_group_id": "nb_ownership_registry",
+      "evidence_type": "followup",
+      "exact_source_excerpt": "The simulated ownership registry states that Birch is wholly owned by Aster. These two legal counterparties therefore do not establish two independently controlled customer groups.",
+      "rationale": "The exact source supports what this fictional document reports; neither source presence nor analyst approval asserts real-world verification.",
+      "record": {
+        "claim_id": "nb_claim_h1",
+        "created_at": "2026-11-25T00:00:00Z",
+        "criterion_keys": [
+          "independence"
+        ],
+        "deal_id": "deal_nb",
+        "entity_version": 1,
+        "id": "nb_ev_ownership",
+        "independent_check_reference": null,
+        "lifecycle": "active",
+        "origin_key": "nb_ownership_registry",
+        "provenance": "counterparty_reported",
+        "reliability_rationale": "Scenario author assessed documentary specificity; simulated counterparties are not actual independent authentication.",
+        "review_status": "draft",
+        "source_reliability": 4,
+        "source_span_ids": [
+          "span_nb_doc_followup_fc41a606074581e3373c"
+        ],
+        "stance": "refutes",
+        "verification_level": "document_only"
+      },
+      "world_truth_status": "synthetic observation only; future outcome unobserved"
+    },
+    {
+      "available_stage": 4,
+      "contradiction_group": "customer_count",
+      "document_visible_status": "document_only",
+      "evidence_group_id": "nb_taxonomy_correction",
+      "evidence_type": "followup",
+      "exact_source_excerpt": "Management corrects the initial customer taxonomy: on 2026-11-03 there were two paying customers, one PoC and one unsigned prospect. On 2026-11-25 Aster and Birch have paid contracts but form one control group.",
+      "rationale": "The exact source supports what this fictional document reports; neither source presence nor analyst approval asserts real-world verification.",
+      "record": {
+        "claim_id": "nb_claim_h3",
+        "created_at": "2026-11-25T00:00:00Z",
+        "criterion_keys": [
+          "count"
+        ],
+        "deal_id": "deal_nb",
+        "entity_version": 1,
+        "id": "nb_ev_count_corrected",
+        "independent_check_reference": null,
+        "lifecycle": "active",
+        "origin_key": "nb_taxonomy_correction",
+        "provenance": "company_reported",
+        "reliability_rationale": "Scenario author assessed documentary specificity; simulated counterparties are not actual independent authentication.",
+        "review_status": "draft",
+        "source_reliability": 3,
+        "source_span_ids": [
+          "span_nb_doc_followup_68afd63803495778c62d"
+        ],
+        "stance": "supports",
+        "verification_level": "document_only"
+      },
+      "world_truth_status": "synthetic observation only; future outcome unobserved"
+    },
+    {
+      "available_stage": 4,
+      "contradiction_group": null,
+      "document_visible_status": "document_only",
+      "evidence_group_id": "nb_aster_cost_v2",
+      "evidence_type": "followup",
+      "exact_source_excerpt": "No revised pricing agreement, inference-usage reduction or independently verified customer cost reduction is supplied. Aster contribution remains negative in the latest supplied cost schedule.",
+      "rationale": "The exact source supports what this fictional document reports; neither source presence nor analyst approval asserts real-world verification.",
+      "record": {
+        "claim_id": "nb_claim_h2",
+        "created_at": "2026-11-25T00:00:00Z",
+        "criterion_keys": [],
+        "deal_id": "deal_nb",
+        "entity_version": 1,
+        "id": "nb_ev_cost_residual",
+        "independent_check_reference": null,
+        "lifecycle": "active",
+        "origin_key": "nb_aster_cost_v2",
+        "provenance": "company_reported",
+        "reliability_rationale": "Scenario author assessed documentary specificity; simulated counterparties are not actual independent authentication.",
+        "review_status": "draft",
+        "source_reliability": 3,
+        "source_span_ids": [
+          "span_nb_doc_followup_2e38a29426458d1b2417"
+        ],
+        "stance": "context",
+        "verification_level": "document_only"
+      },
+      "world_truth_status": "synthetic observation only; future outcome unobserved"
+    }
+  ],
+  "hypotheses": [
+    {
+      "claim": {
+        "claim_kind": "binary_hypothesis",
+        "deal_id": "deal_nb",
+        "entity_version": 1,
+        "id": "nb_claim_h1",
+        "period_end": "2027-10-31",
+        "period_start": "2026-11-01",
+        "required_criterion_keys": [
+          "contract_a",
+          "contract_b",
+          "accept_a",
+          "cash_a",
+          "independence",
+          "accept_b",
+          "cash_b"
+        ],
+        "review_status": "approved",
+        "source_span_ids": [],
+        "statement": "By 2027-10-31 at least two newly acquired independently controlled enterprise customer groups have signed paid contracts, accepted deployment and a matched first cash receipt.",
+        "subject_key": "nb_h1",
+        "support_status": "missing",
+        "thesis_id": "nb_thesis",
+        "truth_status": "document_only"
+      },
+      "financial_driver": "revenue_quality",
+      "hypothesis_id": "nb_hyp_h1",
+      "interpretation": "synthetic_scenario_not_investment_probability",
+      "threshold": "Two independent new groups; all commercial milestones met by 2027-10-31."
+    },
+    {
+      "claim": {
+        "claim_kind": "binary_hypothesis",
+        "deal_id": "deal_nb",
+        "entity_version": 1,
+        "id": "nb_claim_h2",
+        "period_end": "2027-11-30",
+        "period_start": "2026-11-01",
+        "required_criterion_keys": [
+          "margin_a",
+          "margin_b",
+          "costs"
+        ],
+        "review_status": "approved",
+        "source_span_ids": [],
+        "statement": "For the Aster and Birch first contract years recurring customer contribution is positive and total first-year contribution is nonnegative after all implementation and delivery costs.",
+        "subject_key": "nb_h2",
+        "support_status": "missing",
+        "thesis_id": "nb_thesis",
+        "truth_status": "document_only"
+      },
+      "financial_driver": "unit_economics",
+      "hypothesis_id": "nb_hyp_h2",
+      "interpretation": "synthetic_scenario_not_investment_probability",
+      "threshold": "Recurring contribution > 0 and first-year total contribution >= 0 for each new customer."
+    },
+    {
+      "claim": {
+        "claim_kind": "binary_hypothesis",
+        "deal_id": "deal_nb",
+        "entity_version": 2,
+        "id": "nb_claim_h3",
+        "period_end": "2027-12-31",
+        "period_start": "2025-01-01",
+        "required_criterion_keys": [
+          "count",
+          "arr",
+          "capacity",
+          "revenue",
+          "balance"
+        ],
+        "review_status": "approved",
+        "source_span_ids": [],
+        "statement": "The FY2025 recognized revenue and 2026-11-03 commercial claims reconcile within 5 percent and the FY2027 forecast is supported by documented delivery capacity.",
+        "subject_key": "nb_h3",
+        "support_status": "contradicted",
+        "thesis_id": "nb_thesis",
+        "truth_status": "disputed"
+      },
+      "financial_driver": "revenue_quality",
+      "hypothesis_id": "nb_hyp_h3",
+      "interpretation": "synthetic_scenario_not_investment_probability",
+      "threshold": "Revenue/ARR reconciliation variance <= 5%; dated customer taxonomy and capacity support all planned deployments."
+    }
+  ],
+  "questions": [
+    {
+      "acceptable_alternatives": [
+        "Executed Aster commercial contract",
+        "Aster executed paid contract"
+      ],
+      "acceptable_question_family": "nb.contract_a",
+      "business_impact": "Impacts revenue_quality under the stated synthetic case assumptions.",
+      "expected_priority": 1,
+      "expected_update_behavior": "Remove only after all request criteria have approved support; reopen or retain if qualified refutation exists.",
+      "hypothesis_id": "nb_hyp_h1",
+      "information_gain": 0.2361139273389372,
+      "linked_evidence_ids": [
+        "nb_ev_cim_traction",
+        "nb_ev_qa_repeat",
+        "nb_ev_contract_a",
+        "nb_ev_contract_conditions"
+      ],
+      "question_text": "For 2026-11-01 through 2027-11-30, provide Executed Aster commercial contract. Verify counterparty signatures, annual fee, term and acceptance conditions.",
+      "record": {
+        "canonical_key": "nb.contract_a",
+        "claim_id": "nb_claim_h1",
+        "deal_id": "deal_nb",
+        "duplicate_of": null,
+        "entity_version": 1,
+        "financial_driver": "revenue_quality",
+        "id": "nb_q_contract_a",
+        "issue": "Aster executed paid contract",
+        "materiality": {
+          "basis": "analyst_rubric",
+          "denominator_minor": null,
+          "exposure_minor": null,
+          "rationale": "Explicit synthetic analyst materiality on 0-5 scale; no monetary valuation or calibrated utility.",
+          "score": 5,
+          "source_span_ids": []
+        },
+        "obtainability": {
+          "basis": "analyst_estimate",
+          "days": null,
+          "external_cost_minor": null,
+          "rationale": "Synthetic analyst estimate on 0-5 scale; time and cost not empirically measured.",
+          "score": 5
+        },
+        "owner_label": "Simulated analyst",
+        "request_text": "For 2026-11-01 through 2027-11-30, provide Executed Aster commercial contract. Verify counterparty signatures, annual fee, term and acceptance conditions.",
+        "requirements": [
+          {
+            "key": "contract_a",
+            "label": "contract a",
+            "min_reliability": 3,
+            "require_independent": false
+          }
+        ],
+        "review_status": "approved",
+        "workflow_status": "open"
+      },
+      "requested_artifact": "Executed Aster commercial contract",
+      "unresolved_assumption": "Aster executed paid contract",
+      "verification_criterion": "Verify counterparty signatures, annual fee, term and acceptance conditions."
+    },
+    {
+      "acceptable_alternatives": [
+        "Executed Birch commercial contract",
+        "Birch executed paid contract"
+      ],
+      "acceptable_question_family": "nb.contract_b",
+      "business_impact": "Impacts revenue_quality under the stated synthetic case assumptions.",
+      "expected_priority": 2,
+      "expected_update_behavior": "Remove only after all request criteria have approved support; reopen or retain if qualified refutation exists.",
+      "hypothesis_id": "nb_hyp_h1",
+      "information_gain": null,
+      "linked_evidence_ids": [
+        "nb_ev_cim_traction",
+        "nb_ev_qa_repeat",
+        "nb_ev_contract_conditions",
+        "nb_ev_contract_b"
+      ],
+      "question_text": "For 2026-11-01 through 2027-11-30, provide Executed Birch commercial contract. Verify signatures, service term and binding recurring consideration.",
+      "record": {
+        "canonical_key": "nb.contract_b",
+        "claim_id": "nb_claim_h1",
+        "deal_id": "deal_nb",
+        "duplicate_of": null,
+        "entity_version": 1,
+        "financial_driver": "revenue_quality",
+        "id": "nb_q_contract_b",
+        "issue": "Birch executed paid contract",
+        "materiality": {
+          "basis": "analyst_rubric",
+          "denominator_minor": null,
+          "exposure_minor": null,
+          "rationale": "Explicit synthetic analyst materiality on 0-5 scale; no monetary valuation or calibrated utility.",
+          "score": 5,
+          "source_span_ids": []
+        },
+        "obtainability": {
+          "basis": "analyst_estimate",
+          "days": null,
+          "external_cost_minor": null,
+          "rationale": "Synthetic analyst estimate on 0-5 scale; time and cost not empirically measured.",
+          "score": 4
+        },
+        "owner_label": "Simulated analyst",
+        "request_text": "For 2026-11-01 through 2027-11-30, provide Executed Birch commercial contract. Verify signatures, service term and binding recurring consideration.",
+        "requirements": [
+          {
+            "key": "contract_b",
+            "label": "contract b",
+            "min_reliability": 3,
+            "require_independent": false
+          }
+        ],
+        "review_status": "approved",
+        "workflow_status": "open"
+      },
+      "requested_artifact": "Executed Birch commercial contract",
+      "unresolved_assumption": "Birch executed paid contract",
+      "verification_criterion": "Verify signatures, service term and binding recurring consideration."
+    },
+    {
+      "acceptable_alternatives": [
+        "Aster acceptance certificate and matched bank remittance",
+        "Aster acceptance and first cash"
+      ],
+      "acceptable_question_family": "nb.execution_a",
+      "business_impact": "Impacts revenue_quality under the stated synthetic case assumptions.",
+      "expected_priority": 3,
+      "expected_update_behavior": "Remove only after all request criteria have approved support; reopen or retain if qualified refutation exists.",
+      "hypothesis_id": "nb_hyp_h1",
+      "information_gain": null,
+      "linked_evidence_ids": [
+        "nb_ev_cim_traction",
+        "nb_ev_qa_repeat",
+        "nb_ev_contract_conditions",
+        "nb_ev_accept_a",
+        "nb_ev_cash_a"
+      ],
+      "question_text": "For 2026-11-01 through 2027-10-31, provide Aster acceptance certificate and matched bank remittance. Match acceptance tests and first cash receipt to an issued invoice; identify the unpaid balance separately.",
+      "record": {
+        "canonical_key": "nb.execution_a",
+        "claim_id": "nb_claim_h1",
+        "deal_id": "deal_nb",
+        "duplicate_of": null,
+        "entity_version": 1,
+        "financial_driver": "revenue_quality",
+        "id": "nb_q_execution_a",
+        "issue": "Aster acceptance and first cash",
+        "materiality": {
+          "basis": "analyst_rubric",
+          "denominator_minor": null,
+          "exposure_minor": null,
+          "rationale": "Explicit synthetic analyst materiality on 0-5 scale; no monetary valuation or calibrated utility.",
+          "score": 5,
+          "source_span_ids": []
+        },
+        "obtainability": {
+          "basis": "analyst_estimate",
+          "days": null,
+          "external_cost_minor": null,
+          "rationale": "Synthetic analyst estimate on 0-5 scale; time and cost not empirically measured.",
+          "score": 3
+        },
+        "owner_label": "Simulated analyst",
+        "request_text": "For 2026-11-01 through 2027-10-31, provide Aster acceptance certificate and matched bank remittance. Match acceptance tests and first cash receipt to an issued invoice; identify the unpaid balance separately.",
+        "requirements": [
+          {
+            "key": "accept_a",
+            "label": "accept a",
+            "min_reliability": 3,
+            "require_independent": false
+          },
+          {
+            "key": "cash_a",
+            "label": "cash a",
+            "min_reliability": 3,
+            "require_independent": false
+          }
+        ],
+        "review_status": "approved",
+        "workflow_status": "open"
+      },
+      "requested_artifact": "Aster acceptance certificate and matched bank remittance",
+      "unresolved_assumption": "Aster acceptance and first cash",
+      "verification_criterion": "Match acceptance tests and first cash receipt to an issued invoice; identify the unpaid balance separately."
+    },
+    {
+      "acceptable_alternatives": [
+        "Aster complete recurring and implementation cost bridge",
+        "Aster full customer contribution"
+      ],
+      "acceptable_question_family": "nb.margin_a",
+      "business_impact": "Impacts unit_economics under the stated synthetic case assumptions.",
+      "expected_priority": 4,
+      "expected_update_behavior": "Remove only after all request criteria have approved support; reopen or retain if qualified refutation exists.",
+      "hypothesis_id": "nb_hyp_h2",
+      "information_gain": null,
+      "linked_evidence_ids": [
+        "nb_ev_cim_margin",
+        "nb_ev_cim_aster",
+        "nb_ev_fin_income",
+        "nb_ev_qa_cost",
+        "nb_ev_cost_a",
+        "nb_ev_birch_plan",
+        "nb_ev_cost_residual"
+      ],
+      "question_text": "For Aster contract year 2026-12-01 through 2027-11-30, provide Aster complete recurring and implementation cost bridge. Show positive recurring contribution after cloud, inference and support and nonnegative total first-year contribution after implementation.",
+      "record": {
+        "canonical_key": "nb.margin_a",
+        "claim_id": "nb_claim_h2",
+        "deal_id": "deal_nb",
+        "duplicate_of": null,
+        "entity_version": 1,
+        "financial_driver": "unit_economics",
+        "id": "nb_q_margin_a",
+        "issue": "Aster full customer contribution",
+        "materiality": {
+          "basis": "analyst_rubric",
+          "denominator_minor": null,
+          "exposure_minor": null,
+          "rationale": "Explicit synthetic analyst materiality on 0-5 scale; no monetary valuation or calibrated utility.",
+          "score": 5,
+          "source_span_ids": []
+        },
+        "obtainability": {
+          "basis": "analyst_estimate",
+          "days": null,
+          "external_cost_minor": null,
+          "rationale": "Synthetic analyst estimate on 0-5 scale; time and cost not empirically measured.",
+          "score": 2
+        },
+        "owner_label": "Simulated analyst",
+        "request_text": "For Aster contract year 2026-12-01 through 2027-11-30, provide Aster complete recurring and implementation cost bridge. Show positive recurring contribution after cloud, inference and support and nonnegative total first-year contribution after implementation.",
+        "requirements": [
+          {
+            "key": "margin_a",
+            "label": "margin a",
+            "min_reliability": 3,
+            "require_independent": false
+          }
+        ],
+        "review_status": "approved",
+        "workflow_status": "open"
+      },
+      "requested_artifact": "Aster complete recurring and implementation cost bridge",
+      "unresolved_assumption": "Aster full customer contribution",
+      "verification_criterion": "Show positive recurring contribution after cloud, inference and support and nonnegative total first-year contribution after implementation."
+    },
+    {
+      "acceptable_alternatives": [
+        "Beneficial ownership and customer group confirmation",
+        "Independence of the two new customer groups"
+      ],
+      "acceptable_question_family": "nb.independence",
+      "business_impact": "Impacts revenue_quality under the stated synthetic case assumptions.",
+      "expected_priority": 5,
+      "expected_update_behavior": "Remove only after all request criteria have approved support; reopen or retain if qualified refutation exists.",
+      "hypothesis_id": "nb_hyp_h1",
+      "information_gain": null,
+      "linked_evidence_ids": [
+        "nb_ev_cim_traction",
+        "nb_ev_qa_repeat",
+        "nb_ev_contract_conditions",
+        "nb_ev_ownership"
+      ],
+      "question_text": "For 2026-11-01 through 2027-10-31, provide Beneficial ownership and customer group confirmation. Demonstrate that the two new paying customers are not under common control.",
+      "record": {
+        "canonical_key": "nb.independence",
+        "claim_id": "nb_claim_h1",
+        "deal_id": "deal_nb",
+        "duplicate_of": null,
+        "entity_version": 1,
+        "financial_driver": "revenue_quality",
+        "id": "nb_q_independence",
+        "issue": "Independence of the two new customer groups",
+        "materiality": {
+          "basis": "analyst_rubric",
+          "denominator_minor": null,
+          "exposure_minor": null,
+          "rationale": "Explicit synthetic analyst materiality on 0-5 scale; no monetary valuation or calibrated utility.",
+          "score": 4,
+          "source_span_ids": []
+        },
+        "obtainability": {
+          "basis": "analyst_estimate",
+          "days": null,
+          "external_cost_minor": null,
+          "rationale": "Synthetic analyst estimate on 0-5 scale; time and cost not empirically measured.",
+          "score": 4
+        },
+        "owner_label": "Simulated analyst",
+        "request_text": "For 2026-11-01 through 2027-10-31, provide Beneficial ownership and customer group confirmation. Demonstrate that the two new paying customers are not under common control.",
+        "requirements": [
+          {
+            "key": "independence",
+            "label": "independence",
+            "min_reliability": 3,
+            "require_independent": false
+          }
+        ],
+        "review_status": "approved",
+        "workflow_status": "open"
+      },
+      "requested_artifact": "Beneficial ownership and customer group confirmation",
+      "unresolved_assumption": "Independence of the two new customer groups",
+      "verification_criterion": "Demonstrate that the two new paying customers are not under common control."
+    },
+    {
+      "acceptable_alternatives": [
+        "Birch acceptance certificate and matched bank remittance",
+        "Birch acceptance and first cash"
+      ],
+      "acceptable_question_family": "nb.execution_b",
+      "business_impact": "Impacts revenue_quality under the stated synthetic case assumptions.",
+      "expected_priority": 6,
+      "expected_update_behavior": "Remove only after all request criteria have approved support; reopen or retain if qualified refutation exists.",
+      "hypothesis_id": "nb_hyp_h1",
+      "information_gain": null,
+      "linked_evidence_ids": [
+        "nb_ev_cim_traction",
+        "nb_ev_qa_repeat",
+        "nb_ev_contract_conditions",
+        "nb_ev_contract_b"
+      ],
+      "question_text": "For 2026-11-01 through 2027-10-31, provide Birch acceptance certificate and matched bank remittance. Match completed benchmarks and the first payment to the Birch contract and invoice.",
+      "record": {
+        "canonical_key": "nb.execution_b",
+        "claim_id": "nb_claim_h1",
+        "deal_id": "deal_nb",
+        "duplicate_of": null,
+        "entity_version": 1,
+        "financial_driver": "revenue_quality",
+        "id": "nb_q_execution_b",
+        "issue": "Birch acceptance and first cash",
+        "materiality": {
+          "basis": "analyst_rubric",
+          "denominator_minor": null,
+          "exposure_minor": null,
+          "rationale": "Explicit synthetic analyst materiality on 0-5 scale; no monetary valuation or calibrated utility.",
+          "score": 4,
+          "source_span_ids": []
+        },
+        "obtainability": {
+          "basis": "analyst_estimate",
+          "days": null,
+          "external_cost_minor": null,
+          "rationale": "Synthetic analyst estimate on 0-5 scale; time and cost not empirically measured.",
+          "score": 3
+        },
+        "owner_label": "Simulated analyst",
+        "request_text": "For 2026-11-01 through 2027-10-31, provide Birch acceptance certificate and matched bank remittance. Match completed benchmarks and the first payment to the Birch contract and invoice.",
+        "requirements": [
+          {
+            "key": "accept_b",
+            "label": "accept b",
+            "min_reliability": 3,
+            "require_independent": false
+          },
+          {
+            "key": "cash_b",
+            "label": "cash b",
+            "min_reliability": 3,
+            "require_independent": false
+          }
+        ],
+        "review_status": "approved",
+        "workflow_status": "open"
+      },
+      "requested_artifact": "Birch acceptance certificate and matched bank remittance",
+      "unresolved_assumption": "Birch acceptance and first cash",
+      "verification_criterion": "Match completed benchmarks and the first payment to the Birch contract and invoice."
+    },
+    {
+      "acceptable_alternatives": [
+        "Dated customer taxonomy bridge",
+        "Corrected initial customer classification"
+      ],
+      "acceptable_question_family": "nb.count",
+      "business_impact": "Impacts revenue_quality under the stated synthetic case assumptions.",
+      "expected_priority": 7,
+      "expected_update_behavior": "Remove only after all request criteria have approved support; reopen or retain if qualified refutation exists.",
+      "hypothesis_id": "nb_hyp_h3",
+      "information_gain": null,
+      "linked_evidence_ids": [
+        "nb_ev_cim_strength",
+        "nb_ev_fin_revenue",
+        "nb_ev_fin_cash",
+        "nb_ev_forecast",
+        "nb_ev_taxonomy",
+        "nb_ev_invoice_a",
+        "nb_ev_recognition",
+        "nb_ev_count_corrected"
+      ],
+      "question_text": "For customer classification as of 2026-11-03, provide Dated customer taxonomy bridge. Reconcile paying customers, PoCs and unsigned prospects across CIM and CRM on 2026-11-03.",
+      "record": {
+        "canonical_key": "nb.count",
+        "claim_id": "nb_claim_h3",
+        "deal_id": "deal_nb",
+        "duplicate_of": null,
+        "entity_version": 1,
+        "financial_driver": "revenue_quality",
+        "id": "nb_q_count",
+        "issue": "Corrected initial customer classification",
+        "materiality": {
+          "basis": "analyst_rubric",
+          "denominator_minor": null,
+          "exposure_minor": null,
+          "rationale": "Explicit synthetic analyst materiality on 0-5 scale; no monetary valuation or calibrated utility.",
+          "score": 4,
+          "source_span_ids": []
+        },
+        "obtainability": {
+          "basis": "analyst_estimate",
+          "days": null,
+          "external_cost_minor": null,
+          "rationale": "Synthetic analyst estimate on 0-5 scale; time and cost not empirically measured.",
+          "score": 2
+        },
+        "owner_label": "Simulated analyst",
+        "request_text": "For customer classification as of 2026-11-03, provide Dated customer taxonomy bridge. Reconcile paying customers, PoCs and unsigned prospects across CIM and CRM on 2026-11-03.",
+        "requirements": [
+          {
+            "key": "count",
+            "label": "count",
+            "min_reliability": 3,
+            "require_independent": false
+          }
+        ],
+        "review_status": "approved",
+        "workflow_status": "open"
+      },
+      "requested_artifact": "Dated customer taxonomy bridge",
+      "unresolved_assumption": "Corrected initial customer classification",
+      "verification_criterion": "Reconcile paying customers, PoCs and unsigned prospects across CIM and CRM on 2026-11-03."
+    },
+    {
+      "acceptable_alternatives": [
+        "Signed contract ARR reconciliation",
+        "Committed ARR reconciliation"
+      ],
+      "acceptable_question_family": "nb.arr",
+      "business_impact": "Impacts revenue_quality under the stated synthetic case assumptions.",
+      "expected_priority": 8,
+      "expected_update_behavior": "Remove only after all request criteria have approved support; reopen or retain if qualified refutation exists.",
+      "hypothesis_id": "nb_hyp_h3",
+      "information_gain": null,
+      "linked_evidence_ids": [
+        "nb_ev_cim_strength",
+        "nb_ev_fin_revenue",
+        "nb_ev_fin_cash",
+        "nb_ev_forecast",
+        "nb_ev_arr",
+        "nb_ev_invoice_a",
+        "nb_ev_recognition"
+      ],
+      "question_text": "For signed recurring obligations as of 2026-11-03, provide Signed contract ARR reconciliation. Reconcile USD 1,800,000 presented ARR to signed recurring obligations as of 2026-11-03; exclude unsigned pipeline.",
+      "record": {
+        "canonical_key": "nb.arr",
+        "claim_id": "nb_claim_h3",
+        "deal_id": "deal_nb",
+        "duplicate_of": null,
+        "entity_version": 1,
+        "financial_driver": "revenue_quality",
+        "id": "nb_q_arr",
+        "issue": "Committed ARR reconciliation",
+        "materiality": {
+          "basis": "analyst_rubric",
+          "denominator_minor": null,
+          "exposure_minor": null,
+          "rationale": "Explicit synthetic analyst materiality on 0-5 scale; no monetary valuation or calibrated utility.",
+          "score": 3,
+          "source_span_ids": []
+        },
+        "obtainability": {
+          "basis": "analyst_estimate",
+          "days": null,
+          "external_cost_minor": null,
+          "rationale": "Synthetic analyst estimate on 0-5 scale; time and cost not empirically measured.",
+          "score": 4
+        },
+        "owner_label": "Simulated analyst",
+        "request_text": "For signed recurring obligations as of 2026-11-03, provide Signed contract ARR reconciliation. Reconcile USD 1,800,000 presented ARR to signed recurring obligations as of 2026-11-03; exclude unsigned pipeline.",
+        "requirements": [
+          {
+            "key": "arr",
+            "label": "arr",
+            "min_reliability": 3,
+            "require_independent": false
+          }
+        ],
+        "review_status": "approved",
+        "workflow_status": "open"
+      },
+      "requested_artifact": "Signed contract ARR reconciliation",
+      "unresolved_assumption": "Committed ARR reconciliation",
+      "verification_criterion": "Reconcile USD 1,800,000 presented ARR to signed recurring obligations as of 2026-11-03; exclude unsigned pipeline."
+    },
+    {
+      "acceptable_alternatives": [
+        "Signed hiring or outsourcing plan and deployment model",
+        "Deployable growth forecast"
+      ],
+      "acceptable_question_family": "nb.capacity",
+      "business_impact": "Impacts revenue_quality under the stated synthetic case assumptions.",
+      "expected_priority": 9,
+      "expected_update_behavior": "Remove only after all request criteria have approved support; reopen or retain if qualified refutation exists.",
+      "hypothesis_id": "nb_hyp_h3",
+      "information_gain": null,
+      "linked_evidence_ids": [
+        "nb_ev_cim_strength",
+        "nb_ev_fin_revenue",
+        "nb_ev_fin_cash",
+        "nb_ev_forecast",
+        "nb_ev_capacity",
+        "nb_ev_invoice_a",
+        "nb_ev_recognition"
+      ],
+      "question_text": "For calendar FY2027, provide Signed hiring or outsourcing plan and deployment model. Reconcile eight planned deployments to two squads at two deployments each, or revise forecast to supported capacity.",
+      "record": {
+        "canonical_key": "nb.capacity",
+        "claim_id": "nb_claim_h3",
+        "deal_id": "deal_nb",
+        "duplicate_of": null,
+        "entity_version": 1,
+        "financial_driver": "revenue_quality",
+        "id": "nb_q_capacity",
+        "issue": "Deployable growth forecast",
+        "materiality": {
+          "basis": "analyst_rubric",
+          "denominator_minor": null,
+          "exposure_minor": null,
+          "rationale": "Explicit synthetic analyst materiality on 0-5 scale; no monetary valuation or calibrated utility.",
+          "score": 4,
+          "source_span_ids": []
+        },
+        "obtainability": {
+          "basis": "analyst_estimate",
+          "days": null,
+          "external_cost_minor": null,
+          "rationale": "Synthetic analyst estimate on 0-5 scale; time and cost not empirically measured.",
+          "score": 1
+        },
+        "owner_label": "Simulated analyst",
+        "request_text": "For calendar FY2027, provide Signed hiring or outsourcing plan and deployment model. Reconcile eight planned deployments to two squads at two deployments each, or revise forecast to supported capacity.",
+        "requirements": [
+          {
+            "key": "capacity",
+            "label": "capacity",
+            "min_reliability": 3,
+            "require_independent": false
+          }
+        ],
+        "review_status": "approved",
+        "workflow_status": "open"
+      },
+      "requested_artifact": "Signed hiring or outsourcing plan and deployment model",
+      "unresolved_assumption": "Deployable growth forecast",
+      "verification_criterion": "Reconcile eight planned deployments to two squads at two deployments each, or revise forecast to supported capacity."
+    },
+    {
+      "acceptable_alternatives": [
+        "Birch measured workload and complete cost schedule",
+        "Measured Birch contribution"
+      ],
+      "acceptable_question_family": "nb.margin_b",
+      "business_impact": "Impacts unit_economics under the stated synthetic case assumptions.",
+      "expected_priority": 10,
+      "expected_update_behavior": "Remove only after all request criteria have approved support; reopen or retain if qualified refutation exists.",
+      "hypothesis_id": "nb_hyp_h2",
+      "information_gain": null,
+      "linked_evidence_ids": [
+        "nb_ev_cim_margin",
+        "nb_ev_fin_income",
+        "nb_ev_qa_cost",
+        "nb_ev_birch_plan",
+        "nb_ev_cost_residual"
+      ],
+      "question_text": "For Birch first contract year beginning 2026-11-22, provide Birch measured workload and complete cost schedule. Confirm positive recurring contribution from measured live costs, not planned margins.",
+      "record": {
+        "canonical_key": "nb.margin_b",
+        "claim_id": "nb_claim_h2",
+        "deal_id": "deal_nb",
+        "duplicate_of": null,
+        "entity_version": 1,
+        "financial_driver": "unit_economics",
+        "id": "nb_q_margin_b",
+        "issue": "Measured Birch contribution",
+        "materiality": {
+          "basis": "analyst_rubric",
+          "denominator_minor": null,
+          "exposure_minor": null,
+          "rationale": "Explicit synthetic analyst materiality on 0-5 scale; no monetary valuation or calibrated utility.",
+          "score": 3,
+          "source_span_ids": []
+        },
+        "obtainability": {
+          "basis": "analyst_estimate",
+          "days": null,
+          "external_cost_minor": null,
+          "rationale": "Synthetic analyst estimate on 0-5 scale; time and cost not empirically measured.",
+          "score": 3
+        },
+        "owner_label": "Simulated analyst",
+        "request_text": "For Birch first contract year beginning 2026-11-22, provide Birch measured workload and complete cost schedule. Confirm positive recurring contribution from measured live costs, not planned margins.",
+        "requirements": [
+          {
+            "key": "margin_b",
+            "label": "margin b",
+            "min_reliability": 3,
+            "require_independent": false
+          }
+        ],
+        "review_status": "approved",
+        "workflow_status": "open"
+      },
+      "requested_artifact": "Birch measured workload and complete cost schedule",
+      "unresolved_assumption": "Measured Birch contribution",
+      "verification_criterion": "Confirm positive recurring contribution from measured live costs, not planned margins."
+    },
+    {
+      "acceptable_alternatives": [
+        "Revenue ledger and invoice recognition bridge",
+        "Recognized revenue to ledger"
+      ],
+      "acceptable_question_family": "nb.revenue",
+      "business_impact": "Impacts revenue_quality under the stated synthetic case assumptions.",
+      "expected_priority": 11,
+      "expected_update_behavior": "Remove only after all request criteria have approved support; reopen or retain if qualified refutation exists.",
+      "hypothesis_id": "nb_hyp_h3",
+      "information_gain": null,
+      "linked_evidence_ids": [
+        "nb_ev_cim_strength",
+        "nb_ev_fin_revenue",
+        "nb_ev_fin_cash",
+        "nb_ev_forecast",
+        "nb_ev_invoice_a",
+        "nb_ev_recognition"
+      ],
+      "question_text": "For calendar FY2025, provide Revenue ledger and invoice recognition bridge. Tie FY2025 customer recognized revenue to USD 1,200,000; distinguish invoice amount, cash and contract value.",
+      "record": {
+        "canonical_key": "nb.revenue",
+        "claim_id": "nb_claim_h3",
+        "deal_id": "deal_nb",
+        "duplicate_of": null,
+        "entity_version": 1,
+        "financial_driver": "revenue_quality",
+        "id": "nb_q_revenue",
+        "issue": "Recognized revenue to ledger",
+        "materiality": {
+          "basis": "analyst_rubric",
+          "denominator_minor": null,
+          "exposure_minor": null,
+          "rationale": "Explicit synthetic analyst materiality on 0-5 scale; no monetary valuation or calibrated utility.",
+          "score": 2,
+          "source_span_ids": []
+        },
+        "obtainability": {
+          "basis": "analyst_estimate",
+          "days": null,
+          "external_cost_minor": null,
+          "rationale": "Synthetic analyst estimate on 0-5 scale; time and cost not empirically measured.",
+          "score": 5
+        },
+        "owner_label": "Simulated analyst",
+        "request_text": "For calendar FY2025, provide Revenue ledger and invoice recognition bridge. Tie FY2025 customer recognized revenue to USD 1,200,000; distinguish invoice amount, cash and contract value.",
+        "requirements": [
+          {
+            "key": "revenue",
+            "label": "revenue",
+            "min_reliability": 3,
+            "require_independent": false
+          }
+        ],
+        "review_status": "approved",
+        "workflow_status": "open"
+      },
+      "requested_artifact": "Revenue ledger and invoice recognition bridge",
+      "unresolved_assumption": "Recognized revenue to ledger",
+      "verification_criterion": "Tie FY2025 customer recognized revenue to USD 1,200,000; distinguish invoice amount, cash and contract value."
+    },
+    {
+      "acceptable_alternatives": [
+        "Complete customer cost category schedule",
+        "Complete cost category coverage"
+      ],
+      "acceptable_question_family": "nb.costs",
+      "business_impact": "Impacts unit_economics under the stated synthetic case assumptions.",
+      "expected_priority": 12,
+      "expected_update_behavior": "Remove only after all request criteria have approved support; reopen or retain if qualified refutation exists.",
+      "hypothesis_id": "nb_hyp_h2",
+      "information_gain": null,
+      "linked_evidence_ids": [
+        "nb_ev_cim_margin",
+        "nb_ev_fin_income",
+        "nb_ev_qa_cost",
+        "nb_ev_cost_coverage",
+        "nb_ev_birch_plan",
+        "nb_ev_cost_residual"
+      ],
+      "question_text": "For first contract years beginning in November or December 2026, provide Complete customer cost category schedule. Include implementation labor, cloud, inference and recurring support; distinguish coverage from independent verification.",
+      "record": {
+        "canonical_key": "nb.costs",
+        "claim_id": "nb_claim_h2",
+        "deal_id": "deal_nb",
+        "duplicate_of": null,
+        "entity_version": 1,
+        "financial_driver": "unit_economics",
+        "id": "nb_q_costs",
+        "issue": "Complete cost category coverage",
+        "materiality": {
+          "basis": "analyst_rubric",
+          "denominator_minor": null,
+          "exposure_minor": null,
+          "rationale": "Explicit synthetic analyst materiality on 0-5 scale; no monetary valuation or calibrated utility.",
+          "score": 3,
+          "source_span_ids": []
+        },
+        "obtainability": {
+          "basis": "analyst_estimate",
+          "days": null,
+          "external_cost_minor": null,
+          "rationale": "Synthetic analyst estimate on 0-5 scale; time and cost not empirically measured.",
+          "score": 2
+        },
+        "owner_label": "Simulated analyst",
+        "request_text": "For first contract years beginning in November or December 2026, provide Complete customer cost category schedule. Include implementation labor, cloud, inference and recurring support; distinguish coverage from independent verification.",
+        "requirements": [
+          {
+            "key": "costs",
+            "label": "costs",
+            "min_reliability": 3,
+            "require_independent": false
+          }
+        ],
+        "review_status": "approved",
+        "workflow_status": "open"
+      },
+      "requested_artifact": "Complete customer cost category schedule",
+      "unresolved_assumption": "Complete cost category coverage",
+      "verification_criterion": "Include implementation labor, cloud, inference and recurring support; distinguish coverage from independent verification."
+    },
+    {
+      "acceptable_alternatives": [
+        "Aster subsequent cash receipt and receivables aging",
+        "Aster outstanding collection"
+      ],
+      "acceptable_question_family": "nb.balance",
+      "business_impact": "Impacts revenue_quality under the stated synthetic case assumptions.",
+      "expected_priority": 13,
+      "expected_update_behavior": "Remove only after all request criteria have approved support; reopen or retain if qualified refutation exists.",
+      "hypothesis_id": "nb_hyp_h3",
+      "information_gain": null,
+      "linked_evidence_ids": [
+        "nb_ev_cim_strength",
+        "nb_ev_fin_revenue",
+        "nb_ev_fin_cash",
+        "nb_ev_forecast",
+        "nb_ev_invoice_a",
+        "nb_ev_recognition"
+      ],
+      "question_text": "For INV-01 dated 2026-11-12 and subsequent receipts through 2027-10-31, provide Aster subsequent cash receipt and receivables aging. Resolve USD 30,000 remaining on INV-01 with a matched receipt or a documented collectible balance assessment.",
+      "record": {
+        "canonical_key": "nb.balance",
+        "claim_id": "nb_claim_h3",
+        "deal_id": "deal_nb",
+        "duplicate_of": null,
+        "entity_version": 1,
+        "financial_driver": "revenue_quality",
+        "id": "nb_q_balance",
+        "issue": "Aster outstanding collection",
+        "materiality": {
+          "basis": "analyst_rubric",
+          "denominator_minor": null,
+          "exposure_minor": null,
+          "rationale": "Explicit synthetic analyst materiality on 0-5 scale; no monetary valuation or calibrated utility.",
+          "score": 2,
+          "source_span_ids": []
+        },
+        "obtainability": {
+          "basis": "analyst_estimate",
+          "days": null,
+          "external_cost_minor": null,
+          "rationale": "Synthetic analyst estimate on 0-5 scale; time and cost not empirically measured.",
+          "score": 3
+        },
+        "owner_label": "Simulated analyst",
+        "request_text": "For INV-01 dated 2026-11-12 and subsequent receipts through 2027-10-31, provide Aster subsequent cash receipt and receivables aging. Resolve USD 30,000 remaining on INV-01 with a matched receipt or a documented collectible balance assessment.",
+        "requirements": [
+          {
+            "key": "balance",
+            "label": "balance",
+            "min_reliability": 3,
+            "require_independent": false
+          }
+        ],
+        "review_status": "approved",
+        "workflow_status": "open"
+      },
+      "requested_artifact": "Aster subsequent cash receipt and receivables aging",
+      "unresolved_assumption": "Aster outstanding collection",
+      "verification_criterion": "Resolve USD 30,000 remaining on INV-01 with a matched receipt or a documented collectible balance assessment."
+    }
+  ],
+  "review_status": "self-authored provisional; no external analyst review",
+  "stages": {
+    "0": {
+      "critical_families": [
+        "nb.contract_a",
+        "nb.contract_b",
+        "nb.execution_a"
+      ],
+      "expected_hypothesis_statuses": {
+        "nb_claim_h1": "missing",
+        "nb_claim_h2": "missing",
+        "nb_claim_h3": "contradicted"
+      },
+      "expected_resolved_questions": [],
+      "expected_scores": {
+        "nb_q_contract_a": 100,
+        "nb_q_contract_b": 97,
+        "nb_q_execution_a": 94
+      },
+      "expected_top3": [
+        "nb_q_contract_a",
+        "nb_q_contract_b",
+        "nb_q_execution_a"
+      ],
+      "expected_truth_statuses": {
+        "nb_claim_h1": "document_only",
+        "nb_claim_h2": "document_only",
+        "nb_claim_h3": "disputed"
+      },
+      "label_basis": "self-authored scenario policy; not universally optimal investment priorities",
+      "rationale": "Initial documentary gaps and contradictions are deliberately specified before replay.",
+      "supporting_evidence_ids": [
+        "nb_ev_cim_traction",
+        "nb_ev_cim_margin",
+        "nb_ev_cim_aster",
+        "nb_ev_cim_strength",
+        "nb_ev_fin_revenue",
+        "nb_ev_fin_income",
+        "nb_ev_fin_cash",
+        "nb_ev_forecast",
+        "nb_ev_capacity",
+        "nb_ev_taxonomy",
+        "nb_ev_arr",
+        "nb_ev_qa_repeat",
+        "nb_ev_qa_cost"
+      ]
+    },
+    "1": {
+      "critical_families": [
+        "nb.contract_b",
+        "nb.execution_a",
+        "nb.margin_a"
+      ],
+      "expected_hypothesis_statuses": {
+        "nb_claim_h1": "partial",
+        "nb_claim_h2": "missing",
+        "nb_claim_h3": "contradicted"
+      },
+      "expected_resolved_questions": [
+        "nb_q_contract_a"
+      ],
+      "expected_scores": {
+        "nb_q_contract_b": 97,
+        "nb_q_execution_a": 94,
+        "nb_q_margin_a": 91
+      },
+      "expected_top3": [
+        "nb_q_contract_b",
+        "nb_q_execution_a",
+        "nb_q_margin_a"
+      ],
+      "expected_truth_statuses": {
+        "nb_claim_h1": "document_only",
+        "nb_claim_h2": "document_only",
+        "nb_claim_h3": "disputed"
+      },
+      "label_basis": "self-authored scenario policy; not universally optimal investment priorities",
+      "rationale": "Only Aster contract is satisfied. Acceptance and cash are separate milestones; Birch remains unsigned.",
+      "supporting_evidence_ids": [
+        "nb_ev_cim_traction",
+        "nb_ev_cim_margin",
+        "nb_ev_cim_aster",
+        "nb_ev_cim_strength",
+        "nb_ev_fin_revenue",
+        "nb_ev_fin_income",
+        "nb_ev_fin_cash",
+        "nb_ev_forecast",
+        "nb_ev_capacity",
+        "nb_ev_taxonomy",
+        "nb_ev_arr",
+        "nb_ev_qa_repeat",
+        "nb_ev_qa_cost",
+        "nb_ev_contract_a",
+        "nb_ev_contract_conditions"
+      ]
+    },
+    "2": {
+      "critical_families": [
+        "nb.contract_b",
+        "nb.margin_a",
+        "nb.independence"
+      ],
+      "expected_hypothesis_statuses": {
+        "nb_claim_h1": "partial",
+        "nb_claim_h2": "missing",
+        "nb_claim_h3": "contradicted"
+      },
+      "expected_resolved_questions": [
+        "nb_q_contract_a",
+        "nb_q_execution_a"
+      ],
+      "expected_scores": {
+        "nb_q_contract_b": 97,
+        "nb_q_independence": 89,
+        "nb_q_margin_a": 91
+      },
+      "expected_top3": [
+        "nb_q_contract_b",
+        "nb_q_margin_a",
+        "nb_q_independence"
+      ],
+      "expected_truth_statuses": {
+        "nb_claim_h1": "document_only",
+        "nb_claim_h2": "document_only",
+        "nb_claim_h3": "disputed"
+      },
+      "label_basis": "self-authored scenario policy; not universally optimal investment priorities",
+      "rationale": "Aster acceptance and first receipt satisfy the execution request. The USD 30,000 unpaid balance remains a separate question.",
+      "supporting_evidence_ids": [
+        "nb_ev_cim_traction",
+        "nb_ev_cim_margin",
+        "nb_ev_cim_aster",
+        "nb_ev_cim_strength",
+        "nb_ev_fin_revenue",
+        "nb_ev_fin_income",
+        "nb_ev_fin_cash",
+        "nb_ev_forecast",
+        "nb_ev_capacity",
+        "nb_ev_taxonomy",
+        "nb_ev_arr",
+        "nb_ev_qa_repeat",
+        "nb_ev_qa_cost",
+        "nb_ev_contract_a",
+        "nb_ev_contract_conditions",
+        "nb_ev_accept_a",
+        "nb_ev_cash_a",
+        "nb_ev_invoice_a",
+        "nb_ev_recognition"
+      ]
+    },
+    "3": {
+      "critical_families": [
+        "nb.contract_b",
+        "nb.margin_a",
+        "nb.independence"
+      ],
+      "expected_hypothesis_statuses": {
+        "nb_claim_h1": "partial",
+        "nb_claim_h2": "contradicted",
+        "nb_claim_h3": "contradicted"
+      },
+      "expected_resolved_questions": [
+        "nb_q_contract_a",
+        "nb_q_execution_a",
+        "nb_q_costs"
+      ],
+      "expected_scores": {
+        "nb_q_contract_b": 97,
+        "nb_q_independence": 89,
+        "nb_q_margin_a": 91
+      },
+      "expected_top3": [
+        "nb_q_contract_b",
+        "nb_q_margin_a",
+        "nb_q_independence"
+      ],
+      "expected_truth_statuses": {
+        "nb_claim_h1": "document_only",
+        "nb_claim_h2": "disputed",
+        "nb_claim_h3": "disputed"
+      },
+      "label_basis": "self-authored scenario policy; not universally optimal investment priorities",
+      "rationale": "Cost categories become complete but Aster contribution is contradicted. The Top-3 is unchanged because its pre-existing gap already had maximum severity.",
+      "supporting_evidence_ids": [
+        "nb_ev_cim_traction",
+        "nb_ev_cim_margin",
+        "nb_ev_cim_aster",
+        "nb_ev_cim_strength",
+        "nb_ev_fin_revenue",
+        "nb_ev_fin_income",
+        "nb_ev_fin_cash",
+        "nb_ev_forecast",
+        "nb_ev_capacity",
+        "nb_ev_taxonomy",
+        "nb_ev_arr",
+        "nb_ev_qa_repeat",
+        "nb_ev_qa_cost",
+        "nb_ev_contract_a",
+        "nb_ev_contract_conditions",
+        "nb_ev_accept_a",
+        "nb_ev_cash_a",
+        "nb_ev_invoice_a",
+        "nb_ev_recognition",
+        "nb_ev_cost_a",
+        "nb_ev_cost_coverage",
+        "nb_ev_birch_plan"
+      ]
+    },
+    "4": {
+      "critical_families": [
+        "nb.margin_a",
+        "nb.independence",
+        "nb.arr"
+      ],
+      "expected_hypothesis_statuses": {
+        "nb_claim_h1": "contradicted",
+        "nb_claim_h2": "contradicted",
+        "nb_claim_h3": "contradicted"
+      },
+      "expected_resolved_questions": [
+        "nb_q_contract_a",
+        "nb_q_execution_a",
+        "nb_q_costs",
+        "nb_q_contract_b",
+        "nb_q_execution_b",
+        "nb_q_count"
+      ],
+      "expected_scores": {
+        "nb_q_arr": 81,
+        "nb_q_independence": 89,
+        "nb_q_margin_a": 91
+      },
+      "expected_top3": [
+        "nb_q_margin_a",
+        "nb_q_independence",
+        "nb_q_arr"
+      ],
+      "expected_truth_statuses": {
+        "nb_claim_h1": "disputed",
+        "nb_claim_h2": "disputed",
+        "nb_claim_h3": "disputed"
+      },
+      "label_basis": "self-authored scenario policy; not universally optimal investment priorities",
+      "rationale": "Birch contract and execution resolve; common ownership contradicts independent customer validation. Corrected historical count resolves only the taxonomy request.",
+      "supporting_evidence_ids": [
+        "nb_ev_cim_traction",
+        "nb_ev_cim_margin",
+        "nb_ev_cim_aster",
+        "nb_ev_cim_strength",
+        "nb_ev_fin_revenue",
+        "nb_ev_fin_income",
+        "nb_ev_fin_cash",
+        "nb_ev_forecast",
+        "nb_ev_capacity",
+        "nb_ev_taxonomy",
+        "nb_ev_arr",
+        "nb_ev_qa_repeat",
+        "nb_ev_qa_cost",
+        "nb_ev_contract_a",
+        "nb_ev_contract_conditions",
+        "nb_ev_accept_a",
+        "nb_ev_cash_a",
+        "nb_ev_invoice_a",
+        "nb_ev_recognition",
+        "nb_ev_cost_a",
+        "nb_ev_cost_coverage",
+        "nb_ev_birch_plan",
+        "nb_ev_contract_b",
+        "nb_ev_ownership",
+        "nb_ev_count_corrected",
+        "nb_ev_cost_residual"
+      ]
+    }
+  }
+}

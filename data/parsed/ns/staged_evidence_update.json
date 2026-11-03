@@ -1,0 +1,166 @@
+{
+  "kind": "staged_evidence_update",
+  "contract_version": "1.0.0",
+  "id": "update_ns",
+  "deal_id": "deal_ns",
+  "base_revision": 1,
+  "idempotency_key": "ns_event_001",
+  "validation_status": "validated",
+  "created_at": "2026-11-04T00:00:00Z",
+  "documents": [
+    {
+      "id": "doc_ns_update",
+      "entity_version": 1,
+      "deal_id": "deal_ns",
+      "filename": "ns_contract_a.docx",
+      "format": "docx",
+      "document_version": 1,
+      "asset_status": "file_verified",
+      "file_sha256": "3d09829057ea5c37bfe2b962321e5349944a7fec59701b06f86f8f8bd53e1a21",
+      "parse_status": "parsed",
+      "parser_version": "orion-native-1.0.0",
+      "source_origin": "company",
+      "origin_key": "ns_update",
+      "created_at": "2026-11-03T00:00:00Z"
+    }
+  ],
+  "source_spans": [
+    {
+      "id": "span_doc_ns_update_14b725960700f6e8de6e",
+      "entity_version": 1,
+      "deal_id": "deal_ns",
+      "document_id": "doc_ns_update",
+      "document_version": 1,
+      "locator": {
+        "kind": "docx_paragraph",
+        "part_uri": "word/document.xml",
+        "block_index": 0,
+        "paragraph_index": 0,
+        "heading_path": []
+      },
+      "normalized_text": "Northstar Analytics evidence update",
+      "text_sha256": "f3489f8bc52fea9d0b051b3eb7cbc226fac916b83e46fdbd5ebc0f4ae10d26d4",
+      "quote": "Northstar Analytics evidence update",
+      "start": 0,
+      "end": 35,
+      "locator_status": "validated",
+      "extraction_method": "parsed"
+    },
+    {
+      "id": "span_doc_ns_update_53bf170d46335b843fc2",
+      "entity_version": 1,
+      "deal_id": "deal_ns",
+      "document_id": "doc_ns_update",
+      "document_version": 1,
+      "locator": {
+        "kind": "docx_paragraph",
+        "part_uri": "word/document.xml",
+        "block_index": 1,
+        "paragraph_index": 0,
+        "heading_path": []
+      },
+      "normalized_text": "SYNTHETIC EDUCATIONAL DATA. Independently authored fictional company records. Version 1, dated 2026-11-03.",
+      "text_sha256": "3b907eea7b92c462cf34ab43d407d6842411cdd3b89de5e36dc18908241d73ca",
+      "quote": "SYNTHETIC EDUCATIONAL DATA. Independently authored fictional company records. Version 1, dated 2026-11-03.",
+      "start": 0,
+      "end": 106,
+      "locator_status": "validated",
+      "extraction_method": "parsed"
+    },
+    {
+      "id": "span_doc_ns_update_b26916235f09ef8aed58",
+      "entity_version": 1,
+      "deal_id": "deal_ns",
+      "document_id": "doc_ns_update",
+      "document_version": 1,
+      "locator": {
+        "kind": "docx_paragraph",
+        "part_uri": "word/document.xml",
+        "block_index": 2,
+        "paragraph_index": 0,
+        "heading_path": [
+          "Source narrative"
+        ]
+      },
+      "normalized_text": "Source narrative",
+      "text_sha256": "4676267a112f9c0ca1514c81693b256e577ee3876e86a669a5098141cd945d62",
+      "quote": "Source narrative",
+      "start": 0,
+      "end": 16,
+      "locator_status": "validated",
+      "extraction_method": "parsed"
+    },
+    {
+      "id": "span_ns_update",
+      "entity_version": 1,
+      "deal_id": "deal_ns",
+      "document_id": "doc_ns_update",
+      "document_version": 1,
+      "locator": {
+        "kind": "docx_paragraph",
+        "part_uri": "word/document.xml",
+        "block_index": 3,
+        "paragraph_index": 0,
+        "heading_path": [
+          "Source narrative"
+        ]
+      },
+      "normalized_text": "SYNTHETIC. Executed commercial contract with Aster Labs: annual fee USD 120,000, service term 2027-01-01 through 2027-12-31. This copy contains no acceptance certificate, invoice settlement or bank receipt. It says nothing about Birch Systems or customer ownership.",
+      "text_sha256": "9d2367eb7d8787101fa47b186d921429cf8e8ced9dca288ad061a54971a87d6f",
+      "quote": "SYNTHETIC. Executed commercial contract with Aster Labs: annual fee USD 120,000, service term 2027-01-01 through 2027-12-31. This copy contains no acceptance certificate, invoice settlement or bank receipt. It says nothing about Birch Systems or customer ownership.",
+      "start": 0,
+      "end": 265,
+      "locator_status": "validated",
+      "extraction_method": "parsed"
+    },
+    {
+      "id": "span_doc_ns_update_004148ff999688a0db33",
+      "entity_version": 1,
+      "deal_id": "deal_ns",
+      "document_id": "doc_ns_update",
+      "document_version": 1,
+      "locator": {
+        "kind": "docx_paragraph",
+        "part_uri": "word/document.xml",
+        "block_index": 4,
+        "paragraph_index": 0,
+        "heading_path": [
+          "Source narrative"
+        ]
+      },
+      "normalized_text": "SYNTHETIC signature annotation only. No real electronic signature or counterparty verification is represented.",
+      "text_sha256": "91da18dcadb279a787fe7b83fb86414230a7aca7c9ecf90918b7c346960b5bc6",
+      "quote": "SYNTHETIC signature annotation only. No real electronic signature or counterparty verification is represented.",
+      "start": 0,
+      "end": 110,
+      "locator_status": "validated",
+      "extraction_method": "parsed"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "ev_ns_update",
+      "entity_version": 1,
+      "deal_id": "deal_ns",
+      "claim_id": "claim_ns",
+      "source_span_ids": [
+        "span_ns_update"
+      ],
+      "stance": "supports",
+      "criterion_keys": [
+        "contract_a"
+      ],
+      "provenance": "company_reported",
+      "source_reliability": 3,
+      "reliability_rationale": "Synthetic document inspected by fixture author; no independent authentication.",
+      "verification_level": "document_only",
+      "independent_check_reference": null,
+      "origin_key": "ns_update",
+      "review_status": "draft",
+      "lifecycle": "active",
+      "created_at": "2026-11-03T00:00:00Z"
+    }
+  ],
+  "evidence_relations": [],
+  "analyst_note": "One atomic synthetic evidence event. Staging alone changes no ranking."
+}

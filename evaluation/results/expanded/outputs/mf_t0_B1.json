@@ -1,0 +1,160 @@
+{
+  "claims": [
+    {
+      "citations": [],
+      "entailment_supported": null,
+      "factual": true,
+      "matched_claim_id": "mf_claim_h1",
+      "prediction_id": "mf_claim_h1",
+      "text": "FY2025 inventory and operating working capital are supportable: inventory count variance is at most 1%, no inventory impairment above USD 100,000 is required, and the planned FY2027 USD 1,100,000 NWC release is backed by collection and inventory actions."
+    },
+    {
+      "citations": [],
+      "entailment_supported": null,
+      "factual": true,
+      "matched_claim_id": "mf_claim_h2",
+      "prediction_id": "mf_claim_h2",
+      "text": "Recurring FY2025 EBITDA is at least USD 1,100,000 after substantiated normalization and cash generated from operations after sustainable maintenance CAPEX is positive."
+    },
+    {
+      "citations": [],
+      "entailment_supported": null,
+      "factual": true,
+      "matched_claim_id": "mf_claim_h3",
+      "prediction_id": "mf_claim_h3",
+      "text": "The FY2027 USD 12,000,000 revenue forecast is supported by funded practical production capacity and binding demand, with no customer exceeding 40% of revenue and reconciled historical product sales."
+    }
+  ],
+  "contradiction_groups": [],
+  "eig": {},
+  "final_approvals_without_review": 0,
+  "hypothesis_statuses": {
+    "mf_claim_h1": "contradicted",
+    "mf_claim_h2": "contradicted",
+    "mf_claim_h3": "contradicted"
+  },
+  "posterior": {},
+  "provenance": "authored-fixture",
+  "questions": [
+    {
+      "artifact_present": true,
+      "criterion_present": true,
+      "family_id": "mf.inventory_count",
+      "financial_relevance": true,
+      "match_rationale": "Identity mapping of the pre-authored request; not a semantic model prediction.",
+      "match_reviewed": true,
+      "output_id": "mf_q_inventory_count",
+      "period_present": true,
+      "reviewer": "fixture-author (single-rater; provisional)",
+      "target_present": true,
+      "text": "For inventory at 2025-12-31, provide Dated warehouse count and complete inventory-ledger reconciliation. Reconcile all three warehouse categories at 2025-12-31 to the USD 2,400,000 ledger; explain quantity variance above 1%."
+    },
+    {
+      "artifact_present": true,
+      "criterion_present": true,
+      "family_id": "mf.inventory_valuation",
+      "financial_relevance": true,
+      "match_rationale": "Identity mapping of the pre-authored request; not a semantic model prediction.",
+      "match_reviewed": true,
+      "output_id": "mf_q_inventory_valuation",
+      "period_present": true,
+      "reviewer": "fixture-author (single-rater; provisional)",
+      "target_present": true,
+      "text": "For inventory at 2025-12-31 and subsequent sales through 2026-11-05, provide Aged SKU listing, signed subsequent-sales evidence and net-realizable-value calculation. Test the USD 700,000 aged finished goods and determine whether any required impairment exceeds USD 100,000; count evidence alone is insufficient."
+    },
+    {
+      "artifact_present": true,
+      "criterion_present": true,
+      "family_id": "mf.ebitda",
+      "financial_relevance": true,
+      "match_rationale": "Identity mapping of the pre-authored request; not a semantic model prediction.",
+      "match_reviewed": true,
+      "output_id": "mf_q_ebitda",
+      "period_present": true,
+      "reviewer": "fixture-author (single-rater; provisional)",
+      "target_present": true,
+      "text": "For calendar FY2025, provide Insurance settlement, relocation invoices and recurring-profit bridge. Substantiate removal of USD 300,000 insurance recovery and the USD 100,000 relocation add-back; verify normalized FY2025 EBITDA of at least USD 1,100,000."
+    },
+    {
+      "artifact_present": true,
+      "criterion_present": true,
+      "family_id": "mf.working_capital",
+      "financial_relevance": true,
+      "match_rationale": "Identity mapping of the pre-authored request; not a semantic model prediction.",
+      "match_reviewed": true,
+      "output_id": "mf_q_working_capital",
+      "period_present": true,
+      "reviewer": "fixture-author (single-rater; provisional)",
+      "target_present": true,
+      "text": "For FY2025 actual and FY2027 forecast, provide Monthly NWC bridge, Brindle cash receipts and supported FY2027 inventory plan. Reconcile FY2025 NWC USD 2,600,000 and substantiate the proposed USD 1,100,000 release without unverified overdue collections or clearance assumptions."
+    },
+    {
+      "artifact_present": true,
+      "criterion_present": true,
+      "family_id": "mf.maintenance_capex",
+      "financial_relevance": true,
+      "match_rationale": "Identity mapping of the pre-authored request; not a semantic model prediction.",
+      "match_reviewed": true,
+      "output_id": "mf_q_maintenance_capex",
+      "period_present": true,
+      "reviewer": "fixture-author (single-rater; provisional)",
+      "target_present": true,
+      "text": "For calendar FY2025 and sustainable annual maintenance thereafter, provide Asset-condition review, supplier invoices and maintenance budget. Separate the USD 600,000 sustaining investment from USD 400,000 expansion and test the sustainable maintenance cash requirement."
+    },
+    {
+      "artifact_present": true,
+      "criterion_present": true,
+      "family_id": "mf.cash_conversion",
+      "financial_relevance": true,
+      "match_rationale": "Identity mapping of the pre-authored request; not a semantic model prediction.",
+      "match_reviewed": true,
+      "output_id": "mf_q_cash_conversion",
+      "period_present": true,
+      "reviewer": "fixture-author (single-rater; provisional)",
+      "target_present": true,
+      "text": "For calendar FY2025, provide Operating cash-flow bridge and recurring maintenance forecast. Reconcile FY2025 EBITDA to zero CFO and negative USD 600,000 cash after maintenance CAPEX; demonstrate positive normalized cash generation before assuming it."
+    },
+    {
+      "artifact_present": true,
+      "criterion_present": true,
+      "family_id": "mf.concentration",
+      "financial_relevance": true,
+      "match_rationale": "Identity mapping of the pre-authored request; not a semantic model prediction.",
+      "match_reviewed": true,
+      "output_id": "mf_q_concentration",
+      "period_present": true,
+      "reviewer": "fixture-author (single-rater; provisional)",
+      "target_present": true,
+      "text": "For FY2025 actual and FY2027 contractual demand, provide Brindle signed commitments, concentration bridge and customer scenario. Determine whether dependence can be reduced below 40% of revenue; do not count nonbinding customer forecasts as orders."
+    },
+    {
+      "artifact_present": true,
+      "criterion_present": true,
+      "family_id": "mf.capacity",
+      "financial_relevance": true,
+      "match_rationale": "Identity mapping of the pre-authored request; not a semantic model prediction.",
+      "match_reviewed": true,
+      "output_id": "mf_q_capacity",
+      "period_present": true,
+      "reviewer": "fixture-author (single-rater; provisional)",
+      "target_present": true,
+      "text": "For calendar FY2027, provide Executed press purchase order, committed financing and installation schedule. Support 120,000 production-slot equivalents during FY2027 or revise the USD 12,000,000 forecast to the documented 100,000-slot capacity."
+    },
+    {
+      "artifact_present": true,
+      "criterion_present": true,
+      "family_id": "mf.sales_mix",
+      "financial_relevance": true,
+      "match_rationale": "Identity mapping of the pre-authored request; not a semantic model prediction.",
+      "match_reviewed": true,
+      "output_id": "mf_q_sales_mix",
+      "period_present": true,
+      "reviewer": "fixture-author (single-rater; provisional)",
+      "target_present": true,
+      "text": "For calendar FY2025, provide Sales ledger by product, customer and geography. Tie storage USD 6,000,000 and cookware USD 4,000,000 to customer and geographic totals of USD 10,000,000 for FY2025."
+    }
+  ],
+  "relationships": [],
+  "retrieved_evidence_ids": [],
+  "status": "completed"
+}

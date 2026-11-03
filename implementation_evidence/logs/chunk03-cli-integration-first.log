@@ -1,0 +1,41 @@
+F.                                                                       [100%]
+=================================== FAILURES ===================================
+___________ test_cli_reports_detected_financial_mismatch_as_nonzero ____________
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-68/test_cli_reports_detected_fina0')
+
+    def test_cli_reports_detected_financial_mismatch_as_nonzero(tmp_path):
+        source = ROOT / "chunk3_synthetic_evaluation"
+        dataset = tmp_path / "dataset"
+        shutil.copytree(source / "data", dataset / "data")
+        shutil.copytree(source / "gold", dataset / "gold")
+        world_path = dataset / "gold/nb_world_model.json"
+        world = json.loads(world_path.read_text(encoding="utf-8"))
+        world["income_2025"]["revenue"] += 1
+        world_path.write_text(json.dumps(world), encoding="utf-8")
+        result = run("validate-dataset", "--root", dataset)
+>       assert result.returncode == 2, result.stderr
+E       AssertionError: Traceback (most recent call last):
+E           File "<frozen runpy>", line 198, in _run_module_as_main
+E           File "<frozen runpy>", line 88, in _run_code
+E           File "/workspace/scratch/b04c6f7c58fb/chunk3_work/orion-deal-intelligence/src/orion/cli.py", line 178, in <module>
+E             raise SystemExit(main())
+E                              ^^^^^^
+E           File "/workspace/scratch/b04c6f7c58fb/chunk3_work/orion-deal-intelligence/src/orion/cli.py", line 143, in main
+E             result = validate_dataset(args.root)
+E                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           File "/workspace/scratch/b04c6f7c58fb/chunk3_work/orion-deal-intelligence/src/orion/synthetic/validate.py", line 182, in validate_dataset
+E             audit=answer_key_audit(gold,documents);checks=financial_checks(world)+_source_financial_checks(world,documents)
+E                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           File "/workspace/scratch/b04c6f7c58fb/chunk3_work/orion-deal-intelligence/src/orion/synthetic/validate.py", line 97, in answer_key_audit
+E             if sid in spans and (spans[sid][1]['quote']!=item.get('exact_source_excerpt') or spans[sid][0]['available_stage']>item['label_stage']):errors.append(f'{claim.id}: unsupported claim excerpt/stage')
+E                                                                                                                               ~~~~^^^^^^^^^^^^^^^
+E         KeyError: 'label_stage'
+E         
+E       assert 1 == 2
+E        +  where 1 = CompletedProcess(args=['/workspace/scratch/b04c6f7c58fb/orion-deal-intelligence/.venv/bin/python', '-m', 'orion.cli', ...                                                                     ~~~~^^^^^^^^^^^^^^^\nKeyError: \'label_stage\'\n').returncode
+
+tests/integration/test_chunk03_cli.py:29: AssertionError
+=========================== short test summary info ============================
+FAILED tests/integration/test_chunk03_cli.py::test_cli_reports_detected_financial_mismatch_as_nonzero
+1 failed, 1 passed in 13.58s
