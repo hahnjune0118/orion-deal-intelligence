@@ -27,10 +27,25 @@ def test_cli_reports_detected_financial_mismatch_as_nonzero(tmp_path):
     world_path.write_text(json.dumps(world), encoding="utf-8")
     result = run("validate-dataset", "--root", dataset)
     assert result.returncode == 2, result.stderr
-    assert result.stdout.strip(), (
-        f"CLI returned no JSON. "
-        f"returncode={result.returncode}, stderr={result.stderr!r}"
-    )
+    if not result.stdout.strip():
+        diagnostic = subprocess.run(
+            [
+                sys.executable, "-c",
+                "from orion.synthetic import validate_dataset; "
+                "import sys; validate_dataset(sys.argv[1])",
+                str(dataset),
+            ],
+            cwd=ROOT,
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        pytest.fail(
+            f"CLI stderr: {result.stderr!r}\n"
+            f"Direct validator returncode: {diagnostic.returncode}\n"
+            f"Direct validator stderr: {diagnostic.stderr}\n"
+            f"Direct validator stdout: {diagnostic.stdout[:2000]}"
+        )
     report = json.loads(result.stdout)
     assert report["passed"] is False
     assert report["cases"]["nb"]["passed"] is False
