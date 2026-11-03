@@ -1,0 +1,561 @@
+{
+  "kind": "deal_state",
+  "contract_version": "1.0.0",
+  "state_revision": 2,
+  "mode": "demo",
+  "deal": {
+    "id": "deal_cd",
+    "entity_version": 1,
+    "name": "Cedar Components",
+    "business_model": "Made-to-order industrial components",
+    "currency": "USD",
+    "synthetic": true,
+    "as_of": "2026-11-03",
+    "thesis_ids": [
+      "thesis_cd"
+    ]
+  },
+  "documents": [
+    {
+      "id": "doc_cd_overview",
+      "entity_version": 1,
+      "deal_id": "deal_cd",
+      "filename": "cd_overview.docx",
+      "format": "docx",
+      "document_version": 1,
+      "asset_status": "fixture_text_only",
+      "file_sha256": null,
+      "parse_status": "parsed",
+      "parser_version": "fixture-text-1.0.0",
+      "source_origin": "company",
+      "origin_key": "cd_overview",
+      "created_at": "2026-11-03T00:00:00Z"
+    },
+    {
+      "id": "doc_cd_update",
+      "entity_version": 1,
+      "deal_id": "deal_cd",
+      "filename": "cd_update.docx",
+      "format": "docx",
+      "document_version": 1,
+      "asset_status": "fixture_text_only",
+      "file_sha256": null,
+      "parse_status": "parsed",
+      "parser_version": "fixture-text-1.0.0",
+      "source_origin": "company",
+      "origin_key": "cd_update",
+      "created_at": "2026-11-03T00:00:00Z"
+    }
+  ],
+  "source_spans": [
+    {
+      "id": "span_cd_overview",
+      "entity_version": 1,
+      "deal_id": "deal_cd",
+      "document_id": "doc_cd_overview",
+      "document_version": 1,
+      "locator": {
+        "kind": "docx_paragraph",
+        "part_uri": "word/document.xml",
+        "block_index": 0,
+        "paragraph_index": 0,
+        "heading_path": [
+          "Synthetic source"
+        ]
+      },
+      "normalized_text": "SYNTHETIC. Cedar FY2025 revenue USD 6,000,000; cost of revenue USD 3,600,000; operating expense excluding depreciation USD 1,800,000; EBITDA USD 600,000. Batch C-17 invoice is USD 180,000. Its dispatch and acceptance record is missing.",
+      "text_sha256": "95e50869ad225901ca94fc139ff441cf1d30762d81474491ddfeb3044140534b",
+      "quote": "SYNTHETIC. Cedar FY2025 revenue USD 6,000,000; cost of revenue USD 3,600,000; operating expense excluding depreciation USD 1,800,000; EBITDA USD 600,000. Batch C-17 invoice is USD 180,000. Its dispatch and acceptance record is missing.",
+      "start": 0,
+      "end": 235,
+      "locator_status": "validated",
+      "extraction_method": "fixture"
+    },
+    {
+      "id": "span_cd_update",
+      "entity_version": 1,
+      "deal_id": "deal_cd",
+      "document_id": "doc_cd_update",
+      "document_version": 1,
+      "locator": {
+        "kind": "docx_paragraph",
+        "part_uri": "word/document.xml",
+        "block_index": 0,
+        "paragraph_index": 0,
+        "heading_path": [
+          "Synthetic source"
+        ]
+      },
+      "normalized_text": "SYNTHETIC. Batch C-17 dispatch log and customer acceptance match the USD 180,000 invoice and the reporting cut-off. No warranty reconciliation, inventory ageing or receivable confirmation is provided.",
+      "text_sha256": "03de5997d5bd4f02920aaf37f4f8bf90c6d10b09bed30507107962e2cbb103fa",
+      "quote": "SYNTHETIC. Batch C-17 dispatch log and customer acceptance match the USD 180,000 invoice and the reporting cut-off. No warranty reconciliation, inventory ageing or receivable confirmation is provided.",
+      "start": 0,
+      "end": 200,
+      "locator_status": "validated",
+      "extraction_method": "fixture"
+    }
+  ],
+  "theses": [
+    {
+      "id": "thesis_cd",
+      "entity_version": 1,
+      "deal_id": "deal_cd",
+      "title": "By 2027-10-31 revenue cut-off, warranty exposure and inventory recoverability are documented.",
+      "counter_thesis": "Commercial assumptions may not be supported by sufficient records.",
+      "claim_ids": [
+        "claim_cd"
+      ],
+      "review_status": "approved"
+    }
+  ],
+  "claims": [
+    {
+      "id": "claim_cd",
+      "entity_version": 2,
+      "deal_id": "deal_cd",
+      "thesis_id": "thesis_cd",
+      "statement": "By 2027-10-31 revenue cut-off, warranty exposure and inventory recoverability are documented.",
+      "subject_key": "cd",
+      "period_start": "2026-11-01",
+      "period_end": "2027-10-31",
+      "claim_kind": "binary_hypothesis",
+      "source_span_ids": [
+        "span_cd_overview"
+      ],
+      "required_criterion_keys": [
+        "shipment_acceptance",
+        "warranty",
+        "inventory",
+        "ar_confirm"
+      ],
+      "support_status": "partial",
+      "truth_status": "document_only",
+      "review_status": "approved"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "ev_cd_initial",
+      "entity_version": 1,
+      "deal_id": "deal_cd",
+      "claim_id": "claim_cd",
+      "source_span_ids": [
+        "span_cd_overview"
+      ],
+      "stance": "context",
+      "criterion_keys": [],
+      "provenance": "company_reported",
+      "source_reliability": 3,
+      "reliability_rationale": "Synthetic document inspected by fixture author; no independent authentication.",
+      "verification_level": "document_only",
+      "independent_check_reference": null,
+      "origin_key": "cd_initial",
+      "review_status": "approved",
+      "lifecycle": "active",
+      "created_at": "2026-11-03T00:00:00Z"
+    },
+    {
+      "id": "ev_cd_update",
+      "entity_version": 1,
+      "deal_id": "deal_cd",
+      "claim_id": "claim_cd",
+      "source_span_ids": [
+        "span_cd_update"
+      ],
+      "stance": "supports",
+      "criterion_keys": [
+        "shipment_acceptance"
+      ],
+      "provenance": "company_reported",
+      "source_reliability": 3,
+      "reliability_rationale": "Synthetic document inspected by fixture author; no independent authentication.",
+      "verification_level": "document_only",
+      "independent_check_reference": null,
+      "origin_key": "cd_update",
+      "review_status": "approved",
+      "lifecycle": "active",
+      "created_at": "2026-11-03T00:00:00Z"
+    }
+  ],
+  "evidence_relations": [],
+  "dd_questions": [
+    {
+      "id": "q_cd_cutoff",
+      "entity_version": 2,
+      "deal_id": "deal_cd",
+      "claim_id": "claim_cd",
+      "canonical_key": "cd.revenue.cutoff",
+      "issue": "Dispatch and customer acceptance for batch C-17",
+      "request_text": "Provide the dispatch record and customer acceptance for batch C-17, and match both to the USD 180,000 invoice and FY2025 reporting cut-off. Explain any difference in dispatch, acceptance and recognition dates.",
+      "financial_driver": "revenue_quality",
+      "requirements": [
+        {
+          "key": "shipment_acceptance",
+          "label": "shipment acceptance",
+          "min_reliability": 3,
+          "require_independent": false
+        }
+      ],
+      "materiality": {
+        "score": 5,
+        "basis": "analyst_rubric",
+        "exposure_minor": null,
+        "denominator_minor": null,
+        "rationale": "Predeclared synthetic scenario materiality; not a measured loss estimate.",
+        "source_span_ids": []
+      },
+      "obtainability": {
+        "score": 5,
+        "basis": "analyst_estimate",
+        "days": null,
+        "external_cost_minor": null,
+        "rationale": "Predeclared analyst estimate; validate with document owner in Local Live."
+      },
+      "review_status": "approved",
+      "workflow_status": "resolved",
+      "duplicate_of": null,
+      "owner_label": "Demo analyst"
+    },
+    {
+      "id": "q_cd_warranty",
+      "entity_version": 1,
+      "deal_id": "deal_cd",
+      "claim_id": "claim_cd",
+      "canonical_key": "cd.warranty.reserve",
+      "issue": "Warranty claims and reserve reconciliation",
+      "request_text": "Provide FY2025 warranty claims, settlement records and the closing warranty reserve reconciliation, identifying the products and periods covered and explaining any unresolved differences.",
+      "financial_driver": "ebitda",
+      "requirements": [
+        {
+          "key": "warranty",
+          "label": "warranty",
+          "min_reliability": 3,
+          "require_independent": false
+        }
+      ],
+      "materiality": {
+        "score": 5,
+        "basis": "analyst_rubric",
+        "exposure_minor": null,
+        "denominator_minor": null,
+        "rationale": "Predeclared synthetic scenario materiality; not a measured loss estimate.",
+        "source_span_ids": []
+      },
+      "obtainability": {
+        "score": 3,
+        "basis": "analyst_estimate",
+        "days": null,
+        "external_cost_minor": null,
+        "rationale": "Predeclared analyst estimate; validate with document owner in Local Live."
+      },
+      "review_status": "approved",
+      "workflow_status": "open",
+      "duplicate_of": null,
+      "owner_label": "Demo analyst"
+    },
+    {
+      "id": "q_cd_inventory",
+      "entity_version": 1,
+      "deal_id": "deal_cd",
+      "claim_id": "claim_cd",
+      "canonical_key": "cd.inventory.age",
+      "issue": "Inventory ageing and recoverability",
+      "request_text": "Provide the FY2025 closing inventory ageing and recoverability assessment, including subsequent usage or sales support for slow-moving items and reconciliation to USD 1,200,000 inventory.",
+      "financial_driver": "nwc",
+      "requirements": [
+        {
+          "key": "inventory",
+          "label": "inventory",
+          "min_reliability": 3,
+          "require_independent": false
+        }
+      ],
+      "materiality": {
+        "score": 4,
+        "basis": "analyst_rubric",
+        "exposure_minor": null,
+        "denominator_minor": null,
+        "rationale": "Predeclared synthetic scenario materiality; not a measured loss estimate.",
+        "source_span_ids": []
+      },
+      "obtainability": {
+        "score": 4,
+        "basis": "analyst_estimate",
+        "days": null,
+        "external_cost_minor": null,
+        "rationale": "Predeclared analyst estimate; validate with document owner in Local Live."
+      },
+      "review_status": "approved",
+      "workflow_status": "open",
+      "duplicate_of": null,
+      "owner_label": "Demo analyst"
+    },
+    {
+      "id": "q_cd_receivable",
+      "entity_version": 1,
+      "deal_id": "deal_cd",
+      "claim_id": "claim_cd",
+      "canonical_key": "cd.ar.confirm",
+      "issue": "Receivables confirmation and subsequent collections",
+      "request_text": "Provide independent customer confirmations or subsequent settlement records for FY2025 closing receivables, with invoice-level reconciliation to USD 900,000 and dates of collection.",
+      "financial_driver": "nwc",
+      "requirements": [
+        {
+          "key": "ar_confirm",
+          "label": "ar confirm",
+          "min_reliability": 3,
+          "require_independent": false
+        }
+      ],
+      "materiality": {
+        "score": 4,
+        "basis": "analyst_rubric",
+        "exposure_minor": null,
+        "denominator_minor": null,
+        "rationale": "Predeclared synthetic scenario materiality; not a measured loss estimate.",
+        "source_span_ids": []
+      },
+      "obtainability": {
+        "score": 3,
+        "basis": "analyst_estimate",
+        "days": null,
+        "external_cost_minor": null,
+        "rationale": "Predeclared analyst estimate; validate with document owner in Local Live."
+      },
+      "review_status": "approved",
+      "workflow_status": "open",
+      "duplicate_of": null,
+      "owner_label": "Demo analyst"
+    }
+  ],
+  "ranking_snapshots": [
+    {
+      "id": "snap_cd_initial",
+      "entity_version": 1,
+      "deal_id": "deal_cd",
+      "state_revision": 1,
+      "scoring_version": "1.0.0",
+      "input_digest": "79bcba185195d7f8292d1242e14acb39cd20e53891e8a6ef80d85bb312bd135c",
+      "created_at": "2026-11-03T00:00:00Z",
+      "trigger_event_id": null,
+      "rows": [
+        {
+          "question_id": "q_cd_cutoff",
+          "rank": 1,
+          "gap": 5.0,
+          "materiality": 5,
+          "obtainability": 5,
+          "score": 100.0,
+          "provisional": false,
+          "reason_codes": [
+            "EVIDENCE_GAP"
+          ]
+        },
+        {
+          "question_id": "q_cd_warranty",
+          "rank": 2,
+          "gap": 5.0,
+          "materiality": 5,
+          "obtainability": 3,
+          "score": 94.0,
+          "provisional": false,
+          "reason_codes": [
+            "EVIDENCE_GAP"
+          ]
+        },
+        {
+          "question_id": "q_cd_inventory",
+          "rank": 3,
+          "gap": 5.0,
+          "materiality": 4,
+          "obtainability": 4,
+          "score": 89.0,
+          "provisional": false,
+          "reason_codes": [
+            "EVIDENCE_GAP"
+          ]
+        },
+        {
+          "question_id": "q_cd_receivable",
+          "rank": 4,
+          "gap": 5.0,
+          "materiality": 4,
+          "obtainability": 3,
+          "score": 86.0,
+          "provisional": false,
+          "reason_codes": [
+            "EVIDENCE_GAP"
+          ]
+        }
+      ],
+      "top3": [
+        "q_cd_cutoff",
+        "q_cd_warranty",
+        "q_cd_inventory"
+      ]
+    },
+    {
+      "id": "snapshot_demo_84594b5c84aad18c5165383f",
+      "entity_version": 1,
+      "deal_id": "deal_cd",
+      "state_revision": 2,
+      "scoring_version": "1.0.0",
+      "input_digest": "08b4bf9f9fec845aaa30174cfe9d2a0e8f77a8892f147c4729a509618f9c73d6",
+      "created_at": "2026-11-04T00:01:00Z",
+      "trigger_event_id": "update_cd",
+      "rows": [
+        {
+          "question_id": "q_cd_warranty",
+          "rank": 1,
+          "gap": 5.0,
+          "materiality": 5,
+          "obtainability": 3,
+          "score": 94.0,
+          "provisional": false,
+          "reason_codes": [
+            "EVIDENCE_GAP"
+          ]
+        },
+        {
+          "question_id": "q_cd_inventory",
+          "rank": 2,
+          "gap": 5.0,
+          "materiality": 4,
+          "obtainability": 4,
+          "score": 89.0,
+          "provisional": false,
+          "reason_codes": [
+            "EVIDENCE_GAP"
+          ]
+        },
+        {
+          "question_id": "q_cd_receivable",
+          "rank": 3,
+          "gap": 5.0,
+          "materiality": 4,
+          "obtainability": 3,
+          "score": 86.0,
+          "provisional": false,
+          "reason_codes": [
+            "EVIDENCE_GAP"
+          ]
+        }
+      ],
+      "top3": [
+        "q_cd_warranty",
+        "q_cd_inventory",
+        "q_cd_receivable"
+      ]
+    }
+  ],
+  "analyst_decisions": [
+    {
+      "id": "decision_cd_seed",
+      "entity_version": 1,
+      "deal_id": "deal_cd",
+      "actor_id": "actor_fixture_reviewer",
+      "actor_role": "reviewer",
+      "target_type": "seed",
+      "target_id": "deal_cd",
+      "target_version": 1,
+      "selection_digest": null,
+      "action": "approve",
+      "reason": "Authored synthetic initial state for specification arithmetic only.",
+      "base_revision": 0,
+      "decided_at": "2026-11-03T00:00:00Z"
+    },
+    {
+      "id": "decision_demo_84594b5c84aad18c5165383f",
+      "entity_version": 1,
+      "deal_id": "deal_cd",
+      "actor_id": "actor_demo_reviewer",
+      "actor_role": "reviewer",
+      "target_type": "evidence_update",
+      "target_id": "update_cd",
+      "target_version": 1,
+      "selection_digest": null,
+      "action": "approve",
+      "reason": "Explicit synthetic reviewer simulation.",
+      "base_revision": 1,
+      "decided_at": "2026-11-04T00:01:00Z"
+    }
+  ],
+  "audit_events": [
+    {
+      "id": "audit_cd_seed",
+      "entity_version": 1,
+      "deal_id": "deal_cd",
+      "sequence": 1,
+      "event_type": "seed_created",
+      "actor_id": "actor_fixture_reviewer",
+      "decision_id": "decision_cd_seed",
+      "before_revision": 0,
+      "after_revision": 1,
+      "idempotency_key": "cd_seed_v1",
+      "before_snapshot_id": null,
+      "after_snapshot_id": "snap_cd_initial",
+      "reason": "Initial synthetic branch.",
+      "created_at": "2026-11-03T00:00:00Z",
+      "previous_hash": null,
+      "event_hash": "a3bec7bfbbeb1d9fc2100b3964a27c54cceb5737e84e2e6c73a9d99266c15f35"
+    },
+    {
+      "id": "audit_demo_84594b5c84aad18c5165383f_staged",
+      "entity_version": 1,
+      "deal_id": "deal_cd",
+      "sequence": 2,
+      "event_type": "update_staged",
+      "actor_id": "actor_demo_reviewer",
+      "decision_id": null,
+      "before_revision": 1,
+      "after_revision": 1,
+      "idempotency_key": "demo:update_cd:staged",
+      "before_snapshot_id": "snap_cd_initial",
+      "after_snapshot_id": "snap_cd_initial",
+      "reason": "Allowlisted synthetic evidence staged; ranking unchanged.",
+      "created_at": "2026-11-04T00:00:00Z",
+      "previous_hash": "a3bec7bfbbeb1d9fc2100b3964a27c54cceb5737e84e2e6c73a9d99266c15f35",
+      "event_hash": "4810861afe6b86a4cc417250b63422f3c6f9567445aaf4620dfc7b9fc5d379d2"
+    },
+    {
+      "id": "audit_demo_84594b5c84aad18c5165383f_approve",
+      "entity_version": 1,
+      "deal_id": "deal_cd",
+      "sequence": 3,
+      "event_type": "update_approved",
+      "actor_id": "actor_demo_reviewer",
+      "decision_id": "decision_demo_84594b5c84aad18c5165383f",
+      "before_revision": 1,
+      "after_revision": 2,
+      "idempotency_key": "demo:update_cd:approve",
+      "before_snapshot_id": "snap_cd_initial",
+      "after_snapshot_id": "snapshot_demo_84594b5c84aad18c5165383f",
+      "reason": "Synthetic evidence approved; ranking recomputed.",
+      "created_at": "2026-11-04T00:01:00Z",
+      "previous_hash": "4810861afe6b86a4cc417250b63422f3c6f9567445aaf4620dfc7b9fc5d379d2",
+      "event_hash": "9db8463f96548911bd5f1efc62c855b31570a4e1f06929446f71a60cf5464732"
+    }
+  ],
+  "analysis_runs": [
+    {
+      "id": "run_cd_cached",
+      "entity_version": 1,
+      "deal_id": "deal_cd",
+      "mode": "cached",
+      "status": "completed",
+      "model_id": null,
+      "prompt_version": "authored-fixture-1.0.0",
+      "input_digest": "95e50869ad225901ca94fc139ff441cf1d30762d81474491ddfeb3044140534b",
+      "output_digest": "2225a62abfa8100329e2c5c894e97e3c0aff2572fd83df0378ce67d878cea2f6",
+      "token_input": 0,
+      "token_output": 0,
+      "reserved_cost_usd": 0,
+      "actual_cost_usd": 0,
+      "pricing_version": null,
+      "started_at": "2026-11-03T00:00:00Z",
+      "finished_at": "2026-11-03T00:00:00Z",
+      "error_code": null
+    }
+  ],
+  "head_snapshot_id": "snapshot_demo_84594b5c84aad18c5165383f"
+}

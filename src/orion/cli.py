@@ -1,4 +1,4 @@
-"""Offline developer commands for Chunk 1 Foundation."""
+"""Offline developer commands for Foundation and the Adaptive DD Core Engine."""
 from __future__ import annotations
 
 import argparse
@@ -17,8 +17,8 @@ def _load(path: Path):
 
 
 def main(argv: list[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(description="Orion 2.0 — Chunk 1 Foundation (offline)")
-    parser.add_argument("--version", action="version", version="orion-foundation 0.1.0; contract 1.0.0")
+    parser = argparse.ArgumentParser(description="Orion 2.0 — Adaptive DD Core Engine (offline)")
+    parser.add_argument("--version", action="version", version="orion 0.2.0; contract 1.0.0; scoring 1.0.0")
     sub = parser.add_subparsers(dest="command", required=True)
     validate = sub.add_parser("validate-fixture", help="Validate contract + source/reference integrity")
     validate.add_argument("path", type=Path)
@@ -27,6 +27,15 @@ def main(argv: list[str] | None = None) -> int:
     validate.add_argument("--mode", choices=["contract", "demo", "local_live"], default="contract")
     seed = sub.add_parser("seed-demo", help="Validate a fresh synthetic seed; never writes visitor state")
     seed.add_argument("--case", choices=["ns", "cd", "lm"], default="ns")
+    rank = sub.add_parser("rank", help="Validate and rank an approved DealState")
+    rank.add_argument("--state", type=Path, required=True)
+    replay = sub.add_parser("replay", help="Replay an allowlisted synthetic evidence event")
+    replay.add_argument("--case", choices=["ns", "cd", "lm"], required=True)
+    replay.add_argument("--event", choices=["staged"], required=True)
+    outcome = replay.add_mutually_exclusive_group()
+    outcome.add_argument("--approve", action="store_true")
+    outcome.add_argument("--reject", action="store_true")
+    replay.add_argument("--output", type=Path, required=True)
     sub.add_parser("init-db", help="Initialize SQLite only with ORION_MODE=local_live")
     args = parser.parse_args(argv)
     try:
@@ -58,6 +67,42 @@ def main(argv: list[str] | None = None) -> int:
             print(json.dumps({"status": "valid", "mode": "demo", "deal_id": state.deal.id,
                               "state_revision": state.state_revision, "persisted": False,
                               "live_api_calls": 0}, ensure_ascii=False))
+        elif args.command == "rank":
+            from orion.domain.scoring import rank_state, ranking_input_digest
+            from orion.domain.transitions import assert_current_state
+
+            state = _load(args.state)
+            if not isinstance(state, DealState):
+                raise ValueError("rank input must be DealState")
+            # No trusted native source resolver exists in this offline command.
+            if state.mode != "demo":
+                raise BoundaryError("SOURCE_MISMATCH", "Local Live requires a trusted source resolver.")
+            assert_current_state(state)
+            rows = rank_state(state)
+            print(json.dumps({"deal_id": state.deal.id, "state_revision": state.state_revision,
+                              "input_digest": ranking_input_digest(state),
+                              "top3": [r.question_id for r in rows[:3]],
+                              "rows": [r.model_dump(mode="json") for r in rows]}, ensure_ascii=False))
+        elif args.command == "replay":
+            from orion.demo import prepare_replay, replay_reviewed_demo
+            from orion.domain.transitions import question_changes
+
+            prepared = prepare_replay({"case_id": args.case, "actions": []})
+            actions = []
+            if args.approve or args.reject:
+                actions = [{"action": "approve" if args.approve else "reject",
+                            "event_id": prepared.staged_event.id}]
+            state = replay_reviewed_demo({"case_id": args.case, "actions": actions})
+            args.output.parent.mkdir(parents=True, exist_ok=True)
+            args.output.write_text(state.model_dump_json(indent=2) + "\n", encoding="utf-8")
+            head = next(s for s in state.ranking_snapshots if s.id == state.head_snapshot_id)
+            changes = question_changes(prepared.state, state)
+            print(json.dumps({"case_id": args.case, "state_revision": state.state_revision,
+                              "top3": head.top3, "scores": [r.score for r in head.rows[:3]],
+                              "input_digest": head.input_digest,
+                              "question_changes": [c.model_dump(mode="json") for c in changes],
+                              "output": str(args.output), "live_api_calls": 0,
+                              "source_validation": "fixture_text_only"}, ensure_ascii=False))
         elif args.command == "init-db":
             repo = open_local_repository(Settings.from_env())
             if hasattr(repo, "close"):
