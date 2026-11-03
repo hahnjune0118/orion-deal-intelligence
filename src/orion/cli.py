@@ -1,4 +1,4 @@
-"""Offline developer commands for Foundation and the Adaptive DD Core Engine."""
+"""Offline developer commands for the core and synthetic evaluation workbench."""
 from __future__ import annotations
 
 import argparse
@@ -17,8 +17,8 @@ def _load(path: Path):
 
 
 def main(argv: list[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(description="Orion 2.0 — Adaptive DD Core Engine (offline)")
-    parser.add_argument("--version", action="version", version="orion 0.2.0; contract 1.0.0; scoring 1.0.0")
+    parser = argparse.ArgumentParser(description="Orion 2.0 — Synthetic Data and Evaluation (offline)")
+    parser.add_argument("--version", action="version", version="orion 0.3.0; contract 1.0.0; scoring 1.0.0")
     sub = parser.add_subparsers(dest="command", required=True)
     validate = sub.add_parser("validate-fixture", help="Validate contract + source/reference integrity")
     validate.add_argument("path", type=Path)
@@ -36,6 +36,31 @@ def main(argv: list[str] | None = None) -> int:
     outcome.add_argument("--approve", action="store_true")
     outcome.add_argument("--reject", action="store_true")
     replay.add_argument("--output", type=Path, required=True)
+    generate = sub.add_parser("generate-synthetic", help="Generate immutable legacy native synthetic sources")
+    generate.add_argument("--output", type=Path, default=Path("data/synthetic"))
+    ingest = sub.add_parser("ingest", help="Parse the allowlisted synthetic native documents")
+    ingest.add_argument("--case", choices=["all", "ns", "cd", "lm"], default="all")
+    ingest.add_argument("--mode", choices=["demo"], default="demo")
+    ingest.add_argument("--source-root", type=Path, default=Path("data/synthetic"))
+    ingest.add_argument("--output", type=Path, default=Path("data/parsed"))
+    dataset = sub.add_parser("generate-dataset", help="Generate expanded Northstar and manufacturing packs")
+    dataset.add_argument("--output", type=Path, default=Path("chunk3_synthetic_evaluation"))
+    check_dataset = sub.add_parser("validate-dataset", help="Validate source, financial and gold integrity")
+    check_dataset.add_argument("--root", type=Path, default=Path("chunk3_synthetic_evaluation"))
+    scenario = sub.add_parser("replay-scenario", help="Run sequential analyst-reviewed evidence events")
+    scenario.add_argument("--case", choices=["nb", "mf"], default="nb")
+    scenario.add_argument("--root", type=Path, default=Path("chunk3_synthetic_evaluation"))
+    scenario.add_argument("--output", type=Path)
+    audit = sub.add_parser("audit-model-inputs", help="Audit source allowlists and stage visibility")
+    audit.add_argument("--cases", nargs="+", default=["all"])
+    audit.add_argument("--dataset-root", type=Path, default=Path("chunk3_synthetic_evaluation"))
+    audit.add_argument("--output", type=Path, default=Path("evaluation/results"))
+    evaluate = sub.add_parser("evaluate", help="Run authored fixtures and deterministic engines, without LLM calls")
+    evaluate.add_argument("--arms", nargs="+", choices=["B0", "B1", "B2", "B3", "B1-R"], default=["B0", "B1", "B2", "B3", "B1-R"])
+    evaluate.add_argument("--cases", nargs="+", default=["all"])
+    evaluate.add_argument("--mode", choices=["cached", "live"], default="cached")
+    evaluate.add_argument("--dataset-root", type=Path, default=Path("chunk3_synthetic_evaluation"))
+    evaluate.add_argument("--output", type=Path, default=Path("evaluation/results"))
     sub.add_parser("init-db", help="Initialize SQLite only with ORION_MODE=local_live")
     args = parser.parse_args(argv)
     try:
@@ -103,6 +128,38 @@ def main(argv: list[str] | None = None) -> int:
                               "question_changes": [c.model_dump(mode="json") for c in changes],
                               "output": str(args.output), "live_api_calls": 0,
                               "source_validation": "fixture_text_only"}, ensure_ascii=False))
+        elif args.command == "generate-synthetic":
+            from orion.native_dataset import generate_synthetic
+            print(json.dumps(generate_synthetic(args.output), ensure_ascii=False, default=str))
+        elif args.command == "ingest":
+            from orion.native_dataset import ingest
+            print(json.dumps(ingest(case=args.case, mode=args.mode, source_root=args.source_root,
+                                    output=args.output), ensure_ascii=False, default=str))
+        elif args.command == "generate-dataset":
+            from orion.synthetic import generate_dataset
+            print(json.dumps(generate_dataset(args.output), ensure_ascii=False, default=str))
+        elif args.command == "validate-dataset":
+            from orion.synthetic import validate_dataset
+            result = validate_dataset(args.root)
+            print(json.dumps(result, ensure_ascii=False, default=str))
+            if result.get("valid") is False or result.get("passed") is False or result.get("status") in {"failed", "invalid"}:
+                return 2
+        elif args.command == "replay-scenario":
+            from orion.synthetic import replay_scenario
+            result = replay_scenario(args.root, case=args.case)
+            if args.output:
+                args.output.parent.mkdir(parents=True, exist_ok=True)
+                args.output.write_text(json.dumps(result, ensure_ascii=False, indent=2, default=str) + "\n", encoding="utf-8")
+            print(json.dumps(result, ensure_ascii=False, default=str))
+        elif args.command in {"audit-model-inputs", "evaluate"}:
+            from orion.evaluation import audit_model_inputs, run_evaluation
+            cases = "all" if args.cases == ["all"] else args.cases
+            kwargs = dict(cases=cases, output=args.output, dataset_root=args.dataset_root)
+            result = (audit_model_inputs(**kwargs) if args.command == "audit-model-inputs"
+                      else run_evaluation(arms=args.arms, mode=args.mode, **kwargs))
+            print(json.dumps(result, ensure_ascii=False, default=str))
+            if result.get("valid") is False or result.get("passed") is False or result.get("status") in {"failed", "invalid"}:
+                return 2
         elif args.command == "init-db":
             repo = open_local_repository(Settings.from_env())
             if hasattr(repo, "close"):
@@ -112,6 +169,9 @@ def main(argv: list[str] | None = None) -> int:
     except ValidationError as error:
         # Do not print Pydantic's raw input values (they may contain source text).
         print(json.dumps({"status": "invalid", "code": "CONTRACT_INVALID", "error_count": error.error_count()}), file=sys.stderr)
+    except (KeyError, TypeError):
+        # Malformed local dataset metadata is an input error at this CLI boundary.
+        print(json.dumps({"status": "invalid", "code": "CONTRACT_INVALID"}), file=sys.stderr)
     except (BoundaryError, ValueError, OSError) as error:
         print(json.dumps({"status": "invalid", "code": getattr(error, "code", "VALIDATION_FAILED")}), file=sys.stderr)
     return 2

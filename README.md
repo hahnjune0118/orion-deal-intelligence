@@ -1,8 +1,8 @@
-# Orion Deal Intelligence 2.0 — Chunk 1 + Chunk 2
+# Orion Deal Intelligence 2.0 — Chunk 1 + Chunk 2 + Chunk 3
 
-Python 3.12 기반 Foundation에 Adaptive DD Core Engine을 통합했습니다. 승인된 증빙의 요구조건 충족·충돌·우선순위와 승인/반려 트랜잭션을 구현했습니다. **Chunk 3 이후의 native parser, 전체 Dash 앱, 평가·배포는 이번 범위에 포함하지 않습니다.**
+Python 3.12 기반 Foundation과 Adaptive DD Core Engine에 **합성 데이터·native source parsing·Bayesian/EIG·평가 harness**를 통합했습니다. 실제 LLM 호출, 전체 Dash UI, 배포는 아직 구현하지 않았습니다. 작성된 fixture 결과와 모델 성능을 구분합니다.
 
-기준은 `spec/`에 원본 그대로 보존한 Handoff 1.0.0입니다. Scoring Formula, Data Contracts, State Transition 및 기대값은 변경하지 않았습니다. Chunk 2 실행 결과와 한계는 [CHUNK_02.md](implementation_evidence/CHUNK_02.md), 기존 Foundation 증빙은 [CHUNK_01.md](implementation_evidence/CHUNK_01.md)에 있습니다. 첨부 코드에서 만든 로컬 `feature/chunk-02-core-engine` 브랜치이며 원격 GitHub 접근·commit·push는 수행하지 않았습니다.
+기준은 `spec/`에 원본 그대로 보존한 Handoff 1.0.0입니다. Scoring Formula, Data Contracts, State Transition 및 기대값은 변경하지 않았습니다. Chunk 2 실행 결과와 한계는 [CHUNK_02.md](implementation_evidence/CHUNK_02.md), 기존 Foundation 증빙은 [CHUNK_01.md](implementation_evidence/CHUNK_01.md)에 있습니다. Chunk 3는 첨부 Chunk 2 코드에서 만든 로컬 `feature/chunk-03-synthetic-evaluation` 브랜치입니다. 원격 GitHub 접근·commit·push는 수행하지 않았습니다. [Chunk 3 기술 보고서](implementation_evidence/CHUNK_03.md)와 [통합 결정](implementation_evidence/CHUNK_03_INTEGRATION_DECISIONS.md)을 확인하세요.
 
 ## 설치와 실행
 
@@ -40,7 +40,7 @@ Windows용 lock은 별도 target으로 생성하고 wheel 확보를 검증했습
 |---|---|
 | `src/orion/domain/models.py` | 모든 계약 객체·envelope의 strict Pydantic 모델, 타입 변환·unknown field·비정상 값 차단 |
 | `src/orion/domain/grounding.py` | ID/Deal/버전/참조, native locator, text-v1, 원문 SHA-256, code-point offset와 quote 검증 |
-| `src/orion/adapters/parsers/base.py` | parser interface와 미구현 시 명시적 차단 |
+| `src/orion/adapters/parsers/` | bounded native PDF/DOCX/PPTX parsing, timeout worker, 원본 bytes 기반 locator 검증 |
 | `src/orion/adapters/sqlite_repo.py` | WAL·FK, entity history, 원자적 revision, 중복 요청 처리, rollback, append-only snapshot/audit |
 | `src/orion/config.py` | Demo 기본값, 업로드/Live/영속 상태 차단, Local loopback·Host/Origin 정책, 비용 설정 검증 |
 | `src/orion/demo.py` | 합성 입력 allowlist, 요청별 독립 상태, 최대 32개 행동 검증, reset |
@@ -67,7 +67,7 @@ Windows용 lock은 별도 target으로 생성하고 wheel 확보를 검증했습
 - 예시 자료의 `fixture_text_only`는 계약 예시 텍스트입니다. 실제 PDF/DOCX/PPTX 인용 검증을 통과했다는 뜻이 아닙니다. Local 검증은 원본 bytes와 독립적인 native unit resolver를 요구하며 fixture를 거부합니다.
 - `SourceResolver`는 서버 소유 parser/index adapter를 위한 인터페이스입니다. 브라우저가 돌려준 텍스트나 파일 경로를 resolver로 신뢰하면 안 됩니다.
 - `SQLiteRepository`는 신뢰된 application service용 adapter입니다. actor 권한, 승인 결정 및 결정론적 상태 전이를 대신하지 않습니다. 원본 DB 파일의 소유자 변조까지 방지하는 공증 원장이 아닙니다.
-- Local DB 초기화는 명시적 `ORION_MODE=local_live`에서만 허용합니다. 이 설정만으로 provider나 파일 업로드 기능이 활성화되지는 않습니다. 아직 해당 기능이 구현되지 않았습니다.
+- Local DB 초기화는 명시적 `ORION_MODE=local_live`에서만 허용합니다. 이 설정만으로 provider나 파일 업로드 기능이 활성화되지는 않습니다. 임의 사용자 업로드나 Live provider 실행은 아직 구현하지 않았습니다.
 - 예산 값 검증은 구현했습니다. 실제 요청별 reserve/settle와 API 실행은 미구현이며, 우회 실행 대신 차단합니다.
 
 ## Core Engine 실행
@@ -96,4 +96,45 @@ Windows용 lock은 별도 target으로 생성하고 wheel 확보를 검증했습
 
 Windows에서 반영할 때는 [WINDOWS_APPLY_CHUNK_02.md](implementation_evidence/WINDOWS_APPLY_CHUNK_02.md)를 참고하세요. GitHub commit/push는 사용자가 개인 PC에서 직접 수행합니다.
 
-미구현: native parser, 전체 Dash UI, export 승인·파일, Live API·비용 예약, 공개 배포, B0–B3 평가, 선택 Bayesian 패널. 단위테스트 성공은 학술 목표의 실측 성능이 아닙니다. 실제 두 브라우저 탭 검증과 Windows 실행은 이후 환경에서 별도 확인해야 합니다.
+미구현: 전체 Dash UI, export 승인·파일, Live API·비용 예약, 공개 배포, 실제 모델 B0–B3 비교. 단위테스트 및 authored-fixture 성공은 학술 목표의 실제 모델 성능이 아닙니다. 실제 두 브라우저 탭 검증과 Windows 실행은 별도 환경에서 확인해야 합니다.
+
+
+## Chunk 3 전체 실행
+
+설치 후 프로젝트 루트에서 한 번에 재생성·검증·평가·전체 테스트를 실행합니다.
+
+```bash
+python scripts/validate_chunk03.py
+```
+
+개별 명령은 다음과 같습니다. 모든 명령은 합성 자료만 처리하며 API key가 필요 없습니다.
+
+```bash
+python -m orion.cli generate-synthetic --output data/synthetic
+python -m orion.cli ingest --case all --mode demo
+python -m orion.cli generate-dataset --output chunk3_synthetic_evaluation
+python -m orion.cli validate-dataset
+python -m orion.cli replay-scenario --case nb --output build/northstar.json
+python -m orion.cli replay-scenario --case mf --output build/manufacturing.json
+python -m orion.cli audit-model-inputs --cases all
+python -m orion.cli evaluate --arms B0 B1 B2 B3 B1-R --cases all --mode cached
+python -m pytest -q --strict-markers
+```
+
+| 경로 | 내용 |
+|---|---|
+| `data/synthetic/`, `data/parsed/` | 기존 세 사례의 12개 native 원본과 실제 파서 runtime pack |
+| `chunk3_synthetic_evaluation/data/` | Northstar 심화 및 제조업 원문·structured 기록·업데이트, 공개 Orion pending manifest |
+| `chunk3_synthetic_evaluation/gold/` | 평가 전용 정답·세계 가정·예상 전이. 모델 context에서 제외 |
+| `src/orion/synthetic/` | 결정론 생성·금액 대사·단계별 입력·승인 시나리오 |
+| `src/orion/quant/` | 가정 출처가 있는 Bayesian/EIG·중복 방지·별도 연구 순위·민감도 |
+| `src/orion/evaluation/`, `evaluation/` | baseline 인터페이스·분모가 명확한 지표·prompt dump·fixture replay 결과 |
+| `implementation_evidence/CHUNK_03.md` | 한국어 기술 보고서, 실제 결과와 미실행 항목 |
+
+제품 점수는 `P = 9G + 8M + 3O`인 scoring 1.0.0을 그대로 사용합니다. Bayesian/EIG는 명시된 가상 확률 가정의 계산이며 실증 투자 성공확률이 아닙니다. 별도 연구 정책의 EIG 가중 결과를 제품 점수로 바꾸거나 EVSI로 부르지 않습니다.
+
+`--mode live`는 모델 adapter가 준비되지 않았으므로 실제 호출하지 않습니다. 캐시의 provenance는 `authored-fixture`이고 실시간 extraction·독립 전문가 검증을 뜻하지 않습니다. Gold와 미래 원문은 단계별 source allowlist에 포함하지 않습니다. ZIP 전체를 LLM에 넣는 방식은 이 경계를 무너뜨리므로 `agent_visible_bundle`과 저장된 prompt dump를 사용하세요.
+
+새 runtime dependency는 추가하지 않았습니다. 기존 Pydantic와 parser extras, Python 표준 라이브러리로 계산·생성을 수행합니다. NumPy/pandas 없이도 이 크기의 자료를 재현할 수 있도록 구성했습니다. 원본 OS별 hash lock은 그대로 보존합니다. 최신 코드는 소스 설치 또는 `artifacts/orion_deal_intelligence-0.3.0-py3-none-any.whl`을 사용하고, 0.1.0/0.2.0 wheel은 과거 호환성 증빙으로만 사용하세요.
+
+실행 가능한 웹 앱 진입점은 아직 없습니다. 다음 Chunk 4는 검증된 source index·review service·evaluation 결과를 Dash UI에 연결하는 단계입니다.

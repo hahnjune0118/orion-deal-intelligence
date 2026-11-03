@@ -1,0 +1,229 @@
+{
+  "started_at_utc": "2026-11-03T08:49:20.095398+00:00",
+  "os": "Windows-11-10.0.26300-SP0",
+  "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "source_import_root": "C:\\Users\\twryo\\Documents\\Orion-Chunk3-GitHub\\orion-deal-intelligence\\src",
+  "live_api_calls": 0,
+  "model_benchmark_status": "not_run",
+  "native_windows_status": "not_run",
+  "locks": {
+    "requirements-linux.lock": "5cbdfc3fcd8e5215664e248128454114ad918313a214c7f81e3fb86197af3f0a",
+    "requirements-tooling.lock": "b21d90818cd078df19f897d0feee726df1ab78ff6f46fc0efa461c8707cd1c1a",
+    "requirements-win.lock": "42a560139504b5838dc379352e4a53c9306a8461744e284dbb7cc96223eb9b0d"
+  },
+  "commands": [
+    {
+      "name": "generate-native",
+      "command": [
+        "C:\\Users\\twryo\\Documents\\Orion-Chunk3-GitHub\\orion-deal-intelligence\\.venv\\Scripts\\python.exe",
+        "-m",
+        "orion.cli",
+        "generate-synthetic",
+        "--output",
+        "data/synthetic"
+      ],
+      "started_at_utc": "2026-11-03T08:49:20.190150+00:00",
+      "finished_at_utc": "2026-11-03T08:49:20.934040+00:00",
+      "exit_code": 0,
+      "status": "pass",
+      "log": "logs\\chunk03-generate-native.log"
+    },
+    {
+      "name": "ingest-native",
+      "command": [
+        "C:\\Users\\twryo\\Documents\\Orion-Chunk3-GitHub\\orion-deal-intelligence\\.venv\\Scripts\\python.exe",
+        "-m",
+        "orion.cli",
+        "ingest",
+        "--case",
+        "all",
+        "--mode",
+        "demo"
+      ],
+      "started_at_utc": "2026-11-03T08:49:20.934040+00:00",
+      "finished_at_utc": "2026-11-03T08:49:25.626548+00:00",
+      "exit_code": 0,
+      "status": "pass",
+      "log": "logs\\chunk03-ingest-native.log"
+    },
+    {
+      "name": "generate-expanded",
+      "command": [
+        "C:\\Users\\twryo\\Documents\\Orion-Chunk3-GitHub\\orion-deal-intelligence\\.venv\\Scripts\\python.exe",
+        "-m",
+        "orion.cli",
+        "generate-dataset"
+      ],
+      "started_at_utc": "2026-11-03T08:49:25.626548+00:00",
+      "finished_at_utc": "2026-11-03T08:49:35.782945+00:00",
+      "exit_code": 0,
+      "status": "pass",
+      "log": "logs\\chunk03-generate-expanded.log"
+    },
+    {
+      "name": "validate-expanded",
+      "command": [
+        "C:\\Users\\twryo\\Documents\\Orion-Chunk3-GitHub\\orion-deal-intelligence\\.venv\\Scripts\\python.exe",
+        "-m",
+        "orion.cli",
+        "validate-dataset"
+      ],
+      "started_at_utc": "2026-11-03T08:49:35.782945+00:00",
+      "finished_at_utc": "2026-11-03T08:49:41.357563+00:00",
+      "exit_code": 0,
+      "status": "pass",
+      "log": "logs\\chunk03-validate-expanded.log"
+    },
+    {
+      "name": "replay-northstar",
+      "command": [
+        "C:\\Users\\twryo\\Documents\\Orion-Chunk3-GitHub\\orion-deal-intelligence\\.venv\\Scripts\\python.exe",
+        "-m",
+        "orion.cli",
+        "replay-scenario",
+        "--case",
+        "nb",
+        "--output",
+        "implementation_evidence/chunk03-northstar-replay.json"
+      ],
+      "started_at_utc": "2026-11-03T08:49:41.357563+00:00",
+      "finished_at_utc": "2026-11-03T08:49:44.641792+00:00",
+      "exit_code": 0,
+      "status": "pass",
+      "log": "logs\\chunk03-replay-northstar.log"
+    },
+    {
+      "name": "replay-manufacturing",
+      "command": [
+        "C:\\Users\\twryo\\Documents\\Orion-Chunk3-GitHub\\orion-deal-intelligence\\.venv\\Scripts\\python.exe",
+        "-m",
+        "orion.cli",
+        "replay-scenario",
+        "--case",
+        "mf",
+        "--output",
+        "implementation_evidence/chunk03-manufacturing-replay.json"
+      ],
+      "started_at_utc": "2026-11-03T08:49:44.641792+00:00",
+      "finished_at_utc": "2026-11-03T08:49:47.065863+00:00",
+      "exit_code": 0,
+      "status": "pass",
+      "log": "logs\\chunk03-replay-manufacturing.log"
+    },
+    {
+      "name": "input-audit",
+      "command": [
+        "C:\\Users\\twryo\\Documents\\Orion-Chunk3-GitHub\\orion-deal-intelligence\\.venv\\Scripts\\python.exe",
+        "-m",
+        "orion.cli",
+        "audit-model-inputs",
+        "--cases",
+        "all"
+      ],
+      "started_at_utc": "2026-11-03T08:49:47.065863+00:00",
+      "finished_at_utc": "2026-11-03T08:49:58.439484+00:00",
+      "exit_code": 0,
+      "status": "pass",
+      "log": "logs\\chunk03-input-audit.log"
+    },
+    {
+      "name": "evaluation",
+      "command": [
+        "C:\\Users\\twryo\\Documents\\Orion-Chunk3-GitHub\\orion-deal-intelligence\\.venv\\Scripts\\python.exe",
+        "-m",
+        "orion.cli",
+        "evaluate",
+        "--arms",
+        "B0",
+        "B1",
+        "B2",
+        "B3",
+        "B1-R",
+        "--cases",
+        "all",
+        "--mode",
+        "cached"
+      ],
+      "started_at_utc": "2026-11-03T08:49:58.439484+00:00",
+      "finished_at_utc": "2026-11-03T08:50:12.861581+00:00",
+      "exit_code": 0,
+      "status": "pass",
+      "log": "logs\\chunk03-evaluation.log"
+    },
+    {
+      "name": "quantitative-report",
+      "command": [
+        "C:\\Users\\twryo\\Documents\\Orion-Chunk3-GitHub\\orion-deal-intelligence\\.venv\\Scripts\\python.exe",
+        "-m",
+        "orion.quant.report",
+        "--output",
+        "evaluation/results/quantitative_report.json"
+      ],
+      "started_at_utc": "2026-11-03T08:50:12.861581+00:00",
+      "finished_at_utc": "2026-11-03T08:50:13.162064+00:00",
+      "exit_code": 0,
+      "status": "pass",
+      "log": "logs\\chunk03-quantitative-report.log"
+    },
+    {
+      "name": "spec-integrity",
+      "command": [
+        "C:\\Users\\twryo\\Documents\\Orion-Chunk3-GitHub\\orion-deal-intelligence\\.venv\\Scripts\\python.exe",
+        "scripts/verify_spec.py"
+      ],
+      "started_at_utc": "2026-11-03T08:50:13.162064+00:00",
+      "finished_at_utc": "2026-11-03T08:50:13.237000+00:00",
+      "exit_code": 0,
+      "status": "pass",
+      "log": "logs\\chunk03-spec-integrity.log"
+    },
+    {
+      "name": "full-pytest",
+      "command": [
+        "C:\\Users\\twryo\\Documents\\Orion-Chunk3-GitHub\\orion-deal-intelligence\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "-q",
+        "--strict-markers",
+        "--junitxml=implementation_evidence/chunk03-pytest.xml"
+      ],
+      "started_at_utc": "2026-11-03T08:50:13.237000+00:00",
+      "finished_at_utc": "2026-11-03T08:51:10.782579+00:00",
+      "exit_code": 0,
+      "status": "pass",
+      "log": "logs\\chunk03-full-pytest.log"
+    },
+    {
+      "name": "pip-check",
+      "command": [
+        "C:\\Users\\twryo\\Documents\\Orion-Chunk3-GitHub\\orion-deal-intelligence\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "check"
+      ],
+      "started_at_utc": "2026-11-03T08:51:10.782579+00:00",
+      "finished_at_utc": "2026-11-03T08:51:11.282125+00:00",
+      "exit_code": 0,
+      "status": "pass",
+      "log": "logs\\chunk03-pip-check.log"
+    },
+    {
+      "name": "compile",
+      "command": [
+        "C:\\Users\\twryo\\Documents\\Orion-Chunk3-GitHub\\orion-deal-intelligence\\.venv\\Scripts\\python.exe",
+        "-m",
+        "compileall",
+        "-q",
+        "src"
+      ],
+      "started_at_utc": "2026-11-03T08:51:11.282125+00:00",
+      "finished_at_utc": "2026-11-03T08:51:11.362307+00:00",
+      "exit_code": 0,
+      "status": "pass",
+      "log": "logs\\chunk03-compile.log"
+    }
+  ],
+  "finished_at_utc": "2026-11-03T08:51:11.378902+00:00",
+  "source_test_sha256": "207e1422baf5ecf4dd27fa572e32fe87bf8f6d57211d07ce5b490e22fa12e7ff",
+  "status": "pass"
+}

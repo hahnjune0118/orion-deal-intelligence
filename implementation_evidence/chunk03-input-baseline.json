@@ -1,0 +1,34 @@
+{
+  "technical_baseline": "attached integrated Chunk 2 v0.2.0",
+  "remote_repository_accessed": false,
+  "commits_created": false,
+  "branch": "feature/chunk-03-synthetic-evaluation",
+  "inputs": [
+    {
+      "name": "ORION_CHUNK_01_FOUNDATION(4).zip",
+      "sha256": "edd75c0de94577b7cee3285650211d40610d892570f8d8870267d43971399260"
+    },
+    {
+      "name": "ORION_CHUNK_02_CORE_ENGINE_INTEGRATED(2).zip",
+      "sha256": "41d383e3e1ecc2cb9d793a3de498488a74d2315f9f11eb1fb52fa994743bb2d3"
+    },
+    {
+      "name": "Orion_Adaptive_DD_Agent_Blueprint_20261023(1).md",
+      "sha256": "7151188de3f2d2a4fbc738a7d1bb897cb58691cbe765d2ed0e56b767d92e8a9a"
+    },
+    {
+      "name": "Pasted text(2).txt",
+      "sha256": "4dbf44712d3d5b89261ec9ef6a2c9c647f4939a28d62a6b0a953a54739985adf"
+    }
+  ],
+  "blueprint_redistributed": false,
+  "baseline_tests": {
+    "passed": 823,
+    "failed": 0,
+    "skipped": 0,
+    "log": "logs/chunk03-baseline-pytest.log"
+  },
+  "python_supported": "3.12",
+  "core_contract": "1.0.0",
+  "core_scoring": "1.0.0"
+}

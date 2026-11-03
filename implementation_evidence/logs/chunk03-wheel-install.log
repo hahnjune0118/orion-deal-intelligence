@@ -1,0 +1,7 @@
+Processing ./artifacts/orion_deal_intelligence-0.3.0-py3-none-any.whl
+Installing collected packages: orion-deal-intelligence
+  Attempting uninstall: orion-deal-intelligence
+    Found existing installation: orion-deal-intelligence 0.1.0
+    Uninstalling orion-deal-intelligence-0.1.0:
+      Successfully uninstalled orion-deal-intelligence-0.1.0
+Successfully installed orion-deal-intelligence-0.3.0

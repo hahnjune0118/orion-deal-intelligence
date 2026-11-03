@@ -1,0 +1,89 @@
+{
+  "started_at_utc": "2026-11-03T08:17:01.381596+00:00",
+  "commands": [
+    {
+      "name": "wheel-build",
+      "command": [
+        "/workspace/scratch/b04c6f7c58fb/orion-deal-intelligence/.venv/bin/python",
+        "-m",
+        "pip",
+        "wheel",
+        "--no-index",
+        "--no-deps",
+        "--no-build-isolation",
+        "--wheel-dir",
+        "artifacts",
+        "."
+      ],
+      "started_at_utc": "2026-11-03T08:17:01.381614+00:00",
+      "finished_at_utc": "2026-11-03T08:17:03.172783+00:00",
+      "exit_code": 0,
+      "status": "pass",
+      "log": "logs/chunk03-wheel-build.log"
+    },
+    {
+      "name": "wheel-install",
+      "command": [
+        "/workspace/scratch/b04c6f7c58fb/orion-deal-intelligence/.venv/bin/python",
+        "-m",
+        "pip",
+        "install",
+        "--no-index",
+        "--no-deps",
+        "--force-reinstall",
+        "artifacts/orion_deal_intelligence-0.3.0-py3-none-any.whl"
+      ],
+      "started_at_utc": "2026-11-03T08:17:03.173164+00:00",
+      "finished_at_utc": "2026-11-03T08:17:04.102899+00:00",
+      "exit_code": 0,
+      "status": "pass",
+      "log": "logs/chunk03-wheel-install.log"
+    },
+    {
+      "name": "wheel-import",
+      "command": [
+        "/workspace/scratch/b04c6f7c58fb/orion-deal-intelligence/.venv/bin/python",
+        "-c",
+        "import orion,orion.synthetic,orion.quant,orion.evaluation,orion.native_dataset; from pathlib import Path; p=Path(orion.__file__).resolve(); print(p); assert 'site-packages' in p.parts; from importlib.metadata import version; assert version('orion-deal-intelligence')=='0.3.0'"
+      ],
+      "started_at_utc": "2026-11-03T08:17:04.105095+00:00",
+      "finished_at_utc": "2026-11-03T08:17:04.482912+00:00",
+      "exit_code": 0,
+      "status": "pass",
+      "log": "logs/chunk03-wheel-import.log"
+    },
+    {
+      "name": "wheel-pytest",
+      "command": [
+        "/workspace/scratch/b04c6f7c58fb/orion-deal-intelligence/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "--strict-markers",
+        "--junitxml=implementation_evidence/chunk03-wheel-pytest.xml"
+      ],
+      "started_at_utc": "2026-11-03T08:17:04.483279+00:00",
+      "finished_at_utc": "2026-11-03T08:18:24.278461+00:00",
+      "exit_code": 0,
+      "status": "pass",
+      "log": "logs/chunk03-wheel-pytest.log"
+    },
+    {
+      "name": "wheel-pip-check",
+      "command": [
+        "/workspace/scratch/b04c6f7c58fb/orion-deal-intelligence/.venv/bin/python",
+        "-m",
+        "pip",
+        "check"
+      ],
+      "started_at_utc": "2026-11-03T08:18:24.280964+00:00",
+      "finished_at_utc": "2026-11-03T08:18:24.754274+00:00",
+      "exit_code": 0,
+      "status": "pass",
+      "log": "logs/chunk03-wheel-pip-check.log"
+    }
+  ],
+  "source_import_override": false,
+  "finished_at_utc": "2026-11-03T08:18:24.754530+00:00",
+  "status": "pass"
+}

@@ -1,0 +1,18 @@
+{
+  "acceptance_targets": {
+    "final_without_hitl": 0,
+    "hallucinated_citations": 0,
+    "locator_precision": 0.95,
+    "top3_critical_coverage": 0.8
+  },
+  "actual_llm_benchmark": false,
+  "arms": [
+    "B0",
+    "B1",
+    "B2",
+    "B3",
+    "B1-R"
+  ],
+  "bayesian_ablation": "panel off; core ranking unchanged",
+  "mode": "authored_fixture"
+}

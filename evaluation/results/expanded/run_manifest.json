@@ -1,0 +1,1049 @@
+{
+  "runs": [
+    {
+      "arm": "B0",
+      "case": "nb",
+      "configuration": {
+        "max_questions": 10,
+        "seed": 20261103,
+        "top_k": 3
+      },
+      "cost_usd": 0.0,
+      "dataset_version": "3.0.0",
+      "gold_checksum": "6cc0d939940b8dfdc854cd5f75775a71df807fd90180cd54d103338bc96be831",
+      "input_checksum": "208a33f93ca7d96a82490d296339b0d7e541beaf84ce10cd22584b5286a3d2b1",
+      "live_api_calls": 0,
+      "mode": "cached",
+      "model_version": "not_applicable:authored-or-deterministic",
+      "output_checksum": "37de3209128df38bf50768d74f1000598c8c3a39fac80129dbeefe1e98bdd392",
+      "prompt_sha256": "735e808ef8c52c467a624038187ec78d0ed3fb087c5252ba02466b9af2a4014c",
+      "prompt_version": "eval-1.0",
+      "source_hashes": {
+        "nb_doc_cim": "565cb6fc40802ea448753c8e2c3b89968cb80e8039e71d74c9c7fa1da7fc582e",
+        "nb_doc_crm": "88e7962471b9a6bc7fd9fc24f3b3d3f7d7d9bc656e0a02bd86527889273cfc25",
+        "nb_doc_financial": "880bfac836384deb79caddf280071f0d7bc5d7984986939ed05280b945481853",
+        "nb_doc_plan": "f16ff6e72355e983e361eade582007ef5f2e4ca54e4f95ad5cc3b4fe881a057a"
+      },
+      "stage": 0,
+      "status": "fixture_only",
+      "timestamp_utc": "2026-11-03T08:50:08.840344Z"
+    },
+    {
+      "arm": "B1",
+      "case": "nb",
+      "configuration": {
+        "max_questions": 10,
+        "seed": 20261103,
+        "top_k": 3
+      },
+      "cost_usd": 0.0,
+      "dataset_version": "3.0.0",
+      "gold_checksum": "6cc0d939940b8dfdc854cd5f75775a71df807fd90180cd54d103338bc96be831",
+      "input_checksum": "208a33f93ca7d96a82490d296339b0d7e541beaf84ce10cd22584b5286a3d2b1",
+      "live_api_calls": 0,
+      "mode": "cached",
+      "model_version": "not_applicable:authored-or-deterministic",
+      "output_checksum": "37de3209128df38bf50768d74f1000598c8c3a39fac80129dbeefe1e98bdd392",
+      "prompt_sha256": "21de05feafe0d01ad12f77b8dc5a4e9d14a15828666f118ec1112c72c05cfc10",
+      "prompt_version": "eval-1.0",
+      "source_hashes": {
+        "nb_doc_cim": "565cb6fc40802ea448753c8e2c3b89968cb80e8039e71d74c9c7fa1da7fc582e",
+        "nb_doc_crm": "88e7962471b9a6bc7fd9fc24f3b3d3f7d7d9bc656e0a02bd86527889273cfc25",
+        "nb_doc_financial": "880bfac836384deb79caddf280071f0d7bc5d7984986939ed05280b945481853",
+        "nb_doc_plan": "f16ff6e72355e983e361eade582007ef5f2e4ca54e4f95ad5cc3b4fe881a057a"
+      },
+      "stage": 0,
+      "status": "fixture_only",
+      "timestamp_utc": "2026-11-03T08:50:08.842321Z"
+    },
+    {
+      "arm": "B2",
+      "case": "nb",
+      "configuration": {
+        "max_questions": 10,
+        "seed": 20261103,
+        "top_k": 3
+      },
+      "cost_usd": 0.0,
+      "dataset_version": "3.0.0",
+      "gold_checksum": "6cc0d939940b8dfdc854cd5f75775a71df807fd90180cd54d103338bc96be831",
+      "input_checksum": "208a33f93ca7d96a82490d296339b0d7e541beaf84ce10cd22584b5286a3d2b1",
+      "live_api_calls": 0,
+      "mode": "cached",
+      "model_version": "not_applicable:authored-or-deterministic",
+      "output_checksum": "37de3209128df38bf50768d74f1000598c8c3a39fac80129dbeefe1e98bdd392",
+      "prompt_sha256": "a9f20c50fe4749e745e99c2b9b381e702af6d390026fb7e5f1aca7035029f253",
+      "prompt_version": "eval-1.0",
+      "source_hashes": {
+        "nb_doc_cim": "565cb6fc40802ea448753c8e2c3b89968cb80e8039e71d74c9c7fa1da7fc582e",
+        "nb_doc_crm": "88e7962471b9a6bc7fd9fc24f3b3d3f7d7d9bc656e0a02bd86527889273cfc25",
+        "nb_doc_financial": "880bfac836384deb79caddf280071f0d7bc5d7984986939ed05280b945481853",
+        "nb_doc_plan": "f16ff6e72355e983e361eade582007ef5f2e4ca54e4f95ad5cc3b4fe881a057a"
+      },
+      "stage": 0,
+      "status": "fixture_only",
+      "timestamp_utc": "2026-11-03T08:50:08.845234Z"
+    },
+    {
+      "arm": "B3",
+      "case": "nb",
+      "configuration": {
+        "max_questions": 10,
+        "seed": 20261103,
+        "top_k": 3
+      },
+      "cost_usd": 0.0,
+      "dataset_version": "3.0.0",
+      "gold_checksum": "6cc0d939940b8dfdc854cd5f75775a71df807fd90180cd54d103338bc96be831",
+      "input_checksum": "208a33f93ca7d96a82490d296339b0d7e541beaf84ce10cd22584b5286a3d2b1",
+      "live_api_calls": 0,
+      "mode": "cached",
+      "model_version": "not_applicable:authored-or-deterministic",
+      "output_checksum": "10211caa22e836d5e0a37b84b4e371c690ce32f1dc7c6ff735fbc8899d9805f7",
+      "prompt_sha256": "f4c0bdb14e7ff905d750d8cb919e823ddb18131ba0bdf66ceeb0a360e35959bb",
+      "prompt_version": "eval-1.0",
+      "source_hashes": {
+        "nb_doc_cim": "565cb6fc40802ea448753c8e2c3b89968cb80e8039e71d74c9c7fa1da7fc582e",
+        "nb_doc_crm": "88e7962471b9a6bc7fd9fc24f3b3d3f7d7d9bc656e0a02bd86527889273cfc25",
+        "nb_doc_financial": "880bfac836384deb79caddf280071f0d7bc5d7984986939ed05280b945481853",
+        "nb_doc_plan": "f16ff6e72355e983e361eade582007ef5f2e4ca54e4f95ad5cc3b4fe881a057a"
+      },
+      "stage": 0,
+      "status": "fixture_only",
+      "timestamp_utc": "2026-11-03T08:50:08.845234Z"
+    },
+    {
+      "arm": "B1-R",
+      "case": "nb",
+      "configuration": {
+        "max_questions": 10,
+        "seed": 20261103,
+        "top_k": 3
+      },
+      "cost_usd": 0.0,
+      "dataset_version": "3.0.0",
+      "gold_checksum": "6cc0d939940b8dfdc854cd5f75775a71df807fd90180cd54d103338bc96be831",
+      "input_checksum": "208a33f93ca7d96a82490d296339b0d7e541beaf84ce10cd22584b5286a3d2b1",
+      "live_api_calls": 0,
+      "mode": "cached",
+      "model_version": "not_run",
+      "output_checksum": "44f29ec6d743886eee16ee02833b9082f2ba534dd4315b75c6daa25a7072eb6a",
+      "prompt_sha256": "69cde26560c92577939cc2a7720764b3721b800a35ed5f762da00c943d15c79c",
+      "prompt_version": "eval-1.0",
+      "source_hashes": {
+        "nb_doc_cim": "565cb6fc40802ea448753c8e2c3b89968cb80e8039e71d74c9c7fa1da7fc582e",
+        "nb_doc_crm": "88e7962471b9a6bc7fd9fc24f3b3d3f7d7d9bc656e0a02bd86527889273cfc25",
+        "nb_doc_financial": "880bfac836384deb79caddf280071f0d7bc5d7984986939ed05280b945481853",
+        "nb_doc_plan": "f16ff6e72355e983e361eade582007ef5f2e4ca54e4f95ad5cc3b4fe881a057a"
+      },
+      "stage": 0,
+      "status": "not_run",
+      "timestamp_utc": "2026-11-03T08:50:08.845234Z"
+    },
+    {
+      "arm": "B0",
+      "case": "nb",
+      "configuration": {
+        "max_questions": 10,
+        "seed": 20261103,
+        "top_k": 3
+      },
+      "cost_usd": 0.0,
+      "dataset_version": "3.0.0",
+      "gold_checksum": "6cc0d939940b8dfdc854cd5f75775a71df807fd90180cd54d103338bc96be831",
+      "input_checksum": "86c525f0d59df75f3382d6cff1e2f634d66171e1beb31f622030748bfaac5059",
+      "live_api_calls": 0,
+      "mode": "cached",
+      "model_version": "not_applicable:authored-or-deterministic",
+      "output_checksum": "37de3209128df38bf50768d74f1000598c8c3a39fac80129dbeefe1e98bdd392",
+      "prompt_sha256": "e9f2b895455ca8454f3f0fa5cea2f2385b716e64094eaece34837a2a29286f95",
+      "prompt_version": "eval-1.0",
+      "source_hashes": {
+        "nb_doc_cim": "565cb6fc40802ea448753c8e2c3b89968cb80e8039e71d74c9c7fa1da7fc582e",
+        "nb_doc_contract": "bf43b28ea27ff3d2ee0563ff8c2d9bb1d93eebcddd1461c65aa1d0038f80f6d2",
+        "nb_doc_crm": "88e7962471b9a6bc7fd9fc24f3b3d3f7d7d9bc656e0a02bd86527889273cfc25",
+        "nb_doc_financial": "880bfac836384deb79caddf280071f0d7bc5d7984986939ed05280b945481853",
+        "nb_doc_plan": "f16ff6e72355e983e361eade582007ef5f2e4ca54e4f95ad5cc3b4fe881a057a"
+      },
+      "stage": 1,
+      "status": "fixture_only",
+      "timestamp_utc": "2026-11-03T08:50:08.893135Z"
+    },
+    {
+      "arm": "B1",
+      "case": "nb",
+      "configuration": {
+        "max_questions": 10,
+        "seed": 20261103,
+        "top_k": 3
+      },
+      "cost_usd": 0.0,
+      "dataset_version": "3.0.0",
+      "gold_checksum": "6cc0d939940b8dfdc854cd5f75775a71df807fd90180cd54d103338bc96be831",
+      "input_checksum": "86c525f0d59df75f3382d6cff1e2f634d66171e1beb31f622030748bfaac5059",
+      "live_api_calls": 0,
+      "mode": "cached",
+      "model_version": "not_applicable:authored-or-deterministic",
+      "output_checksum": "37de3209128df38bf50768d74f1000598c8c3a39fac80129dbeefe1e98bdd392",
+      "prompt_sha256": "8472f3be792168c2ae995461a02b75b7777b4f44124061cb8e3ece1348fb0fa3",
+      "prompt_version": "eval-1.0",
+      "source_hashes": {
+        "nb_doc_cim": "565cb6fc40802ea448753c8e2c3b89968cb80e8039e71d74c9c7fa1da7fc582e",
+        "nb_doc_contract": "bf43b28ea27ff3d2ee0563ff8c2d9bb1d93eebcddd1461c65aa1d0038f80f6d2",
+        "nb_doc_crm": "88e7962471b9a6bc7fd9fc24f3b3d3f7d7d9bc656e0a02bd86527889273cfc25",
+        "nb_doc_financial": "880bfac836384deb79caddf280071f0d7bc5d7984986939ed05280b945481853",
+        "nb_doc_plan": "f16ff6e72355e983e361eade582007ef5f2e4ca54e4f95ad5cc3b4fe881a057a"
+      },
+      "stage": 1,
+      "status": "fixture_only",
+      "timestamp_utc": "2026-11-03T08:50:08.893135Z"
+    },
+    {
+      "arm": "B2",
+      "case": "nb",
+      "configuration": {
+        "max_questions": 10,
+        "seed": 20261103,
+        "top_k": 3
+      },
+      "cost_usd": 0.0,
+      "dataset_version": "3.0.0",
+      "gold_checksum": "6cc0d939940b8dfdc854cd5f75775a71df807fd90180cd54d103338bc96be831",
+      "input_checksum": "86c525f0d59df75f3382d6cff1e2f634d66171e1beb31f622030748bfaac5059",
+      "live_api_calls": 0,
+      "mode": "cached",
+      "model_version": "not_applicable:authored-or-deterministic",
+      "output_checksum": "37de3209128df38bf50768d74f1000598c8c3a39fac80129dbeefe1e98bdd392",
+      "prompt_sha256": "932d36dd75a44d95ed5f08be1ea9ef340971c5c30e57ef498f1068a6e24abe59",
+      "prompt_version": "eval-1.0",
+      "source_hashes": {
+        "nb_doc_cim": "565cb6fc40802ea448753c8e2c3b89968cb80e8039e71d74c9c7fa1da7fc582e",
+        "nb_doc_contract": "bf43b28ea27ff3d2ee0563ff8c2d9bb1d93eebcddd1461c65aa1d0038f80f6d2",
+        "nb_doc_crm": "88e7962471b9a6bc7fd9fc24f3b3d3f7d7d9bc656e0a02bd86527889273cfc25",
+        "nb_doc_financial": "880bfac836384deb79caddf280071f0d7bc5d7984986939ed05280b945481853",
+        "nb_doc_plan": "f16ff6e72355e983e361eade582007ef5f2e4ca54e4f95ad5cc3b4fe881a057a"
+      },
+      "stage": 1,
+      "status": "fixture_only",
+      "timestamp_utc": "2026-11-03T08:50:08.893135Z"
+    },
+    {
+      "arm": "B3",
+      "case": "nb",
+      "configuration": {
+        "max_questions": 10,
+        "seed": 20261103,
+        "top_k": 3
+      },
+      "cost_usd": 0.0,
+      "dataset_version": "3.0.0",
+      "gold_checksum": "6cc0d939940b8dfdc854cd5f75775a71df807fd90180cd54d103338bc96be831",
+      "input_checksum": "86c525f0d59df75f3382d6cff1e2f634d66171e1beb31f622030748bfaac5059",
+      "live_api_calls": 0,
+      "mode": "cached",
+      "model_version": "not_applicable:authored-or-deterministic",
+      "output_checksum": "04696607a4c924de3e095b743c1e826b5acd99d2411801fe60dce7f8733fdb9b",
+      "prompt_sha256": "a6f8bfbbb79e8cdc5dd6da22c115f2930b7a50d55b6bddec92623edc80a18a0b",
+      "prompt_version": "eval-1.0",
+      "source_hashes": {
+        "nb_doc_cim": "565cb6fc40802ea448753c8e2c3b89968cb80e8039e71d74c9c7fa1da7fc582e",
+        "nb_doc_contract": "bf43b28ea27ff3d2ee0563ff8c2d9bb1d93eebcddd1461c65aa1d0038f80f6d2",
+        "nb_doc_crm": "88e7962471b9a6bc7fd9fc24f3b3d3f7d7d9bc656e0a02bd86527889273cfc25",
+        "nb_doc_financial": "880bfac836384deb79caddf280071f0d7bc5d7984986939ed05280b945481853",
+        "nb_doc_plan": "f16ff6e72355e983e361eade582007ef5f2e4ca54e4f95ad5cc3b4fe881a057a"
+      },
+      "stage": 1,
+      "status": "fixture_only",
+      "timestamp_utc": "2026-11-03T08:50:08.893135Z"
+    },
+    {
+      "arm": "B1-R",
+      "case": "nb",
+      "configuration": {
+        "max_questions": 10,
+        "seed": 20261103,
+        "top_k": 3
+      },
+      "cost_usd": 0.0,
+      "dataset_version": "3.0.0",
+      "gold_checksum": "6cc0d939940b8dfdc854cd5f75775a71df807fd90180cd54d103338bc96be831",
+      "input_checksum": "86c525f0d59df75f3382d6cff1e2f634d66171e1beb31f622030748bfaac5059",
+      "live_api_calls": 0,
+      "mode": "cached",
+      "model_version": "not_run",
+      "output_checksum": "44f29ec6d743886eee16ee02833b9082f2ba534dd4315b75c6daa25a7072eb6a",
+      "prompt_sha256": "9f7261c50040dd1ea3d0064ba79c658fac3b072e08cd07123f636b3f7b6358f6",
+      "prompt_version": "eval-1.0",
+      "source_hashes": {
+        "nb_doc_cim": "565cb6fc40802ea448753c8e2c3b89968cb80e8039e71d74c9c7fa1da7fc582e",
+        "nb_doc_contract": "bf43b28ea27ff3d2ee0563ff8c2d9bb1d93eebcddd1461c65aa1d0038f80f6d2",
+        "nb_doc_crm": "88e7962471b9a6bc7fd9fc24f3b3d3f7d7d9bc656e0a02bd86527889273cfc25",
+        "nb_doc_financial": "880bfac836384deb79caddf280071f0d7bc5d7984986939ed05280b945481853",
+        "nb_doc_plan": "f16ff6e72355e983e361eade582007ef5f2e4ca54e4f95ad5cc3b4fe881a057a"
+      },
+      "stage": 1,
+      "status": "not_run",
+      "timestamp_utc": "2026-11-03T08:50:08.909145Z"
+    },
+    {
+      "arm": "B0",
+      "case": "nb",
+      "configuration": {
+        "max_questions": 10,
+        "seed": 20261103,
+        "top_k": 3
+      },
+      "cost_usd": 0.0,
+      "dataset_version": "3.0.0",
+      "gold_checksum": "6cc0d939940b8dfdc854cd5f75775a71df807fd90180cd54d103338bc96be831",
+      "input_checksum": "e8d1138e1dcedc5ec0ad9c1b5fb681fb8700ffc52cb22ef1d936ab787fab9bf0",
+      "live_api_calls": 0,
+      "mode": "cached",
+      "model_version": "not_applicable:authored-or-deterministic",
+      "output_checksum": "37de3209128df38bf50768d74f1000598c8c3a39fac80129dbeefe1e98bdd392",
+      "prompt_sha256": "5bda79d257afa319f1c8154e63d6d8bd37c1a5e4c5940cd729405876f6ff513d",
+      "prompt_version": "eval-1.0",
+      "source_hashes": {
+        "nb_doc_cim": "565cb6fc40802ea448753c8e2c3b89968cb80e8039e71d74c9c7fa1da7fc582e",
+        "nb_doc_contract": "bf43b28ea27ff3d2ee0563ff8c2d9bb1d93eebcddd1461c65aa1d0038f80f6d2",
+        "nb_doc_crm": "88e7962471b9a6bc7fd9fc24f3b3d3f7d7d9bc656e0a02bd86527889273cfc25",
+        "nb_doc_execution": "922ef6a53501228b3aa805349f39b1cc4d9482f5469fd458167db2367fb2c544",
+        "nb_doc_financial": "880bfac836384deb79caddf280071f0d7bc5d7984986939ed05280b945481853",
+        "nb_doc_plan": "f16ff6e72355e983e361eade582007ef5f2e4ca54e4f95ad5cc3b4fe881a057a"
+      },
+      "stage": 2,
+      "status": "fixture_only",
+      "timestamp_utc": "2026-11-03T08:50:08.954747Z"
+    },
+    {
+      "arm": "B1",
+      "case": "nb",
+      "configuration": {
+        "max_questions": 10,
+        "seed": 20261103,
+        "top_k": 3
+      },
+      "cost_usd": 0.0,
+      "dataset_version": "3.0.0",
+      "gold_checksum": "6cc0d939940b8dfdc854cd5f75775a71df807fd90180cd54d103338bc96be831",
+      "input_checksum": "e8d1138e1dcedc5ec0ad9c1b5fb681fb8700ffc52cb22ef1d936ab787fab9bf0",
+      "live_api_calls": 0,
+      "mode": "cached",
+      "model_version": "not_applicable:authored-or-deterministic",
+      "output_checksum": "37de3209128df38bf50768d74f1000598c8c3a39fac80129dbeefe1e98bdd392",
+      "prompt_sha256": "ec7188649f2639b372f9188b3b1144e94c765947138ca46db4216c9a318eef75",
+      "prompt_version": "eval-1.0",
+      "source_hashes": {
+        "nb_doc_cim": "565cb6fc40802ea448753c8e2c3b89968cb80e8039e71d74c9c7fa1da7fc582e",
+        "nb_doc_contract": "bf43b28ea27ff3d2ee0563ff8c2d9bb1d93eebcddd1461c65aa1d0038f80f6d2",
+        "nb_doc_crm": "88e7962471b9a6bc7fd9fc24f3b3d3f7d7d9bc656e0a02bd86527889273cfc25",
+        "nb_doc_execution": "922ef6a53501228b3aa805349f39b1cc4d9482f5469fd458167db2367fb2c544",
+        "nb_doc_financial": "880bfac836384deb79caddf280071f0d7bc5d7984986939ed05280b945481853",
+        "nb_doc_plan": "f16ff6e72355e983e361eade582007ef5f2e4ca54e4f95ad5cc3b4fe881a057a"
+      },
+      "stage": 2,
+      "status": "fixture_only",
+      "timestamp_utc": "2026-11-03T08:50:08.954747Z"
+    },
+    {
+      "arm": "B2",
+      "case": "nb",
+      "configuration": {
+        "max_questions": 10,
+        "seed": 20261103,
+        "top_k": 3
+      },
+      "cost_usd": 0.0,
+      "dataset_version": "3.0.0",
+      "gold_checksum": "6cc0d939940b8dfdc854cd5f75775a71df807fd90180cd54d103338bc96be831",
+      "input_checksum": "e8d1138e1dcedc5ec0ad9c1b5fb681fb8700ffc52cb22ef1d936ab787fab9bf0",
+      "live_api_calls": 0,
+      "mode": "cached",
+      "model_version": "not_applicable:authored-or-deterministic",
+      "output_checksum": "37de3209128df38bf50768d74f1000598c8c3a39fac80129dbeefe1e98bdd392",
+      "prompt_sha256": "6e9b93e478fca46bce8c4da578ab0e92c69a43e76ed0428f1e92308931765c07",
+      "prompt_version": "eval-1.0",
+      "source_hashes": {
+        "nb_doc_cim": "565cb6fc40802ea448753c8e2c3b89968cb80e8039e71d74c9c7fa1da7fc582e",
+        "nb_doc_contract": "bf43b28ea27ff3d2ee0563ff8c2d9bb1d93eebcddd1461c65aa1d0038f80f6d2",
+        "nb_doc_crm": "88e7962471b9a6bc7fd9fc24f3b3d3f7d7d9bc656e0a02bd86527889273cfc25",
+        "nb_doc_execution": "922ef6a53501228b3aa805349f39b1cc4d9482f5469fd458167db2367fb2c544",
+        "nb_doc_financial": "880bfac836384deb79caddf280071f0d7bc5d7984986939ed05280b945481853",
+        "nb_doc_plan": "f16ff6e72355e983e361eade582007ef5f2e4ca54e4f95ad5cc3b4fe881a057a"
+      },
+      "stage": 2,
+      "status": "fixture_only",
+      "timestamp_utc": "2026-11-03T08:50:08.954747Z"
+    },
+    {
+      "arm": "B3",
+      "case": "nb",
+      "configuration": {
+        "max_questions": 10,
+        "seed": 20261103,
+        "top_k": 3
+      },
+      "cost_usd": 0.0,
+      "dataset_version": "3.0.0",
+      "gold_checksum": "6cc0d939940b8dfdc854cd5f75775a71df807fd90180cd54d103338bc96be831",
+      "input_checksum": "e8d1138e1dcedc5ec0ad9c1b5fb681fb8700ffc52cb22ef1d936ab787fab9bf0",
+      "live_api_calls": 0,
+      "mode": "cached",
+      "model_version": "not_applicable:authored-or-deterministic",
+      "output_checksum": "f00170ef3c768695ad0ad087a49e7f9d1d253c30d746b835e40f8eb93038bb6c",
+      "prompt_sha256": "08af12a1a770567450c2745e2acd07b07fc3e1633299ee295e1ebc0893fdc3c2",
+      "prompt_version": "eval-1.0",
+      "source_hashes": {
+        "nb_doc_cim": "565cb6fc40802ea448753c8e2c3b89968cb80e8039e71d74c9c7fa1da7fc582e",
+        "nb_doc_contract": "bf43b28ea27ff3d2ee0563ff8c2d9bb1d93eebcddd1461c65aa1d0038f80f6d2",
+        "nb_doc_crm": "88e7962471b9a6bc7fd9fc24f3b3d3f7d7d9bc656e0a02bd86527889273cfc25",
+        "nb_doc_execution": "922ef6a53501228b3aa805349f39b1cc4d9482f5469fd458167db2367fb2c544",
+        "nb_doc_financial": "880bfac836384deb79caddf280071f0d7bc5d7984986939ed05280b945481853",
+        "nb_doc_plan": "f16ff6e72355e983e361eade582007ef5f2e4ca54e4f95ad5cc3b4fe881a057a"
+      },
+      "stage": 2,
+      "status": "fixture_only",
+      "timestamp_utc": "2026-11-03T08:50:08.954747Z"
+    },
+    {
+      "arm": "B1-R",
+      "case": "nb",
+      "configuration": {
+        "max_questions": 10,
+        "seed": 20261103,
+        "top_k": 3
+      },
+      "cost_usd": 0.0,
+      "dataset_version": "3.0.0",
+      "gold_checksum": "6cc0d939940b8dfdc854cd5f75775a71df807fd90180cd54d103338bc96be831",
+      "input_checksum": "e8d1138e1dcedc5ec0ad9c1b5fb681fb8700ffc52cb22ef1d936ab787fab9bf0",
+      "live_api_calls": 0,
+      "mode": "cached",
+      "model_version": "not_run",
+      "output_checksum": "44f29ec6d743886eee16ee02833b9082f2ba534dd4315b75c6daa25a7072eb6a",
+      "prompt_sha256": "003569af67d8d9c4eed383b19ad1264d198163efa8c691dc1964d3d23af7f045",
+      "prompt_version": "eval-1.0",
+      "source_hashes": {
+        "nb_doc_cim": "565cb6fc40802ea448753c8e2c3b89968cb80e8039e71d74c9c7fa1da7fc582e",
+        "nb_doc_contract": "bf43b28ea27ff3d2ee0563ff8c2d9bb1d93eebcddd1461c65aa1d0038f80f6d2",
+        "nb_doc_crm": "88e7962471b9a6bc7fd9fc24f3b3d3f7d7d9bc656e0a02bd86527889273cfc25",
+        "nb_doc_execution": "922ef6a53501228b3aa805349f39b1cc4d9482f5469fd458167db2367fb2c544",
+        "nb_doc_financial": "880bfac836384deb79caddf280071f0d7bc5d7984986939ed05280b945481853",
+        "nb_doc_plan": "f16ff6e72355e983e361eade582007ef5f2e4ca54e4f95ad5cc3b4fe881a057a"
+      },
+      "stage": 2,
+      "status": "not_run",
+      "timestamp_utc": "2026-11-03T08:50:08.954747Z"
+    },
+    {
+      "arm": "B0",
+      "case": "nb",
+      "configuration": {
+        "max_questions": 10,
+        "seed": 20261103,
+        "top_k": 3
+      },
+      "cost_usd": 0.0,
+      "dataset_version": "3.0.0",
+      "gold_checksum": "6cc0d939940b8dfdc854cd5f75775a71df807fd90180cd54d103338bc96be831",
+      "input_checksum": "dc0490c0e511eba6573a56b527af9a84530890154703926bf24bd519eb5ab7d7",
+      "live_api_calls": 0,
+      "mode": "cached",
+      "model_version": "not_applicable:authored-or-deterministic",
+      "output_checksum": "37de3209128df38bf50768d74f1000598c8c3a39fac80129dbeefe1e98bdd392",
+      "prompt_sha256": "ab77b5ecc5affb92e02701412226da787838c7c68fd976b01da3f04373edabef",
+      "prompt_version": "eval-1.0",
+      "source_hashes": {
+        "nb_doc_cim": "565cb6fc40802ea448753c8e2c3b89968cb80e8039e71d74c9c7fa1da7fc582e",
+        "nb_doc_contract": "bf43b28ea27ff3d2ee0563ff8c2d9bb1d93eebcddd1461c65aa1d0038f80f6d2",
+        "nb_doc_cost": "29879d6d16318fb9e434fe5736ebac1b0ef2a0a0511077060ba3df7fcc848280",
+        "nb_doc_crm": "88e7962471b9a6bc7fd9fc24f3b3d3f7d7d9bc656e0a02bd86527889273cfc25",
+        "nb_doc_execution": "922ef6a53501228b3aa805349f39b1cc4d9482f5469fd458167db2367fb2c544",
+        "nb_doc_financial": "880bfac836384deb79caddf280071f0d7bc5d7984986939ed05280b945481853",
+        "nb_doc_plan": "f16ff6e72355e983e361eade582007ef5f2e4ca54e4f95ad5cc3b4fe881a057a"
+      },
+      "stage": 3,
+      "status": "fixture_only",
+      "timestamp_utc": "2026-11-03T08:50:09.018752Z"
+    },
+    {
+      "arm": "B1",
+      "case": "nb",
+      "configuration": {
+        "max_questions": 10,
+        "seed": 20261103,
+        "top_k": 3
+      },
+      "cost_usd": 0.0,
+      "dataset_version": "3.0.0",
+      "gold_checksum": "6cc0d939940b8dfdc854cd5f75775a71df807fd90180cd54d103338bc96be831",
+      "input_checksum": "dc0490c0e511eba6573a56b527af9a84530890154703926bf24bd519eb5ab7d7",
+      "live_api_calls": 0,
+      "mode": "cached",
+      "model_version": "not_applicable:authored-or-deterministic",
+      "output_checksum": "37de3209128df38bf50768d74f1000598c8c3a39fac80129dbeefe1e98bdd392",
+      "prompt_sha256": "875b9190f20c92039e96333b47e2bafd8bed3625a3aa348ee31bdd861d42ef9c",
+      "prompt_version": "eval-1.0",
+      "source_hashes": {
+        "nb_doc_cim": "565cb6fc40802ea448753c8e2c3b89968cb80e8039e71d74c9c7fa1da7fc582e",
+        "nb_doc_contract": "bf43b28ea27ff3d2ee0563ff8c2d9bb1d93eebcddd1461c65aa1d0038f80f6d2",
+        "nb_doc_cost": "29879d6d16318fb9e434fe5736ebac1b0ef2a0a0511077060ba3df7fcc848280",
+        "nb_doc_crm": "88e7962471b9a6bc7fd9fc24f3b3d3f7d7d9bc656e0a02bd86527889273cfc25",
+        "nb_doc_execution": "922ef6a53501228b3aa805349f39b1cc4d9482f5469fd458167db2367fb2c544",
+        "nb_doc_financial": "880bfac836384deb79caddf280071f0d7bc5d7984986939ed05280b945481853",
+        "nb_doc_plan": "f16ff6e72355e983e361eade582007ef5f2e4ca54e4f95ad5cc3b4fe881a057a"
+      },
+      "stage": 3,
+      "status": "fixture_only",
+      "timestamp_utc": "2026-11-03T08:50:09.018752Z"
+    },
+    {
+      "arm": "B2",
+      "case": "nb",
+      "configuration": {
+        "max_questions": 10,
+        "seed": 20261103,
+        "top_k": 3
+      },
+      "cost_usd": 0.0,
+      "dataset_version": "3.0.0",
+      "gold_checksum": "6cc0d939940b8dfdc854cd5f75775a71df807fd90180cd54d103338bc96be831",
+      "input_checksum": "dc0490c0e511eba6573a56b527af9a84530890154703926bf24bd519eb5ab7d7",
+      "live_api_calls": 0,
+      "mode": "cached",
+      "model_version": "not_applicable:authored-or-deterministic",
+      "output_checksum": "37de3209128df38bf50768d74f1000598c8c3a39fac80129dbeefe1e98bdd392",
+      "prompt_sha256": "3af566bbfedb50ffe75ad8759e676949e71d6bfbecc2fdd3f3f81866709ce7aa",
+      "prompt_version": "eval-1.0",
+      "source_hashes": {
+        "nb_doc_cim": "565cb6fc40802ea448753c8e2c3b89968cb80e8039e71d74c9c7fa1da7fc582e",
+        "nb_doc_contract": "bf43b28ea27ff3d2ee0563ff8c2d9bb1d93eebcddd1461c65aa1d0038f80f6d2",
+        "nb_doc_cost": "29879d6d16318fb9e434fe5736ebac1b0ef2a0a0511077060ba3df7fcc848280",
+        "nb_doc_crm": "88e7962471b9a6bc7fd9fc24f3b3d3f7d7d9bc656e0a02bd86527889273cfc25",
+        "nb_doc_execution": "922ef6a53501228b3aa805349f39b1cc4d9482f5469fd458167db2367fb2c544",
+        "nb_doc_financial": "880bfac836384deb79caddf280071f0d7bc5d7984986939ed05280b945481853",
+        "nb_doc_plan": "f16ff6e72355e983e361eade582007ef5f2e4ca54e4f95ad5cc3b4fe881a057a"
+      },
+      "stage": 3,
+      "status": "fixture_only",
+      "timestamp_utc": "2026-11-03T08:50:09.018752Z"
+    },
+    {
+      "arm": "B3",
+      "case": "nb",
+      "configuration": {
+        "max_questions": 10,
+        "seed": 20261103,
+        "top_k": 3
+      },
+      "cost_usd": 0.0,
+      "dataset_version": "3.0.0",
+      "gold_checksum": "6cc0d939940b8dfdc854cd5f75775a71df807fd90180cd54d103338bc96be831",
+      "input_checksum": "dc0490c0e511eba6573a56b527af9a84530890154703926bf24bd519eb5ab7d7",
+      "live_api_calls": 0,
+      "mode": "cached",
+      "model_version": "not_applicable:authored-or-deterministic",
+      "output_checksum": "0d7529218c5a28bda4b82137512fdd1b67e89c94b3d8cb18326c1f11aaccb6e3",
+      "prompt_sha256": "f7c4f5ad3919b2dae6442040ccafea37253286784cfc4abebf3fb32d010bfc34",
+      "prompt_version": "eval-1.0",
+      "source_hashes": {
+        "nb_doc_cim": "565cb6fc40802ea448753c8e2c3b89968cb80e8039e71d74c9c7fa1da7fc582e",
+        "nb_doc_contract": "bf43b28ea27ff3d2ee0563ff8c2d9bb1d93eebcddd1461c65aa1d0038f80f6d2",
+        "nb_doc_cost": "29879d6d16318fb9e434fe5736ebac1b0ef2a0a0511077060ba3df7fcc848280",
+        "nb_doc_crm": "88e7962471b9a6bc7fd9fc24f3b3d3f7d7d9bc656e0a02bd86527889273cfc25",
+        "nb_doc_execution": "922ef6a53501228b3aa805349f39b1cc4d9482f5469fd458167db2367fb2c544",
+        "nb_doc_financial": "880bfac836384deb79caddf280071f0d7bc5d7984986939ed05280b945481853",
+        "nb_doc_plan": "f16ff6e72355e983e361eade582007ef5f2e4ca54e4f95ad5cc3b4fe881a057a"
+      },
+      "stage": 3,
+      "status": "fixture_only",
+      "timestamp_utc": "2026-11-03T08:50:09.018752Z"
+    },
+    {
+      "arm": "B1-R",
+      "case": "nb",
+      "configuration": {
+        "max_questions": 10,
+        "seed": 20261103,
+        "top_k": 3
+      },
+      "cost_usd": 0.0,
+      "dataset_version": "3.0.0",
+      "gold_checksum": "6cc0d939940b8dfdc854cd5f75775a71df807fd90180cd54d103338bc96be831",
+      "input_checksum": "dc0490c0e511eba6573a56b527af9a84530890154703926bf24bd519eb5ab7d7",
+      "live_api_calls": 0,
+      "mode": "cached",
+      "model_version": "not_run",
+      "output_checksum": "44f29ec6d743886eee16ee02833b9082f2ba534dd4315b75c6daa25a7072eb6a",
+      "prompt_sha256": "a8d22cbea72c95ad241956e1be3f77ed2eb77adf41aa5d2b46e3a3bc767a3022",
+      "prompt_version": "eval-1.0",
+      "source_hashes": {
+        "nb_doc_cim": "565cb6fc40802ea448753c8e2c3b89968cb80e8039e71d74c9c7fa1da7fc582e",
+        "nb_doc_contract": "bf43b28ea27ff3d2ee0563ff8c2d9bb1d93eebcddd1461c65aa1d0038f80f6d2",
+        "nb_doc_cost": "29879d6d16318fb9e434fe5736ebac1b0ef2a0a0511077060ba3df7fcc848280",
+        "nb_doc_crm": "88e7962471b9a6bc7fd9fc24f3b3d3f7d7d9bc656e0a02bd86527889273cfc25",
+        "nb_doc_execution": "922ef6a53501228b3aa805349f39b1cc4d9482f5469fd458167db2367fb2c544",
+        "nb_doc_financial": "880bfac836384deb79caddf280071f0d7bc5d7984986939ed05280b945481853",
+        "nb_doc_plan": "f16ff6e72355e983e361eade582007ef5f2e4ca54e4f95ad5cc3b4fe881a057a"
+      },
+      "stage": 3,
+      "status": "not_run",
+      "timestamp_utc": "2026-11-03T08:50:09.034644Z"
+    },
+    {
+      "arm": "B0",
+      "case": "nb",
+      "configuration": {
+        "max_questions": 10,
+        "seed": 20261103,
+        "top_k": 3
+      },
+      "cost_usd": 0.0,
+      "dataset_version": "3.0.0",
+      "gold_checksum": "6cc0d939940b8dfdc854cd5f75775a71df807fd90180cd54d103338bc96be831",
+      "input_checksum": "be8f4ce9d03de2b85e5c099cdc986c10cac21c3d4ff4825cfa41db6eb7f5491d",
+      "live_api_calls": 0,
+      "mode": "cached",
+      "model_version": "not_applicable:authored-or-deterministic",
+      "output_checksum": "37de3209128df38bf50768d74f1000598c8c3a39fac80129dbeefe1e98bdd392",
+      "prompt_sha256": "156a6cf076a9330d29e0e03695b384d6ee622c66f1670994e82b4febaa5cfeb9",
+      "prompt_version": "eval-1.0",
+      "source_hashes": {
+        "nb_doc_cim": "565cb6fc40802ea448753c8e2c3b89968cb80e8039e71d74c9c7fa1da7fc582e",
+        "nb_doc_contract": "bf43b28ea27ff3d2ee0563ff8c2d9bb1d93eebcddd1461c65aa1d0038f80f6d2",
+        "nb_doc_cost": "29879d6d16318fb9e434fe5736ebac1b0ef2a0a0511077060ba3df7fcc848280",
+        "nb_doc_crm": "88e7962471b9a6bc7fd9fc24f3b3d3f7d7d9bc656e0a02bd86527889273cfc25",
+        "nb_doc_execution": "922ef6a53501228b3aa805349f39b1cc4d9482f5469fd458167db2367fb2c544",
+        "nb_doc_financial": "880bfac836384deb79caddf280071f0d7bc5d7984986939ed05280b945481853",
+        "nb_doc_followup": "94ec30ff50213a46760681db4512b727db4d9f685f946f150a8d4132c20d6e47",
+        "nb_doc_plan": "f16ff6e72355e983e361eade582007ef5f2e4ca54e4f95ad5cc3b4fe881a057a"
+      },
+      "stage": 4,
+      "status": "fixture_only",
+      "timestamp_utc": "2026-11-03T08:50:09.090814Z"
+    },
+    {
+      "arm": "B1",
+      "case": "nb",
+      "configuration": {
+        "max_questions": 10,
+        "seed": 20261103,
+        "top_k": 3
+      },
+      "cost_usd": 0.0,
+      "dataset_version": "3.0.0",
+      "gold_checksum": "6cc0d939940b8dfdc854cd5f75775a71df807fd90180cd54d103338bc96be831",
+      "input_checksum": "be8f4ce9d03de2b85e5c099cdc986c10cac21c3d4ff4825cfa41db6eb7f5491d",
+      "live_api_calls": 0,
+      "mode": "cached",
+      "model_version": "not_applicable:authored-or-deterministic",
+      "output_checksum": "37de3209128df38bf50768d74f1000598c8c3a39fac80129dbeefe1e98bdd392",
+      "prompt_sha256": "f176bf347258c2a9852db22e4caa8645272e9386161d7922b3b4888f8decd11b",
+      "prompt_version": "eval-1.0",
+      "source_hashes": {
+        "nb_doc_cim": "565cb6fc40802ea448753c8e2c3b89968cb80e8039e71d74c9c7fa1da7fc582e",
+        "nb_doc_contract": "bf43b28ea27ff3d2ee0563ff8c2d9bb1d93eebcddd1461c65aa1d0038f80f6d2",
+        "nb_doc_cost": "29879d6d16318fb9e434fe5736ebac1b0ef2a0a0511077060ba3df7fcc848280",
+        "nb_doc_crm": "88e7962471b9a6bc7fd9fc24f3b3d3f7d7d9bc656e0a02bd86527889273cfc25",
+        "nb_doc_execution": "922ef6a53501228b3aa805349f39b1cc4d9482f5469fd458167db2367fb2c544",
+        "nb_doc_financial": "880bfac836384deb79caddf280071f0d7bc5d7984986939ed05280b945481853",
+        "nb_doc_followup": "94ec30ff50213a46760681db4512b727db4d9f685f946f150a8d4132c20d6e47",
+        "nb_doc_plan": "f16ff6e72355e983e361eade582007ef5f2e4ca54e4f95ad5cc3b4fe881a057a"
+      },
+      "stage": 4,
+      "status": "fixture_only",
+      "timestamp_utc": "2026-11-03T08:50:09.093736Z"
+    },
+    {
+      "arm": "B2",
+      "case": "nb",
+      "configuration": {
+        "max_questions": 10,
+        "seed": 20261103,
+        "top_k": 3
+      },
+      "cost_usd": 0.0,
+      "dataset_version": "3.0.0",
+      "gold_checksum": "6cc0d939940b8dfdc854cd5f75775a71df807fd90180cd54d103338bc96be831",
+      "input_checksum": "be8f4ce9d03de2b85e5c099cdc986c10cac21c3d4ff4825cfa41db6eb7f5491d",
+      "live_api_calls": 0,
+      "mode": "cached",
+      "model_version": "not_applicable:authored-or-deterministic",
+      "output_checksum": "37de3209128df38bf50768d74f1000598c8c3a39fac80129dbeefe1e98bdd392",
+      "prompt_sha256": "7f54eb384ec0ff2a9f4b93213301a4b796d17a54e6d837f9cf1bc596133e4085",
+      "prompt_version": "eval-1.0",
+      "source_hashes": {
+        "nb_doc_cim": "565cb6fc40802ea448753c8e2c3b89968cb80e8039e71d74c9c7fa1da7fc582e",
+        "nb_doc_contract": "bf43b28ea27ff3d2ee0563ff8c2d9bb1d93eebcddd1461c65aa1d0038f80f6d2",
+        "nb_doc_cost": "29879d6d16318fb9e434fe5736ebac1b0ef2a0a0511077060ba3df7fcc848280",
+        "nb_doc_crm": "88e7962471b9a6bc7fd9fc24f3b3d3f7d7d9bc656e0a02bd86527889273cfc25",
+        "nb_doc_execution": "922ef6a53501228b3aa805349f39b1cc4d9482f5469fd458167db2367fb2c544",
+        "nb_doc_financial": "880bfac836384deb79caddf280071f0d7bc5d7984986939ed05280b945481853",
+        "nb_doc_followup": "94ec30ff50213a46760681db4512b727db4d9f685f946f150a8d4132c20d6e47",
+        "nb_doc_plan": "f16ff6e72355e983e361eade582007ef5f2e4ca54e4f95ad5cc3b4fe881a057a"
+      },
+      "stage": 4,
+      "status": "fixture_only",
+      "timestamp_utc": "2026-11-03T08:50:09.094808Z"
+    },
+    {
+      "arm": "B3",
+      "case": "nb",
+      "configuration": {
+        "max_questions": 10,
+        "seed": 20261103,
+        "top_k": 3
+      },
+      "cost_usd": 0.0,
+      "dataset_version": "3.0.0",
+      "gold_checksum": "6cc0d939940b8dfdc854cd5f75775a71df807fd90180cd54d103338bc96be831",
+      "input_checksum": "be8f4ce9d03de2b85e5c099cdc986c10cac21c3d4ff4825cfa41db6eb7f5491d",
+      "live_api_calls": 0,
+      "mode": "cached",
+      "model_version": "not_applicable:authored-or-deterministic",
+      "output_checksum": "d8ccb07585852eefb61ea79a8c94246f33d448990c93452f7017dbd6993d7bda",
+      "prompt_sha256": "42e730f843cd6919f4441f2c375a80ef1bf49f6ba41c313e7b3dd5334b544f38",
+      "prompt_version": "eval-1.0",
+      "source_hashes": {
+        "nb_doc_cim": "565cb6fc40802ea448753c8e2c3b89968cb80e8039e71d74c9c7fa1da7fc582e",
+        "nb_doc_contract": "bf43b28ea27ff3d2ee0563ff8c2d9bb1d93eebcddd1461c65aa1d0038f80f6d2",
+        "nb_doc_cost": "29879d6d16318fb9e434fe5736ebac1b0ef2a0a0511077060ba3df7fcc848280",
+        "nb_doc_crm": "88e7962471b9a6bc7fd9fc24f3b3d3f7d7d9bc656e0a02bd86527889273cfc25",
+        "nb_doc_execution": "922ef6a53501228b3aa805349f39b1cc4d9482f5469fd458167db2367fb2c544",
+        "nb_doc_financial": "880bfac836384deb79caddf280071f0d7bc5d7984986939ed05280b945481853",
+        "nb_doc_followup": "94ec30ff50213a46760681db4512b727db4d9f685f946f150a8d4132c20d6e47",
+        "nb_doc_plan": "f16ff6e72355e983e361eade582007ef5f2e4ca54e4f95ad5cc3b4fe881a057a"
+      },
+      "stage": 4,
+      "status": "fixture_only",
+      "timestamp_utc": "2026-11-03T08:50:09.094808Z"
+    },
+    {
+      "arm": "B1-R",
+      "case": "nb",
+      "configuration": {
+        "max_questions": 10,
+        "seed": 20261103,
+        "top_k": 3
+      },
+      "cost_usd": 0.0,
+      "dataset_version": "3.0.0",
+      "gold_checksum": "6cc0d939940b8dfdc854cd5f75775a71df807fd90180cd54d103338bc96be831",
+      "input_checksum": "be8f4ce9d03de2b85e5c099cdc986c10cac21c3d4ff4825cfa41db6eb7f5491d",
+      "live_api_calls": 0,
+      "mode": "cached",
+      "model_version": "not_run",
+      "output_checksum": "44f29ec6d743886eee16ee02833b9082f2ba534dd4315b75c6daa25a7072eb6a",
+      "prompt_sha256": "bccf53f3f190e2d68229e53b65240764f5b4cf0b63f076dcfabf5d5db96f571a",
+      "prompt_version": "eval-1.0",
+      "source_hashes": {
+        "nb_doc_cim": "565cb6fc40802ea448753c8e2c3b89968cb80e8039e71d74c9c7fa1da7fc582e",
+        "nb_doc_contract": "bf43b28ea27ff3d2ee0563ff8c2d9bb1d93eebcddd1461c65aa1d0038f80f6d2",
+        "nb_doc_cost": "29879d6d16318fb9e434fe5736ebac1b0ef2a0a0511077060ba3df7fcc848280",
+        "nb_doc_crm": "88e7962471b9a6bc7fd9fc24f3b3d3f7d7d9bc656e0a02bd86527889273cfc25",
+        "nb_doc_execution": "922ef6a53501228b3aa805349f39b1cc4d9482f5469fd458167db2367fb2c544",
+        "nb_doc_financial": "880bfac836384deb79caddf280071f0d7bc5d7984986939ed05280b945481853",
+        "nb_doc_followup": "94ec30ff50213a46760681db4512b727db4d9f685f946f150a8d4132c20d6e47",
+        "nb_doc_plan": "f16ff6e72355e983e361eade582007ef5f2e4ca54e4f95ad5cc3b4fe881a057a"
+      },
+      "stage": 4,
+      "status": "not_run",
+      "timestamp_utc": "2026-11-03T08:50:09.094808Z"
+    },
+    {
+      "arm": "B0",
+      "case": "mf",
+      "configuration": {
+        "max_questions": 10,
+        "seed": 20261103,
+        "top_k": 3
+      },
+      "cost_usd": 0.0,
+      "dataset_version": "3.0.0",
+      "gold_checksum": "0893df2a0fb915720d2f25bb19309c66894f8554dab7b2587b7df065114f7c1a",
+      "input_checksum": "ef820abe1cec22b931e9d6169214ae0f8477b3b70b54b336336038e706f794b7",
+      "live_api_calls": 0,
+      "mode": "cached",
+      "model_version": "not_applicable:authored-or-deterministic",
+      "output_checksum": "cc8a9c63d70ac480cdeabfb90a42d08bbbc3d8e0489a81fc73775cb00aa59c27",
+      "prompt_sha256": "c451ff59a7aab0626a1f82708facfd11eb2da2f7b739a1df6a0bffd1f4eb0496",
+      "prompt_version": "eval-1.0",
+      "source_hashes": {
+        "mf_doc_financial": "49c9a08173ce5b965091ece640a4354dc5eaed033eb06311f88475dfd69584a8",
+        "mf_doc_forecast": "30663fe418cba45eacfe9eae76913de36194a2bb3fcefa103c5b431134f0c094",
+        "mf_doc_inventory": "866f882e4a3661eca918966b0f499ebe526bb0b5b718952affdd7fedbe68e787",
+        "mf_doc_plant": "a14f1a44cdcab9d3ca85f3e00e72bd9ed2eb0a9110745a7e143d919f8c9e8c37",
+        "mf_doc_sales": "489019642220fb11135065dcf5bab08f3ad80cad09bbce2116754b9531b33c52"
+      },
+      "stage": 0,
+      "status": "fixture_only",
+      "timestamp_utc": "2026-11-03T08:50:11.486173Z"
+    },
+    {
+      "arm": "B1",
+      "case": "mf",
+      "configuration": {
+        "max_questions": 10,
+        "seed": 20261103,
+        "top_k": 3
+      },
+      "cost_usd": 0.0,
+      "dataset_version": "3.0.0",
+      "gold_checksum": "0893df2a0fb915720d2f25bb19309c66894f8554dab7b2587b7df065114f7c1a",
+      "input_checksum": "ef820abe1cec22b931e9d6169214ae0f8477b3b70b54b336336038e706f794b7",
+      "live_api_calls": 0,
+      "mode": "cached",
+      "model_version": "not_applicable:authored-or-deterministic",
+      "output_checksum": "cc8a9c63d70ac480cdeabfb90a42d08bbbc3d8e0489a81fc73775cb00aa59c27",
+      "prompt_sha256": "43e267aea1e1d4ed1cebdd628c59698a888a3031455b623c1c0e610227ea71b9",
+      "prompt_version": "eval-1.0",
+      "source_hashes": {
+        "mf_doc_financial": "49c9a08173ce5b965091ece640a4354dc5eaed033eb06311f88475dfd69584a8",
+        "mf_doc_forecast": "30663fe418cba45eacfe9eae76913de36194a2bb3fcefa103c5b431134f0c094",
+        "mf_doc_inventory": "866f882e4a3661eca918966b0f499ebe526bb0b5b718952affdd7fedbe68e787",
+        "mf_doc_plant": "a14f1a44cdcab9d3ca85f3e00e72bd9ed2eb0a9110745a7e143d919f8c9e8c37",
+        "mf_doc_sales": "489019642220fb11135065dcf5bab08f3ad80cad09bbce2116754b9531b33c52"
+      },
+      "stage": 0,
+      "status": "fixture_only",
+      "timestamp_utc": "2026-11-03T08:50:11.486173Z"
+    },
+    {
+      "arm": "B2",
+      "case": "mf",
+      "configuration": {
+        "max_questions": 10,
+        "seed": 20261103,
+        "top_k": 3
+      },
+      "cost_usd": 0.0,
+      "dataset_version": "3.0.0",
+      "gold_checksum": "0893df2a0fb915720d2f25bb19309c66894f8554dab7b2587b7df065114f7c1a",
+      "input_checksum": "ef820abe1cec22b931e9d6169214ae0f8477b3b70b54b336336038e706f794b7",
+      "live_api_calls": 0,
+      "mode": "cached",
+      "model_version": "not_applicable:authored-or-deterministic",
+      "output_checksum": "cc8a9c63d70ac480cdeabfb90a42d08bbbc3d8e0489a81fc73775cb00aa59c27",
+      "prompt_sha256": "a39661effdb17f0103948c5350bb6857dfc55e43cd0217bb9a6e9d309dede5f3",
+      "prompt_version": "eval-1.0",
+      "source_hashes": {
+        "mf_doc_financial": "49c9a08173ce5b965091ece640a4354dc5eaed033eb06311f88475dfd69584a8",
+        "mf_doc_forecast": "30663fe418cba45eacfe9eae76913de36194a2bb3fcefa103c5b431134f0c094",
+        "mf_doc_inventory": "866f882e4a3661eca918966b0f499ebe526bb0b5b718952affdd7fedbe68e787",
+        "mf_doc_plant": "a14f1a44cdcab9d3ca85f3e00e72bd9ed2eb0a9110745a7e143d919f8c9e8c37",
+        "mf_doc_sales": "489019642220fb11135065dcf5bab08f3ad80cad09bbce2116754b9531b33c52"
+      },
+      "stage": 0,
+      "status": "fixture_only",
+      "timestamp_utc": "2026-11-03T08:50:11.486173Z"
+    },
+    {
+      "arm": "B3",
+      "case": "mf",
+      "configuration": {
+        "max_questions": 10,
+        "seed": 20261103,
+        "top_k": 3
+      },
+      "cost_usd": 0.0,
+      "dataset_version": "3.0.0",
+      "gold_checksum": "0893df2a0fb915720d2f25bb19309c66894f8554dab7b2587b7df065114f7c1a",
+      "input_checksum": "ef820abe1cec22b931e9d6169214ae0f8477b3b70b54b336336038e706f794b7",
+      "live_api_calls": 0,
+      "mode": "cached",
+      "model_version": "not_applicable:authored-or-deterministic",
+      "output_checksum": "b692fc3adbbb1680c067e942801feae1cc851c934c9059b36cde017f850fbed6",
+      "prompt_sha256": "700291d89fcfd83b55f248ec2e5c8042f756a52ffa645a15843ecad51b6c4f8f",
+      "prompt_version": "eval-1.0",
+      "source_hashes": {
+        "mf_doc_financial": "49c9a08173ce5b965091ece640a4354dc5eaed033eb06311f88475dfd69584a8",
+        "mf_doc_forecast": "30663fe418cba45eacfe9eae76913de36194a2bb3fcefa103c5b431134f0c094",
+        "mf_doc_inventory": "866f882e4a3661eca918966b0f499ebe526bb0b5b718952affdd7fedbe68e787",
+        "mf_doc_plant": "a14f1a44cdcab9d3ca85f3e00e72bd9ed2eb0a9110745a7e143d919f8c9e8c37",
+        "mf_doc_sales": "489019642220fb11135065dcf5bab08f3ad80cad09bbce2116754b9531b33c52"
+      },
+      "stage": 0,
+      "status": "fixture_only",
+      "timestamp_utc": "2026-11-03T08:50:11.486173Z"
+    },
+    {
+      "arm": "B1-R",
+      "case": "mf",
+      "configuration": {
+        "max_questions": 10,
+        "seed": 20261103,
+        "top_k": 3
+      },
+      "cost_usd": 0.0,
+      "dataset_version": "3.0.0",
+      "gold_checksum": "0893df2a0fb915720d2f25bb19309c66894f8554dab7b2587b7df065114f7c1a",
+      "input_checksum": "ef820abe1cec22b931e9d6169214ae0f8477b3b70b54b336336038e706f794b7",
+      "live_api_calls": 0,
+      "mode": "cached",
+      "model_version": "not_run",
+      "output_checksum": "44f29ec6d743886eee16ee02833b9082f2ba534dd4315b75c6daa25a7072eb6a",
+      "prompt_sha256": "c881f7897f6dac4337982a71aa58df18589587aff0ec3983e768eefb1c89bedb",
+      "prompt_version": "eval-1.0",
+      "source_hashes": {
+        "mf_doc_financial": "49c9a08173ce5b965091ece640a4354dc5eaed033eb06311f88475dfd69584a8",
+        "mf_doc_forecast": "30663fe418cba45eacfe9eae76913de36194a2bb3fcefa103c5b431134f0c094",
+        "mf_doc_inventory": "866f882e4a3661eca918966b0f499ebe526bb0b5b718952affdd7fedbe68e787",
+        "mf_doc_plant": "a14f1a44cdcab9d3ca85f3e00e72bd9ed2eb0a9110745a7e143d919f8c9e8c37",
+        "mf_doc_sales": "489019642220fb11135065dcf5bab08f3ad80cad09bbce2116754b9531b33c52"
+      },
+      "stage": 0,
+      "status": "not_run",
+      "timestamp_utc": "2026-11-03T08:50:11.486173Z"
+    },
+    {
+      "arm": "B0",
+      "case": "mf",
+      "configuration": {
+        "max_questions": 10,
+        "seed": 20261103,
+        "top_k": 3
+      },
+      "cost_usd": 0.0,
+      "dataset_version": "3.0.0",
+      "gold_checksum": "0893df2a0fb915720d2f25bb19309c66894f8554dab7b2587b7df065114f7c1a",
+      "input_checksum": "82026a3d1909915655aa115be62b1c62bb322c4ad0178897dfbb329d3cd0d7c5",
+      "live_api_calls": 0,
+      "mode": "cached",
+      "model_version": "not_applicable:authored-or-deterministic",
+      "output_checksum": "cc8a9c63d70ac480cdeabfb90a42d08bbbc3d8e0489a81fc73775cb00aa59c27",
+      "prompt_sha256": "177acf00da0696f7c644d09108738ba4f475bc4e9ec49c2db6ec5255d81067d1",
+      "prompt_version": "eval-1.0",
+      "source_hashes": {
+        "mf_doc_count": "54726ef649b75e1d37670b8ae50862259aefe6c9e3726c929e50e21b5f2afb0c",
+        "mf_doc_financial": "49c9a08173ce5b965091ece640a4354dc5eaed033eb06311f88475dfd69584a8",
+        "mf_doc_forecast": "30663fe418cba45eacfe9eae76913de36194a2bb3fcefa103c5b431134f0c094",
+        "mf_doc_inventory": "866f882e4a3661eca918966b0f499ebe526bb0b5b718952affdd7fedbe68e787",
+        "mf_doc_plant": "a14f1a44cdcab9d3ca85f3e00e72bd9ed2eb0a9110745a7e143d919f8c9e8c37",
+        "mf_doc_sales": "489019642220fb11135065dcf5bab08f3ad80cad09bbce2116754b9531b33c52"
+      },
+      "stage": 1,
+      "status": "fixture_only",
+      "timestamp_utc": "2026-11-03T08:50:11.534308Z"
+    },
+    {
+      "arm": "B1",
+      "case": "mf",
+      "configuration": {
+        "max_questions": 10,
+        "seed": 20261103,
+        "top_k": 3
+      },
+      "cost_usd": 0.0,
+      "dataset_version": "3.0.0",
+      "gold_checksum": "0893df2a0fb915720d2f25bb19309c66894f8554dab7b2587b7df065114f7c1a",
+      "input_checksum": "82026a3d1909915655aa115be62b1c62bb322c4ad0178897dfbb329d3cd0d7c5",
+      "live_api_calls": 0,
+      "mode": "cached",
+      "model_version": "not_applicable:authored-or-deterministic",
+      "output_checksum": "cc8a9c63d70ac480cdeabfb90a42d08bbbc3d8e0489a81fc73775cb00aa59c27",
+      "prompt_sha256": "9b28a59bd1101508e8b2109e5e1071949e1b67274524866ab6d584dbb51a0381",
+      "prompt_version": "eval-1.0",
+      "source_hashes": {
+        "mf_doc_count": "54726ef649b75e1d37670b8ae50862259aefe6c9e3726c929e50e21b5f2afb0c",
+        "mf_doc_financial": "49c9a08173ce5b965091ece640a4354dc5eaed033eb06311f88475dfd69584a8",
+        "mf_doc_forecast": "30663fe418cba45eacfe9eae76913de36194a2bb3fcefa103c5b431134f0c094",
+        "mf_doc_inventory": "866f882e4a3661eca918966b0f499ebe526bb0b5b718952affdd7fedbe68e787",
+        "mf_doc_plant": "a14f1a44cdcab9d3ca85f3e00e72bd9ed2eb0a9110745a7e143d919f8c9e8c37",
+        "mf_doc_sales": "489019642220fb11135065dcf5bab08f3ad80cad09bbce2116754b9531b33c52"
+      },
+      "stage": 1,
+      "status": "fixture_only",
+      "timestamp_utc": "2026-11-03T08:50:11.550960Z"
+    },
+    {
+      "arm": "B2",
+      "case": "mf",
+      "configuration": {
+        "max_questions": 10,
+        "seed": 20261103,
+        "top_k": 3
+      },
+      "cost_usd": 0.0,
+      "dataset_version": "3.0.0",
+      "gold_checksum": "0893df2a0fb915720d2f25bb19309c66894f8554dab7b2587b7df065114f7c1a",
+      "input_checksum": "82026a3d1909915655aa115be62b1c62bb322c4ad0178897dfbb329d3cd0d7c5",
+      "live_api_calls": 0,
+      "mode": "cached",
+      "model_version": "not_applicable:authored-or-deterministic",
+      "output_checksum": "cc8a9c63d70ac480cdeabfb90a42d08bbbc3d8e0489a81fc73775cb00aa59c27",
+      "prompt_sha256": "49da0e55cafe4831c5c9a6c33a897f31a1303d3b8021c2bbf15e4cfa5889de81",
+      "prompt_version": "eval-1.0",
+      "source_hashes": {
+        "mf_doc_count": "54726ef649b75e1d37670b8ae50862259aefe6c9e3726c929e50e21b5f2afb0c",
+        "mf_doc_financial": "49c9a08173ce5b965091ece640a4354dc5eaed033eb06311f88475dfd69584a8",
+        "mf_doc_forecast": "30663fe418cba45eacfe9eae76913de36194a2bb3fcefa103c5b431134f0c094",
+        "mf_doc_inventory": "866f882e4a3661eca918966b0f499ebe526bb0b5b718952affdd7fedbe68e787",
+        "mf_doc_plant": "a14f1a44cdcab9d3ca85f3e00e72bd9ed2eb0a9110745a7e143d919f8c9e8c37",
+        "mf_doc_sales": "489019642220fb11135065dcf5bab08f3ad80cad09bbce2116754b9531b33c52"
+      },
+      "stage": 1,
+      "status": "fixture_only",
+      "timestamp_utc": "2026-11-03T08:50:11.550960Z"
+    },
+    {
+      "arm": "B3",
+      "case": "mf",
+      "configuration": {
+        "max_questions": 10,
+        "seed": 20261103,
+        "top_k": 3
+      },
+      "cost_usd": 0.0,
+      "dataset_version": "3.0.0",
+      "gold_checksum": "0893df2a0fb915720d2f25bb19309c66894f8554dab7b2587b7df065114f7c1a",
+      "input_checksum": "82026a3d1909915655aa115be62b1c62bb322c4ad0178897dfbb329d3cd0d7c5",
+      "live_api_calls": 0,
+      "mode": "cached",
+      "model_version": "not_applicable:authored-or-deterministic",
+      "output_checksum": "b545d7bc829b317db0be739602b38a24d44b86157aacdbc21058fb572b4f6ec1",
+      "prompt_sha256": "13c6d3332a4a45dcab8abc98c96652418cca36e06c3367c92d429b63bb2f6261",
+      "prompt_version": "eval-1.0",
+      "source_hashes": {
+        "mf_doc_count": "54726ef649b75e1d37670b8ae50862259aefe6c9e3726c929e50e21b5f2afb0c",
+        "mf_doc_financial": "49c9a08173ce5b965091ece640a4354dc5eaed033eb06311f88475dfd69584a8",
+        "mf_doc_forecast": "30663fe418cba45eacfe9eae76913de36194a2bb3fcefa103c5b431134f0c094",
+        "mf_doc_inventory": "866f882e4a3661eca918966b0f499ebe526bb0b5b718952affdd7fedbe68e787",
+        "mf_doc_plant": "a14f1a44cdcab9d3ca85f3e00e72bd9ed2eb0a9110745a7e143d919f8c9e8c37",
+        "mf_doc_sales": "489019642220fb11135065dcf5bab08f3ad80cad09bbce2116754b9531b33c52"
+      },
+      "stage": 1,
+      "status": "fixture_only",
+      "timestamp_utc": "2026-11-03T08:50:11.550960Z"
+    },
+    {
+      "arm": "B1-R",
+      "case": "mf",
+      "configuration": {
+        "max_questions": 10,
+        "seed": 20261103,
+        "top_k": 3
+      },
+      "cost_usd": 0.0,
+      "dataset_version": "3.0.0",
+      "gold_checksum": "0893df2a0fb915720d2f25bb19309c66894f8554dab7b2587b7df065114f7c1a",
+      "input_checksum": "82026a3d1909915655aa115be62b1c62bb322c4ad0178897dfbb329d3cd0d7c5",
+      "live_api_calls": 0,
+      "mode": "cached",
+      "model_version": "not_run",
+      "output_checksum": "44f29ec6d743886eee16ee02833b9082f2ba534dd4315b75c6daa25a7072eb6a",
+      "prompt_sha256": "cb64179d1f96ab6961c8d7ffadb3e4c5321e05562b6c55b30781319646b160f7",
+      "prompt_version": "eval-1.0",
+      "source_hashes": {
+        "mf_doc_count": "54726ef649b75e1d37670b8ae50862259aefe6c9e3726c929e50e21b5f2afb0c",
+        "mf_doc_financial": "49c9a08173ce5b965091ece640a4354dc5eaed033eb06311f88475dfd69584a8",
+        "mf_doc_forecast": "30663fe418cba45eacfe9eae76913de36194a2bb3fcefa103c5b431134f0c094",
+        "mf_doc_inventory": "866f882e4a3661eca918966b0f499ebe526bb0b5b718952affdd7fedbe68e787",
+        "mf_doc_plant": "a14f1a44cdcab9d3ca85f3e00e72bd9ed2eb0a9110745a7e143d919f8c9e8c37",
+        "mf_doc_sales": "489019642220fb11135065dcf5bab08f3ad80cad09bbce2116754b9531b33c52"
+      },
+      "stage": 1,
+      "status": "not_run",
+      "timestamp_utc": "2026-11-03T08:50:11.550960Z"
+    }
+  ]
+}

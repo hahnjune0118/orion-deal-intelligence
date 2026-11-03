@@ -1,0 +1,55 @@
+{
+  "case_id": "cd",
+  "fixture_input_digest": "79bcba185195d7f8292d1242e14acb39cd20e53891e8a6ef80d85bb312bd135c",
+  "parser_version": "orion-native-1.0.0",
+  "spans": [
+    {
+      "source_span_id": "span_cd_overview",
+      "old_locator": {
+        "kind": "docx_paragraph",
+        "part_uri": "word/document.xml",
+        "block_index": 0,
+        "paragraph_index": 0,
+        "heading_path": [
+          "Synthetic source"
+        ]
+      },
+      "native_locator": {
+        "kind": "docx_paragraph",
+        "part_uri": "word/document.xml",
+        "block_index": 3,
+        "paragraph_index": 0,
+        "heading_path": [
+          "Source narrative"
+        ]
+      },
+      "old_text_sha256": "95e50869ad225901ca94fc139ff441cf1d30762d81474491ddfeb3044140534b",
+      "native_text_sha256": "95e50869ad225901ca94fc139ff441cf1d30762d81474491ddfeb3044140534b"
+    },
+    {
+      "source_span_id": "span_cd_update",
+      "old_locator": {
+        "kind": "docx_paragraph",
+        "part_uri": "word/document.xml",
+        "block_index": 0,
+        "paragraph_index": 0,
+        "heading_path": [
+          "Synthetic source"
+        ]
+      },
+      "native_locator": {
+        "kind": "docx_paragraph",
+        "part_uri": "word/document.xml",
+        "block_index": 3,
+        "paragraph_index": 0,
+        "heading_path": [
+          "Source narrative"
+        ]
+      },
+      "old_text_sha256": "03de5997d5bd4f02920aaf37f4f8bf90c6d10b09bed30507107962e2cbb103fa",
+      "native_text_sha256": "03de5997d5bd4f02920aaf37f4f8bf90c6d10b09bed30507107962e2cbb103fa"
+    }
+  ],
+  "note": "New native runtime seed. Historical fixture snapshots remain unchanged.",
+  "native_input_digest": "f5eb3c231eb0d2bebdaef942a0837f3f150e30491100b4782fb90817421018ae"
+}

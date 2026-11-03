@@ -1,4 +1,8 @@
 * text=auto eol=lf
+*.pdf binary
+*.docx binary
+*.pptx binary
+*.whl binary
 # Preserve supplied specifications, source attachments and upstream licenses byte-for-byte.
 spec/** -text
 reference_inputs/** -text
@@ -7,3 +11,5 @@ third_party_licenses/** -text -whitespace
 implementation_evidence/logs/** -text -whitespace
 implementation_evidence/*.patch -text -whitespace
 *.whl binary
+
+chunk3_synthetic_evaluation/data/**/documents/*.json -text

@@ -1,0 +1,243 @@
+{
+  "available_stage": 0,
+  "date": "2026-11-03",
+  "document_type": "cim",
+  "elements": [
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_cim",
+      "document_version": 1,
+      "end": 39,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_cim_5f2cc06991b6b998e0f3",
+      "locator": {
+        "block_index": 0,
+        "heading_path": [],
+        "kind": "docx_paragraph",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml"
+      },
+      "locator_status": "validated",
+      "normalized_text": "Northstar Analytics Investment Overview",
+      "quote": "Northstar Analytics Investment Overview",
+      "start": 0,
+      "text_sha256": "05a02ad58f6705e3552da9c2b9d6efab428188dddb18272bff9b6c86f6e19144"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_cim",
+      "document_version": 1,
+      "end": 47,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_cim_2c72189e06818495f632",
+      "locator": {
+        "block_index": 1,
+        "heading_path": [],
+        "kind": "docx_paragraph",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml"
+      },
+      "locator_status": "validated",
+      "normalized_text": "SYNTHETIC | nb_doc_cim | 2026-11-03 | Version 1",
+      "quote": "SYNTHETIC | nb_doc_cim | 2026-11-03 | Version 1",
+      "start": 0,
+      "text_sha256": "b067e9caa14f1eeac7541df432d4df7a6b415e04f8ee161ced92968f24f2184c"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_cim",
+      "document_version": 1,
+      "end": 40,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_cim_5263b7f2008f288f2530",
+      "locator": {
+        "block_index": 2,
+        "heading_path": [],
+        "kind": "docx_paragraph",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml"
+      },
+      "locator_status": "validated",
+      "normalized_text": "Reporting period: FY2025 and FY2027 plan",
+      "quote": "Reporting period: FY2025 and FY2027 plan",
+      "start": 0,
+      "text_sha256": "3798b4d91139c8889add8f7b8248c57b573eb34d9b0fa77cef11dd6f5f9b5b1f"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_cim",
+      "document_version": 1,
+      "end": 155,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_cim_ad2b4384a2260afe5f5a",
+      "locator": {
+        "block_index": 3,
+        "heading_path": [],
+        "kind": "docx_paragraph",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml"
+      },
+      "locator_status": "validated",
+      "normalized_text": "Independent expanded research scenario NB version 3.0.0. This is not a continuation of legacy Northstar NS; contract, cash and customer assumptions differ.",
+      "quote": "Independent expanded research scenario NB version 3.0.0. This is not a continuation of legacy Northstar NS; contract, cash and customer assumptions differ.",
+      "start": 0,
+      "text_sha256": "9d225433a95c28903c8f68929f3ef8c4737d81ce8e4b713cf3816ad4ecea3f93"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_cim",
+      "document_version": 1,
+      "end": 217,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_cim_b92cdcbdbe95626824d4",
+      "locator": {
+        "block_index": 4,
+        "heading_path": [],
+        "kind": "docx_paragraph",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml"
+      },
+      "locator_status": "validated",
+      "normalized_text": "SYNTHETIC DATA. Fictional CIM for academic preliminary investment screening. All names, customers, amounts and documents are invented. This is management reporting, not an independently verified investment conclusion.",
+      "quote": "SYNTHETIC DATA. Fictional CIM for academic preliminary investment screening. All names, customers, amounts and documents are invented. This is management reporting, not an independently verified investment conclusion.",
+      "start": 0,
+      "text_sha256": "857dcae6564bf6b59876454035da5e3df2a4457ee1f25e28ad5a06cfa3a9bf3a"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_cim",
+      "document_version": 1,
+      "end": 180,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_cim_be80e6daae111bf09f2c",
+      "locator": {
+        "block_index": 5,
+        "heading_path": [],
+        "kind": "docx_paragraph",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml"
+      },
+      "locator_status": "validated",
+      "normalized_text": "Management reports four enterprise customers and committed annual recurring revenue of USD 1,800,000: Quartz USD 720,000, Vale USD 480,000, Aster USD 240,000 and Birch USD 360,000.",
+      "quote": "Management reports four enterprise customers and committed annual recurring revenue of USD 1,800,000: Quartz USD 720,000, Vale USD 480,000, Aster USD 240,000 and Birch USD 360,000.",
+      "start": 0,
+      "text_sha256": "a40e26e24c39310271d37087f4ca35ec6f34486fd1d700286cd1b9ff1af7e3db"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_cim",
+      "document_version": 1,
+      "end": 184,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_cim_eb762df260cc83832677",
+      "locator": {
+        "block_index": 6,
+        "heading_path": [],
+        "kind": "docx_paragraph",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml"
+      },
+      "locator_status": "validated",
+      "normalized_text": "FY2025 revenue was USD 1,200,000 and reported gross profit was USD 840,000, a 70% gross margin. The presentation includes only cloud hosting and routine support within cost of revenue.",
+      "quote": "FY2025 revenue was USD 1,200,000 and reported gross profit was USD 840,000, a 70% gross margin. The presentation includes only cloud hosting and routine support within cost of revenue.",
+      "start": 0,
+      "text_sha256": "8b45edf58eb760b11bf488d03033d4b49549286e015fdcb4dc12c0ae5fa33dd5"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_cim",
+      "document_version": 1,
+      "end": 231,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_cim_656a34fbdd98493ccc4b",
+      "locator": {
+        "block_index": 7,
+        "heading_path": [],
+        "kind": "docx_paragraph",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml"
+      },
+      "locator_status": "validated",
+      "normalized_text": "Management estimates Aster annual subscription revenue of USD 240,000 and annual delivery costs of USD 96,000, giving positive contribution of USD 144,000. Implementation effort and incremental inference usage have not been costed.",
+      "quote": "Management estimates Aster annual subscription revenue of USD 240,000 and annual delivery costs of USD 96,000, giving positive contribution of USD 144,000. Implementation effort and incremental inference usage have not been costed.",
+      "start": 0,
+      "text_sha256": "4c06a660098198dc9c7c7b7ce9a0baefcce5a2f807b05b4c5b3e80c8ef8b5581"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_cim",
+      "document_version": 1,
+      "end": 201,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_cim_015433b83837c6a2009c",
+      "locator": {
+        "block_index": 8,
+        "heading_path": [],
+        "kind": "docx_paragraph",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml"
+      },
+      "locator_status": "validated",
+      "normalized_text": "Quartz and Vale renewed their support subscriptions during FY2025. The delivery team retained the same four senior engineers throughout the year. Product use remains concentrated in document analytics.",
+      "quote": "Quartz and Vale renewed their support subscriptions during FY2025. The delivery team retained the same four senior engineers throughout the year. Product use remains concentrated in document analytics.",
+      "start": 0,
+      "text_sha256": "c23250ea9de2115cce7aebb11d410664776e76a951ef4252ea49e45f47ccf7ec"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_cim",
+      "document_version": 1,
+      "end": 197,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_cim_3e3c3f691b0ccdbfe82e",
+      "locator": {
+        "block_index": 9,
+        "heading_path": [],
+        "kind": "docx_paragraph",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml"
+      },
+      "locator_status": "validated",
+      "normalized_text": "No customer ownership certificates, source-level inference logs or reconciled customer contribution schedules are attached. Management expects two new paying enterprise deployments by October 2027.",
+      "quote": "No customer ownership certificates, source-level inference logs or reconciled customer contribution schedules are attached. Management expects two new paying enterprise deployments by October 2027.",
+      "start": 0,
+      "text_sha256": "d2874eba60332c12883d8a6c158731633b518ec5c26da387633f7f735918da3e"
+    }
+  ],
+  "record": {
+    "asset_status": "file_verified",
+    "created_at": "2026-11-03T00:00:00Z",
+    "deal_id": "deal_nb",
+    "document_version": 1,
+    "entity_version": 1,
+    "file_sha256": "565cb6fc40802ea448753c8e2c3b89968cb80e8039e71d74c9c7fa1da7fc582e",
+    "filename": "nb_doc_cim.docx",
+    "format": "docx",
+    "id": "nb_doc_cim",
+    "origin_key": "nb_doc_cim",
+    "parse_status": "parsed",
+    "parser_version": "orion-native-1.0.0",
+    "source_origin": "company"
+  },
+  "reporting_period": "FY2025 and FY2027 plan",
+  "source_element_keys": {
+    "gross_margin": "span_nb_doc_cim_eb762df260cc83832677",
+    "margin_a": "span_nb_doc_cim_656a34fbdd98493ccc4b",
+    "purpose": "span_nb_doc_cim_b92cdcbdbe95626824d4",
+    "strength": "span_nb_doc_cim_015433b83837c6a2009c",
+    "traction": "span_nb_doc_cim_be80e6daae111bf09f2c",
+    "unknown": "span_nb_doc_cim_3e3c3f691b0ccdbfe82e"
+  },
+  "synthetic": true,
+  "title": "Northstar Analytics Investment Overview"
+}

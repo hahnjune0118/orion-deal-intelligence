@@ -1,0 +1,1 @@
+{"dataset_version": "3.0.0", "cases": [{"case": "nb", "documents": 8, "evidence": 26, "questions": 13, "hypotheses": 3, "events": 4}, {"case": "mf", "documents": 6, "evidence": 23, "questions": 9, "hypotheses": 3, "events": 1}], "public_orion": "pending_verified_sources"}

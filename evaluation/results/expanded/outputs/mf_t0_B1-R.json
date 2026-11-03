@@ -1,0 +1,13 @@
+{
+  "claims": [],
+  "contradiction_groups": [],
+  "eig": {},
+  "final_approvals_without_review": 0,
+  "hypothesis_statuses": {},
+  "posterior": {},
+  "provenance": "not_run",
+  "questions": [],
+  "relationships": [],
+  "retrieved_evidence_ids": [],
+  "status": "not_run"
+}

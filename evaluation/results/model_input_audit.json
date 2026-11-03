@@ -1,0 +1,191 @@
+{
+  "boundary": "No gold, world truth, expected ranks or future stage documents are serialized to adapters. Repository files require external process isolation for hostile code.",
+  "checks": [
+    {
+      "boundary": "serialized model input only; no hostile-code filesystem sandbox",
+      "case": "ns",
+      "document_ids": [
+        "doc_ns_finance_native",
+        "doc_ns_overview",
+        "doc_ns_schedule_native"
+      ],
+      "gold_fields": 0,
+      "input_sha256": "818a1c6ff3c57eeef0b002e9b864aaf678afc7a778a15e2a0b18c5a47c8ae9c0",
+      "stage": 0,
+      "valid": true
+    },
+    {
+      "boundary": "serialized model input only; no hostile-code filesystem sandbox",
+      "case": "ns",
+      "document_ids": [
+        "doc_ns_finance_native",
+        "doc_ns_overview",
+        "doc_ns_schedule_native",
+        "doc_ns_update"
+      ],
+      "gold_fields": 0,
+      "input_sha256": "46e6b0055718d0280ede5c02568f2047240e04c7f719bc006772e33314704f8f",
+      "stage": 1,
+      "valid": true
+    },
+    {
+      "boundary": "serialized model input only; no hostile-code filesystem sandbox",
+      "case": "cd",
+      "document_ids": [
+        "doc_cd_finance_native",
+        "doc_cd_overview",
+        "doc_cd_schedule_native"
+      ],
+      "gold_fields": 0,
+      "input_sha256": "d59767933b08f08d4607b92dca9c5ccf890e537c4538fae8ad0b4ffa2ca3fa60",
+      "stage": 0,
+      "valid": true
+    },
+    {
+      "boundary": "serialized model input only; no hostile-code filesystem sandbox",
+      "case": "cd",
+      "document_ids": [
+        "doc_cd_finance_native",
+        "doc_cd_overview",
+        "doc_cd_schedule_native",
+        "doc_cd_update"
+      ],
+      "gold_fields": 0,
+      "input_sha256": "7d91f1b6076365ee063ecf7382265ce928083af802f58943dc0ba9ea865561a1",
+      "stage": 1,
+      "valid": true
+    },
+    {
+      "boundary": "serialized model input only; no hostile-code filesystem sandbox",
+      "case": "lm",
+      "document_ids": [
+        "doc_lm_finance_native",
+        "doc_lm_overview",
+        "doc_lm_schedule_native"
+      ],
+      "gold_fields": 0,
+      "input_sha256": "570f50306e123aeec3f3692cd3b11e4b5e5cd7d403dcf7662af0244501a1d751",
+      "stage": 0,
+      "valid": true
+    },
+    {
+      "boundary": "serialized model input only; no hostile-code filesystem sandbox",
+      "case": "lm",
+      "document_ids": [
+        "doc_lm_finance_native",
+        "doc_lm_overview",
+        "doc_lm_schedule_native",
+        "doc_lm_update"
+      ],
+      "gold_fields": 0,
+      "input_sha256": "e56285ed052c7274c389e16e6791d0c4c342299c1f4f5bff1fae6170c320ec22",
+      "stage": 1,
+      "valid": true
+    },
+    {
+      "case": "nb",
+      "document_ids": [
+        "nb_doc_cim",
+        "nb_doc_crm",
+        "nb_doc_financial",
+        "nb_doc_plan"
+      ],
+      "gold_fields": 0,
+      "input_sha256": "208a33f93ca7d96a82490d296339b0d7e541beaf84ce10cd22584b5286a3d2b1",
+      "stage": 0,
+      "valid": true
+    },
+    {
+      "case": "nb",
+      "document_ids": [
+        "nb_doc_cim",
+        "nb_doc_contract",
+        "nb_doc_crm",
+        "nb_doc_financial",
+        "nb_doc_plan"
+      ],
+      "gold_fields": 0,
+      "input_sha256": "86c525f0d59df75f3382d6cff1e2f634d66171e1beb31f622030748bfaac5059",
+      "stage": 1,
+      "valid": true
+    },
+    {
+      "case": "nb",
+      "document_ids": [
+        "nb_doc_cim",
+        "nb_doc_contract",
+        "nb_doc_crm",
+        "nb_doc_execution",
+        "nb_doc_financial",
+        "nb_doc_plan"
+      ],
+      "gold_fields": 0,
+      "input_sha256": "e8d1138e1dcedc5ec0ad9c1b5fb681fb8700ffc52cb22ef1d936ab787fab9bf0",
+      "stage": 2,
+      "valid": true
+    },
+    {
+      "case": "nb",
+      "document_ids": [
+        "nb_doc_cim",
+        "nb_doc_contract",
+        "nb_doc_cost",
+        "nb_doc_crm",
+        "nb_doc_execution",
+        "nb_doc_financial",
+        "nb_doc_plan"
+      ],
+      "gold_fields": 0,
+      "input_sha256": "dc0490c0e511eba6573a56b527af9a84530890154703926bf24bd519eb5ab7d7",
+      "stage": 3,
+      "valid": true
+    },
+    {
+      "case": "nb",
+      "document_ids": [
+        "nb_doc_cim",
+        "nb_doc_contract",
+        "nb_doc_cost",
+        "nb_doc_crm",
+        "nb_doc_execution",
+        "nb_doc_financial",
+        "nb_doc_followup",
+        "nb_doc_plan"
+      ],
+      "gold_fields": 0,
+      "input_sha256": "be8f4ce9d03de2b85e5c099cdc986c10cac21c3d4ff4825cfa41db6eb7f5491d",
+      "stage": 4,
+      "valid": true
+    },
+    {
+      "case": "mf",
+      "document_ids": [
+        "mf_doc_financial",
+        "mf_doc_forecast",
+        "mf_doc_inventory",
+        "mf_doc_plant",
+        "mf_doc_sales"
+      ],
+      "gold_fields": 0,
+      "input_sha256": "ef820abe1cec22b931e9d6169214ae0f8477b3b70b54b336336038e706f794b7",
+      "stage": 0,
+      "valid": true
+    },
+    {
+      "case": "mf",
+      "document_ids": [
+        "mf_doc_count",
+        "mf_doc_financial",
+        "mf_doc_forecast",
+        "mf_doc_inventory",
+        "mf_doc_plant",
+        "mf_doc_sales"
+      ],
+      "gold_fields": 0,
+      "input_sha256": "82026a3d1909915655aa115be62b1c62bb322c4ad0178897dfbb329d3cd0d7c5",
+      "stage": 1,
+      "valid": true
+    }
+  ],
+  "valid": true
+}

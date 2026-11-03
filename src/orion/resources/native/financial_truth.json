@@ -1,0 +1,71 @@
+{
+  "contract_version": "1.0.0",
+  "currency": "USD",
+  "unit": "minor_units",
+  "period": "FY2025",
+  "cases": [
+    {
+      "case_id": "ns",
+      "revenue": 120000000,
+      "subscription": 90000000,
+      "services": 30000000,
+      "cogs": 36000000,
+      "opex_excluding_da": 72000000,
+      "ebitda": 12000000,
+      "customer_revenue": [
+        36000000,
+        30000000,
+        24000000,
+        30000000
+      ],
+      "cash": 80000000,
+      "debt": 20000000,
+      "ar": 18000000,
+      "inventory": 0,
+      "ap": 6000000,
+      "nwc_operating": 12000000
+    },
+    {
+      "case_id": "cd",
+      "revenue": 600000000,
+      "cogs": 360000000,
+      "opex_excluding_da": 180000000,
+      "ebitda": 60000000,
+      "customer_revenue": [
+        180000000,
+        150000000,
+        120000000,
+        90000000,
+        60000000
+      ],
+      "cash": 40000000,
+      "debt": 110000000,
+      "ar": 90000000,
+      "inventory": 120000000,
+      "ap": 70000000,
+      "nwc_operating": 140000000
+    },
+    {
+      "case_id": "lm",
+      "revenue": 300000000,
+      "cogs": 180000000,
+      "opex_excluding_da": 90000000,
+      "ebitda": 30000000,
+      "customer_revenue": [
+        150000000,
+        60000000,
+        45000000,
+        45000000
+      ],
+      "cash": 25000000,
+      "debt": 30000000,
+      "ar": 50000000,
+      "inventory": 0,
+      "ap": 20000000,
+      "nwc_operating": 30000000,
+      "hours_delivered": 10000,
+      "hourly_price_minor": 30000,
+      "capacity_hours": 12000
+    }
+  ]
+}

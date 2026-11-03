@@ -1,0 +1,90 @@
+[
+  {
+    "available_stage": 0,
+    "date": "2026-11-03",
+    "document_id": "nb_doc_cim",
+    "filename": "nb_doc_cim.docx",
+    "machine_sha256": "11260286f3e3e3451c7e82bea721995f36c41ef506f38be5fe9d55e557aa74a8",
+    "reporting_period": "FY2025 and FY2027 plan",
+    "sha256": "565cb6fc40802ea448753c8e2c3b89968cb80e8039e71d74c9c7fa1da7fc582e",
+    "synthetic": true,
+    "version": 1
+  },
+  {
+    "available_stage": 0,
+    "date": "2026-11-03",
+    "document_id": "nb_doc_financial",
+    "filename": "nb_doc_financial.docx",
+    "machine_sha256": "9419ca599804f32c5739a8d7de2448692fcfdd020f489a31a788bd39bdff4973",
+    "reporting_period": "FY2024 and FY2025",
+    "sha256": "880bfac836384deb79caddf280071f0d7bc5d7984986939ed05280b945481853",
+    "synthetic": true,
+    "version": 1
+  },
+  {
+    "available_stage": 0,
+    "date": "2026-11-03",
+    "document_id": "nb_doc_plan",
+    "filename": "nb_doc_plan.docx",
+    "machine_sha256": "0c85fc492cd8a512b5c12072d94138934acdb84a01db10ba8dbfdd6a9e448911",
+    "reporting_period": "FY2027",
+    "sha256": "f16ff6e72355e983e361eade582007ef5f2e4ca54e4f95ad5cc3b4fe881a057a",
+    "synthetic": true,
+    "version": 1
+  },
+  {
+    "available_stage": 0,
+    "date": "2026-11-03",
+    "document_id": "nb_doc_crm",
+    "filename": "nb_doc_crm.docx",
+    "machine_sha256": "a42b8d4f880f74bdf2788ca41ace55df8f630f8030c38c29fbab616b52d879e2",
+    "reporting_period": "FY2025 and FY2027 plan",
+    "sha256": "88e7962471b9a6bc7fd9fc24f3b3d3f7d7d9bc656e0a02bd86527889273cfc25",
+    "synthetic": true,
+    "version": 1
+  },
+  {
+    "available_stage": 1,
+    "date": "2026-11-05",
+    "document_id": "nb_doc_contract",
+    "filename": "nb_doc_contract.docx",
+    "machine_sha256": "8690914e08947e08d5f55627d0de11a1ea1c963c4bbbaae03aac334139c8c7d5",
+    "reporting_period": "2026-12-01 through 2027-11-30",
+    "sha256": "bf43b28ea27ff3d2ee0563ff8c2d9bb1d93eebcddd1461c65aa1d0038f80f6d2",
+    "synthetic": true,
+    "version": 1
+  },
+  {
+    "available_stage": 2,
+    "date": "2026-11-12",
+    "document_id": "nb_doc_execution",
+    "filename": "nb_doc_execution.docx",
+    "machine_sha256": "bb291ecf8958bf16c89c74b3989ab7d53871799cf523c075335a173a7e991918",
+    "reporting_period": "2026-11-12",
+    "sha256": "922ef6a53501228b3aa805349f39b1cc4d9482f5469fd458167db2367fb2c544",
+    "synthetic": true,
+    "version": 1
+  },
+  {
+    "available_stage": 3,
+    "date": "2026-11-18",
+    "document_id": "nb_doc_cost",
+    "filename": "nb_doc_cost.docx",
+    "machine_sha256": "16d1c0f6b363d5430f380524f4dd227b79b61d68cee34194694112b5e3b1eed9",
+    "reporting_period": "Aster contract year 2026-12-01 through 2027-11-30",
+    "sha256": "29879d6d16318fb9e434fe5736ebac1b0ef2a0a0511077060ba3df7fcc848280",
+    "synthetic": true,
+    "version": 2
+  },
+  {
+    "available_stage": 4,
+    "date": "2026-11-25",
+    "document_id": "nb_doc_followup",
+    "filename": "nb_doc_followup.docx",
+    "machine_sha256": "ac4717feb307c7c8e3bc6b16f815d576840acfc2bb56af0ee963a043f525a374",
+    "reporting_period": "2026-11-22 through 2026-11-25",
+    "sha256": "94ec30ff50213a46760681db4512b727db4d9f685f946f150a8d4132c20d6e47",
+    "synthetic": true,
+    "version": 1
+  }
+]

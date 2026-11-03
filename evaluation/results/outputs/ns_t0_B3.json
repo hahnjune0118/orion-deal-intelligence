@@ -1,0 +1,121 @@
+{
+  "claims": [
+    {
+      "citations": [
+        {
+          "document_id": "doc_ns_overview",
+          "document_version": 1,
+          "locator": {
+            "block_index": 0,
+            "kind": "pdf",
+            "page": 1
+          },
+          "quote": "Northstar Analytics source overview\nSYNTHETIC EDUCATIONAL DATA / FY2025 unless stated / v1\nSYNTHETIC. Northstar reports PoCs with Aster Labs and Birch Systems. No executed paid\ncontract, acceptance certificate or receipt is included. FY2025 revenue USD 1,200,000;\ncost of revenue USD 360,000; operating expense excluding depreciation USD 720,000;\nEBITDA USD 120,000.\nSYNTHETIC / No real company disclosures / Page 1 of 3"
+        }
+      ],
+      "entailment_supported": null,
+      "factual": true,
+      "matched_claim_id": "claim_ns",
+      "prediction_id": "claim_ns",
+      "text": "By 2027-10-31 at least two independent target customers have paid commercial contracts, acceptance and collection."
+    },
+    {
+      "citations": [
+        {
+          "document_id": "doc_ns_overview",
+          "document_version": 1,
+          "locator": {
+            "block_index": 0,
+            "kind": "pdf",
+            "page": 1
+          },
+          "quote": "Northstar Analytics source overview\nSYNTHETIC EDUCATIONAL DATA / FY2025 unless stated / v1\nSYNTHETIC. Northstar reports PoCs with Aster Labs and Birch Systems. No executed paid\ncontract, acceptance certificate or receipt is included. FY2025 revenue USD 1,200,000;\ncost of revenue USD 360,000; operating expense excluding depreciation USD 720,000;\nEBITDA USD 120,000.\nSYNTHETIC / No real company disclosures / Page 1 of 3"
+        }
+      ],
+      "entailment_supported": null,
+      "factual": true,
+      "matched_claim_id": "claim_ns_econ",
+      "prediction_id": "claim_ns_econ",
+      "text": "FY2025 recurring gross margin is supported by a reconciliation of subscription revenue and delivery costs."
+    }
+  ],
+  "contradiction_groups": [],
+  "eig": {},
+  "final_approvals_without_review": 0,
+  "hypothesis_statuses": {
+    "claim_ns": "missing",
+    "claim_ns_econ": "missing"
+  },
+  "posterior": {},
+  "provenance": "deterministic-engine",
+  "questions": [
+    {
+      "artifact_present": true,
+      "criterion_present": true,
+      "family_id": "q_ns_contract_a",
+      "financial_relevance": true,
+      "match_rationale": "Identity mapping of the pre-authored request; not a semantic model prediction.",
+      "match_reviewed": true,
+      "output_id": "q_ns_contract_a",
+      "period_present": true,
+      "reviewer": "fixture-author (single-rater; provisional)",
+      "target_present": true,
+      "text": "Provide the executed paid commercial contract between Northstar and Aster Labs effective within 2026-11-01 through 2027-10-31, including counterparties, signature status, service term and fee. Acceptance and collection will be reviewed separately."
+    },
+    {
+      "artifact_present": true,
+      "criterion_present": true,
+      "family_id": "q_ns_contract_b",
+      "financial_relevance": true,
+      "match_rationale": "Identity mapping of the pre-authored request; not a semantic model prediction.",
+      "match_reviewed": true,
+      "output_id": "q_ns_contract_b",
+      "period_present": true,
+      "reviewer": "fixture-author (single-rater; provisional)",
+      "target_present": true,
+      "text": "Provide the executed paid commercial contract between Northstar and Birch Systems effective within 2026-11-01 through 2027-10-31, including counterparties, signature status, service term and fee. Customer ownership independence requires separate evidence."
+    },
+    {
+      "artifact_present": true,
+      "criterion_present": true,
+      "family_id": "q_ns_accept_collect",
+      "financial_relevance": true,
+      "match_rationale": "Identity mapping of the pre-authored request; not a semantic model prediction.",
+      "match_reviewed": true,
+      "output_id": "q_ns_accept_collect",
+      "period_present": true,
+      "reviewer": "fixture-author (single-rater; provisional)",
+      "target_present": true,
+      "text": "For Aster Labs and Birch Systems during 2026-11-01 through 2027-10-31, provide customer acceptance records and invoices matched to bank receipts or settlement records. Identify which customer and service period each record covers."
+    },
+    {
+      "artifact_present": true,
+      "criterion_present": true,
+      "family_id": "q_ns_concentration",
+      "financial_relevance": true,
+      "match_rationale": "Identity mapping of the pre-authored request; not a semantic model prediction.",
+      "match_reviewed": true,
+      "output_id": "q_ns_concentration",
+      "period_present": true,
+      "reviewer": "fixture-author (single-rater; provisional)",
+      "target_present": true,
+      "text": "Provide independent ownership records or equivalent independent confirmation for Aster Labs and Birch Systems as of their proposed 2026-11-01 through 2027-10-31 commercial engagements, establishing whether they are independently controlled."
+    },
+    {
+      "artifact_present": true,
+      "criterion_present": true,
+      "family_id": "q_ns_unit_econ",
+      "financial_relevance": true,
+      "match_rationale": "Identity mapping of the pre-authored request; not a semantic model prediction.",
+      "match_reviewed": true,
+      "output_id": "q_ns_unit_econ",
+      "period_present": true,
+      "reviewer": "fixture-author (single-rater; provisional)",
+      "target_present": true,
+      "text": "Provide the FY2025 subscription revenue and delivery-cost reconciliation, showing how recurring gross margin is calculated separately from implementation services and identifying underlying ledger records."
+    }
+  ],
+  "relationships": [],
+  "retrieved_evidence_ids": [],
+  "status": "completed"
+}

@@ -1,0 +1,4231 @@
+{
+  "analysis_runs": [],
+  "analyst_decisions": [],
+  "audit_events": [],
+  "claims": [
+    {
+      "claim_kind": "binary_hypothesis",
+      "deal_id": "deal_nb",
+      "entity_version": 1,
+      "id": "nb_claim_h1",
+      "period_end": "2027-10-31",
+      "period_start": "2026-11-01",
+      "required_criterion_keys": [
+        "contract_a",
+        "contract_b",
+        "accept_a",
+        "cash_a",
+        "independence",
+        "accept_b",
+        "cash_b"
+      ],
+      "review_status": "approved",
+      "source_span_ids": [],
+      "statement": "By 2027-10-31 at least two newly acquired independently controlled enterprise customer groups have signed paid contracts, accepted deployment and a matched first cash receipt.",
+      "subject_key": "nb_h1",
+      "support_status": "missing",
+      "thesis_id": "nb_thesis",
+      "truth_status": "document_only"
+    },
+    {
+      "claim_kind": "binary_hypothesis",
+      "deal_id": "deal_nb",
+      "entity_version": 1,
+      "id": "nb_claim_h2",
+      "period_end": "2027-11-30",
+      "period_start": "2026-11-01",
+      "required_criterion_keys": [
+        "margin_a",
+        "margin_b",
+        "costs"
+      ],
+      "review_status": "approved",
+      "source_span_ids": [],
+      "statement": "For the Aster and Birch first contract years recurring customer contribution is positive and total first-year contribution is nonnegative after all implementation and delivery costs.",
+      "subject_key": "nb_h2",
+      "support_status": "missing",
+      "thesis_id": "nb_thesis",
+      "truth_status": "document_only"
+    },
+    {
+      "claim_kind": "binary_hypothesis",
+      "deal_id": "deal_nb",
+      "entity_version": 2,
+      "id": "nb_claim_h3",
+      "period_end": "2027-12-31",
+      "period_start": "2025-01-01",
+      "required_criterion_keys": [
+        "count",
+        "arr",
+        "capacity",
+        "revenue",
+        "balance"
+      ],
+      "review_status": "approved",
+      "source_span_ids": [],
+      "statement": "The FY2025 recognized revenue and 2026-11-03 commercial claims reconcile within 5 percent and the FY2027 forecast is supported by documented delivery capacity.",
+      "subject_key": "nb_h3",
+      "support_status": "contradicted",
+      "thesis_id": "nb_thesis",
+      "truth_status": "disputed"
+    }
+  ],
+  "contract_version": "1.0.0",
+  "dd_questions": [
+    {
+      "canonical_key": "nb.contract_a",
+      "claim_id": "nb_claim_h1",
+      "deal_id": "deal_nb",
+      "duplicate_of": null,
+      "entity_version": 1,
+      "financial_driver": "revenue_quality",
+      "id": "nb_q_contract_a",
+      "issue": "Aster executed paid contract",
+      "materiality": {
+        "basis": "analyst_rubric",
+        "denominator_minor": null,
+        "exposure_minor": null,
+        "rationale": "Explicit synthetic analyst materiality on 0-5 scale; no monetary valuation or calibrated utility.",
+        "score": 5,
+        "source_span_ids": []
+      },
+      "obtainability": {
+        "basis": "analyst_estimate",
+        "days": null,
+        "external_cost_minor": null,
+        "rationale": "Synthetic analyst estimate on 0-5 scale; time and cost not empirically measured.",
+        "score": 5
+      },
+      "owner_label": "Simulated analyst",
+      "request_text": "For 2026-11-01 through 2027-11-30, provide Executed Aster commercial contract. Verify counterparty signatures, annual fee, term and acceptance conditions.",
+      "requirements": [
+        {
+          "key": "contract_a",
+          "label": "contract a",
+          "min_reliability": 3,
+          "require_independent": false
+        }
+      ],
+      "review_status": "approved",
+      "workflow_status": "open"
+    },
+    {
+      "canonical_key": "nb.contract_b",
+      "claim_id": "nb_claim_h1",
+      "deal_id": "deal_nb",
+      "duplicate_of": null,
+      "entity_version": 1,
+      "financial_driver": "revenue_quality",
+      "id": "nb_q_contract_b",
+      "issue": "Birch executed paid contract",
+      "materiality": {
+        "basis": "analyst_rubric",
+        "denominator_minor": null,
+        "exposure_minor": null,
+        "rationale": "Explicit synthetic analyst materiality on 0-5 scale; no monetary valuation or calibrated utility.",
+        "score": 5,
+        "source_span_ids": []
+      },
+      "obtainability": {
+        "basis": "analyst_estimate",
+        "days": null,
+        "external_cost_minor": null,
+        "rationale": "Synthetic analyst estimate on 0-5 scale; time and cost not empirically measured.",
+        "score": 4
+      },
+      "owner_label": "Simulated analyst",
+      "request_text": "For 2026-11-01 through 2027-11-30, provide Executed Birch commercial contract. Verify signatures, service term and binding recurring consideration.",
+      "requirements": [
+        {
+          "key": "contract_b",
+          "label": "contract b",
+          "min_reliability": 3,
+          "require_independent": false
+        }
+      ],
+      "review_status": "approved",
+      "workflow_status": "open"
+    },
+    {
+      "canonical_key": "nb.execution_a",
+      "claim_id": "nb_claim_h1",
+      "deal_id": "deal_nb",
+      "duplicate_of": null,
+      "entity_version": 1,
+      "financial_driver": "revenue_quality",
+      "id": "nb_q_execution_a",
+      "issue": "Aster acceptance and first cash",
+      "materiality": {
+        "basis": "analyst_rubric",
+        "denominator_minor": null,
+        "exposure_minor": null,
+        "rationale": "Explicit synthetic analyst materiality on 0-5 scale; no monetary valuation or calibrated utility.",
+        "score": 5,
+        "source_span_ids": []
+      },
+      "obtainability": {
+        "basis": "analyst_estimate",
+        "days": null,
+        "external_cost_minor": null,
+        "rationale": "Synthetic analyst estimate on 0-5 scale; time and cost not empirically measured.",
+        "score": 3
+      },
+      "owner_label": "Simulated analyst",
+      "request_text": "For 2026-11-01 through 2027-10-31, provide Aster acceptance certificate and matched bank remittance. Match acceptance tests and first cash receipt to an issued invoice; identify the unpaid balance separately.",
+      "requirements": [
+        {
+          "key": "accept_a",
+          "label": "accept a",
+          "min_reliability": 3,
+          "require_independent": false
+        },
+        {
+          "key": "cash_a",
+          "label": "cash a",
+          "min_reliability": 3,
+          "require_independent": false
+        }
+      ],
+      "review_status": "approved",
+      "workflow_status": "open"
+    },
+    {
+      "canonical_key": "nb.margin_a",
+      "claim_id": "nb_claim_h2",
+      "deal_id": "deal_nb",
+      "duplicate_of": null,
+      "entity_version": 1,
+      "financial_driver": "unit_economics",
+      "id": "nb_q_margin_a",
+      "issue": "Aster full customer contribution",
+      "materiality": {
+        "basis": "analyst_rubric",
+        "denominator_minor": null,
+        "exposure_minor": null,
+        "rationale": "Explicit synthetic analyst materiality on 0-5 scale; no monetary valuation or calibrated utility.",
+        "score": 5,
+        "source_span_ids": []
+      },
+      "obtainability": {
+        "basis": "analyst_estimate",
+        "days": null,
+        "external_cost_minor": null,
+        "rationale": "Synthetic analyst estimate on 0-5 scale; time and cost not empirically measured.",
+        "score": 2
+      },
+      "owner_label": "Simulated analyst",
+      "request_text": "For Aster contract year 2026-12-01 through 2027-11-30, provide Aster complete recurring and implementation cost bridge. Show positive recurring contribution after cloud, inference and support and nonnegative total first-year contribution after implementation.",
+      "requirements": [
+        {
+          "key": "margin_a",
+          "label": "margin a",
+          "min_reliability": 3,
+          "require_independent": false
+        }
+      ],
+      "review_status": "approved",
+      "workflow_status": "open"
+    },
+    {
+      "canonical_key": "nb.independence",
+      "claim_id": "nb_claim_h1",
+      "deal_id": "deal_nb",
+      "duplicate_of": null,
+      "entity_version": 1,
+      "financial_driver": "revenue_quality",
+      "id": "nb_q_independence",
+      "issue": "Independence of the two new customer groups",
+      "materiality": {
+        "basis": "analyst_rubric",
+        "denominator_minor": null,
+        "exposure_minor": null,
+        "rationale": "Explicit synthetic analyst materiality on 0-5 scale; no monetary valuation or calibrated utility.",
+        "score": 4,
+        "source_span_ids": []
+      },
+      "obtainability": {
+        "basis": "analyst_estimate",
+        "days": null,
+        "external_cost_minor": null,
+        "rationale": "Synthetic analyst estimate on 0-5 scale; time and cost not empirically measured.",
+        "score": 4
+      },
+      "owner_label": "Simulated analyst",
+      "request_text": "For 2026-11-01 through 2027-10-31, provide Beneficial ownership and customer group confirmation. Demonstrate that the two new paying customers are not under common control.",
+      "requirements": [
+        {
+          "key": "independence",
+          "label": "independence",
+          "min_reliability": 3,
+          "require_independent": false
+        }
+      ],
+      "review_status": "approved",
+      "workflow_status": "open"
+    },
+    {
+      "canonical_key": "nb.execution_b",
+      "claim_id": "nb_claim_h1",
+      "deal_id": "deal_nb",
+      "duplicate_of": null,
+      "entity_version": 1,
+      "financial_driver": "revenue_quality",
+      "id": "nb_q_execution_b",
+      "issue": "Birch acceptance and first cash",
+      "materiality": {
+        "basis": "analyst_rubric",
+        "denominator_minor": null,
+        "exposure_minor": null,
+        "rationale": "Explicit synthetic analyst materiality on 0-5 scale; no monetary valuation or calibrated utility.",
+        "score": 4,
+        "source_span_ids": []
+      },
+      "obtainability": {
+        "basis": "analyst_estimate",
+        "days": null,
+        "external_cost_minor": null,
+        "rationale": "Synthetic analyst estimate on 0-5 scale; time and cost not empirically measured.",
+        "score": 3
+      },
+      "owner_label": "Simulated analyst",
+      "request_text": "For 2026-11-01 through 2027-10-31, provide Birch acceptance certificate and matched bank remittance. Match completed benchmarks and the first payment to the Birch contract and invoice.",
+      "requirements": [
+        {
+          "key": "accept_b",
+          "label": "accept b",
+          "min_reliability": 3,
+          "require_independent": false
+        },
+        {
+          "key": "cash_b",
+          "label": "cash b",
+          "min_reliability": 3,
+          "require_independent": false
+        }
+      ],
+      "review_status": "approved",
+      "workflow_status": "open"
+    },
+    {
+      "canonical_key": "nb.count",
+      "claim_id": "nb_claim_h3",
+      "deal_id": "deal_nb",
+      "duplicate_of": null,
+      "entity_version": 1,
+      "financial_driver": "revenue_quality",
+      "id": "nb_q_count",
+      "issue": "Corrected initial customer classification",
+      "materiality": {
+        "basis": "analyst_rubric",
+        "denominator_minor": null,
+        "exposure_minor": null,
+        "rationale": "Explicit synthetic analyst materiality on 0-5 scale; no monetary valuation or calibrated utility.",
+        "score": 4,
+        "source_span_ids": []
+      },
+      "obtainability": {
+        "basis": "analyst_estimate",
+        "days": null,
+        "external_cost_minor": null,
+        "rationale": "Synthetic analyst estimate on 0-5 scale; time and cost not empirically measured.",
+        "score": 2
+      },
+      "owner_label": "Simulated analyst",
+      "request_text": "For customer classification as of 2026-11-03, provide Dated customer taxonomy bridge. Reconcile paying customers, PoCs and unsigned prospects across CIM and CRM on 2026-11-03.",
+      "requirements": [
+        {
+          "key": "count",
+          "label": "count",
+          "min_reliability": 3,
+          "require_independent": false
+        }
+      ],
+      "review_status": "approved",
+      "workflow_status": "open"
+    },
+    {
+      "canonical_key": "nb.arr",
+      "claim_id": "nb_claim_h3",
+      "deal_id": "deal_nb",
+      "duplicate_of": null,
+      "entity_version": 1,
+      "financial_driver": "revenue_quality",
+      "id": "nb_q_arr",
+      "issue": "Committed ARR reconciliation",
+      "materiality": {
+        "basis": "analyst_rubric",
+        "denominator_minor": null,
+        "exposure_minor": null,
+        "rationale": "Explicit synthetic analyst materiality on 0-5 scale; no monetary valuation or calibrated utility.",
+        "score": 3,
+        "source_span_ids": []
+      },
+      "obtainability": {
+        "basis": "analyst_estimate",
+        "days": null,
+        "external_cost_minor": null,
+        "rationale": "Synthetic analyst estimate on 0-5 scale; time and cost not empirically measured.",
+        "score": 4
+      },
+      "owner_label": "Simulated analyst",
+      "request_text": "For signed recurring obligations as of 2026-11-03, provide Signed contract ARR reconciliation. Reconcile USD 1,800,000 presented ARR to signed recurring obligations as of 2026-11-03; exclude unsigned pipeline.",
+      "requirements": [
+        {
+          "key": "arr",
+          "label": "arr",
+          "min_reliability": 3,
+          "require_independent": false
+        }
+      ],
+      "review_status": "approved",
+      "workflow_status": "open"
+    },
+    {
+      "canonical_key": "nb.capacity",
+      "claim_id": "nb_claim_h3",
+      "deal_id": "deal_nb",
+      "duplicate_of": null,
+      "entity_version": 1,
+      "financial_driver": "revenue_quality",
+      "id": "nb_q_capacity",
+      "issue": "Deployable growth forecast",
+      "materiality": {
+        "basis": "analyst_rubric",
+        "denominator_minor": null,
+        "exposure_minor": null,
+        "rationale": "Explicit synthetic analyst materiality on 0-5 scale; no monetary valuation or calibrated utility.",
+        "score": 4,
+        "source_span_ids": []
+      },
+      "obtainability": {
+        "basis": "analyst_estimate",
+        "days": null,
+        "external_cost_minor": null,
+        "rationale": "Synthetic analyst estimate on 0-5 scale; time and cost not empirically measured.",
+        "score": 1
+      },
+      "owner_label": "Simulated analyst",
+      "request_text": "For calendar FY2027, provide Signed hiring or outsourcing plan and deployment model. Reconcile eight planned deployments to two squads at two deployments each, or revise forecast to supported capacity.",
+      "requirements": [
+        {
+          "key": "capacity",
+          "label": "capacity",
+          "min_reliability": 3,
+          "require_independent": false
+        }
+      ],
+      "review_status": "approved",
+      "workflow_status": "open"
+    },
+    {
+      "canonical_key": "nb.margin_b",
+      "claim_id": "nb_claim_h2",
+      "deal_id": "deal_nb",
+      "duplicate_of": null,
+      "entity_version": 1,
+      "financial_driver": "unit_economics",
+      "id": "nb_q_margin_b",
+      "issue": "Measured Birch contribution",
+      "materiality": {
+        "basis": "analyst_rubric",
+        "denominator_minor": null,
+        "exposure_minor": null,
+        "rationale": "Explicit synthetic analyst materiality on 0-5 scale; no monetary valuation or calibrated utility.",
+        "score": 3,
+        "source_span_ids": []
+      },
+      "obtainability": {
+        "basis": "analyst_estimate",
+        "days": null,
+        "external_cost_minor": null,
+        "rationale": "Synthetic analyst estimate on 0-5 scale; time and cost not empirically measured.",
+        "score": 3
+      },
+      "owner_label": "Simulated analyst",
+      "request_text": "For Birch first contract year beginning 2026-11-22, provide Birch measured workload and complete cost schedule. Confirm positive recurring contribution from measured live costs, not planned margins.",
+      "requirements": [
+        {
+          "key": "margin_b",
+          "label": "margin b",
+          "min_reliability": 3,
+          "require_independent": false
+        }
+      ],
+      "review_status": "approved",
+      "workflow_status": "open"
+    },
+    {
+      "canonical_key": "nb.revenue",
+      "claim_id": "nb_claim_h3",
+      "deal_id": "deal_nb",
+      "duplicate_of": null,
+      "entity_version": 1,
+      "financial_driver": "revenue_quality",
+      "id": "nb_q_revenue",
+      "issue": "Recognized revenue to ledger",
+      "materiality": {
+        "basis": "analyst_rubric",
+        "denominator_minor": null,
+        "exposure_minor": null,
+        "rationale": "Explicit synthetic analyst materiality on 0-5 scale; no monetary valuation or calibrated utility.",
+        "score": 2,
+        "source_span_ids": []
+      },
+      "obtainability": {
+        "basis": "analyst_estimate",
+        "days": null,
+        "external_cost_minor": null,
+        "rationale": "Synthetic analyst estimate on 0-5 scale; time and cost not empirically measured.",
+        "score": 5
+      },
+      "owner_label": "Simulated analyst",
+      "request_text": "For calendar FY2025, provide Revenue ledger and invoice recognition bridge. Tie FY2025 customer recognized revenue to USD 1,200,000; distinguish invoice amount, cash and contract value.",
+      "requirements": [
+        {
+          "key": "revenue",
+          "label": "revenue",
+          "min_reliability": 3,
+          "require_independent": false
+        }
+      ],
+      "review_status": "approved",
+      "workflow_status": "open"
+    },
+    {
+      "canonical_key": "nb.costs",
+      "claim_id": "nb_claim_h2",
+      "deal_id": "deal_nb",
+      "duplicate_of": null,
+      "entity_version": 1,
+      "financial_driver": "unit_economics",
+      "id": "nb_q_costs",
+      "issue": "Complete cost category coverage",
+      "materiality": {
+        "basis": "analyst_rubric",
+        "denominator_minor": null,
+        "exposure_minor": null,
+        "rationale": "Explicit synthetic analyst materiality on 0-5 scale; no monetary valuation or calibrated utility.",
+        "score": 3,
+        "source_span_ids": []
+      },
+      "obtainability": {
+        "basis": "analyst_estimate",
+        "days": null,
+        "external_cost_minor": null,
+        "rationale": "Synthetic analyst estimate on 0-5 scale; time and cost not empirically measured.",
+        "score": 2
+      },
+      "owner_label": "Simulated analyst",
+      "request_text": "For first contract years beginning in November or December 2026, provide Complete customer cost category schedule. Include implementation labor, cloud, inference and recurring support; distinguish coverage from independent verification.",
+      "requirements": [
+        {
+          "key": "costs",
+          "label": "costs",
+          "min_reliability": 3,
+          "require_independent": false
+        }
+      ],
+      "review_status": "approved",
+      "workflow_status": "open"
+    },
+    {
+      "canonical_key": "nb.balance",
+      "claim_id": "nb_claim_h3",
+      "deal_id": "deal_nb",
+      "duplicate_of": null,
+      "entity_version": 1,
+      "financial_driver": "revenue_quality",
+      "id": "nb_q_balance",
+      "issue": "Aster outstanding collection",
+      "materiality": {
+        "basis": "analyst_rubric",
+        "denominator_minor": null,
+        "exposure_minor": null,
+        "rationale": "Explicit synthetic analyst materiality on 0-5 scale; no monetary valuation or calibrated utility.",
+        "score": 2,
+        "source_span_ids": []
+      },
+      "obtainability": {
+        "basis": "analyst_estimate",
+        "days": null,
+        "external_cost_minor": null,
+        "rationale": "Synthetic analyst estimate on 0-5 scale; time and cost not empirically measured.",
+        "score": 3
+      },
+      "owner_label": "Simulated analyst",
+      "request_text": "For INV-01 dated 2026-11-12 and subsequent receipts through 2027-10-31, provide Aster subsequent cash receipt and receivables aging. Resolve USD 30,000 remaining on INV-01 with a matched receipt or a documented collectible balance assessment.",
+      "requirements": [
+        {
+          "key": "balance",
+          "label": "balance",
+          "min_reliability": 3,
+          "require_independent": false
+        }
+      ],
+      "review_status": "approved",
+      "workflow_status": "open"
+    }
+  ],
+  "deal": {
+    "as_of": "2026-11-03",
+    "business_model": "Enterprise AI subscription and implementation services",
+    "currency": "USD",
+    "entity_version": 1,
+    "id": "deal_nb",
+    "name": "Northstar Analytics",
+    "synthetic": true,
+    "thesis_ids": [
+      "nb_thesis"
+    ]
+  },
+  "documents": [
+    {
+      "asset_status": "file_verified",
+      "created_at": "2026-11-03T00:00:00Z",
+      "deal_id": "deal_nb",
+      "document_version": 1,
+      "entity_version": 1,
+      "file_sha256": "565cb6fc40802ea448753c8e2c3b89968cb80e8039e71d74c9c7fa1da7fc582e",
+      "filename": "nb_doc_cim.docx",
+      "format": "docx",
+      "id": "nb_doc_cim",
+      "origin_key": "nb_doc_cim",
+      "parse_status": "parsed",
+      "parser_version": "orion-native-1.0.0",
+      "source_origin": "company"
+    },
+    {
+      "asset_status": "file_verified",
+      "created_at": "2026-11-03T00:00:00Z",
+      "deal_id": "deal_nb",
+      "document_version": 1,
+      "entity_version": 1,
+      "file_sha256": "880bfac836384deb79caddf280071f0d7bc5d7984986939ed05280b945481853",
+      "filename": "nb_doc_financial.docx",
+      "format": "docx",
+      "id": "nb_doc_financial",
+      "origin_key": "nb_doc_financial",
+      "parse_status": "parsed",
+      "parser_version": "orion-native-1.0.0",
+      "source_origin": "company"
+    },
+    {
+      "asset_status": "file_verified",
+      "created_at": "2026-11-03T00:00:00Z",
+      "deal_id": "deal_nb",
+      "document_version": 1,
+      "entity_version": 1,
+      "file_sha256": "f16ff6e72355e983e361eade582007ef5f2e4ca54e4f95ad5cc3b4fe881a057a",
+      "filename": "nb_doc_plan.docx",
+      "format": "docx",
+      "id": "nb_doc_plan",
+      "origin_key": "nb_doc_plan",
+      "parse_status": "parsed",
+      "parser_version": "orion-native-1.0.0",
+      "source_origin": "company"
+    },
+    {
+      "asset_status": "file_verified",
+      "created_at": "2026-11-03T00:00:00Z",
+      "deal_id": "deal_nb",
+      "document_version": 1,
+      "entity_version": 1,
+      "file_sha256": "88e7962471b9a6bc7fd9fc24f3b3d3f7d7d9bc656e0a02bd86527889273cfc25",
+      "filename": "nb_doc_crm.docx",
+      "format": "docx",
+      "id": "nb_doc_crm",
+      "origin_key": "nb_doc_crm",
+      "parse_status": "parsed",
+      "parser_version": "orion-native-1.0.0",
+      "source_origin": "company"
+    }
+  ],
+  "evidence": [
+    {
+      "claim_id": "nb_claim_h1",
+      "created_at": "2026-11-03T00:00:00Z",
+      "criterion_keys": [],
+      "deal_id": "deal_nb",
+      "entity_version": 1,
+      "id": "nb_ev_cim_traction",
+      "independent_check_reference": null,
+      "lifecycle": "active",
+      "origin_key": "nb_management_crm",
+      "provenance": "company_reported",
+      "reliability_rationale": "Scenario author assessed documentary specificity; simulated counterparties are not actual independent authentication.",
+      "review_status": "approved",
+      "source_reliability": 2,
+      "source_span_ids": [
+        "span_nb_doc_cim_be80e6daae111bf09f2c"
+      ],
+      "stance": "context",
+      "verification_level": "document_only"
+    },
+    {
+      "claim_id": "nb_claim_h2",
+      "created_at": "2026-11-03T00:00:00Z",
+      "criterion_keys": [],
+      "deal_id": "deal_nb",
+      "entity_version": 1,
+      "id": "nb_ev_cim_margin",
+      "independent_check_reference": null,
+      "lifecycle": "active",
+      "origin_key": "nb_management_margin",
+      "provenance": "company_reported",
+      "reliability_rationale": "Scenario author assessed documentary specificity; simulated counterparties are not actual independent authentication.",
+      "review_status": "approved",
+      "source_reliability": 2,
+      "source_span_ids": [
+        "span_nb_doc_cim_eb762df260cc83832677"
+      ],
+      "stance": "context",
+      "verification_level": "document_only"
+    },
+    {
+      "claim_id": "nb_claim_h2",
+      "created_at": "2026-11-03T00:00:00Z",
+      "criterion_keys": [
+        "margin_a"
+      ],
+      "deal_id": "deal_nb",
+      "entity_version": 1,
+      "id": "nb_ev_cim_aster",
+      "independent_check_reference": null,
+      "lifecycle": "active",
+      "origin_key": "nb_management_aster_cost",
+      "provenance": "company_reported",
+      "reliability_rationale": "Scenario author assessed documentary specificity; simulated counterparties are not actual independent authentication.",
+      "review_status": "approved",
+      "source_reliability": 2,
+      "source_span_ids": [
+        "span_nb_doc_cim_656a34fbdd98493ccc4b"
+      ],
+      "stance": "supports",
+      "verification_level": "document_only"
+    },
+    {
+      "claim_id": "nb_claim_h3",
+      "created_at": "2026-11-03T00:00:00Z",
+      "criterion_keys": [],
+      "deal_id": "deal_nb",
+      "entity_version": 1,
+      "id": "nb_ev_cim_strength",
+      "independent_check_reference": null,
+      "lifecycle": "active",
+      "origin_key": "nb_management_history",
+      "provenance": "company_reported",
+      "reliability_rationale": "Scenario author assessed documentary specificity; simulated counterparties are not actual independent authentication.",
+      "review_status": "approved",
+      "source_reliability": 2,
+      "source_span_ids": [
+        "span_nb_doc_cim_015433b83837c6a2009c"
+      ],
+      "stance": "context",
+      "verification_level": "document_only"
+    },
+    {
+      "claim_id": "nb_claim_h3",
+      "created_at": "2026-11-03T00:00:00Z",
+      "criterion_keys": [],
+      "deal_id": "deal_nb",
+      "entity_version": 1,
+      "id": "nb_ev_fin_revenue",
+      "independent_check_reference": null,
+      "lifecycle": "active",
+      "origin_key": "nb_fy25_accounting",
+      "provenance": "company_reported",
+      "reliability_rationale": "Scenario author assessed documentary specificity; simulated counterparties are not actual independent authentication.",
+      "review_status": "approved",
+      "source_reliability": 3,
+      "source_span_ids": [
+        "span_nb_doc_financial_71a48082d7803c7ce150"
+      ],
+      "stance": "context",
+      "verification_level": "document_only"
+    },
+    {
+      "claim_id": "nb_claim_h2",
+      "created_at": "2026-11-03T00:00:00Z",
+      "criterion_keys": [],
+      "deal_id": "deal_nb",
+      "entity_version": 1,
+      "id": "nb_ev_fin_income",
+      "independent_check_reference": null,
+      "lifecycle": "active",
+      "origin_key": "nb_fy25_accounting",
+      "provenance": "company_reported",
+      "reliability_rationale": "Scenario author assessed documentary specificity; simulated counterparties are not actual independent authentication.",
+      "review_status": "approved",
+      "source_reliability": 3,
+      "source_span_ids": [
+        "span_nb_doc_financial_04e1ca3af6b2d935a3e9"
+      ],
+      "stance": "context",
+      "verification_level": "document_only"
+    },
+    {
+      "claim_id": "nb_claim_h3",
+      "created_at": "2026-11-03T00:00:00Z",
+      "criterion_keys": [],
+      "deal_id": "deal_nb",
+      "entity_version": 1,
+      "id": "nb_ev_fin_cash",
+      "independent_check_reference": null,
+      "lifecycle": "active",
+      "origin_key": "nb_fy25_accounting",
+      "provenance": "company_reported",
+      "reliability_rationale": "Scenario author assessed documentary specificity; simulated counterparties are not actual independent authentication.",
+      "review_status": "approved",
+      "source_reliability": 3,
+      "source_span_ids": [
+        "span_nb_doc_financial_aefa091f804bd3d76d73"
+      ],
+      "stance": "context",
+      "verification_level": "document_only"
+    },
+    {
+      "claim_id": "nb_claim_h3",
+      "created_at": "2026-11-03T00:00:00Z",
+      "criterion_keys": [],
+      "deal_id": "deal_nb",
+      "entity_version": 1,
+      "id": "nb_ev_forecast",
+      "independent_check_reference": null,
+      "lifecycle": "active",
+      "origin_key": "nb_forecast_v1",
+      "provenance": "company_reported",
+      "reliability_rationale": "Scenario author assessed documentary specificity; simulated counterparties are not actual independent authentication.",
+      "review_status": "approved",
+      "source_reliability": 2,
+      "source_span_ids": [
+        "span_nb_doc_plan_246f26ebc01c3f1d9fd9"
+      ],
+      "stance": "context",
+      "verification_level": "document_only"
+    },
+    {
+      "claim_id": "nb_claim_h3",
+      "created_at": "2026-11-03T00:00:00Z",
+      "criterion_keys": [
+        "capacity"
+      ],
+      "deal_id": "deal_nb",
+      "entity_version": 1,
+      "id": "nb_ev_capacity",
+      "independent_check_reference": null,
+      "lifecycle": "active",
+      "origin_key": "nb_capacity_budget",
+      "provenance": "company_reported",
+      "reliability_rationale": "Scenario author assessed documentary specificity; simulated counterparties are not actual independent authentication.",
+      "review_status": "approved",
+      "source_reliability": 3,
+      "source_span_ids": [
+        "span_nb_doc_plan_4ac96b659af9f8fdb0a7"
+      ],
+      "stance": "refutes",
+      "verification_level": "document_only"
+    },
+    {
+      "claim_id": "nb_claim_h3",
+      "created_at": "2026-11-03T00:00:00Z",
+      "criterion_keys": [
+        "count"
+      ],
+      "deal_id": "deal_nb",
+      "entity_version": 1,
+      "id": "nb_ev_taxonomy",
+      "independent_check_reference": null,
+      "lifecycle": "active",
+      "origin_key": "nb_management_crm",
+      "provenance": "company_reported",
+      "reliability_rationale": "Scenario author assessed documentary specificity; simulated counterparties are not actual independent authentication.",
+      "review_status": "approved",
+      "source_reliability": 3,
+      "source_span_ids": [
+        "span_nb_doc_crm_e7401740cca2729eb6ad"
+      ],
+      "stance": "refutes",
+      "verification_level": "document_only"
+    },
+    {
+      "claim_id": "nb_claim_h3",
+      "created_at": "2026-11-03T00:00:00Z",
+      "criterion_keys": [
+        "arr"
+      ],
+      "deal_id": "deal_nb",
+      "entity_version": 1,
+      "id": "nb_ev_arr",
+      "independent_check_reference": null,
+      "lifecycle": "active",
+      "origin_key": "nb_management_crm",
+      "provenance": "company_reported",
+      "reliability_rationale": "Scenario author assessed documentary specificity; simulated counterparties are not actual independent authentication.",
+      "review_status": "approved",
+      "source_reliability": 3,
+      "source_span_ids": [
+        "span_nb_doc_crm_4bbfbc93ee01208af15b"
+      ],
+      "stance": "refutes",
+      "verification_level": "document_only"
+    },
+    {
+      "claim_id": "nb_claim_h1",
+      "created_at": "2026-11-03T00:00:00Z",
+      "criterion_keys": [],
+      "deal_id": "deal_nb",
+      "entity_version": 1,
+      "id": "nb_ev_qa_repeat",
+      "independent_check_reference": null,
+      "lifecycle": "active",
+      "origin_key": "nb_management_crm",
+      "provenance": "company_reported",
+      "reliability_rationale": "Scenario author assessed documentary specificity; simulated counterparties are not actual independent authentication.",
+      "review_status": "approved",
+      "source_reliability": 2,
+      "source_span_ids": [
+        "span_nb_doc_crm_fb573c86c4b052803e21"
+      ],
+      "stance": "context",
+      "verification_level": "document_only"
+    },
+    {
+      "claim_id": "nb_claim_h2",
+      "created_at": "2026-11-03T00:00:00Z",
+      "criterion_keys": [],
+      "deal_id": "deal_nb",
+      "entity_version": 1,
+      "id": "nb_ev_qa_cost",
+      "independent_check_reference": null,
+      "lifecycle": "active",
+      "origin_key": "nb_management_margin",
+      "provenance": "company_reported",
+      "reliability_rationale": "Scenario author assessed documentary specificity; simulated counterparties are not actual independent authentication.",
+      "review_status": "approved",
+      "source_reliability": 3,
+      "source_span_ids": [
+        "span_nb_doc_crm_38902aaf113786712c55"
+      ],
+      "stance": "context",
+      "verification_level": "document_only"
+    }
+  ],
+  "evidence_relations": [],
+  "head_snapshot_id": "nb_snapshot_t0",
+  "kind": "deal_state",
+  "mode": "demo",
+  "ranking_snapshots": [
+    {
+      "created_at": "2026-11-03T00:00:00Z",
+      "deal_id": "deal_nb",
+      "entity_version": 1,
+      "id": "nb_snapshot_t0",
+      "input_digest": "57e0e37f454317e1a53145471a6fb2017181101163f2e949c8d8e3cb34be8fd7",
+      "rows": [
+        {
+          "gap": 5.0,
+          "materiality": 5,
+          "obtainability": 5,
+          "provisional": false,
+          "question_id": "nb_q_contract_a",
+          "rank": 1,
+          "reason_codes": [
+            "EVIDENCE_GAP"
+          ],
+          "score": 100.0
+        },
+        {
+          "gap": 5.0,
+          "materiality": 5,
+          "obtainability": 4,
+          "provisional": false,
+          "question_id": "nb_q_contract_b",
+          "rank": 2,
+          "reason_codes": [
+            "EVIDENCE_GAP"
+          ],
+          "score": 97.0
+        },
+        {
+          "gap": 5.0,
+          "materiality": 5,
+          "obtainability": 3,
+          "provisional": false,
+          "question_id": "nb_q_execution_a",
+          "rank": 3,
+          "reason_codes": [
+            "EVIDENCE_GAP"
+          ],
+          "score": 94.0
+        },
+        {
+          "gap": 5.0,
+          "materiality": 5,
+          "obtainability": 2,
+          "provisional": false,
+          "question_id": "nb_q_margin_a",
+          "rank": 4,
+          "reason_codes": [
+            "EVIDENCE_GAP"
+          ],
+          "score": 91.0
+        },
+        {
+          "gap": 5.0,
+          "materiality": 4,
+          "obtainability": 4,
+          "provisional": false,
+          "question_id": "nb_q_independence",
+          "rank": 5,
+          "reason_codes": [
+            "EVIDENCE_GAP"
+          ],
+          "score": 89.0
+        },
+        {
+          "gap": 5.0,
+          "materiality": 4,
+          "obtainability": 3,
+          "provisional": false,
+          "question_id": "nb_q_execution_b",
+          "rank": 6,
+          "reason_codes": [
+            "EVIDENCE_GAP"
+          ],
+          "score": 86.0
+        },
+        {
+          "gap": 5.0,
+          "materiality": 4,
+          "obtainability": 2,
+          "provisional": false,
+          "question_id": "nb_q_count",
+          "rank": 7,
+          "reason_codes": [
+            "UNRESOLVED_CONFLICT"
+          ],
+          "score": 83.0
+        },
+        {
+          "gap": 5.0,
+          "materiality": 3,
+          "obtainability": 4,
+          "provisional": false,
+          "question_id": "nb_q_arr",
+          "rank": 8,
+          "reason_codes": [
+            "UNRESOLVED_CONFLICT"
+          ],
+          "score": 81.0
+        },
+        {
+          "gap": 5.0,
+          "materiality": 4,
+          "obtainability": 1,
+          "provisional": false,
+          "question_id": "nb_q_capacity",
+          "rank": 9,
+          "reason_codes": [
+            "UNRESOLVED_CONFLICT"
+          ],
+          "score": 80.0
+        },
+        {
+          "gap": 5.0,
+          "materiality": 3,
+          "obtainability": 3,
+          "provisional": false,
+          "question_id": "nb_q_margin_b",
+          "rank": 10,
+          "reason_codes": [
+            "EVIDENCE_GAP"
+          ],
+          "score": 78.0
+        },
+        {
+          "gap": 5.0,
+          "materiality": 2,
+          "obtainability": 5,
+          "provisional": false,
+          "question_id": "nb_q_revenue",
+          "rank": 11,
+          "reason_codes": [
+            "EVIDENCE_GAP"
+          ],
+          "score": 76.0
+        },
+        {
+          "gap": 5.0,
+          "materiality": 3,
+          "obtainability": 2,
+          "provisional": false,
+          "question_id": "nb_q_costs",
+          "rank": 12,
+          "reason_codes": [
+            "EVIDENCE_GAP"
+          ],
+          "score": 75.0
+        },
+        {
+          "gap": 5.0,
+          "materiality": 2,
+          "obtainability": 3,
+          "provisional": false,
+          "question_id": "nb_q_balance",
+          "rank": 13,
+          "reason_codes": [
+            "EVIDENCE_GAP"
+          ],
+          "score": 70.0
+        }
+      ],
+      "scoring_version": "1.0.0",
+      "state_revision": 1,
+      "top3": [
+        "nb_q_contract_a",
+        "nb_q_contract_b",
+        "nb_q_execution_a"
+      ],
+      "trigger_event_id": null
+    }
+  ],
+  "source_spans": [
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_cim",
+      "document_version": 1,
+      "end": 39,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_cim_5f2cc06991b6b998e0f3",
+      "locator": {
+        "block_index": 0,
+        "heading_path": [],
+        "kind": "docx_paragraph",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml"
+      },
+      "locator_status": "validated",
+      "normalized_text": "Northstar Analytics Investment Overview",
+      "quote": "Northstar Analytics Investment Overview",
+      "start": 0,
+      "text_sha256": "05a02ad58f6705e3552da9c2b9d6efab428188dddb18272bff9b6c86f6e19144"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_cim",
+      "document_version": 1,
+      "end": 47,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_cim_2c72189e06818495f632",
+      "locator": {
+        "block_index": 1,
+        "heading_path": [],
+        "kind": "docx_paragraph",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml"
+      },
+      "locator_status": "validated",
+      "normalized_text": "SYNTHETIC | nb_doc_cim | 2026-11-03 | Version 1",
+      "quote": "SYNTHETIC | nb_doc_cim | 2026-11-03 | Version 1",
+      "start": 0,
+      "text_sha256": "b067e9caa14f1eeac7541df432d4df7a6b415e04f8ee161ced92968f24f2184c"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_cim",
+      "document_version": 1,
+      "end": 40,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_cim_5263b7f2008f288f2530",
+      "locator": {
+        "block_index": 2,
+        "heading_path": [],
+        "kind": "docx_paragraph",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml"
+      },
+      "locator_status": "validated",
+      "normalized_text": "Reporting period: FY2025 and FY2027 plan",
+      "quote": "Reporting period: FY2025 and FY2027 plan",
+      "start": 0,
+      "text_sha256": "3798b4d91139c8889add8f7b8248c57b573eb34d9b0fa77cef11dd6f5f9b5b1f"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_cim",
+      "document_version": 1,
+      "end": 155,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_cim_ad2b4384a2260afe5f5a",
+      "locator": {
+        "block_index": 3,
+        "heading_path": [],
+        "kind": "docx_paragraph",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml"
+      },
+      "locator_status": "validated",
+      "normalized_text": "Independent expanded research scenario NB version 3.0.0. This is not a continuation of legacy Northstar NS; contract, cash and customer assumptions differ.",
+      "quote": "Independent expanded research scenario NB version 3.0.0. This is not a continuation of legacy Northstar NS; contract, cash and customer assumptions differ.",
+      "start": 0,
+      "text_sha256": "9d225433a95c28903c8f68929f3ef8c4737d81ce8e4b713cf3816ad4ecea3f93"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_cim",
+      "document_version": 1,
+      "end": 217,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_cim_b92cdcbdbe95626824d4",
+      "locator": {
+        "block_index": 4,
+        "heading_path": [],
+        "kind": "docx_paragraph",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml"
+      },
+      "locator_status": "validated",
+      "normalized_text": "SYNTHETIC DATA. Fictional CIM for academic preliminary investment screening. All names, customers, amounts and documents are invented. This is management reporting, not an independently verified investment conclusion.",
+      "quote": "SYNTHETIC DATA. Fictional CIM for academic preliminary investment screening. All names, customers, amounts and documents are invented. This is management reporting, not an independently verified investment conclusion.",
+      "start": 0,
+      "text_sha256": "857dcae6564bf6b59876454035da5e3df2a4457ee1f25e28ad5a06cfa3a9bf3a"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_cim",
+      "document_version": 1,
+      "end": 180,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_cim_be80e6daae111bf09f2c",
+      "locator": {
+        "block_index": 5,
+        "heading_path": [],
+        "kind": "docx_paragraph",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml"
+      },
+      "locator_status": "validated",
+      "normalized_text": "Management reports four enterprise customers and committed annual recurring revenue of USD 1,800,000: Quartz USD 720,000, Vale USD 480,000, Aster USD 240,000 and Birch USD 360,000.",
+      "quote": "Management reports four enterprise customers and committed annual recurring revenue of USD 1,800,000: Quartz USD 720,000, Vale USD 480,000, Aster USD 240,000 and Birch USD 360,000.",
+      "start": 0,
+      "text_sha256": "a40e26e24c39310271d37087f4ca35ec6f34486fd1d700286cd1b9ff1af7e3db"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_cim",
+      "document_version": 1,
+      "end": 184,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_cim_eb762df260cc83832677",
+      "locator": {
+        "block_index": 6,
+        "heading_path": [],
+        "kind": "docx_paragraph",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml"
+      },
+      "locator_status": "validated",
+      "normalized_text": "FY2025 revenue was USD 1,200,000 and reported gross profit was USD 840,000, a 70% gross margin. The presentation includes only cloud hosting and routine support within cost of revenue.",
+      "quote": "FY2025 revenue was USD 1,200,000 and reported gross profit was USD 840,000, a 70% gross margin. The presentation includes only cloud hosting and routine support within cost of revenue.",
+      "start": 0,
+      "text_sha256": "8b45edf58eb760b11bf488d03033d4b49549286e015fdcb4dc12c0ae5fa33dd5"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_cim",
+      "document_version": 1,
+      "end": 231,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_cim_656a34fbdd98493ccc4b",
+      "locator": {
+        "block_index": 7,
+        "heading_path": [],
+        "kind": "docx_paragraph",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml"
+      },
+      "locator_status": "validated",
+      "normalized_text": "Management estimates Aster annual subscription revenue of USD 240,000 and annual delivery costs of USD 96,000, giving positive contribution of USD 144,000. Implementation effort and incremental inference usage have not been costed.",
+      "quote": "Management estimates Aster annual subscription revenue of USD 240,000 and annual delivery costs of USD 96,000, giving positive contribution of USD 144,000. Implementation effort and incremental inference usage have not been costed.",
+      "start": 0,
+      "text_sha256": "4c06a660098198dc9c7c7b7ce9a0baefcce5a2f807b05b4c5b3e80c8ef8b5581"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_cim",
+      "document_version": 1,
+      "end": 201,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_cim_015433b83837c6a2009c",
+      "locator": {
+        "block_index": 8,
+        "heading_path": [],
+        "kind": "docx_paragraph",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml"
+      },
+      "locator_status": "validated",
+      "normalized_text": "Quartz and Vale renewed their support subscriptions during FY2025. The delivery team retained the same four senior engineers throughout the year. Product use remains concentrated in document analytics.",
+      "quote": "Quartz and Vale renewed their support subscriptions during FY2025. The delivery team retained the same four senior engineers throughout the year. Product use remains concentrated in document analytics.",
+      "start": 0,
+      "text_sha256": "c23250ea9de2115cce7aebb11d410664776e76a951ef4252ea49e45f47ccf7ec"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_cim",
+      "document_version": 1,
+      "end": 197,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_cim_3e3c3f691b0ccdbfe82e",
+      "locator": {
+        "block_index": 9,
+        "heading_path": [],
+        "kind": "docx_paragraph",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml"
+      },
+      "locator_status": "validated",
+      "normalized_text": "No customer ownership certificates, source-level inference logs or reconciled customer contribution schedules are attached. Management expects two new paying enterprise deployments by October 2027.",
+      "quote": "No customer ownership certificates, source-level inference logs or reconciled customer contribution schedules are attached. Management expects two new paying enterprise deployments by October 2027.",
+      "start": 0,
+      "text_sha256": "d2874eba60332c12883d8a6c158731633b518ec5c26da387633f7f735918da3e"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_financial",
+      "document_version": 1,
+      "end": 42,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_financial_827ca7d4d113a5edf9f2",
+      "locator": {
+        "block_index": 0,
+        "heading_path": [],
+        "kind": "docx_paragraph",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml"
+      },
+      "locator_status": "validated",
+      "normalized_text": "Northstar Historical Financial Performance",
+      "quote": "Northstar Historical Financial Performance",
+      "start": 0,
+      "text_sha256": "d75482045bdcb52fff465f310268511cb53876b6b1a1c4b92ddfc39c86704fc9"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_financial",
+      "document_version": 1,
+      "end": 53,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_financial_f66a2deca77b18da1a80",
+      "locator": {
+        "block_index": 1,
+        "heading_path": [],
+        "kind": "docx_paragraph",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml"
+      },
+      "locator_status": "validated",
+      "normalized_text": "SYNTHETIC | nb_doc_financial | 2026-11-03 | Version 1",
+      "quote": "SYNTHETIC | nb_doc_financial | 2026-11-03 | Version 1",
+      "start": 0,
+      "text_sha256": "07595d8daf373477f0e27766894d61dcb30a45a842fbd22d3e51accf3d333adc"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_financial",
+      "document_version": 1,
+      "end": 35,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_financial_6232a729734540881634",
+      "locator": {
+        "block_index": 2,
+        "heading_path": [],
+        "kind": "docx_paragraph",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml"
+      },
+      "locator_status": "validated",
+      "normalized_text": "Reporting period: FY2024 and FY2025",
+      "quote": "Reporting period: FY2024 and FY2025",
+      "start": 0,
+      "text_sha256": "3fed90e994a61c3800a6de3d320abf3f9b72ad197d7180f7126c41ad2dfe6361"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_financial",
+      "document_version": 1,
+      "end": 155,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_financial_60bc4ddfa061b6e043a7",
+      "locator": {
+        "block_index": 3,
+        "heading_path": [],
+        "kind": "docx_paragraph",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml"
+      },
+      "locator_status": "validated",
+      "normalized_text": "Independent expanded research scenario NB version 3.0.0. This is not a continuation of legacy Northstar NS; contract, cash and customer assumptions differ.",
+      "quote": "Independent expanded research scenario NB version 3.0.0. This is not a continuation of legacy Northstar NS; contract, cash and customer assumptions differ.",
+      "start": 0,
+      "text_sha256": "9d225433a95c28903c8f68929f3ef8c4737d81ce8e4b713cf3816ad4ecea3f93"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_financial",
+      "document_version": 1,
+      "end": 363,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_financial_ca0f9686a56bb8b44557",
+      "locator": {
+        "block_index": 4,
+        "heading_path": [],
+        "kind": "docx_paragraph",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml"
+      },
+      "locator_status": "validated",
+      "normalized_text": "SYNTHETIC DATA. Management financial statements in whole USD. FY2025 revenue recognition is distinct from invoicing and cash receipts. No audit or independent verification is represented. FY2025 implementation payroll is recorded in operating expenses, so the gross-margin classification omits those delivery costs without omitting them from total company EBITDA.",
+      "quote": "SYNTHETIC DATA. Management financial statements in whole USD. FY2025 revenue recognition is distinct from invoicing and cash receipts. No audit or independent verification is represented. FY2025 implementation payroll is recorded in operating expenses, so the gross-margin classification omits those delivery costs without omitting them from total company EBITDA.",
+      "start": 0,
+      "text_sha256": "5740f40b1b2dace5e33e617f2efb8a6a0fa06e3925c3c06ec6d5329006a45eb3"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_financial",
+      "document_version": 1,
+      "end": 247,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_financial_04e1ca3af6b2d935a3e9",
+      "locator": {
+        "block_index": 5,
+        "heading_path": [],
+        "kind": "docx_paragraph",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml"
+      },
+      "locator_status": "validated",
+      "normalized_text": "FY2025 revenue USD 1,200,000 less reported cost of revenue USD 360,000 and operating expense excluding depreciation USD 720,000 equals EBITDA USD 120,000. Depreciation USD 40,000, interest USD 20,000 and tax USD 10,000 yield net income USD 50,000.",
+      "quote": "FY2025 revenue USD 1,200,000 less reported cost of revenue USD 360,000 and operating expense excluding depreciation USD 720,000 equals EBITDA USD 120,000. Depreciation USD 40,000, interest USD 20,000 and tax USD 10,000 yield net income USD 50,000.",
+      "start": 0,
+      "text_sha256": "64edd2795ce7d95cb89d50be7e921a961465be856cdca90df5cf4f5527b74969"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_financial",
+      "document_version": 1,
+      "end": 189,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_financial_71a48082d7803c7ce150",
+      "locator": {
+        "block_index": 6,
+        "heading_path": [],
+        "kind": "docx_paragraph",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml"
+      },
+      "locator_status": "validated",
+      "normalized_text": "FY2025 recognized revenue is Quartz USD 720,000 plus Vale USD 480,000. Aster and Birch contributed zero recognized revenue in FY2025. Contract headline values and forecast ARR are excluded.",
+      "quote": "FY2025 recognized revenue is Quartz USD 720,000 plus Vale USD 480,000. Aster and Birch contributed zero recognized revenue in FY2025. Contract headline values and forecast ARR are excluded.",
+      "start": 0,
+      "text_sha256": "a8e6b863a817c5a3f5a681023638f0a405a0e578b0efc25cb5013500d57b055b"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_financial",
+      "document_version": 1,
+      "end": 191,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_financial_aefa091f804bd3d76d73",
+      "locator": {
+        "block_index": 7,
+        "heading_path": [],
+        "kind": "docx_paragraph",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml"
+      },
+      "locator_status": "validated",
+      "normalized_text": "FY2025 cash increased by USD 150,000: cash from operations USD 110,000, CAPEX USD 80,000, new debt USD 50,000 and new equity USD 70,000. Opening cash USD 300,000 and closing cash USD 450,000.",
+      "quote": "FY2025 cash increased by USD 150,000: cash from operations USD 110,000, CAPEX USD 80,000, new debt USD 50,000 and new equity USD 70,000. Opening cash USD 300,000 and closing cash USD 450,000.",
+      "start": 0,
+      "text_sha256": "b5e044fc5a9169066bb4c043f68e382bd34ab3f483de8cefc3cc86c084664d09"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_financial",
+      "document_version": 1,
+      "end": 210,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_financial_7d49622584d8e3389d66",
+      "locator": {
+        "block_index": 8,
+        "heading_path": [],
+        "kind": "docx_paragraph",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml"
+      },
+      "locator_status": "validated",
+      "normalized_text": "Operating NWC is receivables plus prepaid operating costs less trade payables, accrued operating costs and deferred revenue: FY2024 negative USD 100,000; FY2025 negative USD 120,000. Cash and debt are excluded.",
+      "quote": "Operating NWC is receivables plus prepaid operating costs less trade payables, accrued operating costs and deferred revenue: FY2024 negative USD 100,000; FY2025 negative USD 120,000. Cash and debt are excluded.",
+      "start": 0,
+      "text_sha256": "22911a84f54d0cae82248e8c026a4430727ce70e822164f933144eb9b4da834c"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_financial",
+      "document_version": 1,
+      "end": 10,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_financial_a75117c2cb49b72d17fd",
+      "locator": {
+        "column": 0,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 0,
+        "table_index": 0
+      },
+      "locator_status": "validated",
+      "normalized_text": "Metric USD",
+      "quote": "Metric USD",
+      "start": 0,
+      "text_sha256": "fe1f784739c1793dd434c3009aaa39f9f1451becf6ce03a1265500e9c86dedaa"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_financial",
+      "document_version": 1,
+      "end": 6,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_financial_d4e6ac9987872ec85880",
+      "locator": {
+        "column": 1,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 0,
+        "table_index": 0
+      },
+      "locator_status": "validated",
+      "normalized_text": "FY2024",
+      "quote": "FY2024",
+      "start": 0,
+      "text_sha256": "ee4dccafc3a6af347b4e32fe8468657f8d0f4f4ea1e758229e751dcf6bdf4cff"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_financial",
+      "document_version": 1,
+      "end": 6,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_financial_4a1d4476ae6b474df4cb",
+      "locator": {
+        "column": 2,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 0,
+        "table_index": 0
+      },
+      "locator_status": "validated",
+      "normalized_text": "FY2025",
+      "quote": "FY2025",
+      "start": 0,
+      "text_sha256": "6d3bcb4900a2e15a723c382e24be2e9c86495ef29ea2fd2ee8edcaf562dc9f95"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_financial",
+      "document_version": 1,
+      "end": 7,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_financial_417844a1725a7e5d139f",
+      "locator": {
+        "column": 0,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 1,
+        "table_index": 0
+      },
+      "locator_status": "validated",
+      "normalized_text": "Revenue",
+      "quote": "Revenue",
+      "start": 0,
+      "text_sha256": "c4b7330bd91e0c971041618056cb7201fd3f384e5db390bc89230d70712d7a47"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_financial",
+      "document_version": 1,
+      "end": 6,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_financial_a2fe56ae9da115694ec3",
+      "locator": {
+        "column": 1,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 1,
+        "table_index": 0
+      },
+      "locator_status": "validated",
+      "normalized_text": "800000",
+      "quote": "800000",
+      "start": 0,
+      "text_sha256": "06c117bb812639e8f80c10b64953df8b099fd534b2fcae74f49f735b93fedba4"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_financial",
+      "document_version": 1,
+      "end": 7,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_financial_dd0e1ef16aaa7c13b5d1",
+      "locator": {
+        "column": 2,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 1,
+        "table_index": 0
+      },
+      "locator_status": "validated",
+      "normalized_text": "1200000",
+      "quote": "1200000",
+      "start": 0,
+      "text_sha256": "0d9760fbd449ca8e13c614acdd941e77e4c0e795831b641763c361934463ade4"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_financial",
+      "document_version": 1,
+      "end": 15,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_financial_39fbefee5e2246ac14d9",
+      "locator": {
+        "column": 0,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 2,
+        "table_index": 0
+      },
+      "locator_status": "validated",
+      "normalized_text": "Cost of revenue",
+      "quote": "Cost of revenue",
+      "start": 0,
+      "text_sha256": "a985511667237df9a525878513b938494c87f492fa1c22cea9dea6cf2e67ce93"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_financial",
+      "document_version": 1,
+      "end": 6,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_financial_5ac661c4221e56cef4a3",
+      "locator": {
+        "column": 1,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 2,
+        "table_index": 0
+      },
+      "locator_status": "validated",
+      "normalized_text": "280000",
+      "quote": "280000",
+      "start": 0,
+      "text_sha256": "50559b69cf25ccbe80b064214a62b303d3d1b4e4ecf95fea492edb91f181ecbc"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_financial",
+      "document_version": 1,
+      "end": 6,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_financial_c1b33290b7af31ca234c",
+      "locator": {
+        "column": 2,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 2,
+        "table_index": 0
+      },
+      "locator_status": "validated",
+      "normalized_text": "360000",
+      "quote": "360000",
+      "start": 0,
+      "text_sha256": "e6ba348d1464969bb4210f401b255b6de57b81fddc375b944ac4fe2fb698bc95"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_financial",
+      "document_version": 1,
+      "end": 33,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_financial_cb946372c468b6467da8",
+      "locator": {
+        "column": 0,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 3,
+        "table_index": 0
+      },
+      "locator_status": "validated",
+      "normalized_text": "Operating expense ex depreciation",
+      "quote": "Operating expense ex depreciation",
+      "start": 0,
+      "text_sha256": "b78288a726acfd9299b4aa67c5405cd4af22fe2445f5da1ff363495e62ae3bb1"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_financial",
+      "document_version": 1,
+      "end": 6,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_financial_a36e5c7d0cf2bc404bfe",
+      "locator": {
+        "column": 1,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 3,
+        "table_index": 0
+      },
+      "locator_status": "validated",
+      "normalized_text": "620000",
+      "quote": "620000",
+      "start": 0,
+      "text_sha256": "cb9d7114e7c61cfc8ed914cd5d5cb27077a6356d173a37a7c1d5b90fa6624fdd"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_financial",
+      "document_version": 1,
+      "end": 6,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_financial_96e415089db563771dcf",
+      "locator": {
+        "column": 2,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 3,
+        "table_index": 0
+      },
+      "locator_status": "validated",
+      "normalized_text": "720000",
+      "quote": "720000",
+      "start": 0,
+      "text_sha256": "82f17fe086067552dba3dc56b1933b0732ee7305c8a3709826f70b72ed9ce0c9"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_financial",
+      "document_version": 1,
+      "end": 6,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_financial_a65f8133203b99bb293b",
+      "locator": {
+        "column": 0,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 4,
+        "table_index": 0
+      },
+      "locator_status": "validated",
+      "normalized_text": "EBITDA",
+      "quote": "EBITDA",
+      "start": 0,
+      "text_sha256": "66392b44a6b5d8644512a64e02a8aab07df6f32b9313efcfeab95a184f1baeff"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_financial",
+      "document_version": 1,
+      "end": 7,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_financial_4b46bd766e657c9c9c6f",
+      "locator": {
+        "column": 1,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 4,
+        "table_index": 0
+      },
+      "locator_status": "validated",
+      "normalized_text": "-100000",
+      "quote": "-100000",
+      "start": 0,
+      "text_sha256": "5fde7e31a11ad74c39b5f5116b06313408bd93520d37b43249533bbaff5a966f"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_financial",
+      "document_version": 1,
+      "end": 6,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_financial_68ae18a72d56789686ee",
+      "locator": {
+        "column": 2,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 4,
+        "table_index": 0
+      },
+      "locator_status": "validated",
+      "normalized_text": "120000",
+      "quote": "120000",
+      "start": 0,
+      "text_sha256": "4f9f73b34c5b89879aad65a48025f3187dd9ce6dc3d4e88eecb2fc79227350f1"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_financial",
+      "document_version": 1,
+      "end": 12,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_financial_98d34f4aba4e12e2fc1b",
+      "locator": {
+        "column": 0,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 5,
+        "table_index": 0
+      },
+      "locator_status": "validated",
+      "normalized_text": "Depreciation",
+      "quote": "Depreciation",
+      "start": 0,
+      "text_sha256": "88e93c4c0bae5e123794da483a7bca2f68766e767e8d8d64ef5c28fb213ed6a1"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_financial",
+      "document_version": 1,
+      "end": 5,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_financial_2239bfa5563bd99243f8",
+      "locator": {
+        "column": 1,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 5,
+        "table_index": 0
+      },
+      "locator_status": "validated",
+      "normalized_text": "30000",
+      "quote": "30000",
+      "start": 0,
+      "text_sha256": "891937cb335016e9c7074c3781dcb1364e0c660733a8889bbeae83e6aa759be6"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_financial",
+      "document_version": 1,
+      "end": 5,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_financial_1f434c3ad418ea5132ab",
+      "locator": {
+        "column": 2,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 5,
+        "table_index": 0
+      },
+      "locator_status": "validated",
+      "normalized_text": "40000",
+      "quote": "40000",
+      "start": 0,
+      "text_sha256": "4948963369b682612d22b081bdc92c13d23fb921cdd44e50f45d7e86b4b52022"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_financial",
+      "document_version": 1,
+      "end": 8,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_financial_f93435a5a6d8e2e89238",
+      "locator": {
+        "column": 0,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 6,
+        "table_index": 0
+      },
+      "locator_status": "validated",
+      "normalized_text": "Interest",
+      "quote": "Interest",
+      "start": 0,
+      "text_sha256": "595fd085df10893f8cde252eab397c48c1a2a5080b53f4a7d3d0c52595348ff2"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_financial",
+      "document_version": 1,
+      "end": 5,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_financial_c33eae91568c981f620f",
+      "locator": {
+        "column": 1,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 6,
+        "table_index": 0
+      },
+      "locator_status": "validated",
+      "normalized_text": "20000",
+      "quote": "20000",
+      "start": 0,
+      "text_sha256": "876c9b16254e157d1eb645390dcfae6f29b9d3cd394e73a91de8ee5d0e67ee43"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_financial",
+      "document_version": 1,
+      "end": 5,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_financial_209fb416ec27504bdc4a",
+      "locator": {
+        "column": 2,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 6,
+        "table_index": 0
+      },
+      "locator_status": "validated",
+      "normalized_text": "20000",
+      "quote": "20000",
+      "start": 0,
+      "text_sha256": "876c9b16254e157d1eb645390dcfae6f29b9d3cd394e73a91de8ee5d0e67ee43"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_financial",
+      "document_version": 1,
+      "end": 3,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_financial_d256f77a6c592b58f5bc",
+      "locator": {
+        "column": 0,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 7,
+        "table_index": 0
+      },
+      "locator_status": "validated",
+      "normalized_text": "Tax",
+      "quote": "Tax",
+      "start": 0,
+      "text_sha256": "47e2886ee5d3fcab799efae44644488b428a7cb7d3bf24752b46e93d5c3eb6b8"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_financial",
+      "document_version": 1,
+      "end": 1,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_financial_43799a8e83252fb48545",
+      "locator": {
+        "column": 1,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 7,
+        "table_index": 0
+      },
+      "locator_status": "validated",
+      "normalized_text": "0",
+      "quote": "0",
+      "start": 0,
+      "text_sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_financial",
+      "document_version": 1,
+      "end": 5,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_financial_44ca53154b5b338a8df4",
+      "locator": {
+        "column": 2,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 7,
+        "table_index": 0
+      },
+      "locator_status": "validated",
+      "normalized_text": "10000",
+      "quote": "10000",
+      "start": 0,
+      "text_sha256": "39e5b4830d4d9c14db7368a95b65d5463ea3d09520373723430c03a5a453b5df"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_financial",
+      "document_version": 1,
+      "end": 10,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_financial_b77261df0bccbbda1eef",
+      "locator": {
+        "column": 0,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 8,
+        "table_index": 0
+      },
+      "locator_status": "validated",
+      "normalized_text": "Net income",
+      "quote": "Net income",
+      "start": 0,
+      "text_sha256": "7561c934f60f784f1eb5368d7e0b6ae832112bbb66ebba739489ddf25a8de9c3"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_financial",
+      "document_version": 1,
+      "end": 7,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_financial_16966c0179843ce6cede",
+      "locator": {
+        "column": 1,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 8,
+        "table_index": 0
+      },
+      "locator_status": "validated",
+      "normalized_text": "-150000",
+      "quote": "-150000",
+      "start": 0,
+      "text_sha256": "1688318e4ed70e5b72a47eb214ac68a5049e3d39e316968d5d05ea42ef7ae6d7"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_financial",
+      "document_version": 1,
+      "end": 5,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_financial_54cb015f0ce67afeaee1",
+      "locator": {
+        "column": 2,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 8,
+        "table_index": 0
+      },
+      "locator_status": "validated",
+      "normalized_text": "50000",
+      "quote": "50000",
+      "start": 0,
+      "text_sha256": "60734f174b2035e5b2ba85fef8c648cc0cb18c5995b419d3cd1c025c5b09d0c7"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_financial",
+      "document_version": 1,
+      "end": 10,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_financial_bf1a793ac55e10128f4b",
+      "locator": {
+        "column": 0,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 0,
+        "table_index": 1
+      },
+      "locator_status": "validated",
+      "normalized_text": "Metric USD",
+      "quote": "Metric USD",
+      "start": 0,
+      "text_sha256": "fe1f784739c1793dd434c3009aaa39f9f1451becf6ce03a1265500e9c86dedaa"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_financial",
+      "document_version": 1,
+      "end": 6,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_financial_73a991e3e52dbba07732",
+      "locator": {
+        "column": 1,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 0,
+        "table_index": 1
+      },
+      "locator_status": "validated",
+      "normalized_text": "FY2024",
+      "quote": "FY2024",
+      "start": 0,
+      "text_sha256": "ee4dccafc3a6af347b4e32fe8468657f8d0f4f4ea1e758229e751dcf6bdf4cff"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_financial",
+      "document_version": 1,
+      "end": 6,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_financial_656d98d5d093a42ef2de",
+      "locator": {
+        "column": 2,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 0,
+        "table_index": 1
+      },
+      "locator_status": "validated",
+      "normalized_text": "FY2025",
+      "quote": "FY2025",
+      "start": 0,
+      "text_sha256": "6d3bcb4900a2e15a723c382e24be2e9c86495ef29ea2fd2ee8edcaf562dc9f95"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_financial",
+      "document_version": 1,
+      "end": 4,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_financial_8ef7095617f771119e70",
+      "locator": {
+        "column": 0,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 1,
+        "table_index": 1
+      },
+      "locator_status": "validated",
+      "normalized_text": "Cash",
+      "quote": "Cash",
+      "start": 0,
+      "text_sha256": "e2da108f63008e441619d6e89d6389cafcb9a80dd4fe7059c677e1a54fa07bbe"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_financial",
+      "document_version": 1,
+      "end": 6,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_financial_576b357a3cb7ea3e0e9d",
+      "locator": {
+        "column": 1,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 1,
+        "table_index": 1
+      },
+      "locator_status": "validated",
+      "normalized_text": "300000",
+      "quote": "300000",
+      "start": 0,
+      "text_sha256": "6ce318969619d1c360b6144be09e3d3a22674897c7cbfe995716ed8b7ff7c4cf"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_financial",
+      "document_version": 1,
+      "end": 6,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_financial_2a2de38bebf8c8b6f869",
+      "locator": {
+        "column": 2,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 1,
+        "table_index": 1
+      },
+      "locator_status": "validated",
+      "normalized_text": "450000",
+      "quote": "450000",
+      "start": 0,
+      "text_sha256": "7ae410ba957c79d1650a1cbcbb9acfa1e6d23944dc91d1676e70dba7c6551b76"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_financial",
+      "document_version": 1,
+      "end": 19,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_financial_851606862ac67fa74548",
+      "locator": {
+        "column": 0,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 2,
+        "table_index": 1
+      },
+      "locator_status": "validated",
+      "normalized_text": "Accounts receivable",
+      "quote": "Accounts receivable",
+      "start": 0,
+      "text_sha256": "f47f36495ae6ad8bb2d050ac47fcca76c59c3aa213576bcba8713b6a54915a2d"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_financial",
+      "document_version": 1,
+      "end": 6,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_financial_e47681d5a213903f466a",
+      "locator": {
+        "column": 1,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 2,
+        "table_index": 1
+      },
+      "locator_status": "validated",
+      "normalized_text": "100000",
+      "quote": "100000",
+      "start": 0,
+      "text_sha256": "3bb78535cc9555ff19fe3556aaa41c78a0a45c64d49ba2bc564507648a8e77a1"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_financial",
+      "document_version": 1,
+      "end": 6,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_financial_cd9eb8d8d56a17d5d1d3",
+      "locator": {
+        "column": 2,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 2,
+        "table_index": 1
+      },
+      "locator_status": "validated",
+      "normalized_text": "180000",
+      "quote": "180000",
+      "start": 0,
+      "text_sha256": "c3c8204aec16162abf29b505bfdc8fe2b911b95b4a351da1664b0ac8a6771f6b"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_financial",
+      "document_version": 1,
+      "end": 8,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_financial_9a624cf4d07e4a270081",
+      "locator": {
+        "column": 0,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 3,
+        "table_index": 1
+      },
+      "locator_status": "validated",
+      "normalized_text": "Prepaids",
+      "quote": "Prepaids",
+      "start": 0,
+      "text_sha256": "4af267e1ae2a86bdcce3f8a1d0941aa0ff543f4a20921b0e07e3d14afde4ff20"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_financial",
+      "document_version": 1,
+      "end": 5,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_financial_58ba9b082bdb18d940ea",
+      "locator": {
+        "column": 1,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 3,
+        "table_index": 1
+      },
+      "locator_status": "validated",
+      "normalized_text": "40000",
+      "quote": "40000",
+      "start": 0,
+      "text_sha256": "4948963369b682612d22b081bdc92c13d23fb921cdd44e50f45d7e86b4b52022"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_financial",
+      "document_version": 1,
+      "end": 5,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_financial_71b4859e79504ee478ef",
+      "locator": {
+        "column": 2,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 3,
+        "table_index": 1
+      },
+      "locator_status": "validated",
+      "normalized_text": "60000",
+      "quote": "60000",
+      "start": 0,
+      "text_sha256": "d55d01d0341ed0ba2cd99b322e8c5b609254f47d10c7cd12b99b4922effeba44"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_financial",
+      "document_version": 1,
+      "end": 7,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_financial_1e3bbc56917f253198bb",
+      "locator": {
+        "column": 0,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 4,
+        "table_index": 1
+      },
+      "locator_status": "validated",
+      "normalized_text": "Net PPE",
+      "quote": "Net PPE",
+      "start": 0,
+      "text_sha256": "59fc68e1400c37cfd4bcae1094cefe8c9201f42aa7ac76fd70066bd335a2b8bf"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_financial",
+      "document_version": 1,
+      "end": 6,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_financial_e5de6b1811639ae1bb21",
+      "locator": {
+        "column": 1,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 4,
+        "table_index": 1
+      },
+      "locator_status": "validated",
+      "normalized_text": "180000",
+      "quote": "180000",
+      "start": 0,
+      "text_sha256": "c3c8204aec16162abf29b505bfdc8fe2b911b95b4a351da1664b0ac8a6771f6b"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_financial",
+      "document_version": 1,
+      "end": 6,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_financial_973b6c44c98c391d9c3f",
+      "locator": {
+        "column": 2,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 4,
+        "table_index": 1
+      },
+      "locator_status": "validated",
+      "normalized_text": "220000",
+      "quote": "220000",
+      "start": 0,
+      "text_sha256": "039a1ad855564a9fef70df68cb5e2bf08b3402dc985d7158a52cd8c0c2b09bbe"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_financial",
+      "document_version": 1,
+      "end": 12,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_financial_171dc22708f3249dbf55",
+      "locator": {
+        "column": 0,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 5,
+        "table_index": 1
+      },
+      "locator_status": "validated",
+      "normalized_text": "Total assets",
+      "quote": "Total assets",
+      "start": 0,
+      "text_sha256": "3c154a4103eb1a871f0b03ab61d7be853aafa60c451515df462b24306d1eae2f"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_financial",
+      "document_version": 1,
+      "end": 6,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_financial_04c4f620010c15d828c7",
+      "locator": {
+        "column": 1,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 5,
+        "table_index": 1
+      },
+      "locator_status": "validated",
+      "normalized_text": "620000",
+      "quote": "620000",
+      "start": 0,
+      "text_sha256": "cb9d7114e7c61cfc8ed914cd5d5cb27077a6356d173a37a7c1d5b90fa6624fdd"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_financial",
+      "document_version": 1,
+      "end": 6,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_financial_a76a6ae492818e57ee6f",
+      "locator": {
+        "column": 2,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 5,
+        "table_index": 1
+      },
+      "locator_status": "validated",
+      "normalized_text": "910000",
+      "quote": "910000",
+      "start": 0,
+      "text_sha256": "1ee4fed2e36fb0954efe2c8275b386379892a3e423e270d57044b49a5f8c155d"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_financial",
+      "document_version": 1,
+      "end": 4,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_financial_69368948b5be2746e306",
+      "locator": {
+        "column": 0,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 6,
+        "table_index": 1
+      },
+      "locator_status": "validated",
+      "normalized_text": "Debt",
+      "quote": "Debt",
+      "start": 0,
+      "text_sha256": "026e2f9afbc7c2e32aa17e5f4d16b3229de4042c46ecb233b9d204d438d0bfa7"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_financial",
+      "document_version": 1,
+      "end": 6,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_financial_f81ca3ebb558e83dee9f",
+      "locator": {
+        "column": 1,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 6,
+        "table_index": 1
+      },
+      "locator_status": "validated",
+      "normalized_text": "200000",
+      "quote": "200000",
+      "start": 0,
+      "text_sha256": "b552e632666bbf6125e3109e28a4fecc08340d017e44109dadbf497a280b8f82"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_financial",
+      "document_version": 1,
+      "end": 6,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_financial_4e502583c63d7db233f2",
+      "locator": {
+        "column": 2,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 6,
+        "table_index": 1
+      },
+      "locator_status": "validated",
+      "normalized_text": "250000",
+      "quote": "250000",
+      "start": 0,
+      "text_sha256": "f5b32f00fe05eee941f38440cb4208f97bd5af9e5613e7386d60666548060d23"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_financial",
+      "document_version": 1,
+      "end": 14,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_financial_9b3ae907407594a5bd6d",
+      "locator": {
+        "column": 0,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 7,
+        "table_index": 1
+      },
+      "locator_status": "validated",
+      "normalized_text": "Trade payables",
+      "quote": "Trade payables",
+      "start": 0,
+      "text_sha256": "0699e596cfee9d3e42dd3620d71fc487e1086fd002ba3028c2e340e6dfbdccfa"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_financial",
+      "document_version": 1,
+      "end": 5,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_financial_fc27dca05aa3c8e72383",
+      "locator": {
+        "column": 1,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 7,
+        "table_index": 1
+      },
+      "locator_status": "validated",
+      "normalized_text": "60000",
+      "quote": "60000",
+      "start": 0,
+      "text_sha256": "d55d01d0341ed0ba2cd99b322e8c5b609254f47d10c7cd12b99b4922effeba44"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_financial",
+      "document_version": 1,
+      "end": 5,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_financial_f02b376b2693d12e2a40",
+      "locator": {
+        "column": 2,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 7,
+        "table_index": 1
+      },
+      "locator_status": "validated",
+      "normalized_text": "90000",
+      "quote": "90000",
+      "start": 0,
+      "text_sha256": "ac911e4a8f2b48c071ce0fbb434c039c48e60e8d96dff768f69daa740af0c3bb"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_financial",
+      "document_version": 1,
+      "end": 13,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_financial_b54eaa9338645fe981af",
+      "locator": {
+        "column": 0,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 8,
+        "table_index": 1
+      },
+      "locator_status": "validated",
+      "normalized_text": "Accrued costs",
+      "quote": "Accrued costs",
+      "start": 0,
+      "text_sha256": "d63b109aad889e8d15fabdf71e0b3c362788dbb0aa7e027689ee37bc00108ef7"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_financial",
+      "document_version": 1,
+      "end": 5,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_financial_59981b2aacf0803df955",
+      "locator": {
+        "column": 1,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 8,
+        "table_index": 1
+      },
+      "locator_status": "validated",
+      "normalized_text": "80000",
+      "quote": "80000",
+      "start": 0,
+      "text_sha256": "47b25095a0fe135a688b20614771dbb445ad5e27e9cd4f2c2089c5af216e305b"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_financial",
+      "document_version": 1,
+      "end": 6,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_financial_fc86eb8972b9dbbc2625",
+      "locator": {
+        "column": 2,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 8,
+        "table_index": 1
+      },
+      "locator_status": "validated",
+      "normalized_text": "110000",
+      "quote": "110000",
+      "start": 0,
+      "text_sha256": "e9126f469646506b8e82b4214d075bf72d9d324d357650ba670ed6f6fbbf2a75"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_financial",
+      "document_version": 1,
+      "end": 16,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_financial_a2627c94cafdac8d542b",
+      "locator": {
+        "column": 0,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 9,
+        "table_index": 1
+      },
+      "locator_status": "validated",
+      "normalized_text": "Deferred revenue",
+      "quote": "Deferred revenue",
+      "start": 0,
+      "text_sha256": "824ffe9feaa09d95492215d9763ca18e950ff6e19ea59fb65945522bea3eb054"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_financial",
+      "document_version": 1,
+      "end": 6,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_financial_4409be6805915b69b7a4",
+      "locator": {
+        "column": 1,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 9,
+        "table_index": 1
+      },
+      "locator_status": "validated",
+      "normalized_text": "100000",
+      "quote": "100000",
+      "start": 0,
+      "text_sha256": "3bb78535cc9555ff19fe3556aaa41c78a0a45c64d49ba2bc564507648a8e77a1"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_financial",
+      "document_version": 1,
+      "end": 6,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_financial_3b2a40e67c38e0c583ca",
+      "locator": {
+        "column": 2,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 9,
+        "table_index": 1
+      },
+      "locator_status": "validated",
+      "normalized_text": "160000",
+      "quote": "160000",
+      "start": 0,
+      "text_sha256": "cb0b20f98ee49533666fadc53dd6702a19d66e14ea2bb2bdc2474e305e40ada3"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_financial",
+      "document_version": 1,
+      "end": 6,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_financial_9c169de78d5a2f8fc5d9",
+      "locator": {
+        "column": 0,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 10,
+        "table_index": 1
+      },
+      "locator_status": "validated",
+      "normalized_text": "Equity",
+      "quote": "Equity",
+      "start": 0,
+      "text_sha256": "9289f39c397a3c60b8d65bb72854572429d6f0775f7da2613855ed510009700a"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_financial",
+      "document_version": 1,
+      "end": 6,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_financial_ee519c2df341d63dc89a",
+      "locator": {
+        "column": 1,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 10,
+        "table_index": 1
+      },
+      "locator_status": "validated",
+      "normalized_text": "180000",
+      "quote": "180000",
+      "start": 0,
+      "text_sha256": "c3c8204aec16162abf29b505bfdc8fe2b911b95b4a351da1664b0ac8a6771f6b"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_financial",
+      "document_version": 1,
+      "end": 6,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_financial_51d9afa6917cdb784097",
+      "locator": {
+        "column": 2,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 10,
+        "table_index": 1
+      },
+      "locator_status": "validated",
+      "normalized_text": "300000",
+      "quote": "300000",
+      "start": 0,
+      "text_sha256": "6ce318969619d1c360b6144be09e3d3a22674897c7cbfe995716ed8b7ff7c4cf"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_financial",
+      "document_version": 1,
+      "end": 28,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_financial_9464daabde85d42b715d",
+      "locator": {
+        "column": 0,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 11,
+        "table_index": 1
+      },
+      "locator_status": "validated",
+      "normalized_text": "Total liabilities and equity",
+      "quote": "Total liabilities and equity",
+      "start": 0,
+      "text_sha256": "5ca3ccbc83d5a245afbcff2d6097f8a8fe29051ec27bb7e3f32a52f1e1b63e26"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_financial",
+      "document_version": 1,
+      "end": 6,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_financial_72f4c322467573b41c20",
+      "locator": {
+        "column": 1,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 11,
+        "table_index": 1
+      },
+      "locator_status": "validated",
+      "normalized_text": "620000",
+      "quote": "620000",
+      "start": 0,
+      "text_sha256": "cb9d7114e7c61cfc8ed914cd5d5cb27077a6356d173a37a7c1d5b90fa6624fdd"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_financial",
+      "document_version": 1,
+      "end": 6,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_financial_c6638699b9751f3bd4c4",
+      "locator": {
+        "column": 2,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 11,
+        "table_index": 1
+      },
+      "locator_status": "validated",
+      "normalized_text": "910000",
+      "quote": "910000",
+      "start": 0,
+      "text_sha256": "1ee4fed2e36fb0954efe2c8275b386379892a3e423e270d57044b49a5f8c155d"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_plan",
+      "document_version": 1,
+      "end": 48,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_plan_35ab6bb92b2fd08f61df",
+      "locator": {
+        "block_index": 0,
+        "heading_path": [],
+        "kind": "docx_paragraph",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml"
+      },
+      "locator_status": "validated",
+      "normalized_text": "Northstar Revenue Forecast and Delivery Capacity",
+      "quote": "Northstar Revenue Forecast and Delivery Capacity",
+      "start": 0,
+      "text_sha256": "04e25601e2bad7ce77179a6056d56c86fe602221dd3ddc478db9ab6aec3decae"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_plan",
+      "document_version": 1,
+      "end": 48,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_plan_c02cb1ffe31e4a142db8",
+      "locator": {
+        "block_index": 1,
+        "heading_path": [],
+        "kind": "docx_paragraph",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml"
+      },
+      "locator_status": "validated",
+      "normalized_text": "SYNTHETIC | nb_doc_plan | 2026-11-03 | Version 1",
+      "quote": "SYNTHETIC | nb_doc_plan | 2026-11-03 | Version 1",
+      "start": 0,
+      "text_sha256": "6fa03aecff1038f5ec57f4340a632ae6b72abb53254abe86c7c059a25f330807"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_plan",
+      "document_version": 1,
+      "end": 24,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_plan_ec66d9f10736ca45f602",
+      "locator": {
+        "block_index": 2,
+        "heading_path": [],
+        "kind": "docx_paragraph",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml"
+      },
+      "locator_status": "validated",
+      "normalized_text": "Reporting period: FY2027",
+      "quote": "Reporting period: FY2027",
+      "start": 0,
+      "text_sha256": "b941b1a4c022ea6e8a25e1f1dc5f9cad337b1d1c8c17d10575a383f9a79d1614"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_plan",
+      "document_version": 1,
+      "end": 155,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_plan_05c0e6c18828871d71e7",
+      "locator": {
+        "block_index": 3,
+        "heading_path": [],
+        "kind": "docx_paragraph",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml"
+      },
+      "locator_status": "validated",
+      "normalized_text": "Independent expanded research scenario NB version 3.0.0. This is not a continuation of legacy Northstar NS; contract, cash and customer assumptions differ.",
+      "quote": "Independent expanded research scenario NB version 3.0.0. This is not a continuation of legacy Northstar NS; contract, cash and customer assumptions differ.",
+      "start": 0,
+      "text_sha256": "9d225433a95c28903c8f68929f3ef8c4737d81ce8e4b713cf3816ad4ecea3f93"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_plan",
+      "document_version": 1,
+      "end": 164,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_plan_6d8b8e140042610ea1dd",
+      "locator": {
+        "block_index": 4,
+        "heading_path": [],
+        "kind": "docx_paragraph",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml"
+      },
+      "locator_status": "validated",
+      "normalized_text": "SYNTHETIC DATA. Management plan version 1 dated 2026-11-03. Forecasts are management assumptions, not signed orders. Revenue and delivery costs use calendar FY2027.",
+      "quote": "SYNTHETIC DATA. Management plan version 1 dated 2026-11-03. Forecasts are management assumptions, not signed orders. Revenue and delivery costs use calendar FY2027.",
+      "start": 0,
+      "text_sha256": "b8dda77f1a1c9160764e051341af4b3525a5604b8c7033fcda9d366c010077d6"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_plan",
+      "document_version": 1,
+      "end": 242,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_plan_246f26ebc01c3f1d9fd9",
+      "locator": {
+        "block_index": 5,
+        "heading_path": [],
+        "kind": "docx_paragraph",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml"
+      },
+      "locator_status": "validated",
+      "normalized_text": "The FY2027 plan comprises USD 1,200,000 from existing customers plus eight new deployments at USD 100,000 recognized revenue each, totaling USD 2,000,000. Cost of revenue is USD 600,000, operating expense USD 1,000,000 and EBITDA USD 400,000.",
+      "quote": "The FY2027 plan comprises USD 1,200,000 from existing customers plus eight new deployments at USD 100,000 recognized revenue each, totaling USD 2,000,000. Cost of revenue is USD 600,000, operating expense USD 1,000,000 and EBITDA USD 400,000.",
+      "start": 0,
+      "text_sha256": "e8d17dee74bae8400f7fb4be49b0b5585df0b48c3b756c65b57233d8d9c98a09"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_plan",
+      "document_version": 1,
+      "end": 221,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_plan_4ac96b659af9f8fdb0a7",
+      "locator": {
+        "block_index": 6,
+        "heading_path": [],
+        "kind": "docx_paragraph",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml"
+      },
+      "locator_status": "validated",
+      "normalized_text": "Two delivery squads can each complete two new deployments per year under the current staffing model, for four deployments. No signed outsourcing arrangement, approved hiring plan or faster delivery validation is provided.",
+      "quote": "Two delivery squads can each complete two new deployments per year under the current staffing model, for four deployments. No signed outsourcing arrangement, approved hiring plan or faster delivery validation is provided.",
+      "start": 0,
+      "text_sha256": "aece28ae6ed19a36447f0edd62e67561bbaa511f9be588ffe915c00b925391bc"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_plan",
+      "document_version": 1,
+      "end": 314,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_plan_4444bc94ce2cbf60d888",
+      "locator": {
+        "block_index": 7,
+        "heading_path": [],
+        "kind": "docx_paragraph",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml"
+      },
+      "locator_status": "validated",
+      "normalized_text": "The commercial plan counts eight new deployments while the signed headcount budget remains at two squads. USD 100,000 per deployment is an initial generic planning assumption, not a customer-specific revenue recognition schedule. A revised capacity and contract-term revenue forecast is requested but not supplied.",
+      "quote": "The commercial plan counts eight new deployments while the signed headcount budget remains at two squads. USD 100,000 per deployment is an initial generic planning assumption, not a customer-specific revenue recognition schedule. A revised capacity and contract-term revenue forecast is requested but not supplied.",
+      "start": 0,
+      "text_sha256": "84d6ec2a13b266f2ad9e88d8e83935b7acc7c4b1a416a8d8d55279cc8f8705e0"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_plan",
+      "document_version": 1,
+      "end": 139,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_plan_e85bb8519d515877fcfd",
+      "locator": {
+        "block_index": 8,
+        "heading_path": [],
+        "kind": "docx_paragraph",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml"
+      },
+      "locator_status": "validated",
+      "normalized_text": "Recurring revenue from the two existing accounts is held flat in the forecast. The plan does not assume price increases for those accounts.",
+      "quote": "Recurring revenue from the two existing accounts is held flat in the forecast. The plan does not assume price increases for those accounts.",
+      "start": 0,
+      "text_sha256": "910984e6f8840dca2a4ce7b7e8bd06938ba46ff9a21bef4667b1fa581406e365"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_plan",
+      "document_version": 1,
+      "end": 6,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_plan_89c38c7f0889081690d1",
+      "locator": {
+        "column": 0,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 0,
+        "table_index": 0
+      },
+      "locator_status": "validated",
+      "normalized_text": "Driver",
+      "quote": "Driver",
+      "start": 0,
+      "text_sha256": "9fe4c68ec20dda7c6b1d3f760e5e6af6b9802897cd59f084b99c68b2ac01574c"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_plan",
+      "document_version": 1,
+      "end": 6,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_plan_cf1278ea6076c1712d8e",
+      "locator": {
+        "column": 1,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 0,
+        "table_index": 0
+      },
+      "locator_status": "validated",
+      "normalized_text": "FY2027",
+      "quote": "FY2027",
+      "start": 0,
+      "text_sha256": "e98bbb643cc5877c2f4a9351b0690122d7b84ec1a1d47a384ef30cd3c705a184"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_plan",
+      "document_version": 1,
+      "end": 20,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_plan_a9faa77b24bc7be275c4",
+      "locator": {
+        "column": 0,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 1,
+        "table_index": 0
+      },
+      "locator_status": "validated",
+      "normalized_text": "Existing revenue USD",
+      "quote": "Existing revenue USD",
+      "start": 0,
+      "text_sha256": "b82f65a38fb2b11acd2ba849db04d17f89981e8eebb60663168d4180ccd7710d"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_plan",
+      "document_version": 1,
+      "end": 7,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_plan_03c5f5787596bd0268ee",
+      "locator": {
+        "column": 1,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 1,
+        "table_index": 0
+      },
+      "locator_status": "validated",
+      "normalized_text": "1200000",
+      "quote": "1200000",
+      "start": 0,
+      "text_sha256": "0d9760fbd449ca8e13c614acdd941e77e4c0e795831b641763c361934463ade4"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_plan",
+      "document_version": 1,
+      "end": 23,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_plan_66fcf42e9f0926a0f877",
+      "locator": {
+        "column": 0,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 2,
+        "table_index": 0
+      },
+      "locator_status": "validated",
+      "normalized_text": "Planned new deployments",
+      "quote": "Planned new deployments",
+      "start": 0,
+      "text_sha256": "a01f62476fc8b74c1d5c75ec2f21cb148ed1896d38caa21fa66692554dac2a14"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_plan",
+      "document_version": 1,
+      "end": 1,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_plan_6fb18a3aeeb2cddef446",
+      "locator": {
+        "column": 1,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 2,
+        "table_index": 0
+      },
+      "locator_status": "validated",
+      "normalized_text": "8",
+      "quote": "8",
+      "start": 0,
+      "text_sha256": "2c624232cdd221771294dfbb310aca000a0df6ac8b66b696d90ef06fdefb64a3"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_plan",
+      "document_version": 1,
+      "end": 26,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_plan_d44e6846d840817011d9",
+      "locator": {
+        "column": 0,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 3,
+        "table_index": 0
+      },
+      "locator_status": "validated",
+      "normalized_text": "Revenue per deployment USD",
+      "quote": "Revenue per deployment USD",
+      "start": 0,
+      "text_sha256": "80cb9b013b10fb17163d9428bcc5e5c9c4b2154b664a171485965e994d57893b"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_plan",
+      "document_version": 1,
+      "end": 6,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_plan_6a5ced27da102d82266f",
+      "locator": {
+        "column": 1,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 3,
+        "table_index": 0
+      },
+      "locator_status": "validated",
+      "normalized_text": "100000",
+      "quote": "100000",
+      "start": 0,
+      "text_sha256": "3bb78535cc9555ff19fe3556aaa41c78a0a45c64d49ba2bc564507648a8e77a1"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_plan",
+      "document_version": 1,
+      "end": 20,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_plan_1f917659a7fe3853a297",
+      "locator": {
+        "column": 0,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 4,
+        "table_index": 0
+      },
+      "locator_status": "validated",
+      "normalized_text": "Forecast revenue USD",
+      "quote": "Forecast revenue USD",
+      "start": 0,
+      "text_sha256": "5fc4e8af4ff735bc380903fffad0459b2955702be285f46655d8c502008985ee"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_plan",
+      "document_version": 1,
+      "end": 7,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_plan_2caff7111e8923914567",
+      "locator": {
+        "column": 1,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 4,
+        "table_index": 0
+      },
+      "locator_status": "validated",
+      "normalized_text": "2000000",
+      "quote": "2000000",
+      "start": 0,
+      "text_sha256": "dd80d7a873341d491936c851964a9793195f37e646f6809dd546e2946f46d283"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_plan",
+      "document_version": 1,
+      "end": 6,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_plan_f71833ec6bfe3e3fc270",
+      "locator": {
+        "column": 0,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 5,
+        "table_index": 0
+      },
+      "locator_status": "validated",
+      "normalized_text": "Squads",
+      "quote": "Squads",
+      "start": 0,
+      "text_sha256": "258027a74a4fe2fb713992f93c1b6556bcb0cdf45e71d331736aefd58b939116"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_plan",
+      "document_version": 1,
+      "end": 1,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_plan_71c4f4398de9160bb444",
+      "locator": {
+        "column": 1,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 5,
+        "table_index": 0
+      },
+      "locator_status": "validated",
+      "normalized_text": "2",
+      "quote": "2",
+      "start": 0,
+      "text_sha256": "d4735e3a265e16eee03f59718b9b5d03019c07d8b6c51f90da3a666eec13ab35"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_plan",
+      "document_version": 1,
+      "end": 21,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_plan_faa97c2324035010e0fd",
+      "locator": {
+        "column": 0,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 6,
+        "table_index": 0
+      },
+      "locator_status": "validated",
+      "normalized_text": "Deployments per squad",
+      "quote": "Deployments per squad",
+      "start": 0,
+      "text_sha256": "2b09b09431f24dfdc5124e1b71fcf31181314512ebfd919bc1b05e630c54a2f1"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_plan",
+      "document_version": 1,
+      "end": 1,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_plan_f4bca805db6d9eba78b1",
+      "locator": {
+        "column": 1,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 6,
+        "table_index": 0
+      },
+      "locator_status": "validated",
+      "normalized_text": "2",
+      "quote": "2",
+      "start": 0,
+      "text_sha256": "d4735e3a265e16eee03f59718b9b5d03019c07d8b6c51f90da3a666eec13ab35"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_plan",
+      "document_version": 1,
+      "end": 28,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_plan_5329a0a687e6925f5392",
+      "locator": {
+        "column": 0,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 7,
+        "table_index": 0
+      },
+      "locator_status": "validated",
+      "normalized_text": "Current capacity deployments",
+      "quote": "Current capacity deployments",
+      "start": 0,
+      "text_sha256": "7116459c0cdbad2be885fcfddac648fcd63359795895429fdec9b515d6aeb0c7"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_plan",
+      "document_version": 1,
+      "end": 1,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_plan_8c12f8a1206d341670a4",
+      "locator": {
+        "column": 1,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 7,
+        "table_index": 0
+      },
+      "locator_status": "validated",
+      "normalized_text": "4",
+      "quote": "4",
+      "start": 0,
+      "text_sha256": "4b227777d4dd1fc61c6f884f48641d02b4d121d3fd328cb08b5531fcacdabf8a"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_plan",
+      "document_version": 1,
+      "end": 32,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_plan_d162bfc62250644f0906",
+      "locator": {
+        "column": 0,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 8,
+        "table_index": 0
+      },
+      "locator_status": "validated",
+      "normalized_text": "Capacity constrained revenue USD",
+      "quote": "Capacity constrained revenue USD",
+      "start": 0,
+      "text_sha256": "462ea3459b52b700467bc1859c6d81387e6ff13bb1b4f9294027827137737f94"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_plan",
+      "document_version": 1,
+      "end": 7,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_plan_f0be9b219e1adbca5257",
+      "locator": {
+        "column": 1,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 8,
+        "table_index": 0
+      },
+      "locator_status": "validated",
+      "normalized_text": "1600000",
+      "quote": "1600000",
+      "start": 0,
+      "text_sha256": "0dd1cd7ba91d353e6cde5a1014c1f380b8c29d4a3a4c0a69f4b78c85c6617c83"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_crm",
+      "document_version": 1,
+      "end": 58,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_crm_80998fa20818ef87b2da",
+      "locator": {
+        "block_index": 0,
+        "heading_path": [],
+        "kind": "docx_paragraph",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml"
+      },
+      "locator_status": "validated",
+      "normalized_text": "Northstar Customer Pipeline and Initial Management Answers",
+      "quote": "Northstar Customer Pipeline and Initial Management Answers",
+      "start": 0,
+      "text_sha256": "658de0e40cf6dc7aaebb0e78029f45177a8ce595af6d98d8c40f9b104cb02219"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_crm",
+      "document_version": 1,
+      "end": 47,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_crm_b2d7e8a8c9126afffd6d",
+      "locator": {
+        "block_index": 1,
+        "heading_path": [],
+        "kind": "docx_paragraph",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml"
+      },
+      "locator_status": "validated",
+      "normalized_text": "SYNTHETIC | nb_doc_crm | 2026-11-03 | Version 1",
+      "quote": "SYNTHETIC | nb_doc_crm | 2026-11-03 | Version 1",
+      "start": 0,
+      "text_sha256": "52f9a901ab12e8e6ff8ecd1f5c68b99468606b664f8b63378dc2f99340f91959"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_crm",
+      "document_version": 1,
+      "end": 40,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_crm_40bc97012896a8c6effd",
+      "locator": {
+        "block_index": 2,
+        "heading_path": [],
+        "kind": "docx_paragraph",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml"
+      },
+      "locator_status": "validated",
+      "normalized_text": "Reporting period: FY2025 and FY2027 plan",
+      "quote": "Reporting period: FY2025 and FY2027 plan",
+      "start": 0,
+      "text_sha256": "3798b4d91139c8889add8f7b8248c57b573eb34d9b0fa77cef11dd6f5f9b5b1f"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_crm",
+      "document_version": 1,
+      "end": 155,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_crm_dcd1c7587abdfc6caa04",
+      "locator": {
+        "block_index": 3,
+        "heading_path": [],
+        "kind": "docx_paragraph",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml"
+      },
+      "locator_status": "validated",
+      "normalized_text": "Independent expanded research scenario NB version 3.0.0. This is not a continuation of legacy Northstar NS; contract, cash and customer assumptions differ.",
+      "quote": "Independent expanded research scenario NB version 3.0.0. This is not a continuation of legacy Northstar NS; contract, cash and customer assumptions differ.",
+      "start": 0,
+      "text_sha256": "9d225433a95c28903c8f68929f3ef8c4737d81ce8e4b713cf3816ad4ecea3f93"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_crm",
+      "document_version": 1,
+      "end": 150,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_crm_fdc61f4480f14bed3a81",
+      "locator": {
+        "block_index": 4,
+        "heading_path": [],
+        "kind": "docx_paragraph",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml"
+      },
+      "locator_status": "validated",
+      "normalized_text": "SYNTHETIC DATA. CRM snapshot and initial management Q&A dated 2026-11-03. Pipeline classifications are recorded separately from legal contract status.",
+      "quote": "SYNTHETIC DATA. CRM snapshot and initial management Q&A dated 2026-11-03. Pipeline classifications are recorded separately from legal contract status.",
+      "start": 0,
+      "text_sha256": "5faec08f30c8fc6fdf0668e4ac805e527b483c9335e1743001a4252e6eff4905"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_crm",
+      "document_version": 1,
+      "end": 236,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_crm_e7401740cca2729eb6ad",
+      "locator": {
+        "block_index": 5,
+        "heading_path": [],
+        "kind": "docx_paragraph",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml"
+      },
+      "locator_status": "validated",
+      "normalized_text": "Quartz and Vale are existing paying customers. Aster has a completed technical proof of concept but no executed commercial contract in the supplied pack. Birch has a nonbinding letter of interest, no executed contract and no deployment.",
+      "quote": "Quartz and Vale are existing paying customers. Aster has a completed technical proof of concept but no executed commercial contract in the supplied pack. Birch has a nonbinding letter of interest, no executed contract and no deployment.",
+      "start": 0,
+      "text_sha256": "8066cdde7dd80cb1f65a8dbbd35fda1a5cd042e25fc22444b0bc488066de4f7a"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_crm",
+      "document_version": 1,
+      "end": 222,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_crm_4bbfbc93ee01208af15b",
+      "locator": {
+        "block_index": 6,
+        "heading_path": [],
+        "kind": "docx_paragraph",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml"
+      },
+      "locator_status": "validated",
+      "normalized_text": "Management labels the Aster USD 240,000 and Birch USD 360,000 pipeline opportunities as committed ARR in the CIM. Under this CRM snapshot they remain unsigned opportunities and are not committed recurring contract revenue.",
+      "quote": "Management labels the Aster USD 240,000 and Birch USD 360,000 pipeline opportunities as committed ARR in the CIM. Under this CRM snapshot they remain unsigned opportunities and are not committed recurring contract revenue.",
+      "start": 0,
+      "text_sha256": "e21d8479a30fd7d9b80bf6ee1541030f48e8dfe6502637c97ef01e5df87b54e9"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_crm",
+      "document_version": 1,
+      "end": 166,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_crm_fb573c86c4b052803e21",
+      "locator": {
+        "block_index": 7,
+        "heading_path": [],
+        "kind": "docx_paragraph",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml"
+      },
+      "locator_status": "validated",
+      "normalized_text": "Management repeats that there are four enterprise customers. This answer is based on the same CRM export used for the CIM and is not a separate customer confirmation.",
+      "quote": "Management repeats that there are four enterprise customers. This answer is based on the same CRM export used for the CIM and is not a separate customer confirmation.",
+      "start": 0,
+      "text_sha256": "cc12674a3088d1f45653d0ca3996d6edaecdc077ca20b0c4087ca87a04349485"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_crm",
+      "document_version": 1,
+      "end": 180,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_crm_38902aaf113786712c55",
+      "locator": {
+        "block_index": 8,
+        "heading_path": [],
+        "kind": "docx_paragraph",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml"
+      },
+      "locator_status": "validated",
+      "normalized_text": "Management says cloud and standard support are included in gross margin, but states that implementation payroll and variable inference usage require a separate allocation exercise.",
+      "quote": "Management says cloud and standard support are included in gross margin, but states that implementation payroll and variable inference usage require a separate allocation exercise.",
+      "start": 0,
+      "text_sha256": "855779d33449d3e388f65b10f1042ffb9966f59e0ad4773782cb6ca72b795964"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_crm",
+      "document_version": 1,
+      "end": 138,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_crm_6d680ad257e87ff723ae",
+      "locator": {
+        "block_index": 9,
+        "heading_path": [],
+        "kind": "docx_paragraph",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml"
+      },
+      "locator_status": "validated",
+      "normalized_text": "Management has not provided beneficial ownership evidence for the prospective customers. Client names alone do not establish independence.",
+      "quote": "Management has not provided beneficial ownership evidence for the prospective customers. Client names alone do not establish independence.",
+      "start": 0,
+      "text_sha256": "ab343e7e6cf46a6e679374340a9e3aee01394d35b95994f1401827052a85d7d0"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_crm",
+      "document_version": 1,
+      "end": 8,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_crm_79d12de7f217c8b50803",
+      "locator": {
+        "column": 0,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 0,
+        "table_index": 0
+      },
+      "locator_status": "validated",
+      "normalized_text": "Customer",
+      "quote": "Customer",
+      "start": 0,
+      "text_sha256": "bf3763383aaf43069885db20b386631c6d5d8b8481df2a26769e9de5fe2f9c82"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_crm",
+      "document_version": 1,
+      "end": 6,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_crm_0cf6002d1ed1bc60bc7b",
+      "locator": {
+        "column": 1,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 0,
+        "table_index": 0
+      },
+      "locator_status": "validated",
+      "normalized_text": "Status",
+      "quote": "Status",
+      "start": 0,
+      "text_sha256": "920e413c7d411b61ef3e8c63b1cb6ad058d5f95f8b481dbafe60248387d8c355"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_crm",
+      "document_version": 1,
+      "end": 16,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_crm_85236f8d5ca71b10edae",
+      "locator": {
+        "column": 2,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 0,
+        "table_index": 0
+      },
+      "locator_status": "validated",
+      "normalized_text": "Annual value USD",
+      "quote": "Annual value USD",
+      "start": 0,
+      "text_sha256": "8cd0175fd22bbbe6bfb862ae6aeb460be056878491869d4630ea422d720e1dfa"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_crm",
+      "document_version": 1,
+      "end": 20,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_crm_38a82563834d17b5e592",
+      "locator": {
+        "column": 3,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 0,
+        "table_index": 0
+      },
+      "locator_status": "validated",
+      "normalized_text": "Signed on 2026-11-03",
+      "quote": "Signed on 2026-11-03",
+      "start": 0,
+      "text_sha256": "087f50aa77831c9dc03c4e1dabe4eb8d85e1890ba6fa7df5d252690f6e68dbc3"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_crm",
+      "document_version": 1,
+      "end": 6,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_crm_0f212c33989e75054b53",
+      "locator": {
+        "column": 0,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 1,
+        "table_index": 0
+      },
+      "locator_status": "validated",
+      "normalized_text": "Quartz",
+      "quote": "Quartz",
+      "start": 0,
+      "text_sha256": "6dbfeeb207b36340969e7258f1662ee6f3dd81c7dd9520cd7f12e16f8fa3989e"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_crm",
+      "document_version": 1,
+      "end": 14,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_crm_05724fd0a81982354936",
+      "locator": {
+        "column": 1,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 1,
+        "table_index": 0
+      },
+      "locator_status": "validated",
+      "normalized_text": "Paying renewal",
+      "quote": "Paying renewal",
+      "start": 0,
+      "text_sha256": "ff373bc9a3bbd6709c4035eacd609cadb35bed239c17db4a93546f1af3869195"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_crm",
+      "document_version": 1,
+      "end": 6,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_crm_d42efe9c533d3b9fc97c",
+      "locator": {
+        "column": 2,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 1,
+        "table_index": 0
+      },
+      "locator_status": "validated",
+      "normalized_text": "720000",
+      "quote": "720000",
+      "start": 0,
+      "text_sha256": "82f17fe086067552dba3dc56b1933b0732ee7305c8a3709826f70b72ed9ce0c9"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_crm",
+      "document_version": 1,
+      "end": 3,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_crm_2b985ce797a01d71359b",
+      "locator": {
+        "column": 3,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 1,
+        "table_index": 0
+      },
+      "locator_status": "validated",
+      "normalized_text": "Yes",
+      "quote": "Yes",
+      "start": 0,
+      "text_sha256": "85a39ab345d672ff8ca9b9c6876f3adcacf45ee7c1e2dbd2408fd338bd55e07e"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_crm",
+      "document_version": 1,
+      "end": 4,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_crm_9caf7045a7e183c537a0",
+      "locator": {
+        "column": 0,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 2,
+        "table_index": 0
+      },
+      "locator_status": "validated",
+      "normalized_text": "Vale",
+      "quote": "Vale",
+      "start": 0,
+      "text_sha256": "17b7e72d51f2291a7f9fb4b10ca3c90b6284587c0b15fe4c6cfaf1eef32dc851"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_crm",
+      "document_version": 1,
+      "end": 14,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_crm_c2dd3859a249c52d606e",
+      "locator": {
+        "column": 1,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 2,
+        "table_index": 0
+      },
+      "locator_status": "validated",
+      "normalized_text": "Paying renewal",
+      "quote": "Paying renewal",
+      "start": 0,
+      "text_sha256": "ff373bc9a3bbd6709c4035eacd609cadb35bed239c17db4a93546f1af3869195"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_crm",
+      "document_version": 1,
+      "end": 6,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_crm_d6d498a6ff15d2184975",
+      "locator": {
+        "column": 2,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 2,
+        "table_index": 0
+      },
+      "locator_status": "validated",
+      "normalized_text": "480000",
+      "quote": "480000",
+      "start": 0,
+      "text_sha256": "5826ecc4d11e82b52e711bc41978052483102366d2b36e1a61831880d8fe2c00"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_crm",
+      "document_version": 1,
+      "end": 3,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_crm_e0e119de5288d34eef39",
+      "locator": {
+        "column": 3,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 2,
+        "table_index": 0
+      },
+      "locator_status": "validated",
+      "normalized_text": "Yes",
+      "quote": "Yes",
+      "start": 0,
+      "text_sha256": "85a39ab345d672ff8ca9b9c6876f3adcacf45ee7c1e2dbd2408fd338bd55e07e"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_crm",
+      "document_version": 1,
+      "end": 5,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_crm_ac8949bcf297456ab4ce",
+      "locator": {
+        "column": 0,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 3,
+        "table_index": 0
+      },
+      "locator_status": "validated",
+      "normalized_text": "Aster",
+      "quote": "Aster",
+      "start": 0,
+      "text_sha256": "83feda83d88cc8975ce4cf859af756b4b5b3f75db31a41970ba4946add70bb47"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_crm",
+      "document_version": 1,
+      "end": 13,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_crm_9a3a995921a954f15491",
+      "locator": {
+        "column": 1,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 3,
+        "table_index": 0
+      },
+      "locator_status": "validated",
+      "normalized_text": "Technical PoC",
+      "quote": "Technical PoC",
+      "start": 0,
+      "text_sha256": "242c17d0e1d2b3102e780543937e7bb06602075b700363c4faf81f6fdeffa6c9"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_crm",
+      "document_version": 1,
+      "end": 6,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_crm_1a67bb3b09cb3985220a",
+      "locator": {
+        "column": 2,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 3,
+        "table_index": 0
+      },
+      "locator_status": "validated",
+      "normalized_text": "240000",
+      "quote": "240000",
+      "start": 0,
+      "text_sha256": "cf636823e14b5d2d47239eb0002d97fb78283d0b35a35bf81e8fa9db2f73b9a1"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_crm",
+      "document_version": 1,
+      "end": 2,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_crm_4964989004382ebba360",
+      "locator": {
+        "column": 3,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 3,
+        "table_index": 0
+      },
+      "locator_status": "validated",
+      "normalized_text": "No",
+      "quote": "No",
+      "start": 0,
+      "text_sha256": "1ea442a134b2a184bd5d40104401f2a37fbc09ccf3f4bc9da161c6099be3691d"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_crm",
+      "document_version": 1,
+      "end": 5,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_crm_6dd2fcbc57932388b231",
+      "locator": {
+        "column": 0,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 4,
+        "table_index": 0
+      },
+      "locator_status": "validated",
+      "normalized_text": "Birch",
+      "quote": "Birch",
+      "start": 0,
+      "text_sha256": "f4fddf9a710e745ed89a849409d2d4097ef3a5d822fc5b0dbbe4c8207701bcba"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_crm",
+      "document_version": 1,
+      "end": 18,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_crm_c28df8d0b18c83ef2215",
+      "locator": {
+        "column": 1,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 4,
+        "table_index": 0
+      },
+      "locator_status": "validated",
+      "normalized_text": "Letter of interest",
+      "quote": "Letter of interest",
+      "start": 0,
+      "text_sha256": "bdb4cb03df85cb2f20e246ea878838a0a1f204739b5eeacbaa83abad105abea3"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_crm",
+      "document_version": 1,
+      "end": 6,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_crm_37027cac8ca7dd407b0d",
+      "locator": {
+        "column": 2,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 4,
+        "table_index": 0
+      },
+      "locator_status": "validated",
+      "normalized_text": "360000",
+      "quote": "360000",
+      "start": 0,
+      "text_sha256": "e6ba348d1464969bb4210f401b255b6de57b81fddc375b944ac4fe2fb698bc95"
+    },
+    {
+      "deal_id": "deal_nb",
+      "document_id": "nb_doc_crm",
+      "document_version": 1,
+      "end": 2,
+      "entity_version": 1,
+      "extraction_method": "parsed",
+      "id": "span_nb_doc_crm_304dbf2e6e0710fae0a3",
+      "locator": {
+        "column": 3,
+        "heading_path": [],
+        "kind": "docx_table_cell",
+        "paragraph_index": 0,
+        "part_uri": "word/document.xml",
+        "row": 4,
+        "table_index": 0
+      },
+      "locator_status": "validated",
+      "normalized_text": "No",
+      "quote": "No",
+      "start": 0,
+      "text_sha256": "1ea442a134b2a184bd5d40104401f2a37fbc09ccf3f4bc9da161c6099be3691d"
+    }
+  ],
+  "state_revision": 1,
+  "theses": [
+    {
+      "claim_ids": [
+        "nb_claim_h1",
+        "nb_claim_h2",
+        "nb_claim_h3"
+      ],
+      "counter_thesis": "Commercial or financial performance may not support management assumptions.",
+      "deal_id": "deal_nb",
+      "entity_version": 1,
+      "id": "nb_thesis",
+      "review_status": "approved",
+      "title": "Evidence-grounded preliminary screening"
+    }
+  ]
+}

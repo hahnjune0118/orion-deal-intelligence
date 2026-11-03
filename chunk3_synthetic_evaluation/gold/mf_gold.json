@@ -1,0 +1,2291 @@
+{
+  "answer_key_rules": {
+    "future_evidence_must_not_support_earlier_stage_labels": true,
+    "source_quote_does_not_imply_independent_truth": true,
+    "world_truth_is_not_agent_visible": true
+  },
+  "case": "mf",
+  "claims": [
+    {
+      "claim_type": "binary_hypothesis",
+      "evidence_relationships": [
+        {
+          "evidence_id": "mf_ev_inventory_claim",
+          "relation": "supports"
+        },
+        {
+          "evidence_id": "mf_ev_aged_stock",
+          "relation": "refutes"
+        },
+        {
+          "evidence_id": "mf_ev_inventory_growth",
+          "relation": "context"
+        },
+        {
+          "evidence_id": "mf_ev_nwc",
+          "relation": "context"
+        },
+        {
+          "evidence_id": "mf_ev_receivables",
+          "relation": "context"
+        },
+        {
+          "evidence_id": "mf_ev_forecast_inventory",
+          "relation": "refutes"
+        },
+        {
+          "evidence_id": "mf_ev_warehouse_count",
+          "relation": "supports"
+        },
+        {
+          "evidence_id": "mf_ev_count_scope",
+          "relation": "context"
+        }
+      ],
+      "financial_driver": "nwc",
+      "ground_truth_status": "future_outcome_unobserved",
+      "hypothesis_id": "mf_hyp_h1",
+      "materiality": "analyst_defined_per_question",
+      "rationale": "Scenario-designed hypothesis; document-visible support status is separate from terminal world truth.",
+      "record": {
+        "claim_kind": "binary_hypothesis",
+        "deal_id": "deal_mf",
+        "entity_version": 2,
+        "id": "mf_claim_h1",
+        "period_end": "2027-12-31",
+        "period_start": "2025-01-01",
+        "required_criterion_keys": [
+          "inventory_count",
+          "inventory_valuation",
+          "working_capital"
+        ],
+        "review_status": "approved",
+        "source_span_ids": [],
+        "statement": "FY2025 inventory and operating working capital are supportable: inventory count variance is at most 1%, no inventory impairment above USD 100,000 is required, and the planned FY2027 USD 1,100,000 NWC release is backed by collection and inventory actions.",
+        "subject_key": "mf_h1",
+        "support_status": "contradicted",
+        "thesis_id": "mf_thesis",
+        "truth_status": "disputed"
+      },
+      "source_locators": []
+    },
+    {
+      "claim_type": "binary_hypothesis",
+      "evidence_relationships": [
+        {
+          "evidence_id": "mf_ev_income",
+          "relation": "context"
+        },
+        {
+          "evidence_id": "mf_ev_normalization",
+          "relation": "context"
+        },
+        {
+          "evidence_id": "mf_ev_cashflow",
+          "relation": "refutes"
+        },
+        {
+          "evidence_id": "mf_ev_profit_claim",
+          "relation": "context"
+        },
+        {
+          "evidence_id": "mf_ev_capex",
+          "relation": "refutes"
+        },
+        {
+          "evidence_id": "mf_ev_maintenance",
+          "relation": "context"
+        },
+        {
+          "evidence_id": "mf_ev_ppe",
+          "relation": "context"
+        },
+        {
+          "evidence_id": "mf_ev_forecast_qa",
+          "relation": "context"
+        }
+      ],
+      "financial_driver": "ebitda",
+      "ground_truth_status": "scenario_provisional",
+      "hypothesis_id": "mf_hyp_h2",
+      "materiality": "analyst_defined_per_question",
+      "rationale": "Scenario-designed hypothesis; document-visible support status is separate from terminal world truth.",
+      "record": {
+        "claim_kind": "binary_hypothesis",
+        "deal_id": "deal_mf",
+        "entity_version": 2,
+        "id": "mf_claim_h2",
+        "period_end": "2027-12-31",
+        "period_start": "2025-01-01",
+        "required_criterion_keys": [
+          "ebitda",
+          "maintenance_capex",
+          "cash_conversion"
+        ],
+        "review_status": "approved",
+        "source_span_ids": [],
+        "statement": "Recurring FY2025 EBITDA is at least USD 1,100,000 after substantiated normalization and cash generated from operations after sustainable maintenance CAPEX is positive.",
+        "subject_key": "mf_h2",
+        "support_status": "contradicted",
+        "thesis_id": "mf_thesis",
+        "truth_status": "disputed"
+      },
+      "source_locators": []
+    },
+    {
+      "claim_type": "binary_hypothesis",
+      "evidence_relationships": [
+        {
+          "evidence_id": "mf_ev_customers",
+          "relation": "refutes"
+        },
+        {
+          "evidence_id": "mf_ev_products",
+          "relation": "context"
+        },
+        {
+          "evidence_id": "mf_ev_geography",
+          "relation": "context"
+        },
+        {
+          "evidence_id": "mf_ev_contracts",
+          "relation": "context"
+        },
+        {
+          "evidence_id": "mf_ev_sales_strength",
+          "relation": "context"
+        },
+        {
+          "evidence_id": "mf_ev_capacity",
+          "relation": "refutes"
+        },
+        {
+          "evidence_id": "mf_ev_forecast_revenue",
+          "relation": "context"
+        }
+      ],
+      "financial_driver": "revenue_quality",
+      "ground_truth_status": "scenario_provisional",
+      "hypothesis_id": "mf_hyp_h3",
+      "materiality": "analyst_defined_per_question",
+      "rationale": "Scenario-designed hypothesis; document-visible support status is separate from terminal world truth.",
+      "record": {
+        "claim_kind": "binary_hypothesis",
+        "deal_id": "deal_mf",
+        "entity_version": 2,
+        "id": "mf_claim_h3",
+        "period_end": "2027-12-31",
+        "period_start": "2025-01-01",
+        "required_criterion_keys": [
+          "concentration",
+          "capacity",
+          "sales_mix"
+        ],
+        "review_status": "approved",
+        "source_span_ids": [],
+        "statement": "The FY2027 USD 12,000,000 revenue forecast is supported by funded practical production capacity and binding demand, with no customer exceeding 40% of revenue and reconciled historical product sales.",
+        "subject_key": "mf_h3",
+        "support_status": "contradicted",
+        "thesis_id": "mf_thesis",
+        "truth_status": "disputed"
+      },
+      "source_locators": []
+    },
+    {
+      "available_stage": 0,
+      "claim_type": "company_reported",
+      "evidence_relationships": [
+        {
+          "available_stage": 0,
+          "evidence_id": "mf_ev_inventory_claim",
+          "relation": "supports"
+        },
+        {
+          "available_stage": 0,
+          "evidence_id": "mf_ev_aged_stock",
+          "relation": "refutes"
+        }
+      ],
+      "exact_source_excerpt": "Recorded inventory is USD 2,400,000: raw materials USD 800,000, work in progress USD 400,000 and finished goods USD 1,200,000. Management says all stock is readily saleable and no write-down is required.",
+      "financial_driver": "nwc",
+      "ground_truth_status": "contradicted",
+      "hypothesis_id": "mf_hyp_h1",
+      "label_stage": 0,
+      "lifecycle_evidence_relationships": [
+        {
+          "available_stage": 0,
+          "evidence_id": "mf_ev_inventory_claim",
+          "relation": "supports"
+        },
+        {
+          "available_stage": 0,
+          "evidence_id": "mf_ev_aged_stock",
+          "relation": "refutes"
+        }
+      ],
+      "materiality": "analyst_defined_per_question",
+      "rationale": "Actual company assertion extraction label; original source establishes reported wording, while conflicting documents determine support. Analyst-defined hypotheses are a separate annotation class.",
+      "record": {
+        "claim_kind": "company_reported",
+        "deal_id": "deal_mf",
+        "entity_version": 1,
+        "id": "mf_assertion_inventory",
+        "period_end": "2027-12-31",
+        "period_start": "2025-01-01",
+        "required_criterion_keys": [
+          "inventory_valuation"
+        ],
+        "review_status": "draft",
+        "source_span_ids": [
+          "span_mf_doc_inventory_27286f13c17186fd4891"
+        ],
+        "statement": "All recorded inventory is readily saleable and no write-down is needed.",
+        "subject_key": "mf_inventory",
+        "support_status": "contradicted",
+        "thesis_id": "mf_thesis",
+        "truth_status": "disputed"
+      },
+      "source_locators": [
+        {
+          "deal_id": "deal_mf",
+          "document_id": "mf_doc_inventory",
+          "document_version": 1,
+          "end": 203,
+          "entity_version": 1,
+          "extraction_method": "parsed",
+          "id": "span_mf_doc_inventory_27286f13c17186fd4891",
+          "locator": {
+            "block_index": 4,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "locator_status": "validated",
+          "normalized_text": "Recorded inventory is USD 2,400,000: raw materials USD 800,000, work in progress USD 400,000 and finished goods USD 1,200,000. Management says all stock is readily saleable and no write-down is required.",
+          "quote": "Recorded inventory is USD 2,400,000: raw materials USD 800,000, work in progress USD 400,000 and finished goods USD 1,200,000. Management says all stock is readily saleable and no write-down is required.",
+          "start": 0,
+          "text_sha256": "7915889bdc5c0543e39ab3c7ce78551c2848aea1c271ee5ec15a8bdc25db0864"
+        }
+      ]
+    },
+    {
+      "available_stage": 0,
+      "claim_type": "company_reported",
+      "evidence_relationships": [
+        {
+          "available_stage": 0,
+          "evidence_id": "mf_ev_cashflow",
+          "relation": "refutes"
+        },
+        {
+          "available_stage": 0,
+          "evidence_id": "mf_ev_profit_claim",
+          "relation": "context"
+        }
+      ],
+      "exact_source_excerpt": "Management describes FY2025 reported EBITDA of USD 1,300,000 as USD 1,300,000 operating cash generated. The supplied cash-flow reconciliation instead reports zero cash from operations; EBITDA growth from USD 1,200,000 does not make EBITDA equivalent to cash flow.",
+      "financial_driver": "ebitda",
+      "ground_truth_status": "contradicted",
+      "hypothesis_id": "mf_hyp_h2",
+      "label_stage": 0,
+      "lifecycle_evidence_relationships": [
+        {
+          "available_stage": 0,
+          "evidence_id": "mf_ev_cashflow",
+          "relation": "refutes"
+        },
+        {
+          "available_stage": 0,
+          "evidence_id": "mf_ev_profit_claim",
+          "relation": "context"
+        }
+      ],
+      "materiality": "analyst_defined_per_question",
+      "rationale": "Actual company assertion extraction label; original source establishes reported wording, while conflicting documents determine support. Analyst-defined hypotheses are a separate annotation class.",
+      "record": {
+        "claim_kind": "company_reported",
+        "deal_id": "deal_mf",
+        "entity_version": 1,
+        "id": "mf_assertion_cash",
+        "period_end": "2027-12-31",
+        "period_start": "2025-01-01",
+        "required_criterion_keys": [
+          "cash_conversion"
+        ],
+        "review_status": "draft",
+        "source_span_ids": [
+          "span_mf_doc_financial_110f29b7b060dcf61aae"
+        ],
+        "statement": "FY2025 reported EBITDA of USD 1,300,000 equals operating cash generated.",
+        "subject_key": "mf_cash",
+        "support_status": "contradicted",
+        "thesis_id": "mf_thesis",
+        "truth_status": "disputed"
+      },
+      "source_locators": [
+        {
+          "deal_id": "deal_mf",
+          "document_id": "mf_doc_financial",
+          "document_version": 1,
+          "end": 263,
+          "entity_version": 1,
+          "extraction_method": "parsed",
+          "id": "span_mf_doc_financial_110f29b7b060dcf61aae",
+          "locator": {
+            "block_index": 7,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "locator_status": "validated",
+          "normalized_text": "Management describes FY2025 reported EBITDA of USD 1,300,000 as USD 1,300,000 operating cash generated. The supplied cash-flow reconciliation instead reports zero cash from operations; EBITDA growth from USD 1,200,000 does not make EBITDA equivalent to cash flow.",
+          "quote": "Management describes FY2025 reported EBITDA of USD 1,300,000 as USD 1,300,000 operating cash generated. The supplied cash-flow reconciliation instead reports zero cash from operations; EBITDA growth from USD 1,200,000 does not make EBITDA equivalent to cash flow.",
+          "start": 0,
+          "text_sha256": "3fef09e067d7c217518b33d3832975abd9dcd009ce4f29347f5daf703797a00c"
+        }
+      ]
+    },
+    {
+      "available_stage": 0,
+      "claim_type": "company_reported",
+      "evidence_relationships": [
+        {
+          "available_stage": 0,
+          "evidence_id": "mf_ev_capex",
+          "relation": "refutes"
+        }
+      ],
+      "exact_source_excerpt": "FY2025 CAPEX USD 1,000,000 consists of USD 600,000 replacement and safety work required to sustain existing operations and USD 400,000 expansion projects. Management initially describes the entire USD 1,000,000 as discretionary growth investment.",
+      "financial_driver": "ebitda",
+      "ground_truth_status": "contradicted",
+      "hypothesis_id": "mf_hyp_h2",
+      "label_stage": 0,
+      "lifecycle_evidence_relationships": [
+        {
+          "available_stage": 0,
+          "evidence_id": "mf_ev_capex",
+          "relation": "refutes"
+        }
+      ],
+      "materiality": "analyst_defined_per_question",
+      "rationale": "Actual company assertion extraction label; original source establishes reported wording, while conflicting documents determine support. Analyst-defined hypotheses are a separate annotation class.",
+      "record": {
+        "claim_kind": "company_reported",
+        "deal_id": "deal_mf",
+        "entity_version": 1,
+        "id": "mf_assertion_capex",
+        "period_end": "2027-12-31",
+        "period_start": "2025-01-01",
+        "required_criterion_keys": [
+          "maintenance_capex"
+        ],
+        "review_status": "draft",
+        "source_span_ids": [
+          "span_mf_doc_plant_a0687f01dfa808e80c20"
+        ],
+        "statement": "The entire FY2025 CAPEX amount is discretionary expansion.",
+        "subject_key": "mf_capex",
+        "support_status": "contradicted",
+        "thesis_id": "mf_thesis",
+        "truth_status": "disputed"
+      },
+      "source_locators": [
+        {
+          "deal_id": "deal_mf",
+          "document_id": "mf_doc_plant",
+          "document_version": 1,
+          "end": 246,
+          "entity_version": 1,
+          "extraction_method": "parsed",
+          "id": "span_mf_doc_plant_a0687f01dfa808e80c20",
+          "locator": {
+            "block_index": 5,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "locator_status": "validated",
+          "normalized_text": "FY2025 CAPEX USD 1,000,000 consists of USD 600,000 replacement and safety work required to sustain existing operations and USD 400,000 expansion projects. Management initially describes the entire USD 1,000,000 as discretionary growth investment.",
+          "quote": "FY2025 CAPEX USD 1,000,000 consists of USD 600,000 replacement and safety work required to sustain existing operations and USD 400,000 expansion projects. Management initially describes the entire USD 1,000,000 as discretionary growth investment.",
+          "start": 0,
+          "text_sha256": "f22bd14dd74a2ae991b4efa0497d9b010b583ca74a6f70fa402a58d26c2ff16c"
+        }
+      ]
+    },
+    {
+      "available_stage": 0,
+      "claim_type": "company_reported",
+      "evidence_relationships": [
+        {
+          "available_stage": 0,
+          "evidence_id": "mf_ev_capacity",
+          "relation": "refutes"
+        },
+        {
+          "available_stage": 0,
+          "evidence_id": "mf_ev_forecast_revenue",
+          "relation": "context"
+        }
+      ],
+      "exact_source_excerpt": "FY2027 revenue is forecast as 120,000 standardized production-slot equivalents at a blended USD 100 revenue per equivalent, totaling USD 12,000,000. Cost of sales USD 7,560,000 and operating expense excluding depreciation USD 2,740,000 produce forecast EBITDA USD 1,700,000.",
+      "financial_driver": "revenue_quality",
+      "ground_truth_status": "contradicted",
+      "hypothesis_id": "mf_hyp_h3",
+      "label_stage": 0,
+      "lifecycle_evidence_relationships": [
+        {
+          "available_stage": 0,
+          "evidence_id": "mf_ev_capacity",
+          "relation": "refutes"
+        },
+        {
+          "available_stage": 0,
+          "evidence_id": "mf_ev_forecast_revenue",
+          "relation": "context"
+        }
+      ],
+      "materiality": "analyst_defined_per_question",
+      "rationale": "Actual company assertion extraction label; original source establishes reported wording, while conflicting documents determine support. Analyst-defined hypotheses are a separate annotation class.",
+      "record": {
+        "claim_kind": "company_reported",
+        "deal_id": "deal_mf",
+        "entity_version": 1,
+        "id": "mf_assertion_growth",
+        "period_end": "2027-12-31",
+        "period_start": "2025-01-01",
+        "required_criterion_keys": [
+          "capacity"
+        ],
+        "review_status": "draft",
+        "source_span_ids": [
+          "span_mf_doc_forecast_b8b908136ba97ae31d92"
+        ],
+        "statement": "Existing and planned operations support FY2027 revenue USD 12,000,000.",
+        "subject_key": "mf_growth",
+        "support_status": "contradicted",
+        "thesis_id": "mf_thesis",
+        "truth_status": "disputed"
+      },
+      "source_locators": [
+        {
+          "deal_id": "deal_mf",
+          "document_id": "mf_doc_forecast",
+          "document_version": 1,
+          "end": 274,
+          "entity_version": 1,
+          "extraction_method": "parsed",
+          "id": "span_mf_doc_forecast_b8b908136ba97ae31d92",
+          "locator": {
+            "block_index": 4,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "locator_status": "validated",
+          "normalized_text": "FY2027 revenue is forecast as 120,000 standardized production-slot equivalents at a blended USD 100 revenue per equivalent, totaling USD 12,000,000. Cost of sales USD 7,560,000 and operating expense excluding depreciation USD 2,740,000 produce forecast EBITDA USD 1,700,000.",
+          "quote": "FY2027 revenue is forecast as 120,000 standardized production-slot equivalents at a blended USD 100 revenue per equivalent, totaling USD 12,000,000. Cost of sales USD 7,560,000 and operating expense excluding depreciation USD 2,740,000 produce forecast EBITDA USD 1,700,000.",
+          "start": 0,
+          "text_sha256": "13f630dbe4fc8152497d939d4c317755f353a680b7fd013e60de5f67cca163b6"
+        }
+      ]
+    }
+  ],
+  "dataset_version": "3.0.0",
+  "documentary_assertions": [
+    [
+      "inventory",
+      "inventory",
+      "stock",
+      "company_reported",
+      "All recorded inventory is readily saleable and no write-down is needed.",
+      "h1",
+      "contradicted"
+    ],
+    [
+      "cash",
+      "financial",
+      "profit",
+      "company_reported",
+      "FY2025 reported EBITDA of USD 1,300,000 equals operating cash generated.",
+      "h2",
+      "contradicted"
+    ],
+    [
+      "capex",
+      "plant",
+      "capex",
+      "company_reported",
+      "The entire FY2025 CAPEX amount is discretionary expansion.",
+      "h2",
+      "contradicted"
+    ],
+    [
+      "growth",
+      "forecast",
+      "revenue",
+      "company_reported",
+      "Existing and planned operations support FY2027 revenue USD 12,000,000.",
+      "h3",
+      "contradicted"
+    ]
+  ],
+  "documentary_claims": [
+    {
+      "available_stage": 0,
+      "claim_type": "company_reported",
+      "evidence_relationships": [
+        {
+          "available_stage": 0,
+          "evidence_id": "mf_ev_inventory_claim",
+          "relation": "supports"
+        },
+        {
+          "available_stage": 0,
+          "evidence_id": "mf_ev_aged_stock",
+          "relation": "refutes"
+        }
+      ],
+      "exact_source_excerpt": "Recorded inventory is USD 2,400,000: raw materials USD 800,000, work in progress USD 400,000 and finished goods USD 1,200,000. Management says all stock is readily saleable and no write-down is required.",
+      "financial_driver": "nwc",
+      "ground_truth_status": "contradicted",
+      "hypothesis_id": "mf_hyp_h1",
+      "label_stage": 0,
+      "lifecycle_evidence_relationships": [
+        {
+          "available_stage": 0,
+          "evidence_id": "mf_ev_inventory_claim",
+          "relation": "supports"
+        },
+        {
+          "available_stage": 0,
+          "evidence_id": "mf_ev_aged_stock",
+          "relation": "refutes"
+        }
+      ],
+      "materiality": "analyst_defined_per_question",
+      "rationale": "Actual company assertion extraction label; original source establishes reported wording, while conflicting documents determine support. Analyst-defined hypotheses are a separate annotation class.",
+      "record": {
+        "claim_kind": "company_reported",
+        "deal_id": "deal_mf",
+        "entity_version": 1,
+        "id": "mf_assertion_inventory",
+        "period_end": "2027-12-31",
+        "period_start": "2025-01-01",
+        "required_criterion_keys": [
+          "inventory_valuation"
+        ],
+        "review_status": "draft",
+        "source_span_ids": [
+          "span_mf_doc_inventory_27286f13c17186fd4891"
+        ],
+        "statement": "All recorded inventory is readily saleable and no write-down is needed.",
+        "subject_key": "mf_inventory",
+        "support_status": "contradicted",
+        "thesis_id": "mf_thesis",
+        "truth_status": "disputed"
+      },
+      "source_locators": [
+        {
+          "deal_id": "deal_mf",
+          "document_id": "mf_doc_inventory",
+          "document_version": 1,
+          "end": 203,
+          "entity_version": 1,
+          "extraction_method": "parsed",
+          "id": "span_mf_doc_inventory_27286f13c17186fd4891",
+          "locator": {
+            "block_index": 4,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "locator_status": "validated",
+          "normalized_text": "Recorded inventory is USD 2,400,000: raw materials USD 800,000, work in progress USD 400,000 and finished goods USD 1,200,000. Management says all stock is readily saleable and no write-down is required.",
+          "quote": "Recorded inventory is USD 2,400,000: raw materials USD 800,000, work in progress USD 400,000 and finished goods USD 1,200,000. Management says all stock is readily saleable and no write-down is required.",
+          "start": 0,
+          "text_sha256": "7915889bdc5c0543e39ab3c7ce78551c2848aea1c271ee5ec15a8bdc25db0864"
+        }
+      ]
+    },
+    {
+      "available_stage": 0,
+      "claim_type": "company_reported",
+      "evidence_relationships": [
+        {
+          "available_stage": 0,
+          "evidence_id": "mf_ev_cashflow",
+          "relation": "refutes"
+        },
+        {
+          "available_stage": 0,
+          "evidence_id": "mf_ev_profit_claim",
+          "relation": "context"
+        }
+      ],
+      "exact_source_excerpt": "Management describes FY2025 reported EBITDA of USD 1,300,000 as USD 1,300,000 operating cash generated. The supplied cash-flow reconciliation instead reports zero cash from operations; EBITDA growth from USD 1,200,000 does not make EBITDA equivalent to cash flow.",
+      "financial_driver": "ebitda",
+      "ground_truth_status": "contradicted",
+      "hypothesis_id": "mf_hyp_h2",
+      "label_stage": 0,
+      "lifecycle_evidence_relationships": [
+        {
+          "available_stage": 0,
+          "evidence_id": "mf_ev_cashflow",
+          "relation": "refutes"
+        },
+        {
+          "available_stage": 0,
+          "evidence_id": "mf_ev_profit_claim",
+          "relation": "context"
+        }
+      ],
+      "materiality": "analyst_defined_per_question",
+      "rationale": "Actual company assertion extraction label; original source establishes reported wording, while conflicting documents determine support. Analyst-defined hypotheses are a separate annotation class.",
+      "record": {
+        "claim_kind": "company_reported",
+        "deal_id": "deal_mf",
+        "entity_version": 1,
+        "id": "mf_assertion_cash",
+        "period_end": "2027-12-31",
+        "period_start": "2025-01-01",
+        "required_criterion_keys": [
+          "cash_conversion"
+        ],
+        "review_status": "draft",
+        "source_span_ids": [
+          "span_mf_doc_financial_110f29b7b060dcf61aae"
+        ],
+        "statement": "FY2025 reported EBITDA of USD 1,300,000 equals operating cash generated.",
+        "subject_key": "mf_cash",
+        "support_status": "contradicted",
+        "thesis_id": "mf_thesis",
+        "truth_status": "disputed"
+      },
+      "source_locators": [
+        {
+          "deal_id": "deal_mf",
+          "document_id": "mf_doc_financial",
+          "document_version": 1,
+          "end": 263,
+          "entity_version": 1,
+          "extraction_method": "parsed",
+          "id": "span_mf_doc_financial_110f29b7b060dcf61aae",
+          "locator": {
+            "block_index": 7,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "locator_status": "validated",
+          "normalized_text": "Management describes FY2025 reported EBITDA of USD 1,300,000 as USD 1,300,000 operating cash generated. The supplied cash-flow reconciliation instead reports zero cash from operations; EBITDA growth from USD 1,200,000 does not make EBITDA equivalent to cash flow.",
+          "quote": "Management describes FY2025 reported EBITDA of USD 1,300,000 as USD 1,300,000 operating cash generated. The supplied cash-flow reconciliation instead reports zero cash from operations; EBITDA growth from USD 1,200,000 does not make EBITDA equivalent to cash flow.",
+          "start": 0,
+          "text_sha256": "3fef09e067d7c217518b33d3832975abd9dcd009ce4f29347f5daf703797a00c"
+        }
+      ]
+    },
+    {
+      "available_stage": 0,
+      "claim_type": "company_reported",
+      "evidence_relationships": [
+        {
+          "available_stage": 0,
+          "evidence_id": "mf_ev_capex",
+          "relation": "refutes"
+        }
+      ],
+      "exact_source_excerpt": "FY2025 CAPEX USD 1,000,000 consists of USD 600,000 replacement and safety work required to sustain existing operations and USD 400,000 expansion projects. Management initially describes the entire USD 1,000,000 as discretionary growth investment.",
+      "financial_driver": "ebitda",
+      "ground_truth_status": "contradicted",
+      "hypothesis_id": "mf_hyp_h2",
+      "label_stage": 0,
+      "lifecycle_evidence_relationships": [
+        {
+          "available_stage": 0,
+          "evidence_id": "mf_ev_capex",
+          "relation": "refutes"
+        }
+      ],
+      "materiality": "analyst_defined_per_question",
+      "rationale": "Actual company assertion extraction label; original source establishes reported wording, while conflicting documents determine support. Analyst-defined hypotheses are a separate annotation class.",
+      "record": {
+        "claim_kind": "company_reported",
+        "deal_id": "deal_mf",
+        "entity_version": 1,
+        "id": "mf_assertion_capex",
+        "period_end": "2027-12-31",
+        "period_start": "2025-01-01",
+        "required_criterion_keys": [
+          "maintenance_capex"
+        ],
+        "review_status": "draft",
+        "source_span_ids": [
+          "span_mf_doc_plant_a0687f01dfa808e80c20"
+        ],
+        "statement": "The entire FY2025 CAPEX amount is discretionary expansion.",
+        "subject_key": "mf_capex",
+        "support_status": "contradicted",
+        "thesis_id": "mf_thesis",
+        "truth_status": "disputed"
+      },
+      "source_locators": [
+        {
+          "deal_id": "deal_mf",
+          "document_id": "mf_doc_plant",
+          "document_version": 1,
+          "end": 246,
+          "entity_version": 1,
+          "extraction_method": "parsed",
+          "id": "span_mf_doc_plant_a0687f01dfa808e80c20",
+          "locator": {
+            "block_index": 5,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "locator_status": "validated",
+          "normalized_text": "FY2025 CAPEX USD 1,000,000 consists of USD 600,000 replacement and safety work required to sustain existing operations and USD 400,000 expansion projects. Management initially describes the entire USD 1,000,000 as discretionary growth investment.",
+          "quote": "FY2025 CAPEX USD 1,000,000 consists of USD 600,000 replacement and safety work required to sustain existing operations and USD 400,000 expansion projects. Management initially describes the entire USD 1,000,000 as discretionary growth investment.",
+          "start": 0,
+          "text_sha256": "f22bd14dd74a2ae991b4efa0497d9b010b583ca74a6f70fa402a58d26c2ff16c"
+        }
+      ]
+    },
+    {
+      "available_stage": 0,
+      "claim_type": "company_reported",
+      "evidence_relationships": [
+        {
+          "available_stage": 0,
+          "evidence_id": "mf_ev_capacity",
+          "relation": "refutes"
+        },
+        {
+          "available_stage": 0,
+          "evidence_id": "mf_ev_forecast_revenue",
+          "relation": "context"
+        }
+      ],
+      "exact_source_excerpt": "FY2027 revenue is forecast as 120,000 standardized production-slot equivalents at a blended USD 100 revenue per equivalent, totaling USD 12,000,000. Cost of sales USD 7,560,000 and operating expense excluding depreciation USD 2,740,000 produce forecast EBITDA USD 1,700,000.",
+      "financial_driver": "revenue_quality",
+      "ground_truth_status": "contradicted",
+      "hypothesis_id": "mf_hyp_h3",
+      "label_stage": 0,
+      "lifecycle_evidence_relationships": [
+        {
+          "available_stage": 0,
+          "evidence_id": "mf_ev_capacity",
+          "relation": "refutes"
+        },
+        {
+          "available_stage": 0,
+          "evidence_id": "mf_ev_forecast_revenue",
+          "relation": "context"
+        }
+      ],
+      "materiality": "analyst_defined_per_question",
+      "rationale": "Actual company assertion extraction label; original source establishes reported wording, while conflicting documents determine support. Analyst-defined hypotheses are a separate annotation class.",
+      "record": {
+        "claim_kind": "company_reported",
+        "deal_id": "deal_mf",
+        "entity_version": 1,
+        "id": "mf_assertion_growth",
+        "period_end": "2027-12-31",
+        "period_start": "2025-01-01",
+        "required_criterion_keys": [
+          "capacity"
+        ],
+        "review_status": "draft",
+        "source_span_ids": [
+          "span_mf_doc_forecast_b8b908136ba97ae31d92"
+        ],
+        "statement": "Existing and planned operations support FY2027 revenue USD 12,000,000.",
+        "subject_key": "mf_growth",
+        "support_status": "contradicted",
+        "thesis_id": "mf_thesis",
+        "truth_status": "disputed"
+      },
+      "source_locators": [
+        {
+          "deal_id": "deal_mf",
+          "document_id": "mf_doc_forecast",
+          "document_version": 1,
+          "end": 274,
+          "entity_version": 1,
+          "extraction_method": "parsed",
+          "id": "span_mf_doc_forecast_b8b908136ba97ae31d92",
+          "locator": {
+            "block_index": 4,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "locator_status": "validated",
+          "normalized_text": "FY2027 revenue is forecast as 120,000 standardized production-slot equivalents at a blended USD 100 revenue per equivalent, totaling USD 12,000,000. Cost of sales USD 7,560,000 and operating expense excluding depreciation USD 2,740,000 produce forecast EBITDA USD 1,700,000.",
+          "quote": "FY2027 revenue is forecast as 120,000 standardized production-slot equivalents at a blended USD 100 revenue per equivalent, totaling USD 12,000,000. Cost of sales USD 7,560,000 and operating expense excluding depreciation USD 2,740,000 produce forecast EBITDA USD 1,700,000.",
+          "start": 0,
+          "text_sha256": "13f630dbe4fc8152497d939d4c317755f353a680b7fd013e60de5f67cca163b6"
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "available_stage": 0,
+      "contradiction_group": null,
+      "document_visible_status": "document_only",
+      "evidence_group_id": "mf_fy25_management_accounts",
+      "evidence_type": "financial",
+      "exact_source_excerpt": "FY2025 revenue USD 10,000,000 less cost of sales USD 6,400,000 and net operating expense excluding depreciation USD 2,300,000 gives reported EBITDA USD 1,300,000. Depreciation USD 400,000, interest USD 150,000 and tax USD 150,000 give net income USD 600,000.",
+      "rationale": "The exact source supports what this fictional document reports; neither source presence nor analyst approval asserts real-world verification.",
+      "record": {
+        "claim_id": "mf_claim_h2",
+        "created_at": "2026-11-03T00:00:00Z",
+        "criterion_keys": [],
+        "deal_id": "deal_mf",
+        "entity_version": 1,
+        "id": "mf_ev_income",
+        "independent_check_reference": null,
+        "lifecycle": "active",
+        "origin_key": "mf_fy25_management_accounts",
+        "provenance": "company_reported",
+        "reliability_rationale": "Scenario author assessed documentary specificity; simulated counterparties are not actual independent authentication.",
+        "review_status": "approved",
+        "source_reliability": 3,
+        "source_span_ids": [
+          "span_mf_doc_financial_3a27b2bca09cafcf7ced"
+        ],
+        "stance": "context",
+        "verification_level": "document_only"
+      },
+      "world_truth_status": "synthetic observation only; future outcome unobserved"
+    },
+    {
+      "available_stage": 0,
+      "contradiction_group": "reported_normalized_ebitda",
+      "document_visible_status": "document_only",
+      "evidence_group_id": "mf_fy25_management_accounts",
+      "evidence_type": "financial",
+      "exact_source_excerpt": "Net operating expense of USD 2,300,000 comprises USD 2,600,000 gross expense less a USD 300,000 insurance recovery received in cash. Gross expense includes USD 100,000 relocation expense. Removing the insurance recovery and adding back relocation gives a provisional normalized EBITDA of USD 1,100,000. Insurance settlement and proof that relocation will not recur have not been supplied.",
+      "rationale": "The exact source supports what this fictional document reports; neither source presence nor analyst approval asserts real-world verification.",
+      "record": {
+        "claim_id": "mf_claim_h2",
+        "created_at": "2026-11-03T00:00:00Z",
+        "criterion_keys": [],
+        "deal_id": "deal_mf",
+        "entity_version": 1,
+        "id": "mf_ev_normalization",
+        "independent_check_reference": null,
+        "lifecycle": "active",
+        "origin_key": "mf_fy25_management_accounts",
+        "provenance": "company_reported",
+        "reliability_rationale": "Scenario author assessed documentary specificity; simulated counterparties are not actual independent authentication.",
+        "review_status": "approved",
+        "source_reliability": 3,
+        "source_span_ids": [
+          "span_mf_doc_financial_9f3c6dd4d44878098f25"
+        ],
+        "stance": "context",
+        "verification_level": "document_only"
+      },
+      "world_truth_status": "synthetic observation only; future outcome unobserved"
+    },
+    {
+      "available_stage": 0,
+      "contradiction_group": "profit_cash",
+      "document_visible_status": "document_only",
+      "evidence_group_id": "mf_fy25_management_accounts",
+      "evidence_type": "financial",
+      "exact_source_excerpt": "FY2025 cash from operations is USD 0: net income USD 600,000 plus depreciation USD 400,000 less USD 1,000,000 increase in operating NWC. CAPEX USD 1,000,000, debt raised USD 600,000, equity raised USD 200,000 and dividends USD 100,000 produce a USD 300,000 cash decrease from USD 600,000 to USD 300,000.",
+      "rationale": "The exact source supports what this fictional document reports; neither source presence nor analyst approval asserts real-world verification.",
+      "record": {
+        "claim_id": "mf_claim_h2",
+        "created_at": "2026-11-03T00:00:00Z",
+        "criterion_keys": [
+          "cash_conversion"
+        ],
+        "deal_id": "deal_mf",
+        "entity_version": 1,
+        "id": "mf_ev_cashflow",
+        "independent_check_reference": null,
+        "lifecycle": "active",
+        "origin_key": "mf_fy25_management_accounts",
+        "provenance": "company_reported",
+        "reliability_rationale": "Scenario author assessed documentary specificity; simulated counterparties are not actual independent authentication.",
+        "review_status": "approved",
+        "source_reliability": 3,
+        "source_span_ids": [
+          "span_mf_doc_financial_99a5925f187d52fab0f4"
+        ],
+        "stance": "refutes",
+        "verification_level": "document_only"
+      },
+      "world_truth_status": "synthetic observation only; future outcome unobserved"
+    },
+    {
+      "available_stage": 0,
+      "contradiction_group": "profit_cash",
+      "document_visible_status": "document_only",
+      "evidence_group_id": "mf_management_cash_claim",
+      "evidence_type": "financial",
+      "exact_source_excerpt": "Management describes FY2025 reported EBITDA of USD 1,300,000 as USD 1,300,000 operating cash generated. The supplied cash-flow reconciliation instead reports zero cash from operations; EBITDA growth from USD 1,200,000 does not make EBITDA equivalent to cash flow.",
+      "rationale": "The exact source supports what this fictional document reports; neither source presence nor analyst approval asserts real-world verification.",
+      "record": {
+        "claim_id": "mf_claim_h2",
+        "created_at": "2026-11-03T00:00:00Z",
+        "criterion_keys": [],
+        "deal_id": "deal_mf",
+        "entity_version": 1,
+        "id": "mf_ev_profit_claim",
+        "independent_check_reference": null,
+        "lifecycle": "active",
+        "origin_key": "mf_management_cash_claim",
+        "provenance": "company_reported",
+        "reliability_rationale": "Scenario author assessed documentary specificity; simulated counterparties are not actual independent authentication.",
+        "review_status": "approved",
+        "source_reliability": 2,
+        "source_span_ids": [
+          "span_mf_doc_financial_110f29b7b060dcf61aae"
+        ],
+        "stance": "context",
+        "verification_level": "document_only"
+      },
+      "world_truth_status": "synthetic observation only; future outcome unobserved"
+    },
+    {
+      "available_stage": 0,
+      "contradiction_group": "concentration",
+      "document_visible_status": "document_only",
+      "evidence_group_id": "mf_sales_ledger",
+      "evidence_type": "sales",
+      "exact_source_excerpt": "FY2025 recognized revenue is Brindle Retail USD 4,500,000, Fern Wholesale USD 2,000,000, Hearth Distribution USD 1,500,000 and direct-to-consumer sales USD 2,000,000. Brindle represents 45% of total revenue.",
+      "rationale": "The exact source supports what this fictional document reports; neither source presence nor analyst approval asserts real-world verification.",
+      "record": {
+        "claim_id": "mf_claim_h3",
+        "created_at": "2026-11-03T00:00:00Z",
+        "criterion_keys": [
+          "concentration"
+        ],
+        "deal_id": "deal_mf",
+        "entity_version": 1,
+        "id": "mf_ev_customers",
+        "independent_check_reference": null,
+        "lifecycle": "active",
+        "origin_key": "mf_sales_ledger",
+        "provenance": "company_reported",
+        "reliability_rationale": "Scenario author assessed documentary specificity; simulated counterparties are not actual independent authentication.",
+        "review_status": "approved",
+        "source_reliability": 3,
+        "source_span_ids": [
+          "span_mf_doc_sales_b4db6dd93727609f53c9"
+        ],
+        "stance": "refutes",
+        "verification_level": "document_only"
+      },
+      "world_truth_status": "synthetic observation only; future outcome unobserved"
+    },
+    {
+      "available_stage": 0,
+      "contradiction_group": null,
+      "document_visible_status": "document_only",
+      "evidence_group_id": "mf_sales_ledger",
+      "evidence_type": "sales",
+      "exact_source_excerpt": "FY2025 recognized revenue comprises 60,000 storage-unit equivalents at USD 100 and 20,000 cookware-unit equivalents at USD 200: USD 6,000,000 plus USD 4,000,000 equals USD 10,000,000.",
+      "rationale": "The exact source supports what this fictional document reports; neither source presence nor analyst approval asserts real-world verification.",
+      "record": {
+        "claim_id": "mf_claim_h3",
+        "created_at": "2026-11-03T00:00:00Z",
+        "criterion_keys": [],
+        "deal_id": "deal_mf",
+        "entity_version": 1,
+        "id": "mf_ev_products",
+        "independent_check_reference": null,
+        "lifecycle": "active",
+        "origin_key": "mf_sales_ledger",
+        "provenance": "company_reported",
+        "reliability_rationale": "Scenario author assessed documentary specificity; simulated counterparties are not actual independent authentication.",
+        "review_status": "approved",
+        "source_reliability": 3,
+        "source_span_ids": [
+          "span_mf_doc_sales_342a801edcd04c2f9f9f"
+        ],
+        "stance": "context",
+        "verification_level": "document_only"
+      },
+      "world_truth_status": "synthetic observation only; future outcome unobserved"
+    },
+    {
+      "available_stage": 0,
+      "contradiction_group": null,
+      "document_visible_status": "document_only",
+      "evidence_group_id": "mf_sales_ledger",
+      "evidence_type": "sales",
+      "exact_source_excerpt": "Domestic revenue is USD 8,000,000 and export revenue USD 2,000,000. The export channel grew, but domestic business still comprises 80% of recognized revenue.",
+      "rationale": "The exact source supports what this fictional document reports; neither source presence nor analyst approval asserts real-world verification.",
+      "record": {
+        "claim_id": "mf_claim_h3",
+        "created_at": "2026-11-03T00:00:00Z",
+        "criterion_keys": [],
+        "deal_id": "deal_mf",
+        "entity_version": 1,
+        "id": "mf_ev_geography",
+        "independent_check_reference": null,
+        "lifecycle": "active",
+        "origin_key": "mf_sales_ledger",
+        "provenance": "company_reported",
+        "reliability_rationale": "Scenario author assessed documentary specificity; simulated counterparties are not actual independent authentication.",
+        "review_status": "approved",
+        "source_reliability": 3,
+        "source_span_ids": [
+          "span_mf_doc_sales_8aacde274d9c4265e37e"
+        ],
+        "stance": "context",
+        "verification_level": "document_only"
+      },
+      "world_truth_status": "synthetic observation only; future outcome unobserved"
+    },
+    {
+      "available_stage": 0,
+      "contradiction_group": null,
+      "document_visible_status": "document_only",
+      "evidence_group_id": "mf_brindle_pipeline",
+      "evidence_type": "sales",
+      "exact_source_excerpt": "Brindle annual purchase forecasts are nonbinding. No minimum-volume commitment or signed FY2027 order book is supplied. Management calls the customer base diversified despite the 45% single-customer exposure.",
+      "rationale": "The exact source supports what this fictional document reports; neither source presence nor analyst approval asserts real-world verification.",
+      "record": {
+        "claim_id": "mf_claim_h3",
+        "created_at": "2026-11-03T00:00:00Z",
+        "criterion_keys": [],
+        "deal_id": "deal_mf",
+        "entity_version": 1,
+        "id": "mf_ev_contracts",
+        "independent_check_reference": null,
+        "lifecycle": "active",
+        "origin_key": "mf_brindle_pipeline",
+        "provenance": "company_reported",
+        "reliability_rationale": "Scenario author assessed documentary specificity; simulated counterparties are not actual independent authentication.",
+        "review_status": "approved",
+        "source_reliability": 3,
+        "source_span_ids": [
+          "span_mf_doc_sales_bb70420220707e9ad874"
+        ],
+        "stance": "context",
+        "verification_level": "document_only"
+      },
+      "world_truth_status": "synthetic observation only; future outcome unobserved"
+    },
+    {
+      "available_stage": 0,
+      "contradiction_group": null,
+      "document_visible_status": "document_only",
+      "evidence_group_id": "mf_sales_ledger",
+      "evidence_type": "sales",
+      "exact_source_excerpt": "No product category accounts for all sales, and 20% of revenue comes from direct-to-consumer sales. These are documented mix characteristics, not independent proof of customer retention.",
+      "rationale": "The exact source supports what this fictional document reports; neither source presence nor analyst approval asserts real-world verification.",
+      "record": {
+        "claim_id": "mf_claim_h3",
+        "created_at": "2026-11-03T00:00:00Z",
+        "criterion_keys": [],
+        "deal_id": "deal_mf",
+        "entity_version": 1,
+        "id": "mf_ev_sales_strength",
+        "independent_check_reference": null,
+        "lifecycle": "active",
+        "origin_key": "mf_sales_ledger",
+        "provenance": "company_reported",
+        "reliability_rationale": "Scenario author assessed documentary specificity; simulated counterparties are not actual independent authentication.",
+        "review_status": "approved",
+        "source_reliability": 2,
+        "source_span_ids": [
+          "span_mf_doc_sales_dedebb4e0a408aa1a3b1"
+        ],
+        "stance": "context",
+        "verification_level": "document_only"
+      },
+      "world_truth_status": "synthetic observation only; future outcome unobserved"
+    },
+    {
+      "available_stage": 0,
+      "contradiction_group": "aged_stock",
+      "document_visible_status": "document_only",
+      "evidence_group_id": "mf_management_inventory",
+      "evidence_type": "inventory",
+      "exact_source_excerpt": "Recorded inventory is USD 2,400,000: raw materials USD 800,000, work in progress USD 400,000 and finished goods USD 1,200,000. Management says all stock is readily saleable and no write-down is required.",
+      "rationale": "The exact source supports what this fictional document reports; neither source presence nor analyst approval asserts real-world verification.",
+      "record": {
+        "claim_id": "mf_claim_h1",
+        "created_at": "2026-11-03T00:00:00Z",
+        "criterion_keys": [
+          "inventory_valuation"
+        ],
+        "deal_id": "deal_mf",
+        "entity_version": 1,
+        "id": "mf_ev_inventory_claim",
+        "independent_check_reference": null,
+        "lifecycle": "active",
+        "origin_key": "mf_management_inventory",
+        "provenance": "company_reported",
+        "reliability_rationale": "Scenario author assessed documentary specificity; simulated counterparties are not actual independent authentication.",
+        "review_status": "approved",
+        "source_reliability": 2,
+        "source_span_ids": [
+          "span_mf_doc_inventory_27286f13c17186fd4891"
+        ],
+        "stance": "supports",
+        "verification_level": "document_only"
+      },
+      "world_truth_status": "synthetic observation only; future outcome unobserved"
+    },
+    {
+      "available_stage": 0,
+      "contradiction_group": "aged_stock",
+      "document_visible_status": "document_only",
+      "evidence_group_id": "mf_management_inventory",
+      "evidence_type": "inventory",
+      "exact_source_excerpt": "Finished goods older than 270 days have book cost USD 700,000. Management estimates their net realizable value at USD 500,000, implying a potential USD 200,000 write-down not booked in the historical statements. No signed clearance orders or independent valuation supports that estimate.",
+      "rationale": "The exact source supports what this fictional document reports; neither source presence nor analyst approval asserts real-world verification.",
+      "record": {
+        "claim_id": "mf_claim_h1",
+        "created_at": "2026-11-03T00:00:00Z",
+        "criterion_keys": [
+          "inventory_valuation"
+        ],
+        "deal_id": "deal_mf",
+        "entity_version": 1,
+        "id": "mf_ev_aged_stock",
+        "independent_check_reference": null,
+        "lifecycle": "active",
+        "origin_key": "mf_management_inventory",
+        "provenance": "company_reported",
+        "reliability_rationale": "Scenario author assessed documentary specificity; simulated counterparties are not actual independent authentication.",
+        "review_status": "approved",
+        "source_reliability": 3,
+        "source_span_ids": [
+          "span_mf_doc_inventory_13c07f13a678cc9f6136"
+        ],
+        "stance": "refutes",
+        "verification_level": "document_only"
+      },
+      "world_truth_status": "synthetic observation only; future outcome unobserved"
+    },
+    {
+      "available_stage": 0,
+      "contradiction_group": null,
+      "document_visible_status": "document_only",
+      "evidence_group_id": "mf_management_inventory",
+      "evidence_type": "inventory",
+      "exact_source_excerpt": "Revenue increased 25% from USD 8,000,000 to USD 10,000,000, whereas inventory increased 60% from USD 1,500,000 to USD 2,400,000. Closing inventory divided by annual cost of sales multiplied by 365 is 114.0625 days in FY2024 and 136.875 days in FY2025; this is a closing-balance diagnostic, not average inventory turnover.",
+      "rationale": "The exact source supports what this fictional document reports; neither source presence nor analyst approval asserts real-world verification.",
+      "record": {
+        "claim_id": "mf_claim_h1",
+        "created_at": "2026-11-03T00:00:00Z",
+        "criterion_keys": [],
+        "deal_id": "deal_mf",
+        "entity_version": 1,
+        "id": "mf_ev_inventory_growth",
+        "independent_check_reference": null,
+        "lifecycle": "active",
+        "origin_key": "mf_management_inventory",
+        "provenance": "company_reported",
+        "reliability_rationale": "Scenario author assessed documentary specificity; simulated counterparties are not actual independent authentication.",
+        "review_status": "approved",
+        "source_reliability": 3,
+        "source_span_ids": [
+          "span_mf_doc_inventory_1cd96ce18a4d19130117"
+        ],
+        "stance": "context",
+        "verification_level": "document_only"
+      },
+      "world_truth_status": "synthetic observation only; future outcome unobserved"
+    },
+    {
+      "available_stage": 0,
+      "contradiction_group": null,
+      "document_visible_status": "document_only",
+      "evidence_group_id": "mf_fy25_management_accounts",
+      "evidence_type": "inventory",
+      "exact_source_excerpt": "Operating NWC is trade receivables plus inventory plus prepaids less trade payables and accrued operating costs. It increased from USD 1,600,000 in FY2024 to USD 2,600,000 in FY2025. Cash, debt and tax are excluded from this case definition.",
+      "rationale": "The exact source supports what this fictional document reports; neither source presence nor analyst approval asserts real-world verification.",
+      "record": {
+        "claim_id": "mf_claim_h1",
+        "created_at": "2026-11-03T00:00:00Z",
+        "criterion_keys": [],
+        "deal_id": "deal_mf",
+        "entity_version": 1,
+        "id": "mf_ev_nwc",
+        "independent_check_reference": null,
+        "lifecycle": "active",
+        "origin_key": "mf_fy25_management_accounts",
+        "provenance": "company_reported",
+        "reliability_rationale": "Scenario author assessed documentary specificity; simulated counterparties are not actual independent authentication.",
+        "review_status": "approved",
+        "source_reliability": 3,
+        "source_span_ids": [
+          "span_mf_doc_inventory_444e30988bf6b3282d3f"
+        ],
+        "stance": "context",
+        "verification_level": "document_only"
+      },
+      "world_truth_status": "synthetic observation only; future outcome unobserved"
+    },
+    {
+      "available_stage": 0,
+      "contradiction_group": null,
+      "document_visible_status": "document_only",
+      "evidence_group_id": "mf_brindle_receivables",
+      "evidence_type": "inventory",
+      "exact_source_excerpt": "USD 400,000 of FY2025 closing receivables is owed by Brindle, including USD 150,000 past due more than 90 days. Subsequent collection evidence and an expected-loss review are absent.",
+      "rationale": "The exact source supports what this fictional document reports; neither source presence nor analyst approval asserts real-world verification.",
+      "record": {
+        "claim_id": "mf_claim_h1",
+        "created_at": "2026-11-03T00:00:00Z",
+        "criterion_keys": [],
+        "deal_id": "deal_mf",
+        "entity_version": 1,
+        "id": "mf_ev_receivables",
+        "independent_check_reference": null,
+        "lifecycle": "active",
+        "origin_key": "mf_brindle_receivables",
+        "provenance": "company_reported",
+        "reliability_rationale": "Scenario author assessed documentary specificity; simulated counterparties are not actual independent authentication.",
+        "review_status": "approved",
+        "source_reliability": 3,
+        "source_span_ids": [
+          "span_mf_doc_inventory_c3731835ec9a675859ec"
+        ],
+        "stance": "context",
+        "verification_level": "document_only"
+      },
+      "world_truth_status": "synthetic observation only; future outcome unobserved"
+    },
+    {
+      "available_stage": 0,
+      "contradiction_group": "capacity",
+      "document_visible_status": "document_only",
+      "evidence_group_id": "mf_engineering_plan",
+      "evidence_type": "plant",
+      "exact_source_excerpt": "Current practical capacity is 100,000 standardized production-slot equivalents per year. The FY2027 plan requires 120,000 equivalents. An additional 20,000-slot press has neither an executed purchase order nor committed financing in the supplied pack.",
+      "rationale": "The exact source supports what this fictional document reports; neither source presence nor analyst approval asserts real-world verification.",
+      "record": {
+        "claim_id": "mf_claim_h3",
+        "created_at": "2026-11-03T00:00:00Z",
+        "criterion_keys": [
+          "capacity"
+        ],
+        "deal_id": "deal_mf",
+        "entity_version": 1,
+        "id": "mf_ev_capacity",
+        "independent_check_reference": null,
+        "lifecycle": "active",
+        "origin_key": "mf_engineering_plan",
+        "provenance": "company_reported",
+        "reliability_rationale": "Scenario author assessed documentary specificity; simulated counterparties are not actual independent authentication.",
+        "review_status": "approved",
+        "source_reliability": 3,
+        "source_span_ids": [
+          "span_mf_doc_plant_780b3c065193893d9753"
+        ],
+        "stance": "refutes",
+        "verification_level": "document_only"
+      },
+      "world_truth_status": "synthetic observation only; future outcome unobserved"
+    },
+    {
+      "available_stage": 0,
+      "contradiction_group": "capex_classification",
+      "document_visible_status": "document_only",
+      "evidence_group_id": "mf_engineering_plan",
+      "evidence_type": "plant",
+      "exact_source_excerpt": "FY2025 CAPEX USD 1,000,000 consists of USD 600,000 replacement and safety work required to sustain existing operations and USD 400,000 expansion projects. Management initially describes the entire USD 1,000,000 as discretionary growth investment.",
+      "rationale": "The exact source supports what this fictional document reports; neither source presence nor analyst approval asserts real-world verification.",
+      "record": {
+        "claim_id": "mf_claim_h2",
+        "created_at": "2026-11-03T00:00:00Z",
+        "criterion_keys": [
+          "maintenance_capex"
+        ],
+        "deal_id": "deal_mf",
+        "entity_version": 1,
+        "id": "mf_ev_capex",
+        "independent_check_reference": null,
+        "lifecycle": "active",
+        "origin_key": "mf_engineering_plan",
+        "provenance": "company_reported",
+        "reliability_rationale": "Scenario author assessed documentary specificity; simulated counterparties are not actual independent authentication.",
+        "review_status": "approved",
+        "source_reliability": 3,
+        "source_span_ids": [
+          "span_mf_doc_plant_a0687f01dfa808e80c20"
+        ],
+        "stance": "refutes",
+        "verification_level": "document_only"
+      },
+      "world_truth_status": "synthetic observation only; future outcome unobserved"
+    },
+    {
+      "available_stage": 0,
+      "contradiction_group": null,
+      "document_visible_status": "document_only",
+      "evidence_group_id": "mf_engineering_plan",
+      "evidence_type": "plant",
+      "exact_source_excerpt": "Management engineering logs classify the USD 600,000 replacement and safety amount as maintenance CAPEX. Supplier invoices, asset-condition reports and the recurring maintenance budget have not been independently checked.",
+      "rationale": "The exact source supports what this fictional document reports; neither source presence nor analyst approval asserts real-world verification.",
+      "record": {
+        "claim_id": "mf_claim_h2",
+        "created_at": "2026-11-03T00:00:00Z",
+        "criterion_keys": [],
+        "deal_id": "deal_mf",
+        "entity_version": 1,
+        "id": "mf_ev_maintenance",
+        "independent_check_reference": null,
+        "lifecycle": "active",
+        "origin_key": "mf_engineering_plan",
+        "provenance": "company_reported",
+        "reliability_rationale": "Scenario author assessed documentary specificity; simulated counterparties are not actual independent authentication.",
+        "review_status": "approved",
+        "source_reliability": 3,
+        "source_span_ids": [
+          "span_mf_doc_plant_c39c59baa775a81f31ec"
+        ],
+        "stance": "context",
+        "verification_level": "document_only"
+      },
+      "world_truth_status": "synthetic observation only; future outcome unobserved"
+    },
+    {
+      "available_stage": 0,
+      "contradiction_group": null,
+      "document_visible_status": "document_only",
+      "evidence_group_id": "mf_fy25_management_accounts",
+      "evidence_type": "plant",
+      "exact_source_excerpt": "Opening net PPE USD 2,000,000 plus FY2025 additions USD 1,000,000 less depreciation USD 400,000 equals closing net PPE USD 2,600,000. There are no disposals, impairments or revaluations in the supplied roll-forward.",
+      "rationale": "The exact source supports what this fictional document reports; neither source presence nor analyst approval asserts real-world verification.",
+      "record": {
+        "claim_id": "mf_claim_h2",
+        "created_at": "2026-11-03T00:00:00Z",
+        "criterion_keys": [],
+        "deal_id": "deal_mf",
+        "entity_version": 1,
+        "id": "mf_ev_ppe",
+        "independent_check_reference": null,
+        "lifecycle": "active",
+        "origin_key": "mf_fy25_management_accounts",
+        "provenance": "company_reported",
+        "reliability_rationale": "Scenario author assessed documentary specificity; simulated counterparties are not actual independent authentication.",
+        "review_status": "approved",
+        "source_reliability": 3,
+        "source_span_ids": [
+          "span_mf_doc_plant_48eaace17366acbfcced"
+        ],
+        "stance": "context",
+        "verification_level": "document_only"
+      },
+      "world_truth_status": "synthetic observation only; future outcome unobserved"
+    },
+    {
+      "available_stage": 0,
+      "contradiction_group": null,
+      "document_visible_status": "document_only",
+      "evidence_group_id": "mf_forecast_v1",
+      "evidence_type": "forecast",
+      "exact_source_excerpt": "FY2027 revenue is forecast as 120,000 standardized production-slot equivalents at a blended USD 100 revenue per equivalent, totaling USD 12,000,000. Cost of sales USD 7,560,000 and operating expense excluding depreciation USD 2,740,000 produce forecast EBITDA USD 1,700,000.",
+      "rationale": "The exact source supports what this fictional document reports; neither source presence nor analyst approval asserts real-world verification.",
+      "record": {
+        "claim_id": "mf_claim_h3",
+        "created_at": "2026-11-03T00:00:00Z",
+        "criterion_keys": [],
+        "deal_id": "deal_mf",
+        "entity_version": 1,
+        "id": "mf_ev_forecast_revenue",
+        "independent_check_reference": null,
+        "lifecycle": "active",
+        "origin_key": "mf_forecast_v1",
+        "provenance": "company_reported",
+        "reliability_rationale": "Scenario author assessed documentary specificity; simulated counterparties are not actual independent authentication.",
+        "review_status": "approved",
+        "source_reliability": 2,
+        "source_span_ids": [
+          "span_mf_doc_forecast_b8b908136ba97ae31d92"
+        ],
+        "stance": "context",
+        "verification_level": "document_only"
+      },
+      "world_truth_status": "synthetic observation only; future outcome unobserved"
+    },
+    {
+      "available_stage": 0,
+      "contradiction_group": "inventory_plan",
+      "document_visible_status": "document_only",
+      "evidence_group_id": "mf_forecast_v1",
+      "evidence_type": "forecast",
+      "exact_source_excerpt": "The FY2027 plan reduces closing inventory to USD 1,200,000 while cost of sales rises to USD 7,560,000. The target implies 57.9365 closing-inventory days, compared with 136.875 days in FY2025. No signed inventory clearance program or documented lead-time improvement supports the reduction.",
+      "rationale": "The exact source supports what this fictional document reports; neither source presence nor analyst approval asserts real-world verification.",
+      "record": {
+        "claim_id": "mf_claim_h1",
+        "created_at": "2026-11-03T00:00:00Z",
+        "criterion_keys": [
+          "working_capital"
+        ],
+        "deal_id": "deal_mf",
+        "entity_version": 1,
+        "id": "mf_ev_forecast_inventory",
+        "independent_check_reference": null,
+        "lifecycle": "active",
+        "origin_key": "mf_forecast_v1",
+        "provenance": "company_reported",
+        "reliability_rationale": "Scenario author assessed documentary specificity; simulated counterparties are not actual independent authentication.",
+        "review_status": "approved",
+        "source_reliability": 3,
+        "source_span_ids": [
+          "span_mf_doc_forecast_06cc025652266517e8ba"
+        ],
+        "stance": "refutes",
+        "verification_level": "document_only"
+      },
+      "world_truth_status": "synthetic observation only; future outcome unobserved"
+    },
+    {
+      "available_stage": 0,
+      "contradiction_group": null,
+      "document_visible_status": "document_only",
+      "evidence_group_id": "mf_management_cash_claim",
+      "evidence_type": "forecast",
+      "exact_source_excerpt": "Management repeats that EBITDA growth proves cash generation, that all CAPEX is expansion and that inventory will halve. These answers repeat the management financial and plant schedules; they are not independent confirmations.",
+      "rationale": "The exact source supports what this fictional document reports; neither source presence nor analyst approval asserts real-world verification.",
+      "record": {
+        "claim_id": "mf_claim_h2",
+        "created_at": "2026-11-03T00:00:00Z",
+        "criterion_keys": [],
+        "deal_id": "deal_mf",
+        "entity_version": 1,
+        "id": "mf_ev_forecast_qa",
+        "independent_check_reference": null,
+        "lifecycle": "active",
+        "origin_key": "mf_management_cash_claim",
+        "provenance": "company_reported",
+        "reliability_rationale": "Scenario author assessed documentary specificity; simulated counterparties are not actual independent authentication.",
+        "review_status": "approved",
+        "source_reliability": 2,
+        "source_span_ids": [
+          "span_mf_doc_forecast_9bceeb5578b190b2f75b"
+        ],
+        "stance": "context",
+        "verification_level": "document_only"
+      },
+      "world_truth_status": "synthetic observation only; future outcome unobserved"
+    },
+    {
+      "available_stage": 1,
+      "contradiction_group": null,
+      "document_visible_status": "document_only",
+      "evidence_group_id": "mf_custodian_count",
+      "evidence_type": "count",
+      "exact_source_excerpt": "The custodian count schedule totals raw materials USD 800,000, work in progress USD 400,000 and finished goods USD 1,200,000 at the ledger unit costs. Standardized kit-equivalent counts are respectively 8,000, 4,000 and 6,000, matching the book quantities at USD 100, USD 100 and USD 200 per equivalent. Counted quantities reconcile to the USD 2,400,000 inventory ledger with zero quantity variance across all three storage areas at 2025-12-31.",
+      "rationale": "The exact source supports what this fictional document reports; neither source presence nor analyst approval asserts real-world verification.",
+      "record": {
+        "claim_id": "mf_claim_h1",
+        "created_at": "2026-11-05T00:00:00Z",
+        "criterion_keys": [
+          "inventory_count"
+        ],
+        "deal_id": "deal_mf",
+        "entity_version": 1,
+        "id": "mf_ev_warehouse_count",
+        "independent_check_reference": null,
+        "lifecycle": "active",
+        "origin_key": "mf_custodian_count",
+        "provenance": "counterparty_reported",
+        "reliability_rationale": "Scenario author assessed documentary specificity; simulated counterparties are not actual independent authentication.",
+        "review_status": "draft",
+        "source_reliability": 4,
+        "source_span_ids": [
+          "span_mf_doc_count_b1517852eeabcd5f8d58"
+        ],
+        "stance": "supports",
+        "verification_level": "document_only"
+      },
+      "world_truth_status": "synthetic observation only; future outcome unobserved"
+    },
+    {
+      "available_stage": 1,
+      "contradiction_group": null,
+      "document_visible_status": "document_only",
+      "evidence_group_id": "mf_custodian_count",
+      "evidence_type": "count",
+      "exact_source_excerpt": "This count supports quantities and physical existence only. It does not establish net realizable value, product saleability, inventory ownership or absence of liens. The USD 700,000 aged finished-goods balance is included in the count.",
+      "rationale": "The exact source supports what this fictional document reports; neither source presence nor analyst approval asserts real-world verification.",
+      "record": {
+        "claim_id": "mf_claim_h1",
+        "created_at": "2026-11-05T00:00:00Z",
+        "criterion_keys": [],
+        "deal_id": "deal_mf",
+        "entity_version": 1,
+        "id": "mf_ev_count_scope",
+        "independent_check_reference": null,
+        "lifecycle": "active",
+        "origin_key": "mf_custodian_count",
+        "provenance": "counterparty_reported",
+        "reliability_rationale": "Scenario author assessed documentary specificity; simulated counterparties are not actual independent authentication.",
+        "review_status": "draft",
+        "source_reliability": 4,
+        "source_span_ids": [
+          "span_mf_doc_count_3520beeccad11c1f9915"
+        ],
+        "stance": "context",
+        "verification_level": "document_only"
+      },
+      "world_truth_status": "synthetic observation only; future outcome unobserved"
+    }
+  ],
+  "hypotheses": [
+    {
+      "claim": {
+        "claim_kind": "binary_hypothesis",
+        "deal_id": "deal_mf",
+        "entity_version": 2,
+        "id": "mf_claim_h1",
+        "period_end": "2027-12-31",
+        "period_start": "2025-01-01",
+        "required_criterion_keys": [
+          "inventory_count",
+          "inventory_valuation",
+          "working_capital"
+        ],
+        "review_status": "approved",
+        "source_span_ids": [],
+        "statement": "FY2025 inventory and operating working capital are supportable: inventory count variance is at most 1%, no inventory impairment above USD 100,000 is required, and the planned FY2027 USD 1,100,000 NWC release is backed by collection and inventory actions.",
+        "subject_key": "mf_h1",
+        "support_status": "contradicted",
+        "thesis_id": "mf_thesis",
+        "truth_status": "disputed"
+      },
+      "financial_driver": "nwc",
+      "hypothesis_id": "mf_hyp_h1",
+      "interpretation": "synthetic_scenario_not_investment_probability",
+      "threshold": "Count variance <= 1%; inventory impairment <= USD 100,000; documented actions support the FY2027 NWC release."
+    },
+    {
+      "claim": {
+        "claim_kind": "binary_hypothesis",
+        "deal_id": "deal_mf",
+        "entity_version": 2,
+        "id": "mf_claim_h2",
+        "period_end": "2027-12-31",
+        "period_start": "2025-01-01",
+        "required_criterion_keys": [
+          "ebitda",
+          "maintenance_capex",
+          "cash_conversion"
+        ],
+        "review_status": "approved",
+        "source_span_ids": [],
+        "statement": "Recurring FY2025 EBITDA is at least USD 1,100,000 after substantiated normalization and cash generated from operations after sustainable maintenance CAPEX is positive.",
+        "subject_key": "mf_h2",
+        "support_status": "contradicted",
+        "thesis_id": "mf_thesis",
+        "truth_status": "disputed"
+      },
+      "financial_driver": "ebitda",
+      "hypothesis_id": "mf_hyp_h2",
+      "interpretation": "synthetic_scenario_not_investment_probability",
+      "threshold": "Normalized EBITDA >= USD 1,100,000; operating cash less maintenance CAPEX > 0, with maintenance/expansion classification substantiated."
+    },
+    {
+      "claim": {
+        "claim_kind": "binary_hypothesis",
+        "deal_id": "deal_mf",
+        "entity_version": 2,
+        "id": "mf_claim_h3",
+        "period_end": "2027-12-31",
+        "period_start": "2025-01-01",
+        "required_criterion_keys": [
+          "concentration",
+          "capacity",
+          "sales_mix"
+        ],
+        "review_status": "approved",
+        "source_span_ids": [],
+        "statement": "The FY2027 USD 12,000,000 revenue forecast is supported by funded practical production capacity and binding demand, with no customer exceeding 40% of revenue and reconciled historical product sales.",
+        "subject_key": "mf_h3",
+        "support_status": "contradicted",
+        "thesis_id": "mf_thesis",
+        "truth_status": "disputed"
+      },
+      "financial_driver": "revenue_quality",
+      "hypothesis_id": "mf_hyp_h3",
+      "interpretation": "synthetic_scenario_not_investment_probability",
+      "threshold": "120,000 production-slot equivalents are funded and available in FY2027; largest customer share <= 40%; FY2025 sales reconcile."
+    }
+  ],
+  "questions": [
+    {
+      "acceptable_alternatives": [
+        "Dated warehouse count and complete inventory-ledger reconciliation",
+        "Inventory physical existence and quantity reconciliation"
+      ],
+      "acceptable_question_family": "mf.inventory_count",
+      "business_impact": "Impacts nwc under the stated synthetic case assumptions.",
+      "expected_priority": 1,
+      "expected_update_behavior": "Remove only after all request criteria have approved support; reopen or retain if qualified refutation exists.",
+      "hypothesis_id": "mf_hyp_h1",
+      "information_gain": null,
+      "linked_evidence_ids": [
+        "mf_ev_inventory_growth",
+        "mf_ev_nwc",
+        "mf_ev_receivables",
+        "mf_ev_warehouse_count",
+        "mf_ev_count_scope"
+      ],
+      "question_text": "For inventory at 2025-12-31, provide Dated warehouse count and complete inventory-ledger reconciliation. Reconcile all three warehouse categories at 2025-12-31 to the USD 2,400,000 ledger; explain quantity variance above 1%.",
+      "record": {
+        "canonical_key": "mf.inventory_count",
+        "claim_id": "mf_claim_h1",
+        "deal_id": "deal_mf",
+        "duplicate_of": null,
+        "entity_version": 1,
+        "financial_driver": "nwc",
+        "id": "mf_q_inventory_count",
+        "issue": "Inventory physical existence and quantity reconciliation",
+        "materiality": {
+          "basis": "analyst_rubric",
+          "denominator_minor": null,
+          "exposure_minor": null,
+          "rationale": "Explicit synthetic analyst materiality on 0-5 scale; no monetary valuation or calibrated utility.",
+          "score": 5,
+          "source_span_ids": []
+        },
+        "obtainability": {
+          "basis": "analyst_estimate",
+          "days": null,
+          "external_cost_minor": null,
+          "rationale": "Synthetic analyst estimate on 0-5 scale; time and cost not empirically measured.",
+          "score": 5
+        },
+        "owner_label": "Simulated analyst",
+        "request_text": "For inventory at 2025-12-31, provide Dated warehouse count and complete inventory-ledger reconciliation. Reconcile all three warehouse categories at 2025-12-31 to the USD 2,400,000 ledger; explain quantity variance above 1%.",
+        "requirements": [
+          {
+            "key": "inventory_count",
+            "label": "inventory count",
+            "min_reliability": 3,
+            "require_independent": false
+          }
+        ],
+        "review_status": "approved",
+        "workflow_status": "open"
+      },
+      "requested_artifact": "Dated warehouse count and complete inventory-ledger reconciliation",
+      "unresolved_assumption": "Inventory physical existence and quantity reconciliation",
+      "verification_criterion": "Reconcile all three warehouse categories at 2025-12-31 to the USD 2,400,000 ledger; explain quantity variance above 1%."
+    },
+    {
+      "acceptable_alternatives": [
+        "Aged SKU listing, signed subsequent-sales evidence and net-realizable-value calculation",
+        "Aged inventory recoverability"
+      ],
+      "acceptable_question_family": "mf.inventory_valuation",
+      "business_impact": "Impacts nwc under the stated synthetic case assumptions.",
+      "expected_priority": 2,
+      "expected_update_behavior": "Remove only after all request criteria have approved support; reopen or retain if qualified refutation exists.",
+      "hypothesis_id": "mf_hyp_h1",
+      "information_gain": null,
+      "linked_evidence_ids": [
+        "mf_ev_inventory_claim",
+        "mf_ev_aged_stock",
+        "mf_ev_inventory_growth",
+        "mf_ev_nwc",
+        "mf_ev_receivables",
+        "mf_ev_count_scope"
+      ],
+      "question_text": "For inventory at 2025-12-31 and subsequent sales through 2026-11-05, provide Aged SKU listing, signed subsequent-sales evidence and net-realizable-value calculation. Test the USD 700,000 aged finished goods and determine whether any required impairment exceeds USD 100,000; count evidence alone is insufficient.",
+      "record": {
+        "canonical_key": "mf.inventory_valuation",
+        "claim_id": "mf_claim_h1",
+        "deal_id": "deal_mf",
+        "duplicate_of": null,
+        "entity_version": 1,
+        "financial_driver": "nwc",
+        "id": "mf_q_inventory_valuation",
+        "issue": "Aged inventory recoverability",
+        "materiality": {
+          "basis": "analyst_rubric",
+          "denominator_minor": null,
+          "exposure_minor": null,
+          "rationale": "Explicit synthetic analyst materiality on 0-5 scale; no monetary valuation or calibrated utility.",
+          "score": 5,
+          "source_span_ids": []
+        },
+        "obtainability": {
+          "basis": "analyst_estimate",
+          "days": null,
+          "external_cost_minor": null,
+          "rationale": "Synthetic analyst estimate on 0-5 scale; time and cost not empirically measured.",
+          "score": 4
+        },
+        "owner_label": "Simulated analyst",
+        "request_text": "For inventory at 2025-12-31 and subsequent sales through 2026-11-05, provide Aged SKU listing, signed subsequent-sales evidence and net-realizable-value calculation. Test the USD 700,000 aged finished goods and determine whether any required impairment exceeds USD 100,000; count evidence alone is insufficient.",
+        "requirements": [
+          {
+            "key": "inventory_valuation",
+            "label": "inventory valuation",
+            "min_reliability": 3,
+            "require_independent": false
+          }
+        ],
+        "review_status": "approved",
+        "workflow_status": "open"
+      },
+      "requested_artifact": "Aged SKU listing, signed subsequent-sales evidence and net-realizable-value calculation",
+      "unresolved_assumption": "Aged inventory recoverability",
+      "verification_criterion": "Test the USD 700,000 aged finished goods and determine whether any required impairment exceeds USD 100,000; count evidence alone is insufficient."
+    },
+    {
+      "acceptable_alternatives": [
+        "Insurance settlement, relocation invoices and recurring-profit bridge",
+        "Normalized recurring EBITDA"
+      ],
+      "acceptable_question_family": "mf.ebitda",
+      "business_impact": "Impacts ebitda under the stated synthetic case assumptions.",
+      "expected_priority": 3,
+      "expected_update_behavior": "Remove only after all request criteria have approved support; reopen or retain if qualified refutation exists.",
+      "hypothesis_id": "mf_hyp_h2",
+      "information_gain": null,
+      "linked_evidence_ids": [
+        "mf_ev_income",
+        "mf_ev_normalization",
+        "mf_ev_profit_claim",
+        "mf_ev_maintenance",
+        "mf_ev_ppe",
+        "mf_ev_forecast_qa"
+      ],
+      "question_text": "For calendar FY2025, provide Insurance settlement, relocation invoices and recurring-profit bridge. Substantiate removal of USD 300,000 insurance recovery and the USD 100,000 relocation add-back; verify normalized FY2025 EBITDA of at least USD 1,100,000.",
+      "record": {
+        "canonical_key": "mf.ebitda",
+        "claim_id": "mf_claim_h2",
+        "deal_id": "deal_mf",
+        "duplicate_of": null,
+        "entity_version": 1,
+        "financial_driver": "ebitda",
+        "id": "mf_q_ebitda",
+        "issue": "Normalized recurring EBITDA",
+        "materiality": {
+          "basis": "analyst_rubric",
+          "denominator_minor": null,
+          "exposure_minor": null,
+          "rationale": "Explicit synthetic analyst materiality on 0-5 scale; no monetary valuation or calibrated utility.",
+          "score": 5,
+          "source_span_ids": []
+        },
+        "obtainability": {
+          "basis": "analyst_estimate",
+          "days": null,
+          "external_cost_minor": null,
+          "rationale": "Synthetic analyst estimate on 0-5 scale; time and cost not empirically measured.",
+          "score": 3
+        },
+        "owner_label": "Simulated analyst",
+        "request_text": "For calendar FY2025, provide Insurance settlement, relocation invoices and recurring-profit bridge. Substantiate removal of USD 300,000 insurance recovery and the USD 100,000 relocation add-back; verify normalized FY2025 EBITDA of at least USD 1,100,000.",
+        "requirements": [
+          {
+            "key": "ebitda",
+            "label": "ebitda",
+            "min_reliability": 3,
+            "require_independent": false
+          }
+        ],
+        "review_status": "approved",
+        "workflow_status": "open"
+      },
+      "requested_artifact": "Insurance settlement, relocation invoices and recurring-profit bridge",
+      "unresolved_assumption": "Normalized recurring EBITDA",
+      "verification_criterion": "Substantiate removal of USD 300,000 insurance recovery and the USD 100,000 relocation add-back; verify normalized FY2025 EBITDA of at least USD 1,100,000."
+    },
+    {
+      "acceptable_alternatives": [
+        "Monthly NWC bridge, Brindle cash receipts and supported FY2027 inventory plan",
+        "Working-capital and collection requirements"
+      ],
+      "acceptable_question_family": "mf.working_capital",
+      "business_impact": "Impacts nwc under the stated synthetic case assumptions.",
+      "expected_priority": 4,
+      "expected_update_behavior": "Remove only after all request criteria have approved support; reopen or retain if qualified refutation exists.",
+      "hypothesis_id": "mf_hyp_h1",
+      "information_gain": null,
+      "linked_evidence_ids": [
+        "mf_ev_inventory_growth",
+        "mf_ev_nwc",
+        "mf_ev_receivables",
+        "mf_ev_forecast_inventory",
+        "mf_ev_count_scope"
+      ],
+      "question_text": "For FY2025 actual and FY2027 forecast, provide Monthly NWC bridge, Brindle cash receipts and supported FY2027 inventory plan. Reconcile FY2025 NWC USD 2,600,000 and substantiate the proposed USD 1,100,000 release without unverified overdue collections or clearance assumptions.",
+      "record": {
+        "canonical_key": "mf.working_capital",
+        "claim_id": "mf_claim_h1",
+        "deal_id": "deal_mf",
+        "duplicate_of": null,
+        "entity_version": 1,
+        "financial_driver": "nwc",
+        "id": "mf_q_working_capital",
+        "issue": "Working-capital and collection requirements",
+        "materiality": {
+          "basis": "analyst_rubric",
+          "denominator_minor": null,
+          "exposure_minor": null,
+          "rationale": "Explicit synthetic analyst materiality on 0-5 scale; no monetary valuation or calibrated utility.",
+          "score": 4,
+          "source_span_ids": []
+        },
+        "obtainability": {
+          "basis": "analyst_estimate",
+          "days": null,
+          "external_cost_minor": null,
+          "rationale": "Synthetic analyst estimate on 0-5 scale; time and cost not empirically measured.",
+          "score": 4
+        },
+        "owner_label": "Simulated analyst",
+        "request_text": "For FY2025 actual and FY2027 forecast, provide Monthly NWC bridge, Brindle cash receipts and supported FY2027 inventory plan. Reconcile FY2025 NWC USD 2,600,000 and substantiate the proposed USD 1,100,000 release without unverified overdue collections or clearance assumptions.",
+        "requirements": [
+          {
+            "key": "working_capital",
+            "label": "working capital",
+            "min_reliability": 3,
+            "require_independent": false
+          }
+        ],
+        "review_status": "approved",
+        "workflow_status": "open"
+      },
+      "requested_artifact": "Monthly NWC bridge, Brindle cash receipts and supported FY2027 inventory plan",
+      "unresolved_assumption": "Working-capital and collection requirements",
+      "verification_criterion": "Reconcile FY2025 NWC USD 2,600,000 and substantiate the proposed USD 1,100,000 release without unverified overdue collections or clearance assumptions."
+    },
+    {
+      "acceptable_alternatives": [
+        "Asset-condition review, supplier invoices and maintenance budget",
+        "Maintenance versus expansion CAPEX"
+      ],
+      "acceptable_question_family": "mf.maintenance_capex",
+      "business_impact": "Impacts capex under the stated synthetic case assumptions.",
+      "expected_priority": 5,
+      "expected_update_behavior": "Remove only after all request criteria have approved support; reopen or retain if qualified refutation exists.",
+      "hypothesis_id": "mf_hyp_h2",
+      "information_gain": null,
+      "linked_evidence_ids": [
+        "mf_ev_income",
+        "mf_ev_normalization",
+        "mf_ev_profit_claim",
+        "mf_ev_capex",
+        "mf_ev_maintenance",
+        "mf_ev_ppe",
+        "mf_ev_forecast_qa"
+      ],
+      "question_text": "For calendar FY2025 and sustainable annual maintenance thereafter, provide Asset-condition review, supplier invoices and maintenance budget. Separate the USD 600,000 sustaining investment from USD 400,000 expansion and test the sustainable maintenance cash requirement.",
+      "record": {
+        "canonical_key": "mf.maintenance_capex",
+        "claim_id": "mf_claim_h2",
+        "deal_id": "deal_mf",
+        "duplicate_of": null,
+        "entity_version": 1,
+        "financial_driver": "capex",
+        "id": "mf_q_maintenance_capex",
+        "issue": "Maintenance versus expansion CAPEX",
+        "materiality": {
+          "basis": "analyst_rubric",
+          "denominator_minor": null,
+          "exposure_minor": null,
+          "rationale": "Explicit synthetic analyst materiality on 0-5 scale; no monetary valuation or calibrated utility.",
+          "score": 4,
+          "source_span_ids": []
+        },
+        "obtainability": {
+          "basis": "analyst_estimate",
+          "days": null,
+          "external_cost_minor": null,
+          "rationale": "Synthetic analyst estimate on 0-5 scale; time and cost not empirically measured.",
+          "score": 3
+        },
+        "owner_label": "Simulated analyst",
+        "request_text": "For calendar FY2025 and sustainable annual maintenance thereafter, provide Asset-condition review, supplier invoices and maintenance budget. Separate the USD 600,000 sustaining investment from USD 400,000 expansion and test the sustainable maintenance cash requirement.",
+        "requirements": [
+          {
+            "key": "maintenance_capex",
+            "label": "maintenance capex",
+            "min_reliability": 3,
+            "require_independent": false
+          }
+        ],
+        "review_status": "approved",
+        "workflow_status": "open"
+      },
+      "requested_artifact": "Asset-condition review, supplier invoices and maintenance budget",
+      "unresolved_assumption": "Maintenance versus expansion CAPEX",
+      "verification_criterion": "Separate the USD 600,000 sustaining investment from USD 400,000 expansion and test the sustainable maintenance cash requirement."
+    },
+    {
+      "acceptable_alternatives": [
+        "Operating cash-flow bridge and recurring maintenance forecast",
+        "Profitability to free-cash conversion"
+      ],
+      "acceptable_question_family": "mf.cash_conversion",
+      "business_impact": "Impacts nwc under the stated synthetic case assumptions.",
+      "expected_priority": 6,
+      "expected_update_behavior": "Remove only after all request criteria have approved support; reopen or retain if qualified refutation exists.",
+      "hypothesis_id": "mf_hyp_h2",
+      "information_gain": null,
+      "linked_evidence_ids": [
+        "mf_ev_income",
+        "mf_ev_normalization",
+        "mf_ev_cashflow",
+        "mf_ev_profit_claim",
+        "mf_ev_maintenance",
+        "mf_ev_ppe",
+        "mf_ev_forecast_qa"
+      ],
+      "question_text": "For calendar FY2025, provide Operating cash-flow bridge and recurring maintenance forecast. Reconcile FY2025 EBITDA to zero CFO and negative USD 600,000 cash after maintenance CAPEX; demonstrate positive normalized cash generation before assuming it.",
+      "record": {
+        "canonical_key": "mf.cash_conversion",
+        "claim_id": "mf_claim_h2",
+        "deal_id": "deal_mf",
+        "duplicate_of": null,
+        "entity_version": 1,
+        "financial_driver": "nwc",
+        "id": "mf_q_cash_conversion",
+        "issue": "Profitability to free-cash conversion",
+        "materiality": {
+          "basis": "analyst_rubric",
+          "denominator_minor": null,
+          "exposure_minor": null,
+          "rationale": "Explicit synthetic analyst materiality on 0-5 scale; no monetary valuation or calibrated utility.",
+          "score": 4,
+          "source_span_ids": []
+        },
+        "obtainability": {
+          "basis": "analyst_estimate",
+          "days": null,
+          "external_cost_minor": null,
+          "rationale": "Synthetic analyst estimate on 0-5 scale; time and cost not empirically measured.",
+          "score": 2
+        },
+        "owner_label": "Simulated analyst",
+        "request_text": "For calendar FY2025, provide Operating cash-flow bridge and recurring maintenance forecast. Reconcile FY2025 EBITDA to zero CFO and negative USD 600,000 cash after maintenance CAPEX; demonstrate positive normalized cash generation before assuming it.",
+        "requirements": [
+          {
+            "key": "cash_conversion",
+            "label": "cash conversion",
+            "min_reliability": 3,
+            "require_independent": false
+          }
+        ],
+        "review_status": "approved",
+        "workflow_status": "open"
+      },
+      "requested_artifact": "Operating cash-flow bridge and recurring maintenance forecast",
+      "unresolved_assumption": "Profitability to free-cash conversion",
+      "verification_criterion": "Reconcile FY2025 EBITDA to zero CFO and negative USD 600,000 cash after maintenance CAPEX; demonstrate positive normalized cash generation before assuming it."
+    },
+    {
+      "acceptable_alternatives": [
+        "Brindle signed commitments, concentration bridge and customer scenario",
+        "Customer concentration and minimum orders"
+      ],
+      "acceptable_question_family": "mf.concentration",
+      "business_impact": "Impacts customer_concentration under the stated synthetic case assumptions.",
+      "expected_priority": 7,
+      "expected_update_behavior": "Remove only after all request criteria have approved support; reopen or retain if qualified refutation exists.",
+      "hypothesis_id": "mf_hyp_h3",
+      "information_gain": null,
+      "linked_evidence_ids": [
+        "mf_ev_customers",
+        "mf_ev_products",
+        "mf_ev_geography",
+        "mf_ev_contracts",
+        "mf_ev_sales_strength",
+        "mf_ev_forecast_revenue"
+      ],
+      "question_text": "For FY2025 actual and FY2027 contractual demand, provide Brindle signed commitments, concentration bridge and customer scenario. Determine whether dependence can be reduced below 40% of revenue; do not count nonbinding customer forecasts as orders.",
+      "record": {
+        "canonical_key": "mf.concentration",
+        "claim_id": "mf_claim_h3",
+        "deal_id": "deal_mf",
+        "duplicate_of": null,
+        "entity_version": 1,
+        "financial_driver": "customer_concentration",
+        "id": "mf_q_concentration",
+        "issue": "Customer concentration and minimum orders",
+        "materiality": {
+          "basis": "analyst_rubric",
+          "denominator_minor": null,
+          "exposure_minor": null,
+          "rationale": "Explicit synthetic analyst materiality on 0-5 scale; no monetary valuation or calibrated utility.",
+          "score": 3,
+          "source_span_ids": []
+        },
+        "obtainability": {
+          "basis": "analyst_estimate",
+          "days": null,
+          "external_cost_minor": null,
+          "rationale": "Synthetic analyst estimate on 0-5 scale; time and cost not empirically measured.",
+          "score": 4
+        },
+        "owner_label": "Simulated analyst",
+        "request_text": "For FY2025 actual and FY2027 contractual demand, provide Brindle signed commitments, concentration bridge and customer scenario. Determine whether dependence can be reduced below 40% of revenue; do not count nonbinding customer forecasts as orders.",
+        "requirements": [
+          {
+            "key": "concentration",
+            "label": "concentration",
+            "min_reliability": 3,
+            "require_independent": false
+          }
+        ],
+        "review_status": "approved",
+        "workflow_status": "open"
+      },
+      "requested_artifact": "Brindle signed commitments, concentration bridge and customer scenario",
+      "unresolved_assumption": "Customer concentration and minimum orders",
+      "verification_criterion": "Determine whether dependence can be reduced below 40% of revenue; do not count nonbinding customer forecasts as orders."
+    },
+    {
+      "acceptable_alternatives": [
+        "Executed press purchase order, committed financing and installation schedule",
+        "Funded practical manufacturing capacity"
+      ],
+      "acceptable_question_family": "mf.capacity",
+      "business_impact": "Impacts capex under the stated synthetic case assumptions.",
+      "expected_priority": 8,
+      "expected_update_behavior": "Remove only after all request criteria have approved support; reopen or retain if qualified refutation exists.",
+      "hypothesis_id": "mf_hyp_h3",
+      "information_gain": null,
+      "linked_evidence_ids": [
+        "mf_ev_products",
+        "mf_ev_geography",
+        "mf_ev_contracts",
+        "mf_ev_sales_strength",
+        "mf_ev_capacity",
+        "mf_ev_forecast_revenue"
+      ],
+      "question_text": "For calendar FY2027, provide Executed press purchase order, committed financing and installation schedule. Support 120,000 production-slot equivalents during FY2027 or revise the USD 12,000,000 forecast to the documented 100,000-slot capacity.",
+      "record": {
+        "canonical_key": "mf.capacity",
+        "claim_id": "mf_claim_h3",
+        "deal_id": "deal_mf",
+        "duplicate_of": null,
+        "entity_version": 1,
+        "financial_driver": "capex",
+        "id": "mf_q_capacity",
+        "issue": "Funded practical manufacturing capacity",
+        "materiality": {
+          "basis": "analyst_rubric",
+          "denominator_minor": null,
+          "exposure_minor": null,
+          "rationale": "Explicit synthetic analyst materiality on 0-5 scale; no monetary valuation or calibrated utility.",
+          "score": 4,
+          "source_span_ids": []
+        },
+        "obtainability": {
+          "basis": "analyst_estimate",
+          "days": null,
+          "external_cost_minor": null,
+          "rationale": "Synthetic analyst estimate on 0-5 scale; time and cost not empirically measured.",
+          "score": 1
+        },
+        "owner_label": "Simulated analyst",
+        "request_text": "For calendar FY2027, provide Executed press purchase order, committed financing and installation schedule. Support 120,000 production-slot equivalents during FY2027 or revise the USD 12,000,000 forecast to the documented 100,000-slot capacity.",
+        "requirements": [
+          {
+            "key": "capacity",
+            "label": "capacity",
+            "min_reliability": 3,
+            "require_independent": false
+          }
+        ],
+        "review_status": "approved",
+        "workflow_status": "open"
+      },
+      "requested_artifact": "Executed press purchase order, committed financing and installation schedule",
+      "unresolved_assumption": "Funded practical manufacturing capacity",
+      "verification_criterion": "Support 120,000 production-slot equivalents during FY2027 or revise the USD 12,000,000 forecast to the documented 100,000-slot capacity."
+    },
+    {
+      "acceptable_alternatives": [
+        "Sales ledger by product, customer and geography",
+        "Product and channel revenue reconciliation"
+      ],
+      "acceptable_question_family": "mf.sales_mix",
+      "business_impact": "Impacts revenue_quality under the stated synthetic case assumptions.",
+      "expected_priority": 9,
+      "expected_update_behavior": "Remove only after all request criteria have approved support; reopen or retain if qualified refutation exists.",
+      "hypothesis_id": "mf_hyp_h3",
+      "information_gain": null,
+      "linked_evidence_ids": [
+        "mf_ev_products",
+        "mf_ev_geography",
+        "mf_ev_contracts",
+        "mf_ev_sales_strength",
+        "mf_ev_forecast_revenue"
+      ],
+      "question_text": "For calendar FY2025, provide Sales ledger by product, customer and geography. Tie storage USD 6,000,000 and cookware USD 4,000,000 to customer and geographic totals of USD 10,000,000 for FY2025.",
+      "record": {
+        "canonical_key": "mf.sales_mix",
+        "claim_id": "mf_claim_h3",
+        "deal_id": "deal_mf",
+        "duplicate_of": null,
+        "entity_version": 1,
+        "financial_driver": "revenue_quality",
+        "id": "mf_q_sales_mix",
+        "issue": "Product and channel revenue reconciliation",
+        "materiality": {
+          "basis": "analyst_rubric",
+          "denominator_minor": null,
+          "exposure_minor": null,
+          "rationale": "Explicit synthetic analyst materiality on 0-5 scale; no monetary valuation or calibrated utility.",
+          "score": 3,
+          "source_span_ids": []
+        },
+        "obtainability": {
+          "basis": "analyst_estimate",
+          "days": null,
+          "external_cost_minor": null,
+          "rationale": "Synthetic analyst estimate on 0-5 scale; time and cost not empirically measured.",
+          "score": 3
+        },
+        "owner_label": "Simulated analyst",
+        "request_text": "For calendar FY2025, provide Sales ledger by product, customer and geography. Tie storage USD 6,000,000 and cookware USD 4,000,000 to customer and geographic totals of USD 10,000,000 for FY2025.",
+        "requirements": [
+          {
+            "key": "sales_mix",
+            "label": "sales mix",
+            "min_reliability": 3,
+            "require_independent": false
+          }
+        ],
+        "review_status": "approved",
+        "workflow_status": "open"
+      },
+      "requested_artifact": "Sales ledger by product, customer and geography",
+      "unresolved_assumption": "Product and channel revenue reconciliation",
+      "verification_criterion": "Tie storage USD 6,000,000 and cookware USD 4,000,000 to customer and geographic totals of USD 10,000,000 for FY2025."
+    }
+  ],
+  "review_status": "self-authored provisional; no external analyst review",
+  "stages": {
+    "0": {
+      "critical_families": [
+        "mf.inventory_count",
+        "mf.inventory_valuation",
+        "mf.ebitda"
+      ],
+      "expected_hypothesis_statuses": {
+        "mf_claim_h1": "contradicted",
+        "mf_claim_h2": "contradicted",
+        "mf_claim_h3": "contradicted"
+      },
+      "expected_resolved_questions": [],
+      "expected_scores": {
+        "mf_q_ebitda": 94,
+        "mf_q_inventory_count": 100,
+        "mf_q_inventory_valuation": 97
+      },
+      "expected_top3": [
+        "mf_q_inventory_count",
+        "mf_q_inventory_valuation",
+        "mf_q_ebitda"
+      ],
+      "expected_truth_statuses": {
+        "mf_claim_h1": "disputed",
+        "mf_claim_h2": "disputed",
+        "mf_claim_h3": "disputed"
+      },
+      "label_basis": "self-authored scenario policy; not universally optimal investment priorities",
+      "rationale": "Initial documentary gaps and contradictions are deliberately specified before replay.",
+      "supporting_evidence_ids": [
+        "mf_ev_income",
+        "mf_ev_normalization",
+        "mf_ev_cashflow",
+        "mf_ev_profit_claim",
+        "mf_ev_customers",
+        "mf_ev_products",
+        "mf_ev_geography",
+        "mf_ev_contracts",
+        "mf_ev_sales_strength",
+        "mf_ev_inventory_claim",
+        "mf_ev_aged_stock",
+        "mf_ev_inventory_growth",
+        "mf_ev_nwc",
+        "mf_ev_receivables",
+        "mf_ev_capacity",
+        "mf_ev_capex",
+        "mf_ev_maintenance",
+        "mf_ev_ppe",
+        "mf_ev_forecast_revenue",
+        "mf_ev_forecast_inventory",
+        "mf_ev_forecast_qa"
+      ]
+    },
+    "1": {
+      "critical_families": [
+        "mf.inventory_valuation",
+        "mf.ebitda",
+        "mf.working_capital"
+      ],
+      "expected_hypothesis_statuses": {
+        "mf_claim_h1": "contradicted",
+        "mf_claim_h2": "contradicted",
+        "mf_claim_h3": "contradicted"
+      },
+      "expected_resolved_questions": [
+        "mf_q_inventory_count"
+      ],
+      "expected_scores": {
+        "mf_q_ebitda": 94,
+        "mf_q_inventory_valuation": 97,
+        "mf_q_working_capital": 89
+      },
+      "expected_top3": [
+        "mf_q_inventory_valuation",
+        "mf_q_ebitda",
+        "mf_q_working_capital"
+      ],
+      "expected_truth_statuses": {
+        "mf_claim_h1": "disputed",
+        "mf_claim_h2": "disputed",
+        "mf_claim_h3": "disputed"
+      },
+      "label_basis": "self-authored scenario policy; not universally optimal investment priorities",
+      "rationale": "The dated complete count satisfies inventory quantity reconciliation only. Aged-stock recoverability, normalization support and the working-capital release remain open; physical existence does not establish valuation.",
+      "supporting_evidence_ids": [
+        "mf_ev_income",
+        "mf_ev_normalization",
+        "mf_ev_cashflow",
+        "mf_ev_profit_claim",
+        "mf_ev_customers",
+        "mf_ev_products",
+        "mf_ev_geography",
+        "mf_ev_contracts",
+        "mf_ev_sales_strength",
+        "mf_ev_inventory_claim",
+        "mf_ev_aged_stock",
+        "mf_ev_inventory_growth",
+        "mf_ev_nwc",
+        "mf_ev_receivables",
+        "mf_ev_capacity",
+        "mf_ev_capex",
+        "mf_ev_maintenance",
+        "mf_ev_ppe",
+        "mf_ev_forecast_revenue",
+        "mf_ev_forecast_inventory",
+        "mf_ev_forecast_qa",
+        "mf_ev_warehouse_count",
+        "mf_ev_count_scope"
+      ]
+    }
+  }
+}

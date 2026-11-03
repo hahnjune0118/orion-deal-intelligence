@@ -1,0 +1,2488 @@
+{
+  "case": "nb",
+  "dataset_version": "3.0.0",
+  "documents": [
+    {
+      "date": "2026-11-03",
+      "document_id": "nb_doc_cim",
+      "document_version": 1,
+      "elements": [
+        {
+          "locator": {
+            "block_index": 0,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "source_span_id": "span_nb_doc_cim_5f2cc06991b6b998e0f3",
+          "text": "Northstar Analytics Investment Overview"
+        },
+        {
+          "locator": {
+            "block_index": 1,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "source_span_id": "span_nb_doc_cim_2c72189e06818495f632",
+          "text": "SYNTHETIC | nb_doc_cim | 2026-11-03 | Version 1"
+        },
+        {
+          "locator": {
+            "block_index": 2,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "source_span_id": "span_nb_doc_cim_5263b7f2008f288f2530",
+          "text": "Reporting period: FY2025 and FY2027 plan"
+        },
+        {
+          "locator": {
+            "block_index": 3,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "source_span_id": "span_nb_doc_cim_ad2b4384a2260afe5f5a",
+          "text": "Independent expanded research scenario NB version 3.0.0. This is not a continuation of legacy Northstar NS; contract, cash and customer assumptions differ."
+        },
+        {
+          "locator": {
+            "block_index": 4,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "source_span_id": "span_nb_doc_cim_b92cdcbdbe95626824d4",
+          "text": "SYNTHETIC DATA. Fictional CIM for academic preliminary investment screening. All names, customers, amounts and documents are invented. This is management reporting, not an independently verified investment conclusion."
+        },
+        {
+          "locator": {
+            "block_index": 5,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "source_span_id": "span_nb_doc_cim_be80e6daae111bf09f2c",
+          "text": "Management reports four enterprise customers and committed annual recurring revenue of USD 1,800,000: Quartz USD 720,000, Vale USD 480,000, Aster USD 240,000 and Birch USD 360,000."
+        },
+        {
+          "locator": {
+            "block_index": 6,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "source_span_id": "span_nb_doc_cim_eb762df260cc83832677",
+          "text": "FY2025 revenue was USD 1,200,000 and reported gross profit was USD 840,000, a 70% gross margin. The presentation includes only cloud hosting and routine support within cost of revenue."
+        },
+        {
+          "locator": {
+            "block_index": 7,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "source_span_id": "span_nb_doc_cim_656a34fbdd98493ccc4b",
+          "text": "Management estimates Aster annual subscription revenue of USD 240,000 and annual delivery costs of USD 96,000, giving positive contribution of USD 144,000. Implementation effort and incremental inference usage have not been costed."
+        },
+        {
+          "locator": {
+            "block_index": 8,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "source_span_id": "span_nb_doc_cim_015433b83837c6a2009c",
+          "text": "Quartz and Vale renewed their support subscriptions during FY2025. The delivery team retained the same four senior engineers throughout the year. Product use remains concentrated in document analytics."
+        },
+        {
+          "locator": {
+            "block_index": 9,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "source_span_id": "span_nb_doc_cim_3e3c3f691b0ccdbfe82e",
+          "text": "No customer ownership certificates, source-level inference logs or reconciled customer contribution schedules are attached. Management expects two new paying enterprise deployments by October 2027."
+        }
+      ],
+      "reporting_period": "FY2025 and FY2027 plan",
+      "sha256": "565cb6fc40802ea448753c8e2c3b89968cb80e8039e71d74c9c7fa1da7fc582e",
+      "synthetic": true,
+      "title": "Northstar Analytics Investment Overview"
+    },
+    {
+      "date": "2026-11-03",
+      "document_id": "nb_doc_financial",
+      "document_version": 1,
+      "elements": [
+        {
+          "locator": {
+            "block_index": 0,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "source_span_id": "span_nb_doc_financial_827ca7d4d113a5edf9f2",
+          "text": "Northstar Historical Financial Performance"
+        },
+        {
+          "locator": {
+            "block_index": 1,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "source_span_id": "span_nb_doc_financial_f66a2deca77b18da1a80",
+          "text": "SYNTHETIC | nb_doc_financial | 2026-11-03 | Version 1"
+        },
+        {
+          "locator": {
+            "block_index": 2,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "source_span_id": "span_nb_doc_financial_6232a729734540881634",
+          "text": "Reporting period: FY2024 and FY2025"
+        },
+        {
+          "locator": {
+            "block_index": 3,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "source_span_id": "span_nb_doc_financial_60bc4ddfa061b6e043a7",
+          "text": "Independent expanded research scenario NB version 3.0.0. This is not a continuation of legacy Northstar NS; contract, cash and customer assumptions differ."
+        },
+        {
+          "locator": {
+            "block_index": 4,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "source_span_id": "span_nb_doc_financial_ca0f9686a56bb8b44557",
+          "text": "SYNTHETIC DATA. Management financial statements in whole USD. FY2025 revenue recognition is distinct from invoicing and cash receipts. No audit or independent verification is represented. FY2025 implementation payroll is recorded in operating expenses, so the gross-margin classification omits those delivery costs without omitting them from total company EBITDA."
+        },
+        {
+          "locator": {
+            "block_index": 5,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "source_span_id": "span_nb_doc_financial_04e1ca3af6b2d935a3e9",
+          "text": "FY2025 revenue USD 1,200,000 less reported cost of revenue USD 360,000 and operating expense excluding depreciation USD 720,000 equals EBITDA USD 120,000. Depreciation USD 40,000, interest USD 20,000 and tax USD 10,000 yield net income USD 50,000."
+        },
+        {
+          "locator": {
+            "block_index": 6,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "source_span_id": "span_nb_doc_financial_71a48082d7803c7ce150",
+          "text": "FY2025 recognized revenue is Quartz USD 720,000 plus Vale USD 480,000. Aster and Birch contributed zero recognized revenue in FY2025. Contract headline values and forecast ARR are excluded."
+        },
+        {
+          "locator": {
+            "block_index": 7,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "source_span_id": "span_nb_doc_financial_aefa091f804bd3d76d73",
+          "text": "FY2025 cash increased by USD 150,000: cash from operations USD 110,000, CAPEX USD 80,000, new debt USD 50,000 and new equity USD 70,000. Opening cash USD 300,000 and closing cash USD 450,000."
+        },
+        {
+          "locator": {
+            "block_index": 8,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "source_span_id": "span_nb_doc_financial_7d49622584d8e3389d66",
+          "text": "Operating NWC is receivables plus prepaid operating costs less trade payables, accrued operating costs and deferred revenue: FY2024 negative USD 100,000; FY2025 negative USD 120,000. Cash and debt are excluded."
+        },
+        {
+          "locator": {
+            "column": 0,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 0,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_financial_a75117c2cb49b72d17fd",
+          "text": "Metric USD"
+        },
+        {
+          "locator": {
+            "column": 1,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 0,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_financial_d4e6ac9987872ec85880",
+          "text": "FY2024"
+        },
+        {
+          "locator": {
+            "column": 2,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 0,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_financial_4a1d4476ae6b474df4cb",
+          "text": "FY2025"
+        },
+        {
+          "locator": {
+            "column": 0,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 1,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_financial_417844a1725a7e5d139f",
+          "text": "Revenue"
+        },
+        {
+          "locator": {
+            "column": 1,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 1,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_financial_a2fe56ae9da115694ec3",
+          "text": "800000"
+        },
+        {
+          "locator": {
+            "column": 2,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 1,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_financial_dd0e1ef16aaa7c13b5d1",
+          "text": "1200000"
+        },
+        {
+          "locator": {
+            "column": 0,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 2,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_financial_39fbefee5e2246ac14d9",
+          "text": "Cost of revenue"
+        },
+        {
+          "locator": {
+            "column": 1,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 2,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_financial_5ac661c4221e56cef4a3",
+          "text": "280000"
+        },
+        {
+          "locator": {
+            "column": 2,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 2,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_financial_c1b33290b7af31ca234c",
+          "text": "360000"
+        },
+        {
+          "locator": {
+            "column": 0,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 3,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_financial_cb946372c468b6467da8",
+          "text": "Operating expense ex depreciation"
+        },
+        {
+          "locator": {
+            "column": 1,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 3,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_financial_a36e5c7d0cf2bc404bfe",
+          "text": "620000"
+        },
+        {
+          "locator": {
+            "column": 2,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 3,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_financial_96e415089db563771dcf",
+          "text": "720000"
+        },
+        {
+          "locator": {
+            "column": 0,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 4,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_financial_a65f8133203b99bb293b",
+          "text": "EBITDA"
+        },
+        {
+          "locator": {
+            "column": 1,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 4,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_financial_4b46bd766e657c9c9c6f",
+          "text": "-100000"
+        },
+        {
+          "locator": {
+            "column": 2,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 4,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_financial_68ae18a72d56789686ee",
+          "text": "120000"
+        },
+        {
+          "locator": {
+            "column": 0,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 5,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_financial_98d34f4aba4e12e2fc1b",
+          "text": "Depreciation"
+        },
+        {
+          "locator": {
+            "column": 1,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 5,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_financial_2239bfa5563bd99243f8",
+          "text": "30000"
+        },
+        {
+          "locator": {
+            "column": 2,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 5,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_financial_1f434c3ad418ea5132ab",
+          "text": "40000"
+        },
+        {
+          "locator": {
+            "column": 0,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 6,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_financial_f93435a5a6d8e2e89238",
+          "text": "Interest"
+        },
+        {
+          "locator": {
+            "column": 1,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 6,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_financial_c33eae91568c981f620f",
+          "text": "20000"
+        },
+        {
+          "locator": {
+            "column": 2,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 6,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_financial_209fb416ec27504bdc4a",
+          "text": "20000"
+        },
+        {
+          "locator": {
+            "column": 0,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 7,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_financial_d256f77a6c592b58f5bc",
+          "text": "Tax"
+        },
+        {
+          "locator": {
+            "column": 1,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 7,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_financial_43799a8e83252fb48545",
+          "text": "0"
+        },
+        {
+          "locator": {
+            "column": 2,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 7,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_financial_44ca53154b5b338a8df4",
+          "text": "10000"
+        },
+        {
+          "locator": {
+            "column": 0,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 8,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_financial_b77261df0bccbbda1eef",
+          "text": "Net income"
+        },
+        {
+          "locator": {
+            "column": 1,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 8,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_financial_16966c0179843ce6cede",
+          "text": "-150000"
+        },
+        {
+          "locator": {
+            "column": 2,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 8,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_financial_54cb015f0ce67afeaee1",
+          "text": "50000"
+        },
+        {
+          "locator": {
+            "column": 0,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 0,
+            "table_index": 1
+          },
+          "source_span_id": "span_nb_doc_financial_bf1a793ac55e10128f4b",
+          "text": "Metric USD"
+        },
+        {
+          "locator": {
+            "column": 1,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 0,
+            "table_index": 1
+          },
+          "source_span_id": "span_nb_doc_financial_73a991e3e52dbba07732",
+          "text": "FY2024"
+        },
+        {
+          "locator": {
+            "column": 2,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 0,
+            "table_index": 1
+          },
+          "source_span_id": "span_nb_doc_financial_656d98d5d093a42ef2de",
+          "text": "FY2025"
+        },
+        {
+          "locator": {
+            "column": 0,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 1,
+            "table_index": 1
+          },
+          "source_span_id": "span_nb_doc_financial_8ef7095617f771119e70",
+          "text": "Cash"
+        },
+        {
+          "locator": {
+            "column": 1,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 1,
+            "table_index": 1
+          },
+          "source_span_id": "span_nb_doc_financial_576b357a3cb7ea3e0e9d",
+          "text": "300000"
+        },
+        {
+          "locator": {
+            "column": 2,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 1,
+            "table_index": 1
+          },
+          "source_span_id": "span_nb_doc_financial_2a2de38bebf8c8b6f869",
+          "text": "450000"
+        },
+        {
+          "locator": {
+            "column": 0,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 2,
+            "table_index": 1
+          },
+          "source_span_id": "span_nb_doc_financial_851606862ac67fa74548",
+          "text": "Accounts receivable"
+        },
+        {
+          "locator": {
+            "column": 1,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 2,
+            "table_index": 1
+          },
+          "source_span_id": "span_nb_doc_financial_e47681d5a213903f466a",
+          "text": "100000"
+        },
+        {
+          "locator": {
+            "column": 2,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 2,
+            "table_index": 1
+          },
+          "source_span_id": "span_nb_doc_financial_cd9eb8d8d56a17d5d1d3",
+          "text": "180000"
+        },
+        {
+          "locator": {
+            "column": 0,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 3,
+            "table_index": 1
+          },
+          "source_span_id": "span_nb_doc_financial_9a624cf4d07e4a270081",
+          "text": "Prepaids"
+        },
+        {
+          "locator": {
+            "column": 1,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 3,
+            "table_index": 1
+          },
+          "source_span_id": "span_nb_doc_financial_58ba9b082bdb18d940ea",
+          "text": "40000"
+        },
+        {
+          "locator": {
+            "column": 2,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 3,
+            "table_index": 1
+          },
+          "source_span_id": "span_nb_doc_financial_71b4859e79504ee478ef",
+          "text": "60000"
+        },
+        {
+          "locator": {
+            "column": 0,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 4,
+            "table_index": 1
+          },
+          "source_span_id": "span_nb_doc_financial_1e3bbc56917f253198bb",
+          "text": "Net PPE"
+        },
+        {
+          "locator": {
+            "column": 1,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 4,
+            "table_index": 1
+          },
+          "source_span_id": "span_nb_doc_financial_e5de6b1811639ae1bb21",
+          "text": "180000"
+        },
+        {
+          "locator": {
+            "column": 2,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 4,
+            "table_index": 1
+          },
+          "source_span_id": "span_nb_doc_financial_973b6c44c98c391d9c3f",
+          "text": "220000"
+        },
+        {
+          "locator": {
+            "column": 0,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 5,
+            "table_index": 1
+          },
+          "source_span_id": "span_nb_doc_financial_171dc22708f3249dbf55",
+          "text": "Total assets"
+        },
+        {
+          "locator": {
+            "column": 1,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 5,
+            "table_index": 1
+          },
+          "source_span_id": "span_nb_doc_financial_04c4f620010c15d828c7",
+          "text": "620000"
+        },
+        {
+          "locator": {
+            "column": 2,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 5,
+            "table_index": 1
+          },
+          "source_span_id": "span_nb_doc_financial_a76a6ae492818e57ee6f",
+          "text": "910000"
+        },
+        {
+          "locator": {
+            "column": 0,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 6,
+            "table_index": 1
+          },
+          "source_span_id": "span_nb_doc_financial_69368948b5be2746e306",
+          "text": "Debt"
+        },
+        {
+          "locator": {
+            "column": 1,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 6,
+            "table_index": 1
+          },
+          "source_span_id": "span_nb_doc_financial_f81ca3ebb558e83dee9f",
+          "text": "200000"
+        },
+        {
+          "locator": {
+            "column": 2,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 6,
+            "table_index": 1
+          },
+          "source_span_id": "span_nb_doc_financial_4e502583c63d7db233f2",
+          "text": "250000"
+        },
+        {
+          "locator": {
+            "column": 0,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 7,
+            "table_index": 1
+          },
+          "source_span_id": "span_nb_doc_financial_9b3ae907407594a5bd6d",
+          "text": "Trade payables"
+        },
+        {
+          "locator": {
+            "column": 1,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 7,
+            "table_index": 1
+          },
+          "source_span_id": "span_nb_doc_financial_fc27dca05aa3c8e72383",
+          "text": "60000"
+        },
+        {
+          "locator": {
+            "column": 2,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 7,
+            "table_index": 1
+          },
+          "source_span_id": "span_nb_doc_financial_f02b376b2693d12e2a40",
+          "text": "90000"
+        },
+        {
+          "locator": {
+            "column": 0,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 8,
+            "table_index": 1
+          },
+          "source_span_id": "span_nb_doc_financial_b54eaa9338645fe981af",
+          "text": "Accrued costs"
+        },
+        {
+          "locator": {
+            "column": 1,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 8,
+            "table_index": 1
+          },
+          "source_span_id": "span_nb_doc_financial_59981b2aacf0803df955",
+          "text": "80000"
+        },
+        {
+          "locator": {
+            "column": 2,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 8,
+            "table_index": 1
+          },
+          "source_span_id": "span_nb_doc_financial_fc86eb8972b9dbbc2625",
+          "text": "110000"
+        },
+        {
+          "locator": {
+            "column": 0,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 9,
+            "table_index": 1
+          },
+          "source_span_id": "span_nb_doc_financial_a2627c94cafdac8d542b",
+          "text": "Deferred revenue"
+        },
+        {
+          "locator": {
+            "column": 1,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 9,
+            "table_index": 1
+          },
+          "source_span_id": "span_nb_doc_financial_4409be6805915b69b7a4",
+          "text": "100000"
+        },
+        {
+          "locator": {
+            "column": 2,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 9,
+            "table_index": 1
+          },
+          "source_span_id": "span_nb_doc_financial_3b2a40e67c38e0c583ca",
+          "text": "160000"
+        },
+        {
+          "locator": {
+            "column": 0,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 10,
+            "table_index": 1
+          },
+          "source_span_id": "span_nb_doc_financial_9c169de78d5a2f8fc5d9",
+          "text": "Equity"
+        },
+        {
+          "locator": {
+            "column": 1,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 10,
+            "table_index": 1
+          },
+          "source_span_id": "span_nb_doc_financial_ee519c2df341d63dc89a",
+          "text": "180000"
+        },
+        {
+          "locator": {
+            "column": 2,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 10,
+            "table_index": 1
+          },
+          "source_span_id": "span_nb_doc_financial_51d9afa6917cdb784097",
+          "text": "300000"
+        },
+        {
+          "locator": {
+            "column": 0,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 11,
+            "table_index": 1
+          },
+          "source_span_id": "span_nb_doc_financial_9464daabde85d42b715d",
+          "text": "Total liabilities and equity"
+        },
+        {
+          "locator": {
+            "column": 1,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 11,
+            "table_index": 1
+          },
+          "source_span_id": "span_nb_doc_financial_72f4c322467573b41c20",
+          "text": "620000"
+        },
+        {
+          "locator": {
+            "column": 2,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 11,
+            "table_index": 1
+          },
+          "source_span_id": "span_nb_doc_financial_c6638699b9751f3bd4c4",
+          "text": "910000"
+        }
+      ],
+      "reporting_period": "FY2024 and FY2025",
+      "sha256": "880bfac836384deb79caddf280071f0d7bc5d7984986939ed05280b945481853",
+      "synthetic": true,
+      "title": "Northstar Historical Financial Performance"
+    },
+    {
+      "date": "2026-11-03",
+      "document_id": "nb_doc_plan",
+      "document_version": 1,
+      "elements": [
+        {
+          "locator": {
+            "block_index": 0,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "source_span_id": "span_nb_doc_plan_35ab6bb92b2fd08f61df",
+          "text": "Northstar Revenue Forecast and Delivery Capacity"
+        },
+        {
+          "locator": {
+            "block_index": 1,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "source_span_id": "span_nb_doc_plan_c02cb1ffe31e4a142db8",
+          "text": "SYNTHETIC | nb_doc_plan | 2026-11-03 | Version 1"
+        },
+        {
+          "locator": {
+            "block_index": 2,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "source_span_id": "span_nb_doc_plan_ec66d9f10736ca45f602",
+          "text": "Reporting period: FY2027"
+        },
+        {
+          "locator": {
+            "block_index": 3,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "source_span_id": "span_nb_doc_plan_05c0e6c18828871d71e7",
+          "text": "Independent expanded research scenario NB version 3.0.0. This is not a continuation of legacy Northstar NS; contract, cash and customer assumptions differ."
+        },
+        {
+          "locator": {
+            "block_index": 4,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "source_span_id": "span_nb_doc_plan_6d8b8e140042610ea1dd",
+          "text": "SYNTHETIC DATA. Management plan version 1 dated 2026-11-03. Forecasts are management assumptions, not signed orders. Revenue and delivery costs use calendar FY2027."
+        },
+        {
+          "locator": {
+            "block_index": 5,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "source_span_id": "span_nb_doc_plan_246f26ebc01c3f1d9fd9",
+          "text": "The FY2027 plan comprises USD 1,200,000 from existing customers plus eight new deployments at USD 100,000 recognized revenue each, totaling USD 2,000,000. Cost of revenue is USD 600,000, operating expense USD 1,000,000 and EBITDA USD 400,000."
+        },
+        {
+          "locator": {
+            "block_index": 6,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "source_span_id": "span_nb_doc_plan_4ac96b659af9f8fdb0a7",
+          "text": "Two delivery squads can each complete two new deployments per year under the current staffing model, for four deployments. No signed outsourcing arrangement, approved hiring plan or faster delivery validation is provided."
+        },
+        {
+          "locator": {
+            "block_index": 7,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "source_span_id": "span_nb_doc_plan_4444bc94ce2cbf60d888",
+          "text": "The commercial plan counts eight new deployments while the signed headcount budget remains at two squads. USD 100,000 per deployment is an initial generic planning assumption, not a customer-specific revenue recognition schedule. A revised capacity and contract-term revenue forecast is requested but not supplied."
+        },
+        {
+          "locator": {
+            "block_index": 8,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "source_span_id": "span_nb_doc_plan_e85bb8519d515877fcfd",
+          "text": "Recurring revenue from the two existing accounts is held flat in the forecast. The plan does not assume price increases for those accounts."
+        },
+        {
+          "locator": {
+            "column": 0,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 0,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_plan_89c38c7f0889081690d1",
+          "text": "Driver"
+        },
+        {
+          "locator": {
+            "column": 1,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 0,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_plan_cf1278ea6076c1712d8e",
+          "text": "FY2027"
+        },
+        {
+          "locator": {
+            "column": 0,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 1,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_plan_a9faa77b24bc7be275c4",
+          "text": "Existing revenue USD"
+        },
+        {
+          "locator": {
+            "column": 1,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 1,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_plan_03c5f5787596bd0268ee",
+          "text": "1200000"
+        },
+        {
+          "locator": {
+            "column": 0,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 2,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_plan_66fcf42e9f0926a0f877",
+          "text": "Planned new deployments"
+        },
+        {
+          "locator": {
+            "column": 1,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 2,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_plan_6fb18a3aeeb2cddef446",
+          "text": "8"
+        },
+        {
+          "locator": {
+            "column": 0,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 3,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_plan_d44e6846d840817011d9",
+          "text": "Revenue per deployment USD"
+        },
+        {
+          "locator": {
+            "column": 1,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 3,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_plan_6a5ced27da102d82266f",
+          "text": "100000"
+        },
+        {
+          "locator": {
+            "column": 0,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 4,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_plan_1f917659a7fe3853a297",
+          "text": "Forecast revenue USD"
+        },
+        {
+          "locator": {
+            "column": 1,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 4,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_plan_2caff7111e8923914567",
+          "text": "2000000"
+        },
+        {
+          "locator": {
+            "column": 0,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 5,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_plan_f71833ec6bfe3e3fc270",
+          "text": "Squads"
+        },
+        {
+          "locator": {
+            "column": 1,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 5,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_plan_71c4f4398de9160bb444",
+          "text": "2"
+        },
+        {
+          "locator": {
+            "column": 0,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 6,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_plan_faa97c2324035010e0fd",
+          "text": "Deployments per squad"
+        },
+        {
+          "locator": {
+            "column": 1,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 6,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_plan_f4bca805db6d9eba78b1",
+          "text": "2"
+        },
+        {
+          "locator": {
+            "column": 0,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 7,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_plan_5329a0a687e6925f5392",
+          "text": "Current capacity deployments"
+        },
+        {
+          "locator": {
+            "column": 1,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 7,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_plan_8c12f8a1206d341670a4",
+          "text": "4"
+        },
+        {
+          "locator": {
+            "column": 0,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 8,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_plan_d162bfc62250644f0906",
+          "text": "Capacity constrained revenue USD"
+        },
+        {
+          "locator": {
+            "column": 1,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 8,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_plan_f0be9b219e1adbca5257",
+          "text": "1600000"
+        }
+      ],
+      "reporting_period": "FY2027",
+      "sha256": "f16ff6e72355e983e361eade582007ef5f2e4ca54e4f95ad5cc3b4fe881a057a",
+      "synthetic": true,
+      "title": "Northstar Revenue Forecast and Delivery Capacity"
+    },
+    {
+      "date": "2026-11-03",
+      "document_id": "nb_doc_crm",
+      "document_version": 1,
+      "elements": [
+        {
+          "locator": {
+            "block_index": 0,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "source_span_id": "span_nb_doc_crm_80998fa20818ef87b2da",
+          "text": "Northstar Customer Pipeline and Initial Management Answers"
+        },
+        {
+          "locator": {
+            "block_index": 1,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "source_span_id": "span_nb_doc_crm_b2d7e8a8c9126afffd6d",
+          "text": "SYNTHETIC | nb_doc_crm | 2026-11-03 | Version 1"
+        },
+        {
+          "locator": {
+            "block_index": 2,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "source_span_id": "span_nb_doc_crm_40bc97012896a8c6effd",
+          "text": "Reporting period: FY2025 and FY2027 plan"
+        },
+        {
+          "locator": {
+            "block_index": 3,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "source_span_id": "span_nb_doc_crm_dcd1c7587abdfc6caa04",
+          "text": "Independent expanded research scenario NB version 3.0.0. This is not a continuation of legacy Northstar NS; contract, cash and customer assumptions differ."
+        },
+        {
+          "locator": {
+            "block_index": 4,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "source_span_id": "span_nb_doc_crm_fdc61f4480f14bed3a81",
+          "text": "SYNTHETIC DATA. CRM snapshot and initial management Q&A dated 2026-11-03. Pipeline classifications are recorded separately from legal contract status."
+        },
+        {
+          "locator": {
+            "block_index": 5,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "source_span_id": "span_nb_doc_crm_e7401740cca2729eb6ad",
+          "text": "Quartz and Vale are existing paying customers. Aster has a completed technical proof of concept but no executed commercial contract in the supplied pack. Birch has a nonbinding letter of interest, no executed contract and no deployment."
+        },
+        {
+          "locator": {
+            "block_index": 6,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "source_span_id": "span_nb_doc_crm_4bbfbc93ee01208af15b",
+          "text": "Management labels the Aster USD 240,000 and Birch USD 360,000 pipeline opportunities as committed ARR in the CIM. Under this CRM snapshot they remain unsigned opportunities and are not committed recurring contract revenue."
+        },
+        {
+          "locator": {
+            "block_index": 7,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "source_span_id": "span_nb_doc_crm_fb573c86c4b052803e21",
+          "text": "Management repeats that there are four enterprise customers. This answer is based on the same CRM export used for the CIM and is not a separate customer confirmation."
+        },
+        {
+          "locator": {
+            "block_index": 8,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "source_span_id": "span_nb_doc_crm_38902aaf113786712c55",
+          "text": "Management says cloud and standard support are included in gross margin, but states that implementation payroll and variable inference usage require a separate allocation exercise."
+        },
+        {
+          "locator": {
+            "block_index": 9,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "source_span_id": "span_nb_doc_crm_6d680ad257e87ff723ae",
+          "text": "Management has not provided beneficial ownership evidence for the prospective customers. Client names alone do not establish independence."
+        },
+        {
+          "locator": {
+            "column": 0,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 0,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_crm_79d12de7f217c8b50803",
+          "text": "Customer"
+        },
+        {
+          "locator": {
+            "column": 1,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 0,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_crm_0cf6002d1ed1bc60bc7b",
+          "text": "Status"
+        },
+        {
+          "locator": {
+            "column": 2,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 0,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_crm_85236f8d5ca71b10edae",
+          "text": "Annual value USD"
+        },
+        {
+          "locator": {
+            "column": 3,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 0,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_crm_38a82563834d17b5e592",
+          "text": "Signed on 2026-11-03"
+        },
+        {
+          "locator": {
+            "column": 0,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 1,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_crm_0f212c33989e75054b53",
+          "text": "Quartz"
+        },
+        {
+          "locator": {
+            "column": 1,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 1,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_crm_05724fd0a81982354936",
+          "text": "Paying renewal"
+        },
+        {
+          "locator": {
+            "column": 2,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 1,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_crm_d42efe9c533d3b9fc97c",
+          "text": "720000"
+        },
+        {
+          "locator": {
+            "column": 3,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 1,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_crm_2b985ce797a01d71359b",
+          "text": "Yes"
+        },
+        {
+          "locator": {
+            "column": 0,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 2,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_crm_9caf7045a7e183c537a0",
+          "text": "Vale"
+        },
+        {
+          "locator": {
+            "column": 1,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 2,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_crm_c2dd3859a249c52d606e",
+          "text": "Paying renewal"
+        },
+        {
+          "locator": {
+            "column": 2,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 2,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_crm_d6d498a6ff15d2184975",
+          "text": "480000"
+        },
+        {
+          "locator": {
+            "column": 3,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 2,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_crm_e0e119de5288d34eef39",
+          "text": "Yes"
+        },
+        {
+          "locator": {
+            "column": 0,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 3,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_crm_ac8949bcf297456ab4ce",
+          "text": "Aster"
+        },
+        {
+          "locator": {
+            "column": 1,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 3,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_crm_9a3a995921a954f15491",
+          "text": "Technical PoC"
+        },
+        {
+          "locator": {
+            "column": 2,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 3,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_crm_1a67bb3b09cb3985220a",
+          "text": "240000"
+        },
+        {
+          "locator": {
+            "column": 3,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 3,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_crm_4964989004382ebba360",
+          "text": "No"
+        },
+        {
+          "locator": {
+            "column": 0,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 4,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_crm_6dd2fcbc57932388b231",
+          "text": "Birch"
+        },
+        {
+          "locator": {
+            "column": 1,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 4,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_crm_c28df8d0b18c83ef2215",
+          "text": "Letter of interest"
+        },
+        {
+          "locator": {
+            "column": 2,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 4,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_crm_37027cac8ca7dd407b0d",
+          "text": "360000"
+        },
+        {
+          "locator": {
+            "column": 3,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 4,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_crm_304dbf2e6e0710fae0a3",
+          "text": "No"
+        }
+      ],
+      "reporting_period": "FY2025 and FY2027 plan",
+      "sha256": "88e7962471b9a6bc7fd9fc24f3b3d3f7d7d9bc656e0a02bd86527889273cfc25",
+      "synthetic": true,
+      "title": "Northstar Customer Pipeline and Initial Management Answers"
+    },
+    {
+      "date": "2026-11-05",
+      "document_id": "nb_doc_contract",
+      "document_version": 1,
+      "elements": [
+        {
+          "locator": {
+            "block_index": 0,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "source_span_id": "span_nb_doc_contract_84b3a618990c334bca50",
+          "text": "Northstar Aster Commercial Contract and PoC Schedule"
+        },
+        {
+          "locator": {
+            "block_index": 1,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "source_span_id": "span_nb_doc_contract_e282c99669ef4fd8209d",
+          "text": "SYNTHETIC | nb_doc_contract | 2026-11-05 | Version 1"
+        },
+        {
+          "locator": {
+            "block_index": 2,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "source_span_id": "span_nb_doc_contract_f83e3b61e812c4ffced6",
+          "text": "Reporting period: 2026-12-01 through 2027-11-30"
+        },
+        {
+          "locator": {
+            "block_index": 3,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "source_span_id": "span_nb_doc_contract_1303052f3e7eab7ceccd",
+          "text": "Independent expanded research scenario NB version 3.0.0. This is not a continuation of legacy Northstar NS; contract, cash and customer assumptions differ."
+        },
+        {
+          "locator": {
+            "block_index": 4,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "source_span_id": "span_nb_doc_contract_89dcd248293ccaa05d33",
+          "text": "SYNTHETIC DATA. Simulated counterparty contract exhibit, not an authentic third-party document. Executed on 2026-11-05; service term 2026-12-01 through 2027-11-30."
+        },
+        {
+          "locator": {
+            "block_index": 5,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "source_span_id": "span_nb_doc_contract_950aa2d077dd2c0b8795",
+          "text": "Aster and Northstar signed a commercial contract for annual subscription fees USD 240,000 and a one-time implementation fee USD 60,000. Total first-year contractual value is USD 300,000. The PoC memorandum has been replaced by the commercial contract."
+        },
+        {
+          "locator": {
+            "block_index": 6,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "source_span_id": "span_nb_doc_contract_63501df525df35744402",
+          "text": "Acceptance requires an agreed benchmark test and a customer acceptance certificate. The first invoice is USD 120,000 comprising USD 60,000 implementation plus USD 60,000 for the first subscription quarter."
+        },
+        {
+          "locator": {
+            "block_index": 7,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "source_span_id": "span_nb_doc_contract_8405d29e6fbead7dea11",
+          "text": "This exhibit contains no acceptance certificate, issued invoice or bank receipt. A signature alone does not demonstrate recognized revenue, completed acceptance or collection."
+        },
+        {
+          "locator": {
+            "block_index": 8,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "source_span_id": "span_nb_doc_contract_86caf8155acac2bed257",
+          "text": "Birch remains at nonbinding letter-of-interest stage as of 2026-11-05."
+        }
+      ],
+      "reporting_period": "2026-12-01 through 2027-11-30",
+      "sha256": "bf43b28ea27ff3d2ee0563ff8c2d9bb1d93eebcddd1461c65aa1d0038f80f6d2",
+      "synthetic": true,
+      "title": "Northstar Aster Commercial Contract and PoC Schedule"
+    },
+    {
+      "date": "2026-11-12",
+      "document_id": "nb_doc_execution",
+      "document_version": 1,
+      "elements": [
+        {
+          "locator": {
+            "block_index": 0,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "source_span_id": "span_nb_doc_execution_952080d6602429696fc4",
+          "text": "Northstar Aster Deployment Billing and Collection Evidence"
+        },
+        {
+          "locator": {
+            "block_index": 1,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "source_span_id": "span_nb_doc_execution_e9db2a1dae04484a68d6",
+          "text": "SYNTHETIC | nb_doc_execution | 2026-11-12 | Version 1"
+        },
+        {
+          "locator": {
+            "block_index": 2,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "source_span_id": "span_nb_doc_execution_264894cfa701956c394d",
+          "text": "Reporting period: 2026-11-12"
+        },
+        {
+          "locator": {
+            "block_index": 3,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "source_span_id": "span_nb_doc_execution_afac185e766614a20384",
+          "text": "Independent expanded research scenario NB version 3.0.0. This is not a continuation of legacy Northstar NS; contract, cash and customer assumptions differ."
+        },
+        {
+          "locator": {
+            "block_index": 4,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "source_span_id": "span_nb_doc_execution_ba37e77c5f34726b7171",
+          "text": "SYNTHETIC DATA. Simulated acceptance, invoice and bank remittance extracts. No actual customer or bank records are used."
+        },
+        {
+          "locator": {
+            "block_index": 5,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "source_span_id": "span_nb_doc_execution_7f5cd2852d230ec58bcc",
+          "text": "Aster signed acceptance certificate AC-01 on 2026-11-12 after all contractual benchmark tests passed. Deployment status is accepted; this certificate covers Aster only."
+        },
+        {
+          "locator": {
+            "block_index": 6,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "source_span_id": "span_nb_doc_execution_9fa7c862c23f65f55d21",
+          "text": "Invoice INV-01 dated 2026-11-12 is USD 120,000: implementation USD 60,000 and subscription prebilling USD 60,000. The invoice face amount is not recognized subscription revenue on that date."
+        },
+        {
+          "locator": {
+            "block_index": 7,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "source_span_id": "span_nb_doc_execution_8ad74238a4409864ea82",
+          "text": "Remittance RC-01 matched to INV-01 records USD 90,000 cash received on 2026-11-12. USD 30,000 remains outstanding; neither full collection nor an overdue balance is asserted."
+        },
+        {
+          "locator": {
+            "block_index": 8,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "source_span_id": "span_nb_doc_execution_06c2292df11836bad402",
+          "text": "On acceptance USD 60,000 implementation revenue is recognized. Subscription revenue begins on 2026-12-01. The remaining USD 60,000 of invoicing is deferred revenue at 2026-11-12."
+        },
+        {
+          "locator": {
+            "block_index": 9,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "source_span_id": "span_nb_doc_execution_79bc3357191d3e05ade2",
+          "text": "No new Birch contract or customer ownership confirmation is included. Aster acceptance and cash evidence must not be extrapolated to Birch."
+        }
+      ],
+      "reporting_period": "2026-11-12",
+      "sha256": "922ef6a53501228b3aa805349f39b1cc4d9482f5469fd458167db2367fb2c544",
+      "synthetic": true,
+      "title": "Northstar Aster Deployment Billing and Collection Evidence"
+    },
+    {
+      "date": "2026-11-18",
+      "document_id": "nb_doc_cost",
+      "document_version": 2,
+      "elements": [
+        {
+          "locator": {
+            "block_index": 0,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "source_span_id": "span_nb_doc_cost_b37cda059214054e15a6",
+          "text": "Northstar Customer Contribution and Delivery Cost Schedule"
+        },
+        {
+          "locator": {
+            "block_index": 1,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "source_span_id": "span_nb_doc_cost_553034c781b3f8137a4d",
+          "text": "SYNTHETIC | nb_doc_cost | 2026-11-18 | Version 2"
+        },
+        {
+          "locator": {
+            "block_index": 2,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "source_span_id": "span_nb_doc_cost_b9ba0653d40a634af6f0",
+          "text": "Reporting period: Aster contract year 2026-12-01 through 2027-11-30"
+        },
+        {
+          "locator": {
+            "block_index": 3,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "source_span_id": "span_nb_doc_cost_afb787c22dc201a639c3",
+          "text": "Independent expanded research scenario NB version 3.0.0. This is not a continuation of legacy Northstar NS; contract, cash and customer assumptions differ."
+        },
+        {
+          "locator": {
+            "block_index": 4,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "source_span_id": "span_nb_doc_cost_aaf7509a69e96a651c49",
+          "text": "SYNTHETIC DATA. Revised customer cost schedule version 2 dated 2026-11-18, replacing management margin assumptions in the CIM. Cost allocation is a management schedule, not independent audit evidence."
+        },
+        {
+          "locator": {
+            "block_index": 5,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "source_span_id": "span_nb_doc_cost_f1f2de6f00171809d2f3",
+          "text": "For Aster, annual subscription revenue USD 240,000 less cloud USD 84,000, inference USD 108,000 and recurring support USD 72,000 gives recurring contribution negative USD 24,000. Implementation revenue USD 60,000 less implementation labor USD 90,000 gives negative USD 30,000; full first-year contribution is negative USD 54,000."
+        },
+        {
+          "locator": {
+            "block_index": 6,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "source_span_id": "span_nb_doc_cost_1d01ab48a496962d1a70",
+          "text": "The original Aster estimate of USD 96,000 delivery cost omitted USD 108,000 inference and USD 60,000 incremental support allocation. The revised recurring cost total is USD 264,000. Initial and revised figures use different coverage, not an unexplained arithmetic discrepancy."
+        },
+        {
+          "locator": {
+            "block_index": 7,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "source_span_id": "span_nb_doc_cost_0f671f3bc7f6863e43e1",
+          "text": "Birch planned annual revenue USD 360,000, recurring costs USD 240,000 and planned contribution USD 120,000 remain estimates because no live workload measurement is supplied."
+        },
+        {
+          "locator": {
+            "block_index": 8,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "source_span_id": "span_nb_doc_cost_83950928f98bfcb92b85",
+          "text": "The cost schedule explicitly includes implementation, cloud, inference and support categories. Customer-specific usage logs, time sheets and third-party invoice checks have not been provided; economic recovery remains unverified."
+        },
+        {
+          "locator": {
+            "column": 0,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 0,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_cost_f4f5c0a7d2ee9d6d8e2f",
+          "text": "Aster driver"
+        },
+        {
+          "locator": {
+            "column": 1,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 0,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_cost_8661a1a7c745df70bd6f",
+          "text": "USD"
+        },
+        {
+          "locator": {
+            "column": 0,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 1,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_cost_a4763ac31d6c4624c080",
+          "text": "Subscription revenue"
+        },
+        {
+          "locator": {
+            "column": 1,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 1,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_cost_8620874ec1985a24f852",
+          "text": "240000"
+        },
+        {
+          "locator": {
+            "column": 0,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 2,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_cost_61db215617efdaf8a9d5",
+          "text": "Cloud"
+        },
+        {
+          "locator": {
+            "column": 1,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 2,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_cost_52b9c5a19abe97ac7d0c",
+          "text": "84000"
+        },
+        {
+          "locator": {
+            "column": 0,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 3,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_cost_1a3e11ad73fedf7ef218",
+          "text": "Inference"
+        },
+        {
+          "locator": {
+            "column": 1,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 3,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_cost_36851525f5b9d69cc0c4",
+          "text": "108000"
+        },
+        {
+          "locator": {
+            "column": 0,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 4,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_cost_4656aff230b37d91454d",
+          "text": "Recurring support"
+        },
+        {
+          "locator": {
+            "column": 1,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 4,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_cost_7cebb88bc2cd0aea16a1",
+          "text": "72000"
+        },
+        {
+          "locator": {
+            "column": 0,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 5,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_cost_bf448ab0e4ad47ea336c",
+          "text": "Recurring contribution"
+        },
+        {
+          "locator": {
+            "column": 1,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 5,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_cost_2be0dfcfbe2e53574072",
+          "text": "-24000"
+        },
+        {
+          "locator": {
+            "column": 0,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 6,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_cost_0860bf1de6d38a45ea63",
+          "text": "Implementation revenue"
+        },
+        {
+          "locator": {
+            "column": 1,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 6,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_cost_96008b90509b692b6115",
+          "text": "60000"
+        },
+        {
+          "locator": {
+            "column": 0,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 7,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_cost_de84dd14008e28f798be",
+          "text": "Implementation labor"
+        },
+        {
+          "locator": {
+            "column": 1,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 7,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_cost_9796930019c841ebecc5",
+          "text": "90000"
+        },
+        {
+          "locator": {
+            "column": 0,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 8,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_cost_982070c61e2f22252049",
+          "text": "First year contribution"
+        },
+        {
+          "locator": {
+            "column": 1,
+            "heading_path": [],
+            "kind": "docx_table_cell",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml",
+            "row": 8,
+            "table_index": 0
+          },
+          "source_span_id": "span_nb_doc_cost_f4195e5690e1b0b46995",
+          "text": "-54000"
+        }
+      ],
+      "reporting_period": "Aster contract year 2026-12-01 through 2027-11-30",
+      "sha256": "29879d6d16318fb9e434fe5736ebac1b0ef2a0a0511077060ba3df7fcc848280",
+      "synthetic": true,
+      "title": "Northstar Customer Contribution and Delivery Cost Schedule"
+    },
+    {
+      "date": "2026-11-25",
+      "document_id": "nb_doc_followup",
+      "document_version": 1,
+      "elements": [
+        {
+          "locator": {
+            "block_index": 0,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "source_span_id": "span_nb_doc_followup_299a67e94a02783d9a36",
+          "text": "Northstar Follow Up Commercial and Ownership Evidence"
+        },
+        {
+          "locator": {
+            "block_index": 1,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "source_span_id": "span_nb_doc_followup_1b7ea6ff154d021ed813",
+          "text": "SYNTHETIC | nb_doc_followup | 2026-11-25 | Version 1"
+        },
+        {
+          "locator": {
+            "block_index": 2,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "source_span_id": "span_nb_doc_followup_b0cc2d9641501f2a098c",
+          "text": "Reporting period: 2026-11-22 through 2026-11-25"
+        },
+        {
+          "locator": {
+            "block_index": 3,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "source_span_id": "span_nb_doc_followup_7050bdf735475e075e5e",
+          "text": "Independent expanded research scenario NB version 3.0.0. This is not a continuation of legacy Northstar NS; contract, cash and customer assumptions differ."
+        },
+        {
+          "locator": {
+            "block_index": 4,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "source_span_id": "span_nb_doc_followup_1b51d0e537ff5c3b5ef6",
+          "text": "SYNTHETIC DATA. Fictional follow-up management response with simulated contract, acceptance and ownership extracts dated 2026-11-25."
+        },
+        {
+          "locator": {
+            "block_index": 5,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "source_span_id": "span_nb_doc_followup_d8931cc8487c2c94e6e3",
+          "text": "Birch signed an annual subscription contract for USD 360,000 on 2026-11-22. Its acceptance certificate dated 2026-11-25 records benchmark completion; the first USD 90,000 quarterly invoice was paid in full on that date."
+        },
+        {
+          "locator": {
+            "block_index": 6,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "source_span_id": "span_nb_doc_followup_fc41a606074581e3373c",
+          "text": "The simulated ownership registry states that Birch is wholly owned by Aster. These two legal counterparties therefore do not establish two independently controlled customer groups."
+        },
+        {
+          "locator": {
+            "block_index": 7,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "source_span_id": "span_nb_doc_followup_68afd63803495778c62d",
+          "text": "Management corrects the initial customer taxonomy: on 2026-11-03 there were two paying customers, one PoC and one unsigned prospect. On 2026-11-25 Aster and Birch have paid contracts but form one control group."
+        },
+        {
+          "locator": {
+            "block_index": 8,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "source_span_id": "span_nb_doc_followup_2e38a29426458d1b2417",
+          "text": "No revised pricing agreement, inference-usage reduction or independently verified customer cost reduction is supplied. Aster contribution remains negative in the latest supplied cost schedule."
+        },
+        {
+          "locator": {
+            "block_index": 9,
+            "heading_path": [],
+            "kind": "docx_paragraph",
+            "paragraph_index": 0,
+            "part_uri": "word/document.xml"
+          },
+          "source_span_id": "span_nb_doc_followup_13880e4d29a85c16d1f1",
+          "text": "Management has not produced an additional independently controlled new customer, Aster remaining cash receipt, or a supported eight-deployment capacity plan."
+        }
+      ],
+      "reporting_period": "2026-11-22 through 2026-11-25",
+      "sha256": "94ec30ff50213a46760681db4512b727db4d9f685f946f150a8d4132c20d6e47",
+      "synthetic": true,
+      "title": "Northstar Follow Up Commercial and Ownership Evidence"
+    }
+  ],
+  "probability_assumptions": [
+    {
+      "assumption_id": "nb_initial_question",
+      "assumption_source": "Explicit synthetic analyst thought experiment; not calibrated investment probabilities",
+      "positive_likelihood_h": 0.8,
+      "positive_likelihood_not_h": 0.2,
+      "prior": 0.3
+    }
+  ],
+  "scenario_universe": "Independent research variant nb; not a continuation of legacy ns",
+  "stage": 4
+}
