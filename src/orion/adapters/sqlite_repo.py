@@ -1,7 +1,7 @@
 """SQLite persistence boundary for trusted application services.
 
-This adapter does not rank, approve, or infer domain transitions. A future service
-must authorize its actor and calculate a complete change *inside* ``transact``.
+This adapter does not rank, approve, or infer domain transitions. Review services
+authorize their actor and calculate a complete change *inside* ``transact``.
 Public Demo must never instantiate this repository. The database owner's access
 is not a tamper-proof ledger or security boundary.
 """
@@ -17,7 +17,7 @@ from typing import Any, Callable, Iterator, Mapping
 
 from pydantic import BaseModel
 
-from orion.domain.models import DealState, ENTITY_MODELS
+from orion.domain.models import DealState, ENTITY_MODELS, StagedEvidenceUpdate
 from orion.domain.grounding import validate_grounding
 
 COLLECTIONS = {
@@ -157,6 +157,23 @@ CREATE TABLE IF NOT EXISTS budget_ledger (
     created_at TEXT NOT NULL,
     FOREIGN KEY(deal_id,run_id,run_version) REFERENCES analysis_runs(deal_id,run_id,entity_version)
 );
+-- Additive Chunk 2 archives: v1 entity/serialization contracts are unchanged.
+CREATE TABLE IF NOT EXISTS staged_updates (
+    deal_id TEXT NOT NULL REFERENCES deals(deal_id),
+    event_id TEXT NOT NULL,
+    payload_digest TEXT NOT NULL CHECK(length(payload_digest)=64),
+    payload TEXT NOT NULL CHECK(json_valid(payload)),
+    PRIMARY KEY(deal_id,event_id)
+);
+CREATE TABLE IF NOT EXISTS staged_resolutions (
+    deal_id TEXT NOT NULL,
+    event_id TEXT NOT NULL,
+    action TEXT NOT NULL CHECK(action IN ('approve','reject')),
+    decision_id TEXT NOT NULL,
+    PRIMARY KEY(deal_id,event_id),
+    FOREIGN KEY(deal_id,event_id) REFERENCES staged_updates(deal_id,event_id),
+    FOREIGN KEY(deal_id,decision_id) REFERENCES decisions(deal_id,decision_id)
+);
 CREATE TRIGGER IF NOT EXISTS entity_version_sequence BEFORE INSERT ON entity_versions
 BEGIN
  SELECT CASE WHEN NEW.entity_version != COALESCE((SELECT MAX(entity_version)+1
@@ -230,7 +247,8 @@ class SQLiteRepository:
                 raise RepositoryError("SCHEMA_VERSION_UNSUPPORTED", "Database needs an explicit schema migration")
             connection.executescript(DDL)
             for table in ("source_blobs", "entity_versions", "snapshots", "decisions", "audit_events",
-                          "processed_commands", "analysis_runs", "budget_ledger"):
+                          "processed_commands", "analysis_runs", "budget_ledger",
+                          "staged_updates", "staged_resolutions"):
                 for action in ("UPDATE", "DELETE"):
                     connection.execute(f"CREATE TRIGGER IF NOT EXISTS {table}_no_{action.lower()} "
                                        f"BEFORE {action} ON {table} BEGIN "
@@ -295,13 +313,24 @@ class SQLiteRepository:
         """Execute an authorized service mutation with revision and replay guards.
 
         This is only the revision-changing commit primitive. Staging/rejection
-        require an audit-only, unchanged-head service path in Chunk 2; do not
-        route them through this method or manufacture a ranking revision.
+        use ``transact_audit``; they never manufacture a ranking revision.
 
         The service owns ``request_payload`` and must bind all command semantics
         (actor, target/version, action and scope) into it. No command SQL or actor
         supplied by the browser is executed or trusted here.
         """
+        return self._transact(deal_id, idempotency_key=idempotency_key, request_payload=request_payload,
+                              expected_revision=expected_revision, mutate=mutate, audit_only=False)
+
+    def transact_audit(self, deal_id: str, *, idempotency_key: str, request_payload: Any,
+                       expected_revision: int, mutate: Callable[[AuditWriter], None]) -> RepositoryCommitResult:
+        """Archive staging/rejection and audit without changing approved state."""
+        return self._transact(deal_id, idempotency_key=idempotency_key, request_payload=request_payload,
+                              expected_revision=expected_revision, mutate=mutate, audit_only=True)
+
+    def _transact(self, deal_id: str, *, idempotency_key: str, request_payload: Any,
+                  expected_revision: int, mutate: Callable[[RevisionWriter], None],
+                  audit_only: bool) -> RepositoryCommitResult:
         if not isinstance(idempotency_key, str) or not idempotency_key:
             raise ValueError("idempotency_key must be a nonempty string")
         if type(expected_revision) is not int or expected_revision < 1:
@@ -324,12 +353,14 @@ class SQLiteRepository:
                     raise RepositoryError("UNKNOWN_DEAL", "Deal is not installed")
                 if head["state_revision"] != expected_revision:
                     raise RepositoryError("REVISION_CONFLICT", "Expected revision does not match current state")
-                writer = RevisionWriter(self, connection, deal_id, expected_revision,
-                                        head["head_snapshot_id"], idempotency_key)
+                writer_class = AuditWriter if audit_only else RevisionWriter
+                writer = writer_class(self, connection, deal_id, expected_revision,
+                                      head["head_snapshot_id"], idempotency_key)
                 mutate(writer)
                 writer._finish()
-                connection.execute("UPDATE deals SET state_revision=?,head_snapshot_id=? WHERE deal_id=?",
-                                   (writer.target_revision, writer.head_snapshot_id, deal_id))
+                if not audit_only:
+                    connection.execute("UPDATE deals SET state_revision=?,head_snapshot_id=? WHERE deal_id=?",
+                                       (writer.target_revision, writer.head_snapshot_id, deal_id))
                 self._validate(_read_state(connection, deal_id))
                 connection.execute("INSERT INTO processed_commands VALUES (?,?,?,?,?)",
                                    (deal_id, idempotency_key, digest, writer.target_revision, writer.head_snapshot_id))
@@ -373,6 +404,37 @@ class RevisionWriter:
     def read_state(self) -> DealState:
         self._check()
         return _read_state(self._connection, self.deal_id)
+
+    def archive_staged(self, event: StagedEvidenceUpdate) -> None:
+        self._check()
+        event = StagedEvidenceUpdate.model_validate(event.model_dump(mode="json"))
+        if event.deal_id != self.deal_id:
+            raise RepositoryError("CROSS_DEAL_REFERENCE", "Event belongs to another deal")
+        if self._connection.execute("SELECT 1 FROM staged_updates WHERE deal_id=? AND event_id=?",
+                                    (self.deal_id, event.id)).fetchone():
+            raise RepositoryError("DUPLICATE_EVENT", "Staged event IDs are immutable; submit a new event ID")
+        self._connection.execute("INSERT INTO staged_updates VALUES (?,?,?,?)",
+                                 (self.deal_id, event.id, payload_digest(event), canonical_json(event)))
+
+    def read_staged(self, event_id: str) -> StagedEvidenceUpdate:
+        self._check()
+        row = self._connection.execute("SELECT payload,payload_digest FROM staged_updates "
+                                       "WHERE deal_id=? AND event_id=?", (self.deal_id, event_id)).fetchone()
+        if row is None:
+            raise RepositoryError("UNKNOWN_EVENT", "Event has not been staged for this deal")
+        value = StagedEvidenceUpdate.model_validate_json(row["payload"])
+        if payload_digest(value) != row["payload_digest"]:
+            raise RepositoryError("SOURCE_MISMATCH", "Staged event archive digest does not match")
+        if self._connection.execute("SELECT 1 FROM staged_resolutions WHERE deal_id=? AND event_id=?",
+                                    (self.deal_id, event_id)).fetchone():
+            raise RepositoryError("DUPLICATE_EVENT", "This event has already been decided")
+        return value
+
+    def resolve_staged(self, event_id: str, action: str, decision_id: str) -> None:
+        self._check()
+        self.read_staged(event_id)
+        self._connection.execute("INSERT INTO staged_resolutions VALUES (?,?,?,?)",
+                                 (self.deal_id, event_id, action, decision_id))
 
     def put_source_blob(self, content: bytes, *, expected_sha256: str | None = None) -> str:
         self._check()
@@ -489,6 +551,38 @@ class RevisionWriter:
                    and item["after_snapshot_id"] == self.head_snapshot_id
                    and item["decision_id"] in decision_ids for item in self._new_audits):
             raise RepositoryError("INCOMPLETE_COMMIT", "Transaction requires a new decision and linked revision audit")
+
+
+class AuditWriter(RevisionWriter):
+    """Only immutable audit/decision/archive writes are permitted in this path."""
+
+    def __init__(self, *args: Any, **kwargs: Any):
+        super().__init__(*args, **kwargs)
+        self.target_revision = self.base_revision
+        self.head_snapshot_id = self.before_snapshot_id
+
+    def put_entity(self, type_name: str, value: Any) -> None:
+        if type_name not in {"AnalystDecision", "AuditEvent"}:
+            raise RepositoryError("AUDIT_ONLY_MUTATION", "Staging/rejection cannot modify ranking entities")
+        super().put_entity(type_name, value)
+
+    def set_head(self, snapshot_id: str) -> None:
+        raise RepositoryError("AUDIT_ONLY_MUTATION", "Staging/rejection cannot change the snapshot")
+
+    def _finish(self) -> None:
+        if not self._new_audits:
+            raise RepositoryError("INCOMPLETE_COMMIT", "Audit-only command requires an audit event")
+        decisions = {item["id"]: item for item in self._new_decisions}
+        for audit in self._new_audits:
+            if (audit["before_revision"] != self.base_revision or audit["after_revision"] != self.base_revision
+                    or audit["before_snapshot_id"] != self.before_snapshot_id
+                    or audit["after_snapshot_id"] != self.before_snapshot_id
+                    or audit["event_type"] not in {"update_staged", "update_rejected"}):
+                raise RepositoryError("INCOMPLETE_COMMIT", "Audit-only command must preserve revision and head")
+            if audit["event_type"] == "update_rejected":
+                decision = decisions.get(audit["decision_id"])
+                if decision is None or decision["action"] != "reject":
+                    raise RepositoryError("INCOMPLETE_COMMIT", "Rejection requires its new reviewer decision")
 
 
 def _read_state(connection: sqlite3.Connection, deal_id: str) -> DealState:

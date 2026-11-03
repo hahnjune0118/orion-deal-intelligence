@@ -32,12 +32,21 @@ jobs:
         run: python -m orion.cli validate-fixture spec/EXAMPLES/initial_state.json
       - name: Test Foundation
         run: python -m pytest tests/contracts tests/repository tests/security tests/smoke -q --strict-markers --junitxml=foundation-tests.xml
+      - name: Test Adaptive DD Core Engine
+        run: python -m pytest tests/core tests/transitions tests/integration -q --strict-markers --junitxml=core-tests.xml
+      - name: Replay all synthetic evidence updates
+        run: |
+          python -m orion.cli replay --case ns --event staged --approve --output build/ns_after.json
+          python -m orion.cli replay --case cd --event staged --approve --output build/cd_after.json
+          python -m orion.cli replay --case lm --event staged --approve --output build/lm_after.json
       - run: git diff --exit-code -- spec
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: foundation-${{ matrix.os }}
-          path: foundation-tests.xml
+          path: |
+            foundation-tests.xml
+            core-tests.xml
   dependency-audit:
     runs-on: ubuntu-latest
     steps:

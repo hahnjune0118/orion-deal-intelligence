@@ -1,0 +1,635 @@
+{
+  "kind": "deal_state",
+  "contract_version": "1.0.0",
+  "state_revision": 2,
+  "mode": "demo",
+  "deal": {
+    "id": "deal_lm",
+    "entity_version": 1,
+    "name": "Lumen Field Services",
+    "business_model": "Labor-intensive recurring field maintenance",
+    "currency": "USD",
+    "synthetic": true,
+    "as_of": "2026-11-03",
+    "thesis_ids": [
+      "thesis_lm"
+    ]
+  },
+  "documents": [
+    {
+      "id": "doc_lm_overview",
+      "entity_version": 1,
+      "deal_id": "deal_lm",
+      "filename": "lm_overview.pdf",
+      "format": "pdf",
+      "document_version": 1,
+      "asset_status": "fixture_text_only",
+      "file_sha256": null,
+      "parse_status": "parsed",
+      "parser_version": "fixture-text-1.0.0",
+      "source_origin": "company",
+      "origin_key": "lm_overview",
+      "created_at": "2026-11-03T00:00:00Z"
+    },
+    {
+      "id": "doc_lm_update",
+      "entity_version": 1,
+      "deal_id": "deal_lm",
+      "filename": "lm_update.docx",
+      "format": "docx",
+      "document_version": 1,
+      "asset_status": "fixture_text_only",
+      "file_sha256": null,
+      "parse_status": "parsed",
+      "parser_version": "fixture-text-1.0.0",
+      "source_origin": "company",
+      "origin_key": "lm_update",
+      "created_at": "2026-11-03T00:00:00Z"
+    }
+  ],
+  "source_spans": [
+    {
+      "id": "span_lm_overview",
+      "entity_version": 1,
+      "deal_id": "deal_lm",
+      "document_id": "doc_lm_overview",
+      "document_version": 1,
+      "locator": {
+        "kind": "pdf",
+        "page": 1,
+        "block_index": 0
+      },
+      "normalized_text": "SYNTHETIC. The supplied signed renewal copy states that the key client renews for 12 months. Lumen FY2025 delivered 10,000 billable hours at USD 300/hour, revenue USD 3,000,000, direct cost USD 1,800,000, operating expense excluding depreciation USD 900,000, EBITDA USD 300,000. Key-client revenue USD 1,500,000.",
+      "text_sha256": "8f4d54dba4488f516cffb2c1d9fe7539750b7a302df3850f6bbfe6ad8102d163",
+      "quote": "SYNTHETIC. The supplied signed renewal copy states that the key client renews for 12 months. Lumen FY2025 delivered 10,000 billable hours at USD 300/hour, revenue USD 3,000,000, direct cost USD 1,800,000, operating expense excluding depreciation USD 900,000, EBITDA USD 300,000. Key-client revenue USD 1,500,000.",
+      "start": 0,
+      "end": 312,
+      "locator_status": "validated",
+      "extraction_method": "fixture"
+    },
+    {
+      "id": "span_lm_update",
+      "entity_version": 1,
+      "deal_id": "deal_lm",
+      "document_id": "doc_lm_update",
+      "document_version": 1,
+      "locator": {
+        "kind": "docx_paragraph",
+        "part_uri": "word/document.xml",
+        "block_index": 0,
+        "paragraph_index": 0,
+        "heading_path": [
+          "Synthetic source"
+        ]
+      },
+      "normalized_text": "SYNTHETIC. A signed side letter contradicts the unconditional renewal copy: the key client may terminate on 30 days notice. The source conflict remains unresolved and requires clarification.",
+      "text_sha256": "c338f07d5a0c439668c136d9999e656febaddbe6b34d4a55b7f431b3517788cf",
+      "quote": "SYNTHETIC. A signed side letter contradicts the unconditional renewal copy: the key client may terminate on 30 days notice. The source conflict remains unresolved and requires clarification.",
+      "start": 0,
+      "end": 190,
+      "locator_status": "validated",
+      "extraction_method": "fixture"
+    }
+  ],
+  "theses": [
+    {
+      "id": "thesis_lm",
+      "entity_version": 1,
+      "deal_id": "deal_lm",
+      "title": "By 2027-10-31 key-client renewal, labor capacity and collection evidence support the operating plan.",
+      "counter_thesis": "Commercial assumptions may not be supported by sufficient records.",
+      "claim_ids": [
+        "claim_lm"
+      ],
+      "review_status": "approved"
+    }
+  ],
+  "claims": [
+    {
+      "id": "claim_lm",
+      "entity_version": 2,
+      "deal_id": "deal_lm",
+      "thesis_id": "thesis_lm",
+      "statement": "By 2027-10-31 key-client renewal, labor capacity and collection evidence support the operating plan.",
+      "subject_key": "lm",
+      "period_start": "2026-11-01",
+      "period_end": "2027-10-31",
+      "claim_kind": "binary_hypothesis",
+      "source_span_ids": [
+        "span_lm_overview"
+      ],
+      "required_criterion_keys": [
+        "renewal",
+        "labor",
+        "margin",
+        "collection",
+        "capex"
+      ],
+      "support_status": "contradicted",
+      "truth_status": "disputed",
+      "review_status": "approved"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "ev_lm_initial",
+      "entity_version": 1,
+      "deal_id": "deal_lm",
+      "claim_id": "claim_lm",
+      "source_span_ids": [
+        "span_lm_overview"
+      ],
+      "stance": "supports",
+      "criterion_keys": [
+        "renewal"
+      ],
+      "provenance": "company_reported",
+      "source_reliability": 3,
+      "reliability_rationale": "Synthetic document inspected by fixture author; no independent authentication.",
+      "verification_level": "document_only",
+      "independent_check_reference": null,
+      "origin_key": "lm_initial",
+      "review_status": "approved",
+      "lifecycle": "active",
+      "created_at": "2026-11-03T00:00:00Z"
+    },
+    {
+      "id": "ev_lm_update",
+      "entity_version": 1,
+      "deal_id": "deal_lm",
+      "claim_id": "claim_lm",
+      "source_span_ids": [
+        "span_lm_update"
+      ],
+      "stance": "refutes",
+      "criterion_keys": [
+        "renewal"
+      ],
+      "provenance": "company_reported",
+      "source_reliability": 3,
+      "reliability_rationale": "Synthetic document inspected by fixture author; no independent authentication.",
+      "verification_level": "document_only",
+      "independent_check_reference": null,
+      "origin_key": "lm_update",
+      "review_status": "approved",
+      "lifecycle": "active",
+      "created_at": "2026-11-03T00:00:00Z"
+    }
+  ],
+  "evidence_relations": [
+    {
+      "id": "rel_lm_conflict",
+      "entity_version": 1,
+      "deal_id": "deal_lm",
+      "from_evidence_id": "ev_lm_update",
+      "to_evidence_id": "ev_lm_initial",
+      "relation_type": "contradicts",
+      "scope_criterion_keys": [
+        "renewal"
+      ],
+      "review_status": "approved",
+      "rationale": "New source conflicts with the existing renewal evidence; neither is silently discarded."
+    }
+  ],
+  "dd_questions": [
+    {
+      "id": "q_lm_renewal",
+      "entity_version": 2,
+      "deal_id": "deal_lm",
+      "claim_id": "claim_lm",
+      "canonical_key": "lm.customer.renewal",
+      "issue": "Key-client renewal and termination rights",
+      "request_text": "Provide the complete key-client renewal agreement and all side letters effective during 2026-11-01 through 2027-10-31. Reconcile the renewal term and termination rights, explicitly resolving the 30-day termination conflict if present.",
+      "financial_driver": "customer_concentration",
+      "requirements": [
+        {
+          "key": "renewal",
+          "label": "renewal",
+          "min_reliability": 3,
+          "require_independent": false
+        }
+      ],
+      "materiality": {
+        "score": 5,
+        "basis": "analyst_rubric",
+        "exposure_minor": null,
+        "denominator_minor": null,
+        "rationale": "Predeclared synthetic scenario materiality; not a measured loss estimate.",
+        "source_span_ids": []
+      },
+      "obtainability": {
+        "score": 4,
+        "basis": "analyst_estimate",
+        "days": null,
+        "external_cost_minor": null,
+        "rationale": "Predeclared analyst estimate; validate with document owner in Local Live."
+      },
+      "review_status": "approved",
+      "workflow_status": "open",
+      "duplicate_of": null,
+      "owner_label": "Demo analyst"
+    },
+    {
+      "id": "q_lm_labor",
+      "entity_version": 1,
+      "deal_id": "deal_lm",
+      "claim_id": "claim_lm",
+      "canonical_key": "lm.labor.capacity",
+      "issue": "Roster and delivered hours support capacity",
+      "request_text": "Provide the FY2025 staffing roster and delivered-hours records reconciling 10,000 billed hours against 12,000 available hours, plus the capacity assumptions used for the 2026-11-01 through 2027-10-31 operating plan.",
+      "financial_driver": "unit_economics",
+      "requirements": [
+        {
+          "key": "labor",
+          "label": "labor",
+          "min_reliability": 3,
+          "require_independent": false
+        }
+      ],
+      "materiality": {
+        "score": 4,
+        "basis": "analyst_rubric",
+        "exposure_minor": null,
+        "denominator_minor": null,
+        "rationale": "Predeclared synthetic scenario materiality; not a measured loss estimate.",
+        "source_span_ids": []
+      },
+      "obtainability": {
+        "score": 5,
+        "basis": "analyst_estimate",
+        "days": null,
+        "external_cost_minor": null,
+        "rationale": "Predeclared analyst estimate; validate with document owner in Local Live."
+      },
+      "review_status": "approved",
+      "workflow_status": "open",
+      "duplicate_of": null,
+      "owner_label": "Demo analyst"
+    },
+    {
+      "id": "q_lm_margin",
+      "entity_version": 1,
+      "deal_id": "deal_lm",
+      "claim_id": "claim_lm",
+      "canonical_key": "lm.margin.bridge",
+      "issue": "Labor cost and contract margin reconciliation",
+      "request_text": "Provide the FY2025 labor-cost ledger and contract margin bridge reconciling USD 3,000,000 revenue and USD 1,800,000 direct costs, identifying overtime, subcontracting and nonrecurring items.",
+      "financial_driver": "ebitda",
+      "requirements": [
+        {
+          "key": "margin",
+          "label": "margin",
+          "min_reliability": 3,
+          "require_independent": false
+        }
+      ],
+      "materiality": {
+        "score": 4,
+        "basis": "analyst_rubric",
+        "exposure_minor": null,
+        "denominator_minor": null,
+        "rationale": "Predeclared synthetic scenario materiality; not a measured loss estimate.",
+        "source_span_ids": []
+      },
+      "obtainability": {
+        "score": 4,
+        "basis": "analyst_estimate",
+        "days": null,
+        "external_cost_minor": null,
+        "rationale": "Predeclared analyst estimate; validate with document owner in Local Live."
+      },
+      "review_status": "approved",
+      "workflow_status": "open",
+      "duplicate_of": null,
+      "owner_label": "Demo analyst"
+    },
+    {
+      "id": "q_lm_cash",
+      "entity_version": 1,
+      "deal_id": "deal_lm",
+      "claim_id": "claim_lm",
+      "canonical_key": "lm.collection",
+      "issue": "Subsequent collection of key-client invoices",
+      "request_text": "Provide subsequent bank receipts or settlement records matched to the key-client invoices included in FY2025 closing receivables, identifying invoice dates, collection dates and unresolved balances.",
+      "financial_driver": "nwc",
+      "requirements": [
+        {
+          "key": "collection",
+          "label": "collection",
+          "min_reliability": 3,
+          "require_independent": false
+        }
+      ],
+      "materiality": {
+        "score": 3,
+        "basis": "analyst_rubric",
+        "exposure_minor": null,
+        "denominator_minor": null,
+        "rationale": "Predeclared synthetic scenario materiality; not a measured loss estimate.",
+        "source_span_ids": []
+      },
+      "obtainability": {
+        "score": 5,
+        "basis": "analyst_estimate",
+        "days": null,
+        "external_cost_minor": null,
+        "rationale": "Predeclared analyst estimate; validate with document owner in Local Live."
+      },
+      "review_status": "approved",
+      "workflow_status": "open",
+      "duplicate_of": null,
+      "owner_label": "Demo analyst"
+    },
+    {
+      "id": "q_lm_capex",
+      "entity_version": 1,
+      "deal_id": "deal_lm",
+      "claim_id": "claim_lm",
+      "canonical_key": "lm.capex",
+      "issue": "Replacement equipment requirements",
+      "request_text": "Provide the equipment replacement schedule and supporting maintenance records for the 2026-11-01 through 2027-10-31 operating plan, separating maintenance expense from planned capital expenditure.",
+      "financial_driver": "capex",
+      "requirements": [
+        {
+          "key": "capex",
+          "label": "capex",
+          "min_reliability": 3,
+          "require_independent": false
+        }
+      ],
+      "materiality": {
+        "score": 2,
+        "basis": "analyst_rubric",
+        "exposure_minor": null,
+        "denominator_minor": null,
+        "rationale": "Predeclared synthetic scenario materiality; not a measured loss estimate.",
+        "source_span_ids": []
+      },
+      "obtainability": {
+        "score": 4,
+        "basis": "analyst_estimate",
+        "days": null,
+        "external_cost_minor": null,
+        "rationale": "Predeclared analyst estimate; validate with document owner in Local Live."
+      },
+      "review_status": "approved",
+      "workflow_status": "open",
+      "duplicate_of": null,
+      "owner_label": "Demo analyst"
+    }
+  ],
+  "ranking_snapshots": [
+    {
+      "id": "snap_lm_initial",
+      "entity_version": 1,
+      "deal_id": "deal_lm",
+      "state_revision": 1,
+      "scoring_version": "1.0.0",
+      "input_digest": "931ba09371dc7207c78886777fb0e99a80c0f67edbc3635465c887462897b95d",
+      "created_at": "2026-11-03T00:00:00Z",
+      "trigger_event_id": null,
+      "rows": [
+        {
+          "question_id": "q_lm_labor",
+          "rank": 1,
+          "gap": 5.0,
+          "materiality": 4,
+          "obtainability": 5,
+          "score": 92.0,
+          "provisional": false,
+          "reason_codes": [
+            "EVIDENCE_GAP"
+          ]
+        },
+        {
+          "question_id": "q_lm_margin",
+          "rank": 2,
+          "gap": 5.0,
+          "materiality": 4,
+          "obtainability": 4,
+          "score": 89.0,
+          "provisional": false,
+          "reason_codes": [
+            "EVIDENCE_GAP"
+          ]
+        },
+        {
+          "question_id": "q_lm_cash",
+          "rank": 3,
+          "gap": 5.0,
+          "materiality": 3,
+          "obtainability": 5,
+          "score": 84.0,
+          "provisional": false,
+          "reason_codes": [
+            "EVIDENCE_GAP"
+          ]
+        },
+        {
+          "question_id": "q_lm_capex",
+          "rank": 4,
+          "gap": 5.0,
+          "materiality": 2,
+          "obtainability": 4,
+          "score": 73.0,
+          "provisional": false,
+          "reason_codes": [
+            "EVIDENCE_GAP"
+          ]
+        }
+      ],
+      "top3": [
+        "q_lm_labor",
+        "q_lm_margin",
+        "q_lm_cash"
+      ]
+    },
+    {
+      "id": "snapshot_demo_c4aaa73d0ebeb2d03f3385e0",
+      "entity_version": 1,
+      "deal_id": "deal_lm",
+      "state_revision": 2,
+      "scoring_version": "1.0.0",
+      "input_digest": "f8953e1e1e2c3ab0caecaed15fe2ae41683be9ce1ae8196e8307c20fa7a554ef",
+      "created_at": "2026-11-04T00:01:00Z",
+      "trigger_event_id": "update_lm",
+      "rows": [
+        {
+          "question_id": "q_lm_renewal",
+          "rank": 1,
+          "gap": 5.0,
+          "materiality": 5,
+          "obtainability": 4,
+          "score": 97.0,
+          "provisional": false,
+          "reason_codes": [
+            "UNRESOLVED_CONFLICT"
+          ]
+        },
+        {
+          "question_id": "q_lm_labor",
+          "rank": 2,
+          "gap": 5.0,
+          "materiality": 4,
+          "obtainability": 5,
+          "score": 92.0,
+          "provisional": false,
+          "reason_codes": [
+            "EVIDENCE_GAP"
+          ]
+        },
+        {
+          "question_id": "q_lm_margin",
+          "rank": 3,
+          "gap": 5.0,
+          "materiality": 4,
+          "obtainability": 4,
+          "score": 89.0,
+          "provisional": false,
+          "reason_codes": [
+            "EVIDENCE_GAP"
+          ]
+        },
+        {
+          "question_id": "q_lm_cash",
+          "rank": 4,
+          "gap": 5.0,
+          "materiality": 3,
+          "obtainability": 5,
+          "score": 84.0,
+          "provisional": false,
+          "reason_codes": [
+            "EVIDENCE_GAP"
+          ]
+        },
+        {
+          "question_id": "q_lm_capex",
+          "rank": 5,
+          "gap": 5.0,
+          "materiality": 2,
+          "obtainability": 4,
+          "score": 73.0,
+          "provisional": false,
+          "reason_codes": [
+            "EVIDENCE_GAP"
+          ]
+        }
+      ],
+      "top3": [
+        "q_lm_renewal",
+        "q_lm_labor",
+        "q_lm_margin"
+      ]
+    }
+  ],
+  "analyst_decisions": [
+    {
+      "id": "decision_lm_seed",
+      "entity_version": 1,
+      "deal_id": "deal_lm",
+      "actor_id": "actor_fixture_reviewer",
+      "actor_role": "reviewer",
+      "target_type": "seed",
+      "target_id": "deal_lm",
+      "target_version": 1,
+      "selection_digest": null,
+      "action": "approve",
+      "reason": "Authored synthetic initial state for specification arithmetic only.",
+      "base_revision": 0,
+      "decided_at": "2026-11-03T00:00:00Z"
+    },
+    {
+      "id": "decision_demo_c4aaa73d0ebeb2d03f3385e0",
+      "entity_version": 1,
+      "deal_id": "deal_lm",
+      "actor_id": "actor_demo_reviewer",
+      "actor_role": "reviewer",
+      "target_type": "evidence_update",
+      "target_id": "update_lm",
+      "target_version": 1,
+      "selection_digest": null,
+      "action": "approve",
+      "reason": "Explicit synthetic reviewer simulation.",
+      "base_revision": 1,
+      "decided_at": "2026-11-04T00:01:00Z"
+    }
+  ],
+  "audit_events": [
+    {
+      "id": "audit_lm_seed",
+      "entity_version": 1,
+      "deal_id": "deal_lm",
+      "sequence": 1,
+      "event_type": "seed_created",
+      "actor_id": "actor_fixture_reviewer",
+      "decision_id": "decision_lm_seed",
+      "before_revision": 0,
+      "after_revision": 1,
+      "idempotency_key": "lm_seed_v1",
+      "before_snapshot_id": null,
+      "after_snapshot_id": "snap_lm_initial",
+      "reason": "Initial synthetic branch.",
+      "created_at": "2026-11-03T00:00:00Z",
+      "previous_hash": null,
+      "event_hash": "e6565f138c45850e00d50571e49e08b3bea543912ddec96456c06bc3c2582a64"
+    },
+    {
+      "id": "audit_demo_c4aaa73d0ebeb2d03f3385e0_staged",
+      "entity_version": 1,
+      "deal_id": "deal_lm",
+      "sequence": 2,
+      "event_type": "update_staged",
+      "actor_id": "actor_demo_reviewer",
+      "decision_id": null,
+      "before_revision": 1,
+      "after_revision": 1,
+      "idempotency_key": "demo:update_lm:staged",
+      "before_snapshot_id": "snap_lm_initial",
+      "after_snapshot_id": "snap_lm_initial",
+      "reason": "Allowlisted synthetic evidence staged; ranking unchanged.",
+      "created_at": "2026-11-04T00:00:00Z",
+      "previous_hash": "e6565f138c45850e00d50571e49e08b3bea543912ddec96456c06bc3c2582a64",
+      "event_hash": "67cb121bbd8d0b911d8f94b6f4b06d77f1c006ef14c7ebb2611ca1d7ff928d4d"
+    },
+    {
+      "id": "audit_demo_c4aaa73d0ebeb2d03f3385e0_approve",
+      "entity_version": 1,
+      "deal_id": "deal_lm",
+      "sequence": 3,
+      "event_type": "update_approved",
+      "actor_id": "actor_demo_reviewer",
+      "decision_id": "decision_demo_c4aaa73d0ebeb2d03f3385e0",
+      "before_revision": 1,
+      "after_revision": 2,
+      "idempotency_key": "demo:update_lm:approve",
+      "before_snapshot_id": "snap_lm_initial",
+      "after_snapshot_id": "snapshot_demo_c4aaa73d0ebeb2d03f3385e0",
+      "reason": "Synthetic evidence approved; ranking recomputed.",
+      "created_at": "2026-11-04T00:01:00Z",
+      "previous_hash": "67cb121bbd8d0b911d8f94b6f4b06d77f1c006ef14c7ebb2611ca1d7ff928d4d",
+      "event_hash": "8428ec50a80cb30136ad07f9941eac1de5feb81f544e977abbe17829dadae97a"
+    }
+  ],
+  "analysis_runs": [
+    {
+      "id": "run_lm_cached",
+      "entity_version": 1,
+      "deal_id": "deal_lm",
+      "mode": "cached",
+      "status": "completed",
+      "model_id": null,
+      "prompt_version": "authored-fixture-1.0.0",
+      "input_digest": "8f4d54dba4488f516cffb2c1d9fe7539750b7a302df3850f6bbfe6ad8102d163",
+      "output_digest": "75b79792badf6ab6dfc44247ea48d2c972b8477383aaf388cbaf62702d197ff9",
+      "token_input": 0,
+      "token_output": 0,
+      "reserved_cost_usd": 0,
+      "actual_cost_usd": 0,
+      "pricing_version": null,
+      "started_at": "2026-11-03T00:00:00Z",
+      "finished_at": "2026-11-03T00:00:00Z",
+      "error_code": null
+    }
+  ],
+  "head_snapshot_id": "snapshot_demo_c4aaa73d0ebeb2d03f3385e0"
+}

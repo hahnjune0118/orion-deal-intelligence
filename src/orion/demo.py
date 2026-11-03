@@ -1,7 +1,9 @@
-"""Stateless Foundation boundary, not the Chunk 2 approval/ranking engine.
+"""Stateless, allowlisted synthetic replay without storage or external providers.
 
 Only packaged synthetic inputs can be loaded. No gold/expected-result loader,
 database, request-global session, provider import or filesystem path parameter.
+``replay_reviewed_demo`` is the Chunk 2 engine entry point. ``replay_demo``
+preserves the Foundation seed-only API, including its fail-closed behavior.
 """
 from __future__ import annotations
 
@@ -72,7 +74,80 @@ def prepare_replay(request: DemoRequest | dict) -> ReplayInput:
 
 
 def replay_demo(request: DemoRequest | dict) -> DealState:
+    """Legacy Foundation seed/reset API; review is explicitly opt-in elsewhere."""
     prepared = prepare_replay(request)
     if prepared.actions:
         raise BoundaryError("FEATURE_NOT_IMPLEMENTED", "Approval/rejection replay requires the Chunk 2 engine.")
     return prepared.state
+
+
+def replay_reviewed_demo(request: DemoRequest | dict) -> DealState:
+    """Rebuild a reviewed synthetic branch from trusted fixtures on every call.
+
+    The client supplies only a case and allowlisted action log. Actor, review
+    scope, source records, clock, IDs, scores and revisions are server-derived.
+    Deterministic fixture-relative timestamps describe a simulation, not a real
+    analyst's review time. No server database or shared mutable state is used.
+    """
+    from datetime import datetime, timedelta
+
+    from orion.domain.grounding import canonical_hash, validate_grounding
+    from orion.domain.models import AnalystDecision, AuditEvent
+    from orion.domain.transitions import apply_approved_update, assert_current_state
+
+    prepared = prepare_replay(request)
+    state, event = prepared.state, prepared.staged_event
+    assert_current_state(state)
+    for action in prepared.actions:
+        # prepare_replay has already reduced resets and checked event ownership.
+        token = canonical_hash({"event": event.id, "action": action.action})[:24]
+        when = datetime.fromisoformat(event.created_at)
+        stage_time = when.isoformat().replace("+00:00", "Z")
+        decision_time = (when + timedelta(minutes=1)).isoformat().replace("+00:00", "Z")
+        actor_id = "actor_demo_reviewer"
+
+        def audit(target: DealState, *, suffix: str, event_type: str,
+                  decision_id: str | None, before_revision: int,
+                  before_snapshot: str, reason: str, created_at: str) -> None:
+            prior = max(target.audit_events, key=lambda row: row.sequence, default=None)
+            payload = {
+                "id": f"audit_demo_{token}_{suffix}", "entity_version": 1,
+                "deal_id": target.deal.id, "sequence": 1 if prior is None else prior.sequence + 1,
+                "event_type": event_type, "actor_id": actor_id, "decision_id": decision_id,
+                "before_revision": before_revision, "after_revision": target.state_revision,
+                "idempotency_key": f"demo:{event.id}:{suffix}",
+                "before_snapshot_id": before_snapshot, "after_snapshot_id": target.head_snapshot_id,
+                "reason": reason, "created_at": created_at,
+                "previous_hash": None if prior is None else prior.event_hash,
+            }
+            target.audit_events.append(AuditEvent.model_validate({
+                **payload, "event_hash": canonical_hash(payload),
+            }))
+
+        audit(state, suffix="staged", event_type="update_staged", decision_id=None,
+              before_revision=state.state_revision, before_snapshot=state.head_snapshot_id,
+              reason="Allowlisted synthetic evidence staged; ranking unchanged.", created_at=stage_time)
+        decision = AnalystDecision(
+            id=f"decision_demo_{token}", entity_version=1, deal_id=state.deal.id,
+            actor_id=actor_id, actor_role="reviewer", target_type="evidence_update",
+            target_id=event.id, target_version=1, selection_digest=None,
+            action=action.action, reason="Explicit synthetic reviewer simulation.",
+            base_revision=state.state_revision, decided_at=decision_time,
+        )
+        before_revision, before_snapshot = state.state_revision, state.head_snapshot_id
+        if action.action == "approve":
+            state = apply_approved_update(
+                state, event, decision=decision,
+                snapshot_id=f"snapshot_demo_{token}", now=decision_time,
+            )
+        else:
+            state.analyst_decisions.append(decision)
+        audit(state, suffix=action.action,
+              event_type="update_approved" if action.action == "approve" else "update_rejected",
+              decision_id=decision.id, before_revision=before_revision,
+              before_snapshot=before_snapshot,
+              reason="Synthetic evidence approved; ranking recomputed." if action.action == "approve"
+              else "Synthetic evidence rejected; ranking unchanged.", created_at=decision_time)
+        validate_grounding(state, mode="demo").raise_for_errors()
+        assert_current_state(state)
+    return state
