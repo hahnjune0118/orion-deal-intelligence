@@ -27,6 +27,10 @@ def test_cli_reports_detected_financial_mismatch_as_nonzero(tmp_path):
     world_path.write_text(json.dumps(world), encoding="utf-8")
     result = run("validate-dataset", "--root", dataset)
     assert result.returncode == 2, result.stderr
+    assert result.stdout.strip(), (
+        f"CLI returned no JSON. "
+        f"returncode={result.returncode}, stderr={result.stderr!r}"
+    )
     report = json.loads(result.stdout)
     assert report["passed"] is False
     assert report["cases"]["nb"]["passed"] is False
@@ -36,6 +40,10 @@ def test_live_evaluation_cli_does_not_invent_model_results(tmp_path):
     result = run("evaluate", "--cases", "ns", "--arms", "B0", "--mode", "live",
                  "--output", tmp_path / "evaluation")
     assert result.returncode == 0, result.stderr
+    assert result.stdout.strip(), (
+        f"CLI returned no JSON. "
+        f"returncode={result.returncode}, stderr={result.stderr!r}"
+    )
     report = json.loads(result.stdout)
     assert report["status"] == "not_run"
     assert report["actual_model_benchmark"] == "not_run"
