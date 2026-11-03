@@ -1,0 +1,2412 @@
+{
+  "$defs": {
+    "AnalysisRun": {
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "mode": {
+                "const": "live"
+              },
+              "status": {
+                "const": "completed"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "actual_cost_usd": {
+                "minimum": 0,
+                "type": "number"
+              },
+              "finished_at": {
+                "format": "date-time",
+                "pattern": "Z$",
+                "type": "string"
+              },
+              "model_id": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "pricing_version": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "token_input": {
+                "minimum": 0,
+                "type": "integer"
+              },
+              "token_output": {
+                "minimum": 0,
+                "type": "integer"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "mode": {
+                "const": "cached"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "actual_cost_usd": {
+                "const": 0
+              },
+              "reserved_cost_usd": {
+                "const": 0
+              },
+              "token_input": {
+                "const": 0
+              },
+              "token_output": {
+                "const": 0
+              }
+            }
+          }
+        }
+      ],
+      "properties": {
+        "id": {
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$",
+          "title": "Id",
+          "type": "string"
+        },
+        "entity_version": {
+          "minimum": 1,
+          "title": "Entity Version",
+          "type": "integer"
+        },
+        "deal_id": {
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$",
+          "title": "Deal Id",
+          "type": "string"
+        },
+        "mode": {
+          "enum": [
+            "cached",
+            "live"
+          ],
+          "title": "Mode",
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "pending",
+            "running",
+            "completed",
+            "failed",
+            "budget_blocked",
+            "cancelled"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "model_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Model Id"
+        },
+        "prompt_version": {
+          "minLength": 1,
+          "title": "Prompt Version",
+          "type": "string"
+        },
+        "input_digest": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Input Digest",
+          "type": "string"
+        },
+        "output_digest": {
+          "anyOf": [
+            {
+              "pattern": "^[a-f0-9]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Output Digest"
+        },
+        "token_input": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Token Input"
+        },
+        "token_output": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Token Output"
+        },
+        "reserved_cost_usd": {
+          "minimum": 0,
+          "title": "Reserved Cost Usd",
+          "type": "number"
+        },
+        "actual_cost_usd": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Actual Cost Usd"
+        },
+        "pricing_version": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Pricing Version"
+        },
+        "started_at": {
+          "format": "date-time",
+          "pattern": "Z$",
+          "title": "Started At",
+          "type": "string"
+        },
+        "finished_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "pattern": "Z$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Finished At"
+        },
+        "error_code": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Error Code"
+        }
+      },
+      "required": [
+        "id",
+        "entity_version",
+        "deal_id",
+        "mode",
+        "status",
+        "model_id",
+        "prompt_version",
+        "input_digest",
+        "output_digest",
+        "token_input",
+        "token_output",
+        "reserved_cost_usd",
+        "actual_cost_usd",
+        "pricing_version",
+        "started_at",
+        "finished_at",
+        "error_code"
+      ],
+      "title": "AnalysisRun",
+      "type": "object"
+    },
+    "AnalystDecision": {
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "else": {
+            "properties": {
+              "selection_digest": {
+                "type": "null"
+              }
+            }
+          },
+          "if": {
+            "properties": {
+              "target_type": {
+                "const": "snapshot_export"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "selection_digest": {
+                "pattern": "^[a-f0-9]{64}$",
+                "type": "string"
+              }
+            }
+          }
+        }
+      ],
+      "properties": {
+        "id": {
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$",
+          "title": "Id",
+          "type": "string"
+        },
+        "entity_version": {
+          "minimum": 1,
+          "title": "Entity Version",
+          "type": "integer"
+        },
+        "deal_id": {
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$",
+          "title": "Deal Id",
+          "type": "string"
+        },
+        "actor_id": {
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$",
+          "title": "Actor Id",
+          "type": "string"
+        },
+        "actor_role": {
+          "enum": [
+            "analyst",
+            "reviewer",
+            "system"
+          ],
+          "title": "Actor Role",
+          "type": "string"
+        },
+        "target_type": {
+          "enum": [
+            "evidence_update",
+            "claim",
+            "question",
+            "evidence",
+            "relation",
+            "snapshot_export",
+            "seed"
+          ],
+          "title": "Target Type",
+          "type": "string"
+        },
+        "target_id": {
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$",
+          "title": "Target Id",
+          "type": "string"
+        },
+        "target_version": {
+          "minimum": 1,
+          "title": "Target Version",
+          "type": "integer"
+        },
+        "selection_digest": {
+          "anyOf": [
+            {
+              "pattern": "^[a-f0-9]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Selection Digest"
+        },
+        "action": {
+          "enum": [
+            "approve",
+            "reject",
+            "edit",
+            "reopen"
+          ],
+          "title": "Action",
+          "type": "string"
+        },
+        "reason": {
+          "minLength": 1,
+          "title": "Reason",
+          "type": "string"
+        },
+        "base_revision": {
+          "minimum": 0,
+          "title": "Base Revision",
+          "type": "integer"
+        },
+        "decided_at": {
+          "format": "date-time",
+          "pattern": "Z$",
+          "title": "Decided At",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "entity_version",
+        "deal_id",
+        "actor_id",
+        "actor_role",
+        "target_type",
+        "target_id",
+        "target_version",
+        "selection_digest",
+        "action",
+        "reason",
+        "base_revision",
+        "decided_at"
+      ],
+      "title": "AnalystDecision",
+      "type": "object"
+    },
+    "AuditEvent": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$",
+          "title": "Id",
+          "type": "string"
+        },
+        "entity_version": {
+          "minimum": 1,
+          "title": "Entity Version",
+          "type": "integer"
+        },
+        "deal_id": {
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$",
+          "title": "Deal Id",
+          "type": "string"
+        },
+        "sequence": {
+          "minimum": 1,
+          "title": "Sequence",
+          "type": "integer"
+        },
+        "event_type": {
+          "enum": [
+            "seed_created",
+            "update_staged",
+            "update_approved",
+            "update_rejected",
+            "ranking_changed",
+            "ranking_unchanged",
+            "export_approved",
+            "exported",
+            "edit_applied"
+          ],
+          "title": "Event Type",
+          "type": "string"
+        },
+        "actor_id": {
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$",
+          "title": "Actor Id",
+          "type": "string"
+        },
+        "decision_id": {
+          "anyOf": [
+            {
+              "pattern": "^[a-z][a-z0-9_-]{2,63}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Decision Id"
+        },
+        "before_revision": {
+          "minimum": 0,
+          "title": "Before Revision",
+          "type": "integer"
+        },
+        "after_revision": {
+          "minimum": 0,
+          "title": "After Revision",
+          "type": "integer"
+        },
+        "idempotency_key": {
+          "minLength": 1,
+          "title": "Idempotency Key",
+          "type": "string"
+        },
+        "before_snapshot_id": {
+          "anyOf": [
+            {
+              "pattern": "^[a-z][a-z0-9_-]{2,63}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Before Snapshot Id"
+        },
+        "after_snapshot_id": {
+          "anyOf": [
+            {
+              "pattern": "^[a-z][a-z0-9_-]{2,63}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "After Snapshot Id"
+        },
+        "reason": {
+          "minLength": 1,
+          "title": "Reason",
+          "type": "string"
+        },
+        "created_at": {
+          "format": "date-time",
+          "pattern": "Z$",
+          "title": "Created At",
+          "type": "string"
+        },
+        "previous_hash": {
+          "anyOf": [
+            {
+              "pattern": "^[a-f0-9]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Previous Hash"
+        },
+        "event_hash": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Event Hash",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "entity_version",
+        "deal_id",
+        "sequence",
+        "event_type",
+        "actor_id",
+        "decision_id",
+        "before_revision",
+        "after_revision",
+        "idempotency_key",
+        "before_snapshot_id",
+        "after_snapshot_id",
+        "reason",
+        "created_at",
+        "previous_hash",
+        "event_hash"
+      ],
+      "title": "AuditEvent",
+      "type": "object"
+    },
+    "Claim": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$",
+          "title": "Id",
+          "type": "string"
+        },
+        "entity_version": {
+          "minimum": 1,
+          "title": "Entity Version",
+          "type": "integer"
+        },
+        "deal_id": {
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$",
+          "title": "Deal Id",
+          "type": "string"
+        },
+        "thesis_id": {
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$",
+          "title": "Thesis Id",
+          "type": "string"
+        },
+        "statement": {
+          "minLength": 1,
+          "title": "Statement",
+          "type": "string"
+        },
+        "subject_key": {
+          "minLength": 1,
+          "title": "Subject Key",
+          "type": "string"
+        },
+        "period_start": {
+          "format": "date",
+          "title": "Period Start",
+          "type": "string"
+        },
+        "period_end": {
+          "format": "date",
+          "title": "Period End",
+          "type": "string"
+        },
+        "claim_kind": {
+          "enum": [
+            "company_reported",
+            "analyst_assumption",
+            "binary_hypothesis"
+          ],
+          "title": "Claim Kind",
+          "type": "string"
+        },
+        "source_span_ids": {
+          "items": {
+            "pattern": "^[a-z][a-z0-9_-]{2,63}$",
+            "type": "string"
+          },
+          "minItems": 0,
+          "title": "Source Span Ids",
+          "type": "array",
+          "uniqueItems": true
+        },
+        "required_criterion_keys": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Required Criterion Keys",
+          "type": "array",
+          "uniqueItems": true
+        },
+        "support_status": {
+          "enum": [
+            "missing",
+            "partial",
+            "supported",
+            "contradicted"
+          ],
+          "title": "Support Status",
+          "type": "string"
+        },
+        "truth_status": {
+          "enum": [
+            "not_checked",
+            "document_only",
+            "independently_verified",
+            "disputed"
+          ],
+          "title": "Truth Status",
+          "type": "string"
+        },
+        "review_status": {
+          "enum": [
+            "draft",
+            "approved",
+            "rejected"
+          ],
+          "title": "Review Status",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "entity_version",
+        "deal_id",
+        "thesis_id",
+        "statement",
+        "subject_key",
+        "period_start",
+        "period_end",
+        "claim_kind",
+        "source_span_ids",
+        "required_criterion_keys",
+        "support_status",
+        "truth_status",
+        "review_status"
+      ],
+      "title": "Claim",
+      "type": "object"
+    },
+    "DDQuestion": {
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "workflow_status": {
+                "const": "duplicate"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "duplicate_of": {
+                "pattern": "^[a-z][a-z0-9_-]{2,63}$",
+                "type": "string"
+              }
+            }
+          }
+        }
+      ],
+      "properties": {
+        "id": {
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$",
+          "title": "Id",
+          "type": "string"
+        },
+        "entity_version": {
+          "minimum": 1,
+          "title": "Entity Version",
+          "type": "integer"
+        },
+        "deal_id": {
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$",
+          "title": "Deal Id",
+          "type": "string"
+        },
+        "claim_id": {
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$",
+          "title": "Claim Id",
+          "type": "string"
+        },
+        "canonical_key": {
+          "minLength": 1,
+          "title": "Canonical Key",
+          "type": "string"
+        },
+        "issue": {
+          "minLength": 1,
+          "title": "Issue",
+          "type": "string"
+        },
+        "request_text": {
+          "minLength": 1,
+          "title": "Request Text",
+          "type": "string"
+        },
+        "financial_driver": {
+          "enum": [
+            "revenue_quality",
+            "ebitda",
+            "nwc",
+            "net_debt",
+            "capex",
+            "customer_concentration",
+            "unit_economics"
+          ],
+          "title": "Financial Driver",
+          "type": "string"
+        },
+        "requirements": {
+          "items": {
+            "$ref": "#/$defs/Requirement"
+          },
+          "minItems": 1,
+          "title": "Requirements",
+          "type": "array"
+        },
+        "materiality": {
+          "$ref": "#/$defs/MaterialityInput"
+        },
+        "obtainability": {
+          "$ref": "#/$defs/ObtainabilityInput"
+        },
+        "review_status": {
+          "enum": [
+            "draft",
+            "approved",
+            "rejected"
+          ],
+          "title": "Review Status",
+          "type": "string"
+        },
+        "workflow_status": {
+          "enum": [
+            "open",
+            "awaiting_review",
+            "resolved",
+            "rejected",
+            "duplicate"
+          ],
+          "title": "Workflow Status",
+          "type": "string"
+        },
+        "duplicate_of": {
+          "anyOf": [
+            {
+              "pattern": "^[a-z][a-z0-9_-]{2,63}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Duplicate Of"
+        },
+        "owner_label": {
+          "minLength": 1,
+          "title": "Owner Label",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "entity_version",
+        "deal_id",
+        "claim_id",
+        "canonical_key",
+        "issue",
+        "request_text",
+        "financial_driver",
+        "requirements",
+        "materiality",
+        "obtainability",
+        "review_status",
+        "workflow_status",
+        "duplicate_of",
+        "owner_label"
+      ],
+      "title": "DDQuestion",
+      "type": "object"
+    },
+    "Deal": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$",
+          "title": "Id",
+          "type": "string"
+        },
+        "entity_version": {
+          "minimum": 1,
+          "title": "Entity Version",
+          "type": "integer"
+        },
+        "name": {
+          "minLength": 1,
+          "title": "Name",
+          "type": "string"
+        },
+        "business_model": {
+          "minLength": 1,
+          "title": "Business Model",
+          "type": "string"
+        },
+        "currency": {
+          "const": "USD",
+          "title": "Currency",
+          "type": "string"
+        },
+        "synthetic": {
+          "const": true,
+          "title": "Synthetic",
+          "type": "boolean"
+        },
+        "as_of": {
+          "format": "date",
+          "title": "As Of",
+          "type": "string"
+        },
+        "thesis_ids": {
+          "items": {
+            "pattern": "^[a-z][a-z0-9_-]{2,63}$",
+            "type": "string"
+          },
+          "minItems": 0,
+          "title": "Thesis Ids",
+          "type": "array",
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "id",
+        "entity_version",
+        "name",
+        "business_model",
+        "currency",
+        "synthetic",
+        "as_of",
+        "thesis_ids"
+      ],
+      "title": "Deal",
+      "type": "object"
+    },
+    "DealState": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "deal_state",
+          "title": "Kind",
+          "type": "string"
+        },
+        "contract_version": {
+          "const": "1.0.0",
+          "title": "Contract Version",
+          "type": "string"
+        },
+        "state_revision": {
+          "minimum": 1,
+          "title": "State Revision",
+          "type": "integer"
+        },
+        "mode": {
+          "enum": [
+            "demo",
+            "local_live"
+          ],
+          "title": "Mode",
+          "type": "string"
+        },
+        "deal": {
+          "$ref": "#/$defs/Deal"
+        },
+        "documents": {
+          "items": {
+            "$ref": "#/$defs/Document"
+          },
+          "minItems": 0,
+          "title": "Documents",
+          "type": "array"
+        },
+        "source_spans": {
+          "items": {
+            "$ref": "#/$defs/SourceSpan"
+          },
+          "minItems": 0,
+          "title": "Source Spans",
+          "type": "array"
+        },
+        "theses": {
+          "items": {
+            "$ref": "#/$defs/Thesis"
+          },
+          "minItems": 0,
+          "title": "Theses",
+          "type": "array"
+        },
+        "claims": {
+          "items": {
+            "$ref": "#/$defs/Claim"
+          },
+          "minItems": 0,
+          "title": "Claims",
+          "type": "array"
+        },
+        "evidence": {
+          "items": {
+            "$ref": "#/$defs/Evidence"
+          },
+          "minItems": 0,
+          "title": "Evidence",
+          "type": "array"
+        },
+        "evidence_relations": {
+          "items": {
+            "$ref": "#/$defs/EvidenceRelation"
+          },
+          "minItems": 0,
+          "title": "Evidence Relations",
+          "type": "array"
+        },
+        "dd_questions": {
+          "items": {
+            "$ref": "#/$defs/DDQuestion"
+          },
+          "minItems": 0,
+          "title": "Dd Questions",
+          "type": "array"
+        },
+        "ranking_snapshots": {
+          "items": {
+            "$ref": "#/$defs/RankingSnapshot"
+          },
+          "minItems": 0,
+          "title": "Ranking Snapshots",
+          "type": "array"
+        },
+        "analyst_decisions": {
+          "items": {
+            "$ref": "#/$defs/AnalystDecision"
+          },
+          "minItems": 0,
+          "title": "Analyst Decisions",
+          "type": "array"
+        },
+        "audit_events": {
+          "items": {
+            "$ref": "#/$defs/AuditEvent"
+          },
+          "minItems": 0,
+          "title": "Audit Events",
+          "type": "array"
+        },
+        "analysis_runs": {
+          "items": {
+            "$ref": "#/$defs/AnalysisRun"
+          },
+          "minItems": 0,
+          "title": "Analysis Runs",
+          "type": "array"
+        },
+        "head_snapshot_id": {
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$",
+          "title": "Head Snapshot Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "contract_version",
+        "state_revision",
+        "mode",
+        "deal",
+        "documents",
+        "source_spans",
+        "theses",
+        "claims",
+        "evidence",
+        "evidence_relations",
+        "dd_questions",
+        "ranking_snapshots",
+        "analyst_decisions",
+        "audit_events",
+        "analysis_runs",
+        "head_snapshot_id"
+      ],
+      "title": "DealState",
+      "type": "object"
+    },
+    "Document": {
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "asset_status": {
+                "const": "file_verified"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "file_sha256": {
+                "pattern": "^[a-f0-9]{64}$",
+                "type": "string"
+              }
+            }
+          }
+        }
+      ],
+      "properties": {
+        "id": {
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$",
+          "title": "Id",
+          "type": "string"
+        },
+        "entity_version": {
+          "minimum": 1,
+          "title": "Entity Version",
+          "type": "integer"
+        },
+        "deal_id": {
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$",
+          "title": "Deal Id",
+          "type": "string"
+        },
+        "filename": {
+          "minLength": 1,
+          "title": "Filename",
+          "type": "string"
+        },
+        "format": {
+          "enum": [
+            "pdf",
+            "docx",
+            "pptx"
+          ],
+          "title": "Format",
+          "type": "string"
+        },
+        "document_version": {
+          "minimum": 1,
+          "title": "Document Version",
+          "type": "integer"
+        },
+        "asset_status": {
+          "enum": [
+            "fixture_text_only",
+            "file_verified"
+          ],
+          "title": "Asset Status",
+          "type": "string"
+        },
+        "file_sha256": {
+          "anyOf": [
+            {
+              "pattern": "^[a-f0-9]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "File Sha256"
+        },
+        "parse_status": {
+          "enum": [
+            "pending",
+            "parsed",
+            "needs_ocr",
+            "needs_manual_review",
+            "failed"
+          ],
+          "title": "Parse Status",
+          "type": "string"
+        },
+        "parser_version": {
+          "minLength": 1,
+          "title": "Parser Version",
+          "type": "string"
+        },
+        "source_origin": {
+          "enum": [
+            "company",
+            "counterparty",
+            "independent",
+            "analyst"
+          ],
+          "title": "Source Origin",
+          "type": "string"
+        },
+        "origin_key": {
+          "minLength": 1,
+          "title": "Origin Key",
+          "type": "string"
+        },
+        "created_at": {
+          "format": "date-time",
+          "pattern": "Z$",
+          "title": "Created At",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "entity_version",
+        "deal_id",
+        "filename",
+        "format",
+        "document_version",
+        "asset_status",
+        "file_sha256",
+        "parse_status",
+        "parser_version",
+        "source_origin",
+        "origin_key",
+        "created_at"
+      ],
+      "title": "Document",
+      "type": "object"
+    },
+    "DocxParagraphLocator": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "docx_paragraph",
+          "title": "Kind",
+          "type": "string"
+        },
+        "part_uri": {
+          "const": "word/document.xml",
+          "title": "Part Uri",
+          "type": "string"
+        },
+        "block_index": {
+          "minimum": 0,
+          "title": "Block Index",
+          "type": "integer"
+        },
+        "paragraph_index": {
+          "minimum": 0,
+          "title": "Paragraph Index",
+          "type": "integer"
+        },
+        "heading_path": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 0,
+          "title": "Heading Path",
+          "type": "array"
+        }
+      },
+      "required": [
+        "kind",
+        "part_uri",
+        "block_index",
+        "paragraph_index",
+        "heading_path"
+      ],
+      "title": "DocxParagraphLocator",
+      "type": "object"
+    },
+    "DocxTableLocator": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "docx_table_cell",
+          "title": "Kind",
+          "type": "string"
+        },
+        "part_uri": {
+          "const": "word/document.xml",
+          "title": "Part Uri",
+          "type": "string"
+        },
+        "table_index": {
+          "minimum": 0,
+          "title": "Table Index",
+          "type": "integer"
+        },
+        "row": {
+          "minimum": 0,
+          "title": "Row",
+          "type": "integer"
+        },
+        "column": {
+          "minimum": 0,
+          "title": "Column",
+          "type": "integer"
+        },
+        "paragraph_index": {
+          "minimum": 0,
+          "title": "Paragraph Index",
+          "type": "integer"
+        },
+        "heading_path": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 0,
+          "title": "Heading Path",
+          "type": "array"
+        }
+      },
+      "required": [
+        "kind",
+        "part_uri",
+        "table_index",
+        "row",
+        "column",
+        "paragraph_index",
+        "heading_path"
+      ],
+      "title": "DocxTableLocator",
+      "type": "object"
+    },
+    "Evidence": {
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "verification_level": {
+                "const": "independent_check"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "independent_check_reference": {
+                "minLength": 1,
+                "type": "string"
+              }
+            }
+          }
+        }
+      ],
+      "properties": {
+        "id": {
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$",
+          "title": "Id",
+          "type": "string"
+        },
+        "entity_version": {
+          "minimum": 1,
+          "title": "Entity Version",
+          "type": "integer"
+        },
+        "deal_id": {
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$",
+          "title": "Deal Id",
+          "type": "string"
+        },
+        "claim_id": {
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$",
+          "title": "Claim Id",
+          "type": "string"
+        },
+        "source_span_ids": {
+          "items": {
+            "pattern": "^[a-z][a-z0-9_-]{2,63}$",
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Source Span Ids",
+          "type": "array",
+          "uniqueItems": true
+        },
+        "stance": {
+          "enum": [
+            "supports",
+            "refutes",
+            "context"
+          ],
+          "title": "Stance",
+          "type": "string"
+        },
+        "criterion_keys": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 0,
+          "title": "Criterion Keys",
+          "type": "array",
+          "uniqueItems": true
+        },
+        "provenance": {
+          "enum": [
+            "company_reported",
+            "counterparty_reported",
+            "independent_source",
+            "analyst_note"
+          ],
+          "title": "Provenance",
+          "type": "string"
+        },
+        "source_reliability": {
+          "anyOf": [
+            {
+              "maximum": 5,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Source Reliability"
+        },
+        "reliability_rationale": {
+          "minLength": 1,
+          "title": "Reliability Rationale",
+          "type": "string"
+        },
+        "verification_level": {
+          "enum": [
+            "document_only",
+            "independent_check"
+          ],
+          "title": "Verification Level",
+          "type": "string"
+        },
+        "independent_check_reference": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Independent Check Reference"
+        },
+        "origin_key": {
+          "minLength": 1,
+          "title": "Origin Key",
+          "type": "string"
+        },
+        "review_status": {
+          "enum": [
+            "draft",
+            "approved",
+            "rejected"
+          ],
+          "title": "Review Status",
+          "type": "string"
+        },
+        "lifecycle": {
+          "enum": [
+            "active",
+            "superseded"
+          ],
+          "title": "Lifecycle",
+          "type": "string"
+        },
+        "created_at": {
+          "format": "date-time",
+          "pattern": "Z$",
+          "title": "Created At",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "entity_version",
+        "deal_id",
+        "claim_id",
+        "source_span_ids",
+        "stance",
+        "criterion_keys",
+        "provenance",
+        "source_reliability",
+        "reliability_rationale",
+        "verification_level",
+        "independent_check_reference",
+        "origin_key",
+        "review_status",
+        "lifecycle",
+        "created_at"
+      ],
+      "title": "Evidence",
+      "type": "object"
+    },
+    "EvidenceRelation": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$",
+          "title": "Id",
+          "type": "string"
+        },
+        "entity_version": {
+          "minimum": 1,
+          "title": "Entity Version",
+          "type": "integer"
+        },
+        "deal_id": {
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$",
+          "title": "Deal Id",
+          "type": "string"
+        },
+        "from_evidence_id": {
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$",
+          "title": "From Evidence Id",
+          "type": "string"
+        },
+        "to_evidence_id": {
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$",
+          "title": "To Evidence Id",
+          "type": "string"
+        },
+        "relation_type": {
+          "enum": [
+            "duplicates",
+            "contradicts",
+            "supersedes"
+          ],
+          "title": "Relation Type",
+          "type": "string"
+        },
+        "scope_criterion_keys": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Scope Criterion Keys",
+          "type": "array",
+          "uniqueItems": true
+        },
+        "review_status": {
+          "enum": [
+            "draft",
+            "approved",
+            "rejected"
+          ],
+          "title": "Review Status",
+          "type": "string"
+        },
+        "rationale": {
+          "minLength": 1,
+          "title": "Rationale",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "entity_version",
+        "deal_id",
+        "from_evidence_id",
+        "to_evidence_id",
+        "relation_type",
+        "scope_criterion_keys",
+        "review_status",
+        "rationale"
+      ],
+      "title": "EvidenceRelation",
+      "type": "object"
+    },
+    "ExpectedTransition": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "expected_top3_transition",
+          "title": "Kind",
+          "type": "string"
+        },
+        "contract_version": {
+          "const": "1.0.0",
+          "title": "Contract Version",
+          "type": "string"
+        },
+        "deal_id": {
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$",
+          "title": "Deal Id",
+          "type": "string"
+        },
+        "event_id": {
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$",
+          "title": "Event Id",
+          "type": "string"
+        },
+        "approval": {
+          "$ref": "#/$defs/AnalystDecision"
+        },
+        "before_revision": {
+          "minimum": 1,
+          "title": "Before Revision",
+          "type": "integer"
+        },
+        "after_revision": {
+          "minimum": 1,
+          "title": "After Revision",
+          "type": "integer"
+        },
+        "before_top3": {
+          "items": {
+            "pattern": "^[a-z][a-z0-9_-]{2,63}$",
+            "type": "string"
+          },
+          "maxItems": 3,
+          "minItems": 0,
+          "title": "Before Top3",
+          "type": "array",
+          "uniqueItems": true
+        },
+        "after_top3": {
+          "items": {
+            "pattern": "^[a-z][a-z0-9_-]{2,63}$",
+            "type": "string"
+          },
+          "maxItems": 3,
+          "minItems": 0,
+          "title": "After Top3",
+          "type": "array",
+          "uniqueItems": true
+        },
+        "question_changes": {
+          "items": {
+            "$ref": "#/$defs/TransitionRow"
+          },
+          "minItems": 0,
+          "title": "Question Changes",
+          "type": "array"
+        },
+        "claim_after": {
+          "items": {
+            "$ref": "#/$defs/ExpectedTransitionClaimAfter"
+          },
+          "minItems": 0,
+          "title": "Claim After",
+          "type": "array"
+        },
+        "expected_live_api_calls": {
+          "const": 0,
+          "title": "Expected Live Api Calls",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "kind",
+        "contract_version",
+        "deal_id",
+        "event_id",
+        "approval",
+        "before_revision",
+        "after_revision",
+        "before_top3",
+        "after_top3",
+        "question_changes",
+        "claim_after",
+        "expected_live_api_calls"
+      ],
+      "title": "ExpectedTransition",
+      "type": "object"
+    },
+    "ExpectedTransitionClaimAfter": {
+      "additionalProperties": false,
+      "properties": {
+        "claim_id": {
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$",
+          "title": "Claim Id",
+          "type": "string"
+        },
+        "support_status": {
+          "enum": [
+            "missing",
+            "partial",
+            "supported",
+            "contradicted"
+          ],
+          "title": "Support Status",
+          "type": "string"
+        },
+        "truth_status": {
+          "enum": [
+            "not_checked",
+            "document_only",
+            "independently_verified",
+            "disputed"
+          ],
+          "title": "Truth Status",
+          "type": "string"
+        }
+      },
+      "required": [
+        "claim_id",
+        "support_status",
+        "truth_status"
+      ],
+      "title": "ExpectedTransitionClaimAfter",
+      "type": "object"
+    },
+    "MaterialityInput": {
+      "additionalProperties": false,
+      "properties": {
+        "score": {
+          "anyOf": [
+            {
+              "maximum": 5,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Score"
+        },
+        "basis": {
+          "enum": [
+            "objective_ratio",
+            "analyst_rubric",
+            "unknown"
+          ],
+          "title": "Basis",
+          "type": "string"
+        },
+        "exposure_minor": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Exposure Minor"
+        },
+        "denominator_minor": {
+          "anyOf": [
+            {
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Denominator Minor"
+        },
+        "rationale": {
+          "minLength": 1,
+          "title": "Rationale",
+          "type": "string"
+        },
+        "source_span_ids": {
+          "items": {
+            "pattern": "^[a-z][a-z0-9_-]{2,63}$",
+            "type": "string"
+          },
+          "minItems": 0,
+          "title": "Source Span Ids",
+          "type": "array",
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "score",
+        "basis",
+        "exposure_minor",
+        "denominator_minor",
+        "rationale",
+        "source_span_ids"
+      ],
+      "title": "MaterialityInput",
+      "type": "object"
+    },
+    "ObtainabilityInput": {
+      "additionalProperties": false,
+      "properties": {
+        "score": {
+          "anyOf": [
+            {
+              "maximum": 5,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Score"
+        },
+        "basis": {
+          "enum": [
+            "derived_cost_time",
+            "analyst_estimate",
+            "unknown"
+          ],
+          "title": "Basis",
+          "type": "string"
+        },
+        "days": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Days"
+        },
+        "external_cost_minor": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "External Cost Minor"
+        },
+        "rationale": {
+          "minLength": 1,
+          "title": "Rationale",
+          "type": "string"
+        }
+      },
+      "required": [
+        "score",
+        "basis",
+        "days",
+        "external_cost_minor",
+        "rationale"
+      ],
+      "title": "ObtainabilityInput",
+      "type": "object"
+    },
+    "PdfLocator": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "pdf",
+          "title": "Kind",
+          "type": "string"
+        },
+        "page": {
+          "minimum": 1,
+          "title": "Page",
+          "type": "integer"
+        },
+        "block_index": {
+          "minimum": 0,
+          "title": "Block Index",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "kind",
+        "page",
+        "block_index"
+      ],
+      "title": "PdfLocator",
+      "type": "object"
+    },
+    "PptxLocator": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "pptx",
+          "title": "Kind",
+          "type": "string"
+        },
+        "slide": {
+          "minimum": 1,
+          "title": "Slide",
+          "type": "integer"
+        },
+        "shape_id": {
+          "minimum": 0,
+          "title": "Shape Id",
+          "type": "integer"
+        },
+        "paragraph_index": {
+          "minimum": 0,
+          "title": "Paragraph Index",
+          "type": "integer"
+        },
+        "table_cell": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/PptxLocatorTableCell"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "kind",
+        "slide",
+        "shape_id",
+        "paragraph_index",
+        "table_cell"
+      ],
+      "title": "PptxLocator",
+      "type": "object"
+    },
+    "PptxLocatorTableCell": {
+      "additionalProperties": false,
+      "properties": {
+        "row": {
+          "minimum": 0,
+          "title": "Row",
+          "type": "integer"
+        },
+        "column": {
+          "minimum": 0,
+          "title": "Column",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "row",
+        "column"
+      ],
+      "title": "PptxLocatorTableCell",
+      "type": "object"
+    },
+    "RankingSnapshot": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$",
+          "title": "Id",
+          "type": "string"
+        },
+        "entity_version": {
+          "minimum": 1,
+          "title": "Entity Version",
+          "type": "integer"
+        },
+        "deal_id": {
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$",
+          "title": "Deal Id",
+          "type": "string"
+        },
+        "state_revision": {
+          "minimum": 1,
+          "title": "State Revision",
+          "type": "integer"
+        },
+        "scoring_version": {
+          "const": "1.0.0",
+          "title": "Scoring Version",
+          "type": "string"
+        },
+        "input_digest": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Input Digest",
+          "type": "string"
+        },
+        "created_at": {
+          "format": "date-time",
+          "pattern": "Z$",
+          "title": "Created At",
+          "type": "string"
+        },
+        "trigger_event_id": {
+          "anyOf": [
+            {
+              "pattern": "^[a-z][a-z0-9_-]{2,63}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Trigger Event Id"
+        },
+        "rows": {
+          "items": {
+            "$ref": "#/$defs/ScoreRow"
+          },
+          "minItems": 0,
+          "title": "Rows",
+          "type": "array"
+        },
+        "top3": {
+          "items": {
+            "pattern": "^[a-z][a-z0-9_-]{2,63}$",
+            "type": "string"
+          },
+          "maxItems": 3,
+          "minItems": 0,
+          "title": "Top3",
+          "type": "array",
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "id",
+        "entity_version",
+        "deal_id",
+        "state_revision",
+        "scoring_version",
+        "input_digest",
+        "created_at",
+        "trigger_event_id",
+        "rows",
+        "top3"
+      ],
+      "title": "RankingSnapshot",
+      "type": "object"
+    },
+    "Requirement": {
+      "additionalProperties": false,
+      "properties": {
+        "key": {
+          "minLength": 1,
+          "title": "Key",
+          "type": "string"
+        },
+        "label": {
+          "minLength": 1,
+          "title": "Label",
+          "type": "string"
+        },
+        "min_reliability": {
+          "maximum": 5,
+          "minimum": 0,
+          "title": "Min Reliability",
+          "type": "integer"
+        },
+        "require_independent": {
+          "title": "Require Independent",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "key",
+        "label",
+        "min_reliability",
+        "require_independent"
+      ],
+      "title": "Requirement",
+      "type": "object"
+    },
+    "ScoreRow": {
+      "additionalProperties": false,
+      "properties": {
+        "question_id": {
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$",
+          "title": "Question Id",
+          "type": "string"
+        },
+        "rank": {
+          "minimum": 1,
+          "title": "Rank",
+          "type": "integer"
+        },
+        "gap": {
+          "maximum": 5,
+          "minimum": 0,
+          "title": "Gap",
+          "type": "number"
+        },
+        "materiality": {
+          "maximum": 5,
+          "minimum": 0,
+          "title": "Materiality",
+          "type": "integer"
+        },
+        "obtainability": {
+          "maximum": 5,
+          "minimum": 0,
+          "title": "Obtainability",
+          "type": "integer"
+        },
+        "score": {
+          "maximum": 100,
+          "minimum": 0,
+          "title": "Score",
+          "type": "number"
+        },
+        "provisional": {
+          "title": "Provisional",
+          "type": "boolean"
+        },
+        "reason_codes": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Reason Codes",
+          "type": "array",
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "question_id",
+        "rank",
+        "gap",
+        "materiality",
+        "obtainability",
+        "score",
+        "provisional",
+        "reason_codes"
+      ],
+      "title": "ScoreRow",
+      "type": "object"
+    },
+    "SourceSpan": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$",
+          "title": "Id",
+          "type": "string"
+        },
+        "entity_version": {
+          "minimum": 1,
+          "title": "Entity Version",
+          "type": "integer"
+        },
+        "deal_id": {
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$",
+          "title": "Deal Id",
+          "type": "string"
+        },
+        "document_id": {
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$",
+          "title": "Document Id",
+          "type": "string"
+        },
+        "document_version": {
+          "minimum": 1,
+          "title": "Document Version",
+          "type": "integer"
+        },
+        "locator": {
+          "discriminator": {
+            "mapping": {
+              "docx_paragraph": "#/$defs/DocxParagraphLocator",
+              "docx_table_cell": "#/$defs/DocxTableLocator",
+              "pdf": "#/$defs/PdfLocator",
+              "pptx": "#/$defs/PptxLocator"
+            },
+            "propertyName": "kind"
+          },
+          "oneOf": [
+            {
+              "$ref": "#/$defs/PdfLocator"
+            },
+            {
+              "$ref": "#/$defs/PptxLocator"
+            },
+            {
+              "$ref": "#/$defs/DocxParagraphLocator"
+            },
+            {
+              "$ref": "#/$defs/DocxTableLocator"
+            }
+          ],
+          "title": "Locator"
+        },
+        "normalized_text": {
+          "minLength": 1,
+          "title": "Normalized Text",
+          "type": "string"
+        },
+        "text_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Text Sha256",
+          "type": "string"
+        },
+        "quote": {
+          "minLength": 1,
+          "title": "Quote",
+          "type": "string"
+        },
+        "start": {
+          "minimum": 0,
+          "title": "Start",
+          "type": "integer"
+        },
+        "end": {
+          "minimum": 1,
+          "title": "End",
+          "type": "integer"
+        },
+        "locator_status": {
+          "enum": [
+            "validated",
+            "unverified",
+            "invalid"
+          ],
+          "title": "Locator Status",
+          "type": "string"
+        },
+        "extraction_method": {
+          "enum": [
+            "parsed",
+            "ocr_reviewed",
+            "manual_checked",
+            "fixture"
+          ],
+          "title": "Extraction Method",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "entity_version",
+        "deal_id",
+        "document_id",
+        "document_version",
+        "locator",
+        "normalized_text",
+        "text_sha256",
+        "quote",
+        "start",
+        "end",
+        "locator_status",
+        "extraction_method"
+      ],
+      "title": "SourceSpan",
+      "type": "object"
+    },
+    "StagedEvidenceUpdate": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "staged_evidence_update",
+          "title": "Kind",
+          "type": "string"
+        },
+        "contract_version": {
+          "const": "1.0.0",
+          "title": "Contract Version",
+          "type": "string"
+        },
+        "id": {
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$",
+          "title": "Id",
+          "type": "string"
+        },
+        "deal_id": {
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$",
+          "title": "Deal Id",
+          "type": "string"
+        },
+        "base_revision": {
+          "minimum": 1,
+          "title": "Base Revision",
+          "type": "integer"
+        },
+        "idempotency_key": {
+          "minLength": 1,
+          "title": "Idempotency Key",
+          "type": "string"
+        },
+        "validation_status": {
+          "enum": [
+            "validated",
+            "invalid",
+            "needs_review"
+          ],
+          "title": "Validation Status",
+          "type": "string"
+        },
+        "created_at": {
+          "format": "date-time",
+          "pattern": "Z$",
+          "title": "Created At",
+          "type": "string"
+        },
+        "documents": {
+          "items": {
+            "$ref": "#/$defs/Document"
+          },
+          "minItems": 0,
+          "title": "Documents",
+          "type": "array"
+        },
+        "source_spans": {
+          "items": {
+            "$ref": "#/$defs/SourceSpan"
+          },
+          "minItems": 0,
+          "title": "Source Spans",
+          "type": "array"
+        },
+        "evidence": {
+          "items": {
+            "$ref": "#/$defs/Evidence"
+          },
+          "minItems": 1,
+          "title": "Evidence",
+          "type": "array"
+        },
+        "evidence_relations": {
+          "items": {
+            "$ref": "#/$defs/EvidenceRelation"
+          },
+          "minItems": 0,
+          "title": "Evidence Relations",
+          "type": "array"
+        },
+        "analyst_note": {
+          "minLength": 1,
+          "title": "Analyst Note",
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "contract_version",
+        "id",
+        "deal_id",
+        "base_revision",
+        "idempotency_key",
+        "validation_status",
+        "created_at",
+        "documents",
+        "source_spans",
+        "evidence",
+        "evidence_relations",
+        "analyst_note"
+      ],
+      "title": "StagedEvidenceUpdate",
+      "type": "object"
+    },
+    "Thesis": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$",
+          "title": "Id",
+          "type": "string"
+        },
+        "entity_version": {
+          "minimum": 1,
+          "title": "Entity Version",
+          "type": "integer"
+        },
+        "deal_id": {
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$",
+          "title": "Deal Id",
+          "type": "string"
+        },
+        "title": {
+          "minLength": 1,
+          "title": "Title",
+          "type": "string"
+        },
+        "counter_thesis": {
+          "minLength": 1,
+          "title": "Counter Thesis",
+          "type": "string"
+        },
+        "claim_ids": {
+          "items": {
+            "pattern": "^[a-z][a-z0-9_-]{2,63}$",
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Claim Ids",
+          "type": "array",
+          "uniqueItems": true
+        },
+        "review_status": {
+          "enum": [
+            "draft",
+            "approved",
+            "rejected"
+          ],
+          "title": "Review Status",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "entity_version",
+        "deal_id",
+        "title",
+        "counter_thesis",
+        "claim_ids",
+        "review_status"
+      ],
+      "title": "Thesis",
+      "type": "object"
+    },
+    "TransitionRow": {
+      "additionalProperties": false,
+      "properties": {
+        "question_id": {
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$",
+          "title": "Question Id",
+          "type": "string"
+        },
+        "before_rank": {
+          "anyOf": [
+            {
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Before Rank"
+        },
+        "after_rank": {
+          "anyOf": [
+            {
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "After Rank"
+        },
+        "before_score": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Before Score"
+        },
+        "after_score": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "After Score"
+        },
+        "before_status": {
+          "minLength": 1,
+          "title": "Before Status",
+          "type": "string"
+        },
+        "after_status": {
+          "minLength": 1,
+          "title": "After Status",
+          "type": "string"
+        },
+        "reason": {
+          "minLength": 1,
+          "title": "Reason",
+          "type": "string"
+        }
+      },
+      "required": [
+        "question_id",
+        "before_rank",
+        "after_rank",
+        "before_score",
+        "after_score",
+        "before_status",
+        "after_status",
+        "reason"
+      ],
+      "title": "TransitionRow",
+      "type": "object"
+    }
+  },
+  "discriminator": {
+    "mapping": {
+      "deal_state": "#/$defs/DealState",
+      "expected_top3_transition": "#/$defs/ExpectedTransition",
+      "staged_evidence_update": "#/$defs/StagedEvidenceUpdate"
+    },
+    "propertyName": "kind"
+  },
+  "oneOf": [
+    {
+      "$ref": "#/$defs/DealState"
+    },
+    {
+      "$ref": "#/$defs/StagedEvidenceUpdate"
+    },
+    {
+      "$ref": "#/$defs/ExpectedTransition"
+    }
+  ]
+}

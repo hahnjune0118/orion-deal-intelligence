@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools==84.2.1"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "orion-deal-intelligence"
+version = "0.1.0"
+description = "Orion Deal Intelligence 2.0 — Chunk 1 Foundation"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = ["pydantic==2.11.7"]
+
+[project.optional-dependencies]
+ui = ["dash==3.2.0", "dash-ag-grid==32.3.2", "plotly==6.3.0"]
+parsers = ["pypdf==6.21.4", "python-docx==1.2.0", "python-pptx==1.0.2", "openpyxl==3.1.5"]
+live = ["openai==1.109.1", "httpx==0.28.1", "python-dotenv==1.2.2"]
+test = ["pytest==9.0.3", "jsonschema==4.25.1", "pytest-playwright==0.7.2", "playwright==1.56.0"]
+serve = ["gunicorn==23.0.0; sys_platform != 'win32'", "waitress==3.0.2"]
+
+[project.scripts]
+orion = "orion.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+orion = ["resources/demo/*/*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--strict-markers"
+markers = [
+  "contracts: strict data contract and grounding tests",
+  "repository: real SQLite persistence and transaction tests",
+  "security: execution-mode and trust-boundary tests",
+  "smoke: optional framework import and component serialization tests",
+]

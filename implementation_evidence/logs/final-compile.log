@@ -1,0 +1,6 @@
+UTC start: 2026-11-03T05:59:18.366108+00:00
+Command: ["/workspace/scratch/174be2a3a3a0/orion-foundation/.venv-release/bin/python", "-m", "compileall", "-q", "src"]
+Working directory: /workspace/scratch/174be2a3a3a0/orion-foundation
+Exit code: 0
+
+

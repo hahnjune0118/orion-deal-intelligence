@@ -1,0 +1,93 @@
+{
+  "kind": "expected_top3_transition",
+  "contract_version": "1.0.0",
+  "deal_id": "deal_ns",
+  "event_id": "update_ns",
+  "approval": {
+    "id": "decision_ns_update",
+    "entity_version": 1,
+    "deal_id": "deal_ns",
+    "actor_id": "actor_fixture_reviewer",
+    "actor_role": "reviewer",
+    "target_type": "evidence_update",
+    "target_id": "update_ns",
+    "target_version": 1,
+    "selection_digest": null,
+    "action": "approve",
+    "reason": "Approve this synthetic event after inspecting its exact scope.",
+    "base_revision": 1,
+    "decided_at": "2026-11-04T00:01:00Z"
+  },
+  "before_revision": 1,
+  "after_revision": 2,
+  "before_top3": [
+    "q_ns_contract_a",
+    "q_ns_contract_b",
+    "q_ns_accept_collect"
+  ],
+  "after_top3": [
+    "q_ns_contract_b",
+    "q_ns_accept_collect",
+    "q_ns_concentration"
+  ],
+  "question_changes": [
+    {
+      "question_id": "q_ns_contract_a",
+      "before_rank": 1,
+      "after_rank": null,
+      "before_score": 100.0,
+      "after_score": null,
+      "before_status": "open",
+      "after_status": "resolved",
+      "reason": "CRITERIA_SATISFIED"
+    },
+    {
+      "question_id": "q_ns_contract_b",
+      "before_rank": 2,
+      "after_rank": 1,
+      "before_score": 97.0,
+      "after_score": 97.0,
+      "before_status": "open",
+      "after_status": "open",
+      "reason": "RESIDUAL_PROMOTED"
+    },
+    {
+      "question_id": "q_ns_accept_collect",
+      "before_rank": 3,
+      "after_rank": 2,
+      "before_score": 89.0,
+      "after_score": 89.0,
+      "before_status": "open",
+      "after_status": "open",
+      "reason": "RESIDUAL_PROMOTED"
+    },
+    {
+      "question_id": "q_ns_concentration",
+      "before_rank": 4,
+      "after_rank": 3,
+      "before_score": 86.0,
+      "after_score": 86.0,
+      "before_status": "open",
+      "after_status": "open",
+      "reason": "RESIDUAL_PROMOTED"
+    },
+    {
+      "question_id": "q_ns_unit_econ",
+      "before_rank": 5,
+      "after_rank": 4,
+      "before_score": 78.0,
+      "after_score": 78.0,
+      "before_status": "open",
+      "after_status": "open",
+      "reason": "RESIDUAL_PROMOTED"
+    }
+  ],
+  "claim_after": [
+    {
+      "claim_id": "claim_ns",
+      "support_status": "partial",
+      "truth_status": "document_only"
+    }
+  ],
+  "expected_live_api_calls": 0
+}

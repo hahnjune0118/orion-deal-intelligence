@@ -1,0 +1,78 @@
+{
+  "kind": "staged_evidence_update",
+  "contract_version": "1.0.0",
+  "id": "update_cd",
+  "deal_id": "deal_cd",
+  "base_revision": 1,
+  "idempotency_key": "cd_event_001",
+  "validation_status": "validated",
+  "created_at": "2026-11-04T00:00:00Z",
+  "documents": [
+    {
+      "id": "doc_cd_update",
+      "entity_version": 1,
+      "deal_id": "deal_cd",
+      "filename": "cd_update.docx",
+      "format": "docx",
+      "document_version": 1,
+      "asset_status": "fixture_text_only",
+      "file_sha256": null,
+      "parse_status": "parsed",
+      "parser_version": "fixture-text-1.0.0",
+      "source_origin": "company",
+      "origin_key": "cd_update",
+      "created_at": "2026-11-03T00:00:00Z"
+    }
+  ],
+  "source_spans": [
+    {
+      "id": "span_cd_update",
+      "entity_version": 1,
+      "deal_id": "deal_cd",
+      "document_id": "doc_cd_update",
+      "document_version": 1,
+      "locator": {
+        "kind": "docx_paragraph",
+        "part_uri": "word/document.xml",
+        "block_index": 0,
+        "paragraph_index": 0,
+        "heading_path": [
+          "Synthetic source"
+        ]
+      },
+      "normalized_text": "SYNTHETIC. Batch C-17 dispatch log and customer acceptance match the USD 180,000 invoice and the reporting cut-off. No warranty reconciliation, inventory ageing or receivable confirmation is provided.",
+      "text_sha256": "03de5997d5bd4f02920aaf37f4f8bf90c6d10b09bed30507107962e2cbb103fa",
+      "quote": "SYNTHETIC. Batch C-17 dispatch log and customer acceptance match the USD 180,000 invoice and the reporting cut-off. No warranty reconciliation, inventory ageing or receivable confirmation is provided.",
+      "start": 0,
+      "end": 200,
+      "locator_status": "validated",
+      "extraction_method": "fixture"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "ev_cd_update",
+      "entity_version": 1,
+      "deal_id": "deal_cd",
+      "claim_id": "claim_cd",
+      "source_span_ids": [
+        "span_cd_update"
+      ],
+      "stance": "supports",
+      "criterion_keys": [
+        "shipment_acceptance"
+      ],
+      "provenance": "company_reported",
+      "source_reliability": 3,
+      "reliability_rationale": "Synthetic document inspected by fixture author; no independent authentication.",
+      "verification_level": "document_only",
+      "independent_check_reference": null,
+      "origin_key": "cd_update",
+      "review_status": "draft",
+      "lifecycle": "active",
+      "created_at": "2026-11-03T00:00:00Z"
+    }
+  ],
+  "evidence_relations": [],
+  "analyst_note": "One atomic synthetic evidence event. Staging alone changes no ranking."
+}

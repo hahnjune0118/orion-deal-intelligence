@@ -1,0 +1,7 @@
+UTC start: 2026-11-03T05:59:16.339885+00:00
+Command: ["/workspace/scratch/174be2a3a3a0/orion-foundation/.venv-release/bin/python", "-m", "orion.cli", "validate-fixture", "/workspace/scratch/174be2a3a3a0/orion-foundation/spec/EXAMPLES/staged_evidence_update.json"]
+Working directory: /workspace/scratch/174be2a3a3a0/orion-foundation
+Exit code: 0
+
+{"status": "valid", "kind": "staged_evidence_update", "contract_version": "1.0.0", "mode": "contract", "scoring_executed": false}
+

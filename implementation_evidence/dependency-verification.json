@@ -1,0 +1,72 @@
+{
+  "recorded_at_utc": "2026-11-03T05:58:09.325294Z",
+  "python": "3.12.14",
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.39",
+  "checks": [
+    {
+      "name": "original_candidate_install",
+      "log": "logs/candidate-install.log",
+      "exit_code": 0,
+      "log_sha256": "42d40b3a6cd32c3cea58c3e7aa2954f0ed8068ede6a40212dd3c5879cd60e17c"
+    },
+    {
+      "name": "playwright_1_55_1_unavailable",
+      "log": "logs/playwright-security-patch.log",
+      "exit_code": 1,
+      "log_sha256": "b382ee2df50cc051108f04eae1f58cc2cb285defaf6752443dde64f27c1cdbd4"
+    },
+    {
+      "name": "final_pip_check",
+      "log": "logs/pip-check-final.log",
+      "exit_code": 0,
+      "log_sha256": "9261363b733079a641c2e4cc9bc46ffa1d8336945a87f807b6cf68847dbc9b09"
+    },
+    {
+      "name": "linux_clean_hash_install",
+      "log": "logs/hash-lock-final-clean-install.log",
+      "exit_code": 0,
+      "log_sha256": "fc7ae1450ef3e41ff097ba6d6a0448441b2120dda4dc3760c099479822cad1d5"
+    },
+    {
+      "name": "linux_clean_editable_install",
+      "log": "logs/editable-final-clean-install.log",
+      "exit_code": 0,
+      "log_sha256": "29b8c55d9f69b3fa3c620ecceae5e66729cd4982e632f9e5702e0ee97905c7a8"
+    },
+    {
+      "name": "linux_clean_pip_check",
+      "log": "logs/pip-check-final-clean.log",
+      "exit_code": 0,
+      "log_sha256": "9261363b733079a641c2e4cc9bc46ffa1d8336945a87f807b6cf68847dbc9b09"
+    },
+    {
+      "name": "dash_grid_clean_smoke",
+      "log": "logs/dash-grid-clean-smoke.log",
+      "exit_code": 0,
+      "log_sha256": "f4c77b58e2280613a49ba18da1c4a02d440e862c49a6c8fe5daaf277333ff99d"
+    },
+    {
+      "name": "windows_hash_verified_wheels",
+      "log": "logs/windows-final-wheel-download.log",
+      "exit_code": 0,
+      "log_sha256": "ffda3e057c6e15b2e595d294f2ea539e0a1b5582a6f1874a1b3d27dcf4e1d4c7"
+    },
+    {
+      "name": "final_linux_audit",
+      "log": "logs/audit-linux-final.log",
+      "exit_code": 0,
+      "log_sha256": "79d30422388543b2563e1dde76bb7e7857d7ef0c6fdf05c8c71598633ca07e1e"
+    },
+    {
+      "name": "final_windows_audit",
+      "log": "logs/audit-win-final.log",
+      "exit_code": 0,
+      "log_sha256": "79d30422388543b2563e1dde76bb7e7857d7ef0c6fdf05c8c71598633ca07e1e"
+    }
+  ],
+  "not_run": [
+    "native Windows execution",
+    "remote GitHub Actions",
+    "browser rendering"
+  ]
+}

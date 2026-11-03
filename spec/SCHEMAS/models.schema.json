@@ -1,0 +1,2110 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:orion:contracts:1.0.0",
+  "title": "Orion Deal Intelligence 2.0 version 1.0.0",
+  "description": "Structural contracts. Cross-record, grounding, authorization and transition rules are additional mandatory application validators.",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/DealState"
+    },
+    {
+      "$ref": "#/$defs/StagedEvidenceUpdate"
+    },
+    {
+      "$ref": "#/$defs/ExpectedTransition"
+    }
+  ],
+  "$defs": {
+    "PdfLocator": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "pdf"
+        },
+        "page": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "block_index": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "kind",
+        "page",
+        "block_index"
+      ]
+    },
+    "PptxLocator": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "pptx"
+        },
+        "slide": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "shape_id": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "paragraph_index": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "table_cell": {
+          "anyOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "row": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "column": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              },
+              "required": [
+                "row",
+                "column"
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "kind",
+        "slide",
+        "shape_id",
+        "paragraph_index",
+        "table_cell"
+      ]
+    },
+    "DocxParagraphLocator": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "docx_paragraph"
+        },
+        "part_uri": {
+          "const": "word/document.xml"
+        },
+        "block_index": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "paragraph_index": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "heading_path": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0
+        }
+      },
+      "required": [
+        "kind",
+        "part_uri",
+        "block_index",
+        "paragraph_index",
+        "heading_path"
+      ]
+    },
+    "DocxTableLocator": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "docx_table_cell"
+        },
+        "part_uri": {
+          "const": "word/document.xml"
+        },
+        "table_index": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "row": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "column": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "paragraph_index": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "heading_path": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0
+        }
+      },
+      "required": [
+        "kind",
+        "part_uri",
+        "table_index",
+        "row",
+        "column",
+        "paragraph_index",
+        "heading_path"
+      ]
+    },
+    "Locator": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/PdfLocator"
+        },
+        {
+          "$ref": "#/$defs/PptxLocator"
+        },
+        {
+          "$ref": "#/$defs/DocxParagraphLocator"
+        },
+        {
+          "$ref": "#/$defs/DocxTableLocator"
+        }
+      ]
+    },
+    "Deal": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$"
+        },
+        "entity_version": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "business_model": {
+          "type": "string",
+          "minLength": 1
+        },
+        "currency": {
+          "const": "USD"
+        },
+        "synthetic": {
+          "const": true
+        },
+        "as_of": {
+          "type": "string",
+          "format": "date"
+        },
+        "thesis_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_-]{2,63}$"
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "id",
+        "entity_version",
+        "name",
+        "business_model",
+        "currency",
+        "synthetic",
+        "as_of",
+        "thesis_ids"
+      ]
+    },
+    "Document": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$"
+        },
+        "entity_version": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "deal_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$"
+        },
+        "filename": {
+          "type": "string",
+          "minLength": 1
+        },
+        "format": {
+          "type": "string",
+          "enum": [
+            "pdf",
+            "docx",
+            "pptx"
+          ]
+        },
+        "document_version": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "asset_status": {
+          "type": "string",
+          "enum": [
+            "fixture_text_only",
+            "file_verified"
+          ]
+        },
+        "file_sha256": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "parse_status": {
+          "type": "string",
+          "enum": [
+            "pending",
+            "parsed",
+            "needs_ocr",
+            "needs_manual_review",
+            "failed"
+          ]
+        },
+        "parser_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_origin": {
+          "type": "string",
+          "enum": [
+            "company",
+            "counterparty",
+            "independent",
+            "analyst"
+          ]
+        },
+        "origin_key": {
+          "type": "string",
+          "minLength": 1
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "Z$"
+        }
+      },
+      "required": [
+        "id",
+        "entity_version",
+        "deal_id",
+        "filename",
+        "format",
+        "document_version",
+        "asset_status",
+        "file_sha256",
+        "parse_status",
+        "parser_version",
+        "source_origin",
+        "origin_key",
+        "created_at"
+      ],
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "asset_status": {
+                "const": "file_verified"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "file_sha256": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "SourceSpan": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$"
+        },
+        "entity_version": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "deal_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$"
+        },
+        "document_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$"
+        },
+        "document_version": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "locator": {
+          "$ref": "#/$defs/Locator"
+        },
+        "normalized_text": {
+          "type": "string",
+          "minLength": 1
+        },
+        "text_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "quote": {
+          "type": "string",
+          "minLength": 1
+        },
+        "start": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "end": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "locator_status": {
+          "type": "string",
+          "enum": [
+            "validated",
+            "unverified",
+            "invalid"
+          ]
+        },
+        "extraction_method": {
+          "type": "string",
+          "enum": [
+            "parsed",
+            "ocr_reviewed",
+            "manual_checked",
+            "fixture"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "entity_version",
+        "deal_id",
+        "document_id",
+        "document_version",
+        "locator",
+        "normalized_text",
+        "text_sha256",
+        "quote",
+        "start",
+        "end",
+        "locator_status",
+        "extraction_method"
+      ]
+    },
+    "Thesis": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$"
+        },
+        "entity_version": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "deal_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "counter_thesis": {
+          "type": "string",
+          "minLength": 1
+        },
+        "claim_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_-]{2,63}$"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "review_status": {
+          "type": "string",
+          "enum": [
+            "draft",
+            "approved",
+            "rejected"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "entity_version",
+        "deal_id",
+        "title",
+        "counter_thesis",
+        "claim_ids",
+        "review_status"
+      ]
+    },
+    "Claim": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$"
+        },
+        "entity_version": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "deal_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$"
+        },
+        "thesis_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$"
+        },
+        "statement": {
+          "type": "string",
+          "minLength": 1
+        },
+        "subject_key": {
+          "type": "string",
+          "minLength": 1
+        },
+        "period_start": {
+          "type": "string",
+          "format": "date"
+        },
+        "period_end": {
+          "type": "string",
+          "format": "date"
+        },
+        "claim_kind": {
+          "type": "string",
+          "enum": [
+            "company_reported",
+            "analyst_assumption",
+            "binary_hypothesis"
+          ]
+        },
+        "source_span_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_-]{2,63}$"
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "required_criterion_keys": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "support_status": {
+          "type": "string",
+          "enum": [
+            "missing",
+            "partial",
+            "supported",
+            "contradicted"
+          ]
+        },
+        "truth_status": {
+          "type": "string",
+          "enum": [
+            "not_checked",
+            "document_only",
+            "independently_verified",
+            "disputed"
+          ]
+        },
+        "review_status": {
+          "type": "string",
+          "enum": [
+            "draft",
+            "approved",
+            "rejected"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "entity_version",
+        "deal_id",
+        "thesis_id",
+        "statement",
+        "subject_key",
+        "period_start",
+        "period_end",
+        "claim_kind",
+        "source_span_ids",
+        "required_criterion_keys",
+        "support_status",
+        "truth_status",
+        "review_status"
+      ]
+    },
+    "Evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$"
+        },
+        "entity_version": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "deal_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$"
+        },
+        "claim_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$"
+        },
+        "source_span_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_-]{2,63}$"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "stance": {
+          "type": "string",
+          "enum": [
+            "supports",
+            "refutes",
+            "context"
+          ]
+        },
+        "criterion_keys": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "provenance": {
+          "type": "string",
+          "enum": [
+            "company_reported",
+            "counterparty_reported",
+            "independent_source",
+            "analyst_note"
+          ]
+        },
+        "source_reliability": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 5
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "reliability_rationale": {
+          "type": "string",
+          "minLength": 1
+        },
+        "verification_level": {
+          "type": "string",
+          "enum": [
+            "document_only",
+            "independent_check"
+          ]
+        },
+        "independent_check_reference": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "origin_key": {
+          "type": "string",
+          "minLength": 1
+        },
+        "review_status": {
+          "type": "string",
+          "enum": [
+            "draft",
+            "approved",
+            "rejected"
+          ]
+        },
+        "lifecycle": {
+          "type": "string",
+          "enum": [
+            "active",
+            "superseded"
+          ]
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "Z$"
+        }
+      },
+      "required": [
+        "id",
+        "entity_version",
+        "deal_id",
+        "claim_id",
+        "source_span_ids",
+        "stance",
+        "criterion_keys",
+        "provenance",
+        "source_reliability",
+        "reliability_rationale",
+        "verification_level",
+        "independent_check_reference",
+        "origin_key",
+        "review_status",
+        "lifecycle",
+        "created_at"
+      ],
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "verification_level": {
+                "const": "independent_check"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "independent_check_reference": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      ]
+    },
+    "EvidenceRelation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$"
+        },
+        "entity_version": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "deal_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$"
+        },
+        "from_evidence_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$"
+        },
+        "to_evidence_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$"
+        },
+        "relation_type": {
+          "type": "string",
+          "enum": [
+            "duplicates",
+            "contradicts",
+            "supersedes"
+          ]
+        },
+        "scope_criterion_keys": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "review_status": {
+          "type": "string",
+          "enum": [
+            "draft",
+            "approved",
+            "rejected"
+          ]
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "id",
+        "entity_version",
+        "deal_id",
+        "from_evidence_id",
+        "to_evidence_id",
+        "relation_type",
+        "scope_criterion_keys",
+        "review_status",
+        "rationale"
+      ]
+    },
+    "Requirement": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "key": {
+          "type": "string",
+          "minLength": 1
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "min_reliability": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 5
+        },
+        "require_independent": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "key",
+        "label",
+        "min_reliability",
+        "require_independent"
+      ]
+    },
+    "MaterialityInput": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "score": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 5
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "basis": {
+          "type": "string",
+          "enum": [
+            "objective_ratio",
+            "analyst_rubric",
+            "unknown"
+          ]
+        },
+        "exposure_minor": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "denominator_minor": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_span_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_-]{2,63}$"
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "score",
+        "basis",
+        "exposure_minor",
+        "denominator_minor",
+        "rationale",
+        "source_span_ids"
+      ]
+    },
+    "ObtainabilityInput": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "score": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 5
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "basis": {
+          "type": "string",
+          "enum": [
+            "derived_cost_time",
+            "analyst_estimate",
+            "unknown"
+          ]
+        },
+        "days": {
+          "anyOf": [
+            {
+              "type": "number",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "external_cost_minor": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "score",
+        "basis",
+        "days",
+        "external_cost_minor",
+        "rationale"
+      ]
+    },
+    "DDQuestion": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$"
+        },
+        "entity_version": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "deal_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$"
+        },
+        "claim_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$"
+        },
+        "canonical_key": {
+          "type": "string",
+          "minLength": 1
+        },
+        "issue": {
+          "type": "string",
+          "minLength": 1
+        },
+        "request_text": {
+          "type": "string",
+          "minLength": 1
+        },
+        "financial_driver": {
+          "type": "string",
+          "enum": [
+            "revenue_quality",
+            "ebitda",
+            "nwc",
+            "net_debt",
+            "capex",
+            "customer_concentration",
+            "unit_economics"
+          ]
+        },
+        "requirements": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Requirement"
+          },
+          "minItems": 1
+        },
+        "materiality": {
+          "$ref": "#/$defs/MaterialityInput"
+        },
+        "obtainability": {
+          "$ref": "#/$defs/ObtainabilityInput"
+        },
+        "review_status": {
+          "type": "string",
+          "enum": [
+            "draft",
+            "approved",
+            "rejected"
+          ]
+        },
+        "workflow_status": {
+          "type": "string",
+          "enum": [
+            "open",
+            "awaiting_review",
+            "resolved",
+            "rejected",
+            "duplicate"
+          ]
+        },
+        "duplicate_of": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9_-]{2,63}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "owner_label": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "id",
+        "entity_version",
+        "deal_id",
+        "claim_id",
+        "canonical_key",
+        "issue",
+        "request_text",
+        "financial_driver",
+        "requirements",
+        "materiality",
+        "obtainability",
+        "review_status",
+        "workflow_status",
+        "duplicate_of",
+        "owner_label"
+      ],
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "workflow_status": {
+                "const": "duplicate"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "duplicate_of": {
+                "type": "string",
+                "pattern": "^[a-z][a-z0-9_-]{2,63}$"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "ScoreRow": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "question_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$"
+        },
+        "rank": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "gap": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 5
+        },
+        "materiality": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 5
+        },
+        "obtainability": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 5
+        },
+        "score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "provisional": {
+          "type": "boolean"
+        },
+        "reason_codes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "question_id",
+        "rank",
+        "gap",
+        "materiality",
+        "obtainability",
+        "score",
+        "provisional",
+        "reason_codes"
+      ]
+    },
+    "RankingSnapshot": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$"
+        },
+        "entity_version": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "deal_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$"
+        },
+        "state_revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "scoring_version": {
+          "const": "1.0.0"
+        },
+        "input_digest": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "Z$"
+        },
+        "trigger_event_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9_-]{2,63}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "rows": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ScoreRow"
+          },
+          "minItems": 0
+        },
+        "top3": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_-]{2,63}$"
+          },
+          "minItems": 0,
+          "uniqueItems": true,
+          "maxItems": 3
+        }
+      },
+      "required": [
+        "id",
+        "entity_version",
+        "deal_id",
+        "state_revision",
+        "scoring_version",
+        "input_digest",
+        "created_at",
+        "trigger_event_id",
+        "rows",
+        "top3"
+      ]
+    },
+    "AnalystDecision": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$"
+        },
+        "entity_version": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "deal_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$"
+        },
+        "actor_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$"
+        },
+        "actor_role": {
+          "type": "string",
+          "enum": [
+            "analyst",
+            "reviewer",
+            "system"
+          ]
+        },
+        "target_type": {
+          "type": "string",
+          "enum": [
+            "evidence_update",
+            "claim",
+            "question",
+            "evidence",
+            "relation",
+            "snapshot_export",
+            "seed"
+          ]
+        },
+        "target_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$"
+        },
+        "target_version": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "selection_digest": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "action": {
+          "type": "string",
+          "enum": [
+            "approve",
+            "reject",
+            "edit",
+            "reopen"
+          ]
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1
+        },
+        "base_revision": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "decided_at": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "Z$"
+        }
+      },
+      "required": [
+        "id",
+        "entity_version",
+        "deal_id",
+        "actor_id",
+        "actor_role",
+        "target_type",
+        "target_id",
+        "target_version",
+        "selection_digest",
+        "action",
+        "reason",
+        "base_revision",
+        "decided_at"
+      ],
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "target_type": {
+                "const": "snapshot_export"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "selection_digest": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "selection_digest": {
+                "type": "null"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "AuditEvent": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$"
+        },
+        "entity_version": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "deal_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$"
+        },
+        "sequence": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "event_type": {
+          "type": "string",
+          "enum": [
+            "seed_created",
+            "update_staged",
+            "update_approved",
+            "update_rejected",
+            "ranking_changed",
+            "ranking_unchanged",
+            "export_approved",
+            "exported",
+            "edit_applied"
+          ]
+        },
+        "actor_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$"
+        },
+        "decision_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9_-]{2,63}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "before_revision": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "after_revision": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "idempotency_key": {
+          "type": "string",
+          "minLength": 1
+        },
+        "before_snapshot_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9_-]{2,63}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "after_snapshot_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9_-]{2,63}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "Z$"
+        },
+        "previous_hash": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "event_hash": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      },
+      "required": [
+        "id",
+        "entity_version",
+        "deal_id",
+        "sequence",
+        "event_type",
+        "actor_id",
+        "decision_id",
+        "before_revision",
+        "after_revision",
+        "idempotency_key",
+        "before_snapshot_id",
+        "after_snapshot_id",
+        "reason",
+        "created_at",
+        "previous_hash",
+        "event_hash"
+      ]
+    },
+    "AnalysisRun": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$"
+        },
+        "entity_version": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "deal_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$"
+        },
+        "mode": {
+          "type": "string",
+          "enum": [
+            "cached",
+            "live"
+          ]
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "pending",
+            "running",
+            "completed",
+            "failed",
+            "budget_blocked",
+            "cancelled"
+          ]
+        },
+        "model_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "prompt_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "input_digest": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "output_digest": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "token_input": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "token_output": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "reserved_cost_usd": {
+          "type": "number",
+          "minimum": 0
+        },
+        "actual_cost_usd": {
+          "anyOf": [
+            {
+              "type": "number",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "pricing_version": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "started_at": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "Z$"
+        },
+        "finished_at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time",
+              "pattern": "Z$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "error_code": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "entity_version",
+        "deal_id",
+        "mode",
+        "status",
+        "model_id",
+        "prompt_version",
+        "input_digest",
+        "output_digest",
+        "token_input",
+        "token_output",
+        "reserved_cost_usd",
+        "actual_cost_usd",
+        "pricing_version",
+        "started_at",
+        "finished_at",
+        "error_code"
+      ],
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "mode": {
+                "const": "live"
+              },
+              "status": {
+                "const": "completed"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "model_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "pricing_version": {
+                "type": "string",
+                "minLength": 1
+              },
+              "token_input": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "token_output": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "finished_at": {
+                "type": "string",
+                "format": "date-time",
+                "pattern": "Z$"
+              },
+              "actual_cost_usd": {
+                "type": "number",
+                "minimum": 0
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "mode": {
+                "const": "cached"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "token_input": {
+                "const": 0
+              },
+              "token_output": {
+                "const": 0
+              },
+              "reserved_cost_usd": {
+                "const": 0
+              },
+              "actual_cost_usd": {
+                "const": 0
+              }
+            }
+          }
+        }
+      ]
+    },
+    "DealState": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "deal_state"
+        },
+        "contract_version": {
+          "const": "1.0.0"
+        },
+        "state_revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "mode": {
+          "type": "string",
+          "enum": [
+            "demo",
+            "local_live"
+          ]
+        },
+        "deal": {
+          "$ref": "#/$defs/Deal"
+        },
+        "documents": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Document"
+          },
+          "minItems": 0
+        },
+        "source_spans": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/SourceSpan"
+          },
+          "minItems": 0
+        },
+        "theses": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Thesis"
+          },
+          "minItems": 0
+        },
+        "claims": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Claim"
+          },
+          "minItems": 0
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Evidence"
+          },
+          "minItems": 0
+        },
+        "evidence_relations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/EvidenceRelation"
+          },
+          "minItems": 0
+        },
+        "dd_questions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DDQuestion"
+          },
+          "minItems": 0
+        },
+        "ranking_snapshots": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/RankingSnapshot"
+          },
+          "minItems": 0
+        },
+        "analyst_decisions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/AnalystDecision"
+          },
+          "minItems": 0
+        },
+        "audit_events": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/AuditEvent"
+          },
+          "minItems": 0
+        },
+        "analysis_runs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/AnalysisRun"
+          },
+          "minItems": 0
+        },
+        "head_snapshot_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$"
+        }
+      },
+      "required": [
+        "kind",
+        "contract_version",
+        "state_revision",
+        "mode",
+        "deal",
+        "documents",
+        "source_spans",
+        "theses",
+        "claims",
+        "evidence",
+        "evidence_relations",
+        "dd_questions",
+        "ranking_snapshots",
+        "analyst_decisions",
+        "audit_events",
+        "analysis_runs",
+        "head_snapshot_id"
+      ]
+    },
+    "StagedEvidenceUpdate": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "staged_evidence_update"
+        },
+        "contract_version": {
+          "const": "1.0.0"
+        },
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$"
+        },
+        "deal_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$"
+        },
+        "base_revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "idempotency_key": {
+          "type": "string",
+          "minLength": 1
+        },
+        "validation_status": {
+          "type": "string",
+          "enum": [
+            "validated",
+            "invalid",
+            "needs_review"
+          ]
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "Z$"
+        },
+        "documents": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Document"
+          },
+          "minItems": 0
+        },
+        "source_spans": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/SourceSpan"
+          },
+          "minItems": 0
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Evidence"
+          },
+          "minItems": 1
+        },
+        "evidence_relations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/EvidenceRelation"
+          },
+          "minItems": 0
+        },
+        "analyst_note": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "kind",
+        "contract_version",
+        "id",
+        "deal_id",
+        "base_revision",
+        "idempotency_key",
+        "validation_status",
+        "created_at",
+        "documents",
+        "source_spans",
+        "evidence",
+        "evidence_relations",
+        "analyst_note"
+      ]
+    },
+    "TransitionRow": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "question_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$"
+        },
+        "before_rank": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "after_rank": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "before_score": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "after_score": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "before_status": {
+          "type": "string",
+          "minLength": 1
+        },
+        "after_status": {
+          "type": "string",
+          "minLength": 1
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "question_id",
+        "before_rank",
+        "after_rank",
+        "before_score",
+        "after_score",
+        "before_status",
+        "after_status",
+        "reason"
+      ]
+    },
+    "ExpectedTransition": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "expected_top3_transition"
+        },
+        "contract_version": {
+          "const": "1.0.0"
+        },
+        "deal_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$"
+        },
+        "event_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$"
+        },
+        "approval": {
+          "$ref": "#/$defs/AnalystDecision"
+        },
+        "before_revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "after_revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "before_top3": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_-]{2,63}$"
+          },
+          "minItems": 0,
+          "uniqueItems": true,
+          "maxItems": 3
+        },
+        "after_top3": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_-]{2,63}$"
+          },
+          "minItems": 0,
+          "uniqueItems": true,
+          "maxItems": 3
+        },
+        "question_changes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/TransitionRow"
+          },
+          "minItems": 0
+        },
+        "claim_after": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "claim_id": {
+                "type": "string",
+                "pattern": "^[a-z][a-z0-9_-]{2,63}$"
+              },
+              "support_status": {
+                "type": "string",
+                "enum": [
+                  "missing",
+                  "partial",
+                  "supported",
+                  "contradicted"
+                ]
+              },
+              "truth_status": {
+                "type": "string",
+                "enum": [
+                  "not_checked",
+                  "document_only",
+                  "independently_verified",
+                  "disputed"
+                ]
+              }
+            },
+            "required": [
+              "claim_id",
+              "support_status",
+              "truth_status"
+            ]
+          },
+          "minItems": 0
+        },
+        "expected_live_api_calls": {
+          "const": 0
+        }
+      },
+      "required": [
+        "kind",
+        "contract_version",
+        "deal_id",
+        "event_id",
+        "approval",
+        "before_revision",
+        "after_revision",
+        "before_top3",
+        "after_top3",
+        "question_changes",
+        "claim_after",
+        "expected_live_api_calls"
+      ]
+    }
+  }
+}

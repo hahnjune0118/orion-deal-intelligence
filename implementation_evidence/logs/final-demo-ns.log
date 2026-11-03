@@ -1,0 +1,7 @@
+UTC start: 2026-11-03T05:59:15.348131+00:00
+Command: ["/workspace/scratch/174be2a3a3a0/orion-foundation/.venv-release/bin/python", "-m", "orion.cli", "seed-demo", "--case", "ns"]
+Working directory: /workspace/scratch/174be2a3a3a0
+Exit code: 0
+
+{"status": "valid", "mode": "demo", "deal_id": "deal_ns", "state_revision": 1, "persisted": false, "live_api_calls": 0}
+

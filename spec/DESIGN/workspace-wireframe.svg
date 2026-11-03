@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900" role="img" aria-label="Orion original workspace wireframe">
+<style>text{font-family:Arial,sans-serif;fill:#172B3A;font-size:15px}.muted{fill:#475569;font-size:14px}.small{font-size:14px}.title{font-size:22px;font-weight:700}.bold{font-weight:700}.white{fill:#fff}.green{fill:#166534}.red{fill:#991B1B}</style>
+<rect x="0" y="0" width="1440" height="900" rx="0" fill="#F3F5F8" stroke="none"/>
+<rect x="0" y="0" width="1440" height="56" rx="0" fill="#fff" stroke="none"/>
+<text x="20" y="35" class="title">ORION</text>
+<text x="120" y="34" class="bold">Deal Intelligence 2.0</text>
+<rect x="350" y="14" width="150" height="29" rx="6" fill="#E5F3F1" stroke="none"/>
+<text x="366" y="34" class="small">SYNTHETIC DEMO</text>
+<text x="525" y="34" class="bold">Northstar Analytics</text>
+<rect x="1240" y="10" width="180" height="36" rx="6" fill="#145E63" stroke="none"/>
+<text x="1255" y="34" class="white">Review and export</text>
+<rect x="12" y="68" width="208" height="792" rx="6" fill="#fff" stroke="#CBD5E1"/>
+<rect x="232" y="68" width="824" height="792" rx="6" fill="#fff" stroke="#CBD5E1"/>
+<rect x="1068" y="68" width="360" height="792" rx="6" fill="#fff" stroke="#CBD5E1"/>
+<text x="28" y="99" class="muted">DEAL WORKSPACE</text>
+<text x="28" y="133" class="bold">Northstar Analytics</text>
+<text x="28" y="163" class="muted">B2B AI subscriptions</text>
+<text x="28" y="208" class="bold">Documents</text>
+<rect x="24" y="226" width="184" height="60" rx="6" fill="#E5F3F1" stroke="none"/>
+<text x="34" y="250" class="small">Company overview</text>
+<text x="34" y="272" class="muted">PDF · parsed</text>
+<rect x="24" y="296" width="184" height="60" rx="6" fill="#fff" stroke="none"/>
+<text x="34" y="320" class="small">Financial summary</text>
+<text x="34" y="342" class="muted">DOCX · parsed</text>
+<rect x="24" y="366" width="184" height="60" rx="6" fill="#fff" stroke="none"/>
+<text x="34" y="390" class="small">Pipeline presentation</text>
+<text x="34" y="412" class="muted">PPTX · parsed</text>
+<text x="28" y="475" class="bold">Evidence events</text>
+<rect x="24" y="493" width="184" height="82" rx="6" fill="#F3F5F8" stroke="none"/>
+<text x="34" y="518" class="small">Aster paid contract</text>
+<text x="34" y="542" class="muted">Staged · 1 document</text>
+<text x="34" y="562" class="muted">Approval required</text>
+<text x="28" y="740" class="bold">This tab only</text>
+<text x="28" y="765" class="muted">Refresh resets changes</text>
+<text x="28" y="789" class="muted">Live API requests: 0</text>
+<text x="28" y="826" class="small">Reset example</text>
+<text x="252" y="104" class="title">Evidence workspace</text>
+<text x="252" y="132" class="muted">Inspect the claim. Check the source. Review the gap.</text>
+<rect x="248" y="151" width="792" height="151" rx="6" fill="#F3F5F8" stroke="none"/>
+<text x="264" y="177" class="bold">CURRENT TOP 3</text>
+<text x="266" y="209" class="bold">1</text>
+<text x="298" y="209" class="">Aster paid commercial contract</text>
+<text x="990" y="209" class="bold">100</text>
+<text x="266" y="243" class="bold">2</text>
+<text x="298" y="243" class="">Birch paid commercial contract</text>
+<text x="990" y="243" class="bold">97</text>
+<text x="266" y="277" class="bold">3</text>
+<text x="298" y="277" class="">Acceptance and collection for both customers</text>
+<text x="990" y="277" class="bold">89</text>
+<text x="252" y="338" class="bold">Evidence matrix</text>
+<text x="430" y="338" class="muted">DD questions</text>
+<text x="590" y="338" class="muted">Changes</text>
+<rect x="252" y="355" width="300" height="34" rx="6" fill="#fff" stroke="#CBD5E1"/>
+<text x="264" y="378" class="muted">Filter claims or questions</text>
+<text x="850" y="378" class="muted">Columns  |  Status</text>
+<rect x="248" y="404" width="792" height="42" rx="6" fill="#E5F3F1" stroke="none"/>
+<text x="264" y="431" class="bold">Claim</text>
+<text x="590" y="431" class="bold">Evidence</text>
+<text x="720" y="431" class="bold">Source</text>
+<text x="870" y="431" class="bold">Review</text>
+<rect x="248" y="447" width="792" height="58" rx="0" fill="#F8FAFC" stroke="none"/>
+<text x="264" y="481" class="small">Two paid, accepted customers</text>
+<text x="590" y="481" class="small">Missing</text>
+<text x="720" y="481" class="small">Overview p.1</text>
+<text x="870" y="481" class="small">Approved</text>
+<rect x="248" y="505" width="792" height="58" rx="0" fill="#fff" stroke="none"/>
+<text x="264" y="539" class="small">Recurring gross margin</text>
+<text x="590" y="539" class="small">Missing</text>
+<text x="720" y="539" class="small">Finance table</text>
+<text x="870" y="539" class="small">Approved</text>
+<rect x="248" y="707" width="792" height="133" rx="6" fill="#F8FAFC" stroke="none"/>
+<text x="264" y="736" class="bold">Selected claim: two independent target customers</text>
+<text x="264" y="766" class="small">Required: 2 contracts + 2 acceptances + 2 collections + independence.</text>
+<text x="264" y="796" class="muted">Document presence does not establish independent truth.</text>
+<text x="1088" y="101" class="bold">SOURCE AND REVIEW</text>
+<text x="1088" y="136" class="bold">ns_contract_a.docx</text>
+<text x="1088" y="162" class="muted">Version 1 · body / paragraph 0</text>
+<rect x="1084" y="180" width="328" height="30" rx="6" fill="#E5F3F1" stroke="none"/>
+<text x="1096" y="201" class="small">Source text matched</text>
+<text x="1088" y="243" class="muted">SYNTHETIC SOURCE EXCERPT</text>
+<rect x="1084" y="255" width="328" height="25" rx="0" fill="#FEF3C7" stroke="none"/>
+<text x="1088" y="274" class="small">Executed commercial contract with</text>
+<rect x="1084" y="284" width="328" height="25" rx="0" fill="#FEF3C7" stroke="none"/>
+<text x="1088" y="303" class="small">Aster Labs: annual fee USD 120,000.</text>
+<text x="1088" y="332" class="small">Term: 2027-01-01 to 2027-12-31.</text>
+<text x="1088" y="361" class="small">No acceptance certificate or bank</text>
+<text x="1088" y="390" class="small">receipt is included in this copy.</text>
+<text x="1088" y="438" class="bold">DOCUMENT ONLY</text>
+<text x="1088" y="464" class="muted">Independent verification: not performed</text>
+<text x="1088" y="510" class="bold">Applied requirement</text>
+<text x="1088" y="538" class="small">contract_a</text>
+<text x="1088" y="578" class="bold">Still missing</text>
+<text x="1088" y="606" class="small">Birch contract, acceptance, collection</text>
+<text x="1088" y="634" class="small">Customer ownership confirmation</text>
+<rect x="1084" y="658" width="328" height="84" rx="6" fill="#F8FAFC" stroke="#CBD5E1"/>
+<text x="1096" y="684" class="muted">Reviewer note</text>
+<text x="1096" y="711" class="small">Use only for contract existence.</text>
+<text x="1088" y="773" class="muted">Preview only. Current rank unchanged.</text>
+<rect x="1084" y="797" width="102" height="40" rx="6" fill="#fff" stroke="#CBD5E1"/>
+<text x="1105" y="823" class="small">Reject</text>
+<rect x="1196" y="797" width="216" height="40" rx="6" fill="#145E63" stroke="none"/>
+<text x="1210" y="823" class="white small">Approve scoped evidence</text>
+<text x="20" y="886" class="muted">DESIGN WIREFRAME · Not a running application · Independent Orion layout</text>
+<text x="1050" y="886" class="muted">Snapshot: ns_initial</text>
+</svg>

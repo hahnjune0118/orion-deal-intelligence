@@ -1,0 +1,7 @@
+UTC start: 2026-11-03T05:59:06.953134+00:00
+Command: ["/workspace/scratch/174be2a3a3a0/orion-foundation/.venv-release/bin/python", "-c", "import orion, pathlib; p=pathlib.Path(orion.__file__); print(p); assert \"site-packages\" in str(p)"]
+Working directory: /workspace/scratch/174be2a3a3a0
+Exit code: 0
+
+/workspace/scratch/174be2a3a3a0/orion-foundation/.venv-release/lib/python3.12/site-packages/orion/__init__.py
+

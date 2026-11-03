@@ -1,0 +1,442 @@
+{
+  "executed_at_utc": "2026-11-03T05:29:23.140963+00:00",
+  "python": "3.12.14",
+  "scope": "Specification QA only; no application/product evaluation",
+  "passed": 65,
+  "failed": 0,
+  "checks": [
+    {
+      "check": "JSON Schema meta-validation",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "check": "schema rejects unknown root field",
+      "status": "pass",
+      "detail": "rejected as required"
+    },
+    {
+      "check": "DOCX fabricated page field rejected",
+      "status": "pass",
+      "detail": "rejected as required"
+    },
+    {
+      "check": "PPTX slide and table locator schema",
+      "status": "pass",
+      "detail": "Locator validated"
+    },
+    {
+      "check": "independent check requires reference",
+      "status": "pass",
+      "detail": "rejected as required"
+    },
+    {
+      "check": "export approval requires selection digest",
+      "status": "pass",
+      "detail": "rejected as required"
+    },
+    {
+      "check": "export approval digest accepted",
+      "status": "pass",
+      "detail": "AnalystDecision validated"
+    },
+    {
+      "check": "completed live run cannot omit usage",
+      "status": "pass",
+      "detail": "rejected as required"
+    },
+    {
+      "check": "support and truth enums stay separate",
+      "status": "pass",
+      "detail": "rejected as required"
+    },
+    {
+      "check": "score string rejected without coercion",
+      "status": "pass",
+      "detail": "rejected as required"
+    },
+    {
+      "check": "ns schema state",
+      "status": "pass",
+      "detail": "deal_state"
+    },
+    {
+      "check": "ns schema update",
+      "status": "pass",
+      "detail": "staged_evidence_update"
+    },
+    {
+      "check": "ns schema transition",
+      "status": "pass",
+      "detail": "expected_top3_transition"
+    },
+    {
+      "check": "ns reference and source integrity",
+      "status": "pass",
+      "detail": "16 unique entity IDs; sources/references/criterion policies/hash chain checked"
+    },
+    {
+      "check": "ns stored initial ranking",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "check": "ns input digest",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "check": "ns worked transition",
+      "status": "pass",
+      "detail": {
+        "before": [
+          [
+            "q_ns_contract_a",
+            100.0
+          ],
+          [
+            "q_ns_contract_b",
+            97.0
+          ],
+          [
+            "q_ns_accept_collect",
+            89.0
+          ]
+        ],
+        "after": [
+          [
+            "q_ns_contract_b",
+            97.0
+          ],
+          [
+            "q_ns_accept_collect",
+            89.0
+          ],
+          [
+            "q_ns_concentration",
+            86.0
+          ]
+        ]
+      }
+    },
+    {
+      "check": "ns duplicate credit stability",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "check": "ns unrelated evidence stability",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "check": "ns unapproved update stability",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "check": "ns invalid quote rejected",
+      "status": "pass",
+      "detail": "rejected as required"
+    },
+    {
+      "check": "ns stale update rejected",
+      "status": "pass",
+      "detail": "rejected as required"
+    },
+    {
+      "check": "ns analyst approval rejected",
+      "status": "pass",
+      "detail": "rejected as required"
+    },
+    {
+      "check": "ns orphan source rejected",
+      "status": "pass",
+      "detail": "rejected as required"
+    },
+    {
+      "check": "ns cross deal rejected",
+      "status": "pass",
+      "detail": "rejected as required"
+    },
+    {
+      "check": "ns collection-order invariance",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "check": "cd schema state",
+      "status": "pass",
+      "detail": "deal_state"
+    },
+    {
+      "check": "cd schema update",
+      "status": "pass",
+      "detail": "staged_evidence_update"
+    },
+    {
+      "check": "cd schema transition",
+      "status": "pass",
+      "detail": "expected_top3_transition"
+    },
+    {
+      "check": "cd reference and source integrity",
+      "status": "pass",
+      "detail": "14 unique entity IDs; sources/references/criterion policies/hash chain checked"
+    },
+    {
+      "check": "cd stored initial ranking",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "check": "cd input digest",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "check": "cd worked transition",
+      "status": "pass",
+      "detail": {
+        "before": [
+          [
+            "q_cd_cutoff",
+            100.0
+          ],
+          [
+            "q_cd_warranty",
+            94.0
+          ],
+          [
+            "q_cd_inventory",
+            89.0
+          ]
+        ],
+        "after": [
+          [
+            "q_cd_warranty",
+            94.0
+          ],
+          [
+            "q_cd_inventory",
+            89.0
+          ],
+          [
+            "q_cd_receivable",
+            86.0
+          ]
+        ]
+      }
+    },
+    {
+      "check": "cd duplicate credit stability",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "check": "cd unrelated evidence stability",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "check": "cd unapproved update stability",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "check": "cd invalid quote rejected",
+      "status": "pass",
+      "detail": "rejected as required"
+    },
+    {
+      "check": "cd stale update rejected",
+      "status": "pass",
+      "detail": "rejected as required"
+    },
+    {
+      "check": "cd analyst approval rejected",
+      "status": "pass",
+      "detail": "rejected as required"
+    },
+    {
+      "check": "cd orphan source rejected",
+      "status": "pass",
+      "detail": "rejected as required"
+    },
+    {
+      "check": "cd cross deal rejected",
+      "status": "pass",
+      "detail": "rejected as required"
+    },
+    {
+      "check": "cd collection-order invariance",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "check": "lm schema state",
+      "status": "pass",
+      "detail": "deal_state"
+    },
+    {
+      "check": "lm schema update",
+      "status": "pass",
+      "detail": "staged_evidence_update"
+    },
+    {
+      "check": "lm schema transition",
+      "status": "pass",
+      "detail": "expected_top3_transition"
+    },
+    {
+      "check": "lm reference and source integrity",
+      "status": "pass",
+      "detail": "15 unique entity IDs; sources/references/criterion policies/hash chain checked"
+    },
+    {
+      "check": "lm stored initial ranking",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "check": "lm input digest",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "check": "lm worked transition",
+      "status": "pass",
+      "detail": {
+        "before": [
+          [
+            "q_lm_labor",
+            92.0
+          ],
+          [
+            "q_lm_margin",
+            89.0
+          ],
+          [
+            "q_lm_cash",
+            84.0
+          ]
+        ],
+        "after": [
+          [
+            "q_lm_renewal",
+            97.0
+          ],
+          [
+            "q_lm_labor",
+            92.0
+          ],
+          [
+            "q_lm_margin",
+            89.0
+          ]
+        ]
+      }
+    },
+    {
+      "check": "lm duplicate credit stability",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "check": "lm unrelated evidence stability",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "check": "lm unapproved update stability",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "check": "lm invalid quote rejected",
+      "status": "pass",
+      "detail": "rejected as required"
+    },
+    {
+      "check": "lm stale update rejected",
+      "status": "pass",
+      "detail": "rejected as required"
+    },
+    {
+      "check": "lm analyst approval rejected",
+      "status": "pass",
+      "detail": "rejected as required"
+    },
+    {
+      "check": "lm orphan source rejected",
+      "status": "pass",
+      "detail": "rejected as required"
+    },
+    {
+      "check": "lm cross deal rejected",
+      "status": "pass",
+      "detail": "rejected as required"
+    },
+    {
+      "check": "lm collection-order invariance",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "check": "rubric numerical boundaries",
+      "status": "pass",
+      "detail": "11 materiality boundaries, 7 day boundaries and combined cost/time checked"
+    },
+    {
+      "check": "null zero and tie rules",
+      "status": "pass",
+      "detail": "null=>75 provisional; zero=>45 nonprovisional; exact tie uses canonical key"
+    },
+    {
+      "check": "synthetic finance consistency",
+      "status": "pass",
+      "detail": "3 cases: EBITDA/customer totals/NWC; NS revenue split; Lumen hours"
+    },
+    {
+      "check": "hypothetical Bayes and EIG",
+      "status": "pass",
+      "detail": {
+        "hypothetical_prior": 0.3,
+        "P_positive": 0.38,
+        "posterior_positive": 0.631578947368421,
+        "posterior_negative": 0.09677419354838707,
+        "EIG_bits": 0.23611392733893743,
+        "not_empirical": true
+      }
+    },
+    {
+      "check": "required deliverables",
+      "status": "pass",
+      "detail": {
+        "required_files_present": 23
+      }
+    },
+    {
+      "check": "internal Markdown links",
+      "status": "pass",
+      "detail": {
+        "local_links_checked": 82
+      }
+    },
+    {
+      "check": "publisher dependency metadata",
+      "status": "pass",
+      "detail": null
+    }
+  ],
+  "not_executed": [
+    "Windows dependency installation and security audit",
+    "Native PDF/DOCX/PPTX parser tests",
+    "Pydantic implementation parity",
+    "Production transactions, authorization and export tests",
+    "Dash browser accessibility and session isolation",
+    "Hosting deployment and restart",
+    "Live API budget enforcement and real model evaluation",
+    "Independent gold annotation and empirical citation/Top-3 metrics"
+  ]
+}

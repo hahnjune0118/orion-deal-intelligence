@@ -1,0 +1,16 @@
+UTC start: 2026-11-03T05:59:05.662538+00:00
+Command: ["/workspace/scratch/174be2a3a3a0/orion-foundation/.venv-release/bin/python", "-m", "pip", "install", "--no-deps", "--force-reinstall", "/workspace/scratch/174be2a3a3a0/orion-foundation/dist/orion_deal_intelligence-0.1.0-py3-none-any.whl"]
+Working directory: /workspace/scratch/174be2a3a3a0/orion-foundation
+Exit code: 0
+
+Processing ./dist/orion_deal_intelligence-0.1.0-py3-none-any.whl
+Installing collected packages: orion-deal-intelligence
+  Attempting uninstall: orion-deal-intelligence
+    Found existing installation: orion-deal-intelligence 0.1.0
+    Uninstalling orion-deal-intelligence-0.1.0:
+      Successfully uninstalled orion-deal-intelligence-0.1.0
+Successfully installed orion-deal-intelligence-0.1.0
+
+
+[notice] A new release of pip is available: 25.0.1 -> 26.3
+[notice] To update, run: python -m pip install --upgrade pip

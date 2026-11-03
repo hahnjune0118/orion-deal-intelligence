@@ -1,0 +1,131 @@
+{
+  "contract_version": "1.0.0",
+  "case_id": "ns",
+  "not_model_input": true,
+  "status": "author-proposed gold; requires independent review before measured evaluation",
+  "event_id": "update_ns",
+  "critical_before": [
+    "q_ns_contract_a",
+    "q_ns_contract_b",
+    "q_ns_accept_collect"
+  ],
+  "critical_after": [
+    "q_ns_contract_b",
+    "q_ns_accept_collect",
+    "q_ns_concentration"
+  ],
+  "expected_claim_after": [
+    {
+      "claim_id": "claim_ns",
+      "support_status": "partial",
+      "truth_status": "document_only"
+    }
+  ],
+  "request_families": [
+    {
+      "family_id": "q_ns_contract_a",
+      "canonical_key": "ns.contract.aster",
+      "claim_id": "claim_ns",
+      "request": "Provide the executed paid commercial contract between Northstar and Aster Labs effective within 2026-11-01 through 2027-10-31, including counterparties, signature status, service term and fee. Acceptance and collection will be reviewed separately.",
+      "required_criteria": [
+        "contract_a"
+      ],
+      "match_rule": "One-to-one semantic match on target, requested records, period and criteria. Keyword overlap alone is insufficient."
+    },
+    {
+      "family_id": "q_ns_contract_b",
+      "canonical_key": "ns.contract.birch",
+      "claim_id": "claim_ns",
+      "request": "Provide the executed paid commercial contract between Northstar and Birch Systems effective within 2026-11-01 through 2027-10-31, including counterparties, signature status, service term and fee. Customer ownership independence requires separate evidence.",
+      "required_criteria": [
+        "contract_b"
+      ],
+      "match_rule": "One-to-one semantic match on target, requested records, period and criteria. Keyword overlap alone is insufficient."
+    },
+    {
+      "family_id": "q_ns_accept_collect",
+      "canonical_key": "ns.acceptance.collection",
+      "claim_id": "claim_ns",
+      "request": "For Aster Labs and Birch Systems during 2026-11-01 through 2027-10-31, provide customer acceptance records and invoices matched to bank receipts or settlement records. Identify which customer and service period each record covers.",
+      "required_criteria": [
+        "accept_a",
+        "accept_b",
+        "collect_a",
+        "collect_b"
+      ],
+      "match_rule": "One-to-one semantic match on target, requested records, period and criteria. Keyword overlap alone is insufficient."
+    },
+    {
+      "family_id": "q_ns_concentration",
+      "canonical_key": "ns.customer.independence",
+      "claim_id": "claim_ns",
+      "request": "Provide independent ownership records or equivalent independent confirmation for Aster Labs and Birch Systems as of their proposed 2026-11-01 through 2027-10-31 commercial engagements, establishing whether they are independently controlled.",
+      "required_criteria": [
+        "independence"
+      ],
+      "match_rule": "One-to-one semantic match on target, requested records, period and criteria. Keyword overlap alone is insufficient."
+    },
+    {
+      "family_id": "q_ns_unit_econ",
+      "canonical_key": "ns.unit.margin",
+      "claim_id": "claim_ns_econ",
+      "request": "Provide the FY2025 subscription revenue and delivery-cost reconciliation, showing how recurring gross margin is calculated separately from implementation services and identifying underlying ledger records.",
+      "required_criteria": [
+        "margin_bridge"
+      ],
+      "match_rule": "One-to-one semantic match on target, requested records, period and criteria. Keyword overlap alone is insufficient."
+    }
+  ],
+  "citation_gold": [
+    {
+      "span_id": "span_ns_overview",
+      "document_id": "doc_ns_overview",
+      "locator": {
+        "kind": "pdf",
+        "page": 1,
+        "block_index": 0
+      },
+      "quote": "SYNTHETIC. Northstar reports PoCs with Aster Labs and Birch Systems. No executed paid contract, acceptance certificate or receipt is included. FY2025 revenue USD 1,200,000; cost of revenue USD 360,000; operating expense excluding depreciation USD 720,000; EBITDA USD 120,000.",
+      "physical_source_verified": false
+    },
+    {
+      "span_id": "span_ns_update",
+      "document_id": "doc_ns_update",
+      "locator": {
+        "kind": "docx_paragraph",
+        "part_uri": "word/document.xml",
+        "block_index": 0,
+        "paragraph_index": 0,
+        "heading_path": [
+          "Synthetic source"
+        ]
+      },
+      "quote": "SYNTHETIC. Executed commercial contract with Aster Labs: annual fee USD 120,000, service term 2027-01-01 through 2027-12-31. This copy contains no acceptance certificate, invoice settlement or bank receipt. It says nothing about Birch Systems or customer ownership.",
+      "physical_source_verified": false
+    }
+  ],
+  "initial_claim_judgments": [
+    {
+      "claim_id": "claim_ns",
+      "support_status": "missing",
+      "truth_status": "document_only"
+    },
+    {
+      "claim_id": "claim_ns_econ",
+      "support_status": "missing",
+      "truth_status": "document_only"
+    }
+  ],
+  "forbidden_claims": [
+    "independently verified",
+    "deal success probability",
+    "all diligence complete"
+  ],
+  "negative_controls": {
+    "duplicate": "No extra criterion credit or score/rank change after the same fact has been approved.",
+    "unrelated": "No relevant criterion; ranking remains baseline.",
+    "invalid_locator": "Reject approval, no commit.",
+    "unapproved": "Staging/rejection leaves baseline committed ranking unchanged.",
+    "stale_revision": "Reject command atomically; preserve current committed state."
+  }
+}

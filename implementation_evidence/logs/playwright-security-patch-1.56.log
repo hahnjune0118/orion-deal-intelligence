@@ -1,0 +1,16 @@
+Collecting playwright==1.56.0
+  Downloading playwright-1.56.0-py3-none-manylinux1_x86_64.whl.metadata (3.5 kB)
+Requirement already satisfied: pyee<14,>=13 in ./.venv/lib/python3.12/site-packages (from playwright==1.56.0) (13.0.1)
+Requirement already satisfied: greenlet<4.0.0,>=3.1.1 in ./.venv/lib/python3.12/site-packages (from playwright==1.56.0) (3.5.6)
+Requirement already satisfied: typing-extensions in ./.venv/lib/python3.12/site-packages (from pyee<14,>=13->playwright==1.56.0) (4.16.0)
+Downloading playwright-1.56.0-py3-none-manylinux1_x86_64.whl (46.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 46.3/46.3 MB 49.9 MB/s eta 0:00:00
+Installing collected packages: playwright
+  Attempting uninstall: playwright
+    Found existing installation: playwright 1.55.0
+    Uninstalling playwright-1.55.0:
+      Successfully uninstalled playwright-1.55.0
+Successfully installed playwright-1.56.0
+
+[notice] A new release of pip is available: 25.0.1 -> 26.3
+[notice] To update, run: python -m pip install --upgrade pip

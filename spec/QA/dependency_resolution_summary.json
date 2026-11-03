@@ -1,0 +1,525 @@
+{
+  "checked_on": "2026-11-03",
+  "status": "resolver dry-run passed; packages NOT installed or integration-tested",
+  "environment": {
+    "implementation_name": "cpython",
+    "implementation_version": "3.12.14",
+    "os_name": "posix",
+    "platform_machine": "x86_64",
+    "platform_release": "6.18.57",
+    "platform_system": "Linux",
+    "platform_version": "#1 SMP Tue Oct 20 21:56:04 UTC 2026",
+    "python_full_version": "3.12.14",
+    "platform_python_implementation": "CPython",
+    "python_version": "3.12",
+    "sys_platform": "linux"
+  },
+  "direct_count": 17,
+  "resolved_count": 63,
+  "packages": [
+    {
+      "name": "dash",
+      "version": "3.2.0",
+      "requested": true,
+      "archive_hashes": {
+        "sha256": "4c1819588d83bed2cbcf5807daa5c2380c8c85789a6935a733f018f04ad8a6a2"
+      }
+    },
+    {
+      "name": "dash_ag_grid",
+      "version": "32.3.2",
+      "requested": true,
+      "archive_hashes": {
+        "sha256": "a690d18a83ebba96e68e63d928f3e30f97d38a8a6418ddd479db4ce825c0de91"
+      }
+    },
+    {
+      "name": "plotly",
+      "version": "6.3.0",
+      "requested": true,
+      "archive_hashes": {
+        "sha256": "7ad806edce9d3cdd882eaebaf97c0c9e252043ed1ed3d382c3e3520ec07806d4"
+      }
+    },
+    {
+      "name": "pydantic",
+      "version": "2.11.7",
+      "requested": true,
+      "archive_hashes": {
+        "sha256": "dde5df002701f6de26248661f6835bbe296a47bf73990135c7d07ce741b9623b"
+      }
+    },
+    {
+      "name": "pypdf",
+      "version": "6.21.4",
+      "requested": true,
+      "archive_hashes": {
+        "sha256": "33e4fb41ca352810eb4e9838aa0d82d6888a5f8bf682f43e99cce5faa666255c"
+      }
+    },
+    {
+      "name": "python-docx",
+      "version": "1.2.0",
+      "requested": true,
+      "archive_hashes": {
+        "sha256": "3fd478f3250fbbbfd3b94fe1e985955737c145627498896a8a6bf81f4baf66c7"
+      }
+    },
+    {
+      "name": "python-pptx",
+      "version": "1.0.2",
+      "requested": true,
+      "archive_hashes": {
+        "sha256": "160838e0b8565a8b1f67947675886e9fea18aa5e795db7ae531606d68e785cba"
+      }
+    },
+    {
+      "name": "openpyxl",
+      "version": "3.1.5",
+      "requested": true,
+      "archive_hashes": {
+        "sha256": "5282c12b107bffeef825f4617dc029afaf41d0ea60823bbb665ef3079dc79de2"
+      }
+    },
+    {
+      "name": "openai",
+      "version": "1.109.1",
+      "requested": true,
+      "archive_hashes": {
+        "sha256": "6bcaf57086cf59159b8e27447e4e7dd019db5d29a438072fbd49c290c7e65315"
+      }
+    },
+    {
+      "name": "httpx",
+      "version": "0.28.1",
+      "requested": true,
+      "archive_hashes": {
+        "sha256": "d909fcccc110f8c7faf814ca82a9a4d816bc5a6dbfea25d6591d6985b8ba59ad"
+      }
+    },
+    {
+      "name": "jsonschema",
+      "version": "4.25.1",
+      "requested": true,
+      "archive_hashes": {
+        "sha256": "3fba0169e345c7175110351d456342c364814cfcf3b964ba4587f22915230a63"
+      }
+    },
+    {
+      "name": "pytest",
+      "version": "8.4.2",
+      "requested": true,
+      "archive_hashes": {
+        "sha256": "872f880de3fc3a5bdc88a11b39c9710c3497a547cfa9320bc3c5e62fbf272e79"
+      }
+    },
+    {
+      "name": "pytest-playwright",
+      "version": "0.7.1",
+      "requested": true,
+      "archive_hashes": {
+        "sha256": "fcc46510fb75f8eba6df3bc8e84e4e902483d92be98075f20b9d160651a36d90"
+      }
+    },
+    {
+      "name": "playwright",
+      "version": "1.55.0",
+      "requested": true,
+      "archive_hashes": {
+        "sha256": "c6d4d8f6f8c66c483b0835569c7f0caa03230820af8e500c181c93509c92d831"
+      }
+    },
+    {
+      "name": "gunicorn",
+      "version": "23.0.0",
+      "requested": true,
+      "archive_hashes": {
+        "sha256": "ec400d38950de4dfd418cff8328b2c8faed0edb0d517d3394e457c317908ca4d"
+      }
+    },
+    {
+      "name": "waitress",
+      "version": "3.0.2",
+      "requested": true,
+      "archive_hashes": {
+        "sha256": "c56d67fd6e87c2ee598b76abdd4e96cfad1f24cacdea5078d382b1f9d7b5ed2e"
+      }
+    },
+    {
+      "name": "python-dotenv",
+      "version": "1.1.1",
+      "requested": true,
+      "archive_hashes": {
+        "sha256": "31f23644fe2602f88ff55e1f5c79ba497e01224ee7737937930c448e4d0e24dc"
+      }
+    },
+    {
+      "name": "httpcore",
+      "version": "1.0.9",
+      "requested": false,
+      "archive_hashes": {
+        "sha256": "2d400746a40668fc9dec9810239072b40b4484b640a8c38fd654a024c7a1bf55"
+      }
+    },
+    {
+      "name": "pydantic_core",
+      "version": "2.33.2",
+      "requested": false,
+      "archive_hashes": {
+        "sha256": "8f57a69461af2a5fa6e6bbd7a5f60d3b7e6cebb687f55106933188e79ad155c1"
+      }
+    },
+    {
+      "name": "annotated-types",
+      "version": "0.8.0",
+      "requested": false,
+      "archive_hashes": {
+        "sha256": "f072f4d804ea359e4eaf198b1af7a8b0943881a87f31bb764f8bf219bb9419e0"
+      }
+    },
+    {
+      "name": "anyio",
+      "version": "4.16.0",
+      "requested": false,
+      "archive_hashes": {
+        "sha256": "c66ae634e0b8228396b801741beb3294326d4b6102f7bba4041c0dfb58c29026"
+      }
+    },
+    {
+      "name": "attrs",
+      "version": "26.1.0",
+      "requested": false,
+      "archive_hashes": {
+        "sha256": "c647aa4a12dfbad9333ca4e71fe62ddc36f4e63b2d260a37a8b83d2f043ac309"
+      }
+    },
+    {
+      "name": "distro",
+      "version": "1.9.0",
+      "requested": false,
+      "archive_hashes": {
+        "sha256": "7bffd925d65168f85027d8da9af6bddab658135b840670a223589bc0c8ef02b2"
+      }
+    },
+    {
+      "name": "Flask",
+      "version": "3.1.3",
+      "requested": false,
+      "archive_hashes": {
+        "sha256": "f4bcbefc124291925f1a26446da31a5178f9483862233b23c0c96a20701f670c"
+      }
+    },
+    {
+      "name": "greenlet",
+      "version": "3.5.6",
+      "requested": false,
+      "archive_hashes": {
+        "sha256": "975736b002ed080d124cf81a79cb7e05cb26d6b3f5c7a7b651c0fcce70353aa1"
+      }
+    },
+    {
+      "name": "idna",
+      "version": "3.20",
+      "requested": false,
+      "archive_hashes": {
+        "sha256": "ab7ae7122974553370f0bdb919e1a960b2cd1bc1ef0276416d896db81c14582c"
+      }
+    },
+    {
+      "name": "iniconfig",
+      "version": "2.3.1",
+      "requested": false,
+      "archive_hashes": {
+        "sha256": "9121e2c1fdb355232495be3194c8dfe87ccc2d5dee45947b78e68f499790d7a7"
+      }
+    },
+    {
+      "name": "jiter",
+      "version": "0.18.0",
+      "requested": false,
+      "archive_hashes": {
+        "sha256": "b3c741e6b778c951a6861964ee475118812a33208426c54fb92bf4e318bda834"
+      }
+    },
+    {
+      "name": "jsonschema-specifications",
+      "version": "2025.9.1",
+      "requested": false,
+      "archive_hashes": {
+        "sha256": "98802fee3a11ee76ecaca44429fda8a41bff98b00a0f2838151b113f210cc6fe"
+      }
+    },
+    {
+      "name": "lxml",
+      "version": "6.1.3",
+      "requested": false,
+      "archive_hashes": {
+        "sha256": "909f4e927bb051f7740d6367285fc60cdcfdaf0258c2dba4ff5ba7eadadc250c"
+      }
+    },
+    {
+      "name": "narwhals",
+      "version": "2.28.0",
+      "requested": false,
+      "archive_hashes": {
+        "sha256": "1f69d6385ec30e2fa6e1fdeb37c562ecabd0f713f6f3e3b58a668c5c9df9567f"
+      }
+    },
+    {
+      "name": "packaging",
+      "version": "26.3",
+      "requested": false,
+      "archive_hashes": {
+        "sha256": "d7193f7c8e4e93f444fde0262bf90af30e16fa0ad0ad44cb553c87339b23cd1c"
+      }
+    },
+    {
+      "name": "pillow",
+      "version": "13.0.0",
+      "requested": false,
+      "archive_hashes": {
+        "sha256": "42d63be3af4f9b951b199b0a9d23365d37ab14687e6d77b74940432c8515c4ca"
+      }
+    },
+    {
+      "name": "pluggy",
+      "version": "1.7.0",
+      "requested": false,
+      "archive_hashes": {
+        "sha256": "7dd7b0d8832ba3cb632c306926ded123429211b83641b35dc5c41ad2d34f9bec"
+      }
+    },
+    {
+      "name": "pyee",
+      "version": "13.0.1",
+      "requested": false,
+      "archive_hashes": {
+        "sha256": "af2f8fede4171ef667dfded53f96e2ed0d6e6bd7ee3bb46437f77e3b57689228"
+      }
+    },
+    {
+      "name": "Pygments",
+      "version": "2.21.0",
+      "requested": false,
+      "archive_hashes": {
+        "sha256": "2363c69b61c4a97c838da3b130dcd6468f4848992b21a82f2a63ec34377137d9"
+      }
+    },
+    {
+      "name": "pytest-base-url",
+      "version": "2.1.0",
+      "requested": false,
+      "archive_hashes": {
+        "sha256": "3ad15611778764d451927b2a53240c1a7a591b521ea44cebfe45849d2d2812e6"
+      }
+    },
+    {
+      "name": "python-slugify",
+      "version": "8.0.4",
+      "requested": false,
+      "archive_hashes": {
+        "sha256": "276540b79961052b66b7d116620b36518847f52d5fd9e3a70164fc8c50faa6b8"
+      }
+    },
+    {
+      "name": "referencing",
+      "version": "0.37.0",
+      "requested": false,
+      "archive_hashes": {
+        "sha256": "381329a9f99628c9069361716891d34ad94af76e461dcb0335825aecc7692231"
+      }
+    },
+    {
+      "name": "requests",
+      "version": "2.34.2",
+      "requested": false,
+      "archive_hashes": {
+        "sha256": "2a0d60c172f83ac6ab31e4554906c0f3b3588d37b5cb939b1c061f4907e278e0"
+      }
+    },
+    {
+      "name": "certifi",
+      "version": "2026.10.23",
+      "requested": false,
+      "archive_hashes": {
+        "sha256": "e9b54de76e530bb6cf0ccd036787103acb58fd42ba930ea8bf948ddbaa2f61d1"
+      }
+    },
+    {
+      "name": "rpds-py",
+      "version": "2026.9.1",
+      "requested": false,
+      "archive_hashes": {
+        "sha256": "addeda51556dac7c1a2f14cda62db8b621cd12afba3091d03a96c72932387eab"
+      }
+    },
+    {
+      "name": "tqdm",
+      "version": "4.70.1",
+      "requested": false,
+      "archive_hashes": {
+        "sha256": "c293e525e6fef9c20e8728fd4612df02a0aa31bb5fe91ecd93e123b1b7bffa73"
+      }
+    },
+    {
+      "name": "typing_extensions",
+      "version": "4.16.0",
+      "requested": false,
+      "archive_hashes": {
+        "sha256": "481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8"
+      }
+    },
+    {
+      "name": "typing-inspection",
+      "version": "0.4.4",
+      "requested": false,
+      "archive_hashes": {
+        "sha256": "65b8397ba37ccbce054456aaccddfc91e6e3083c92824df348d96ca832f3f147"
+      }
+    },
+    {
+      "name": "Werkzeug",
+      "version": "3.1.9",
+      "requested": false,
+      "archive_hashes": {
+        "sha256": "6392e50c78460ba618e5b21f08a71f59c99ce99cdc6cf6e3dd7e6ccca8754fab"
+      }
+    },
+    {
+      "name": "xlsxwriter",
+      "version": "3.3.1",
+      "requested": false,
+      "archive_hashes": {
+        "sha256": "8e2c89e59d733fe59e112317218c64fbbc276d90a8c144ebd6f7fa15e7ab184a"
+      }
+    },
+    {
+      "name": "et_xmlfile",
+      "version": "2.0.0",
+      "requested": false,
+      "archive_hashes": {
+        "sha256": "7a91720bc756843502c3b7504c77b8fe44217c85c537d85037f0f536151b2caa"
+      }
+    },
+    {
+      "name": "importlib_metadata",
+      "version": "10.1.0",
+      "requested": false,
+      "archive_hashes": {
+        "sha256": "cf45ce66a929c64e994185a809c04840d0501db17e663810d993d0f4829265c7"
+      }
+    },
+    {
+      "name": "nest-asyncio",
+      "version": "1.6.0",
+      "requested": false,
+      "archive_hashes": {
+        "sha256": "87af6efd6b5e897c81050477ef65c62e2b2f35d51703cae01aff2905b1852e1c"
+      }
+    },
+    {
+      "name": "retrying",
+      "version": "1.4.2",
+      "requested": false,
+      "archive_hashes": {
+        "sha256": "bbc004aeb542a74f3569aeddf42a2516efefcdaff90df0eb38fbfbf19f179f59"
+      }
+    },
+    {
+      "name": "setuptools",
+      "version": "84.2.1",
+      "requested": false,
+      "archive_hashes": {
+        "sha256": "ca140b45d5325a9478f880e351484f62fef15f336462e449ca0c03c873d589c2"
+      }
+    },
+    {
+      "name": "sniffio",
+      "version": "1.3.1",
+      "requested": false,
+      "archive_hashes": {
+        "sha256": "2f6da418d1f1e0fddd844478f41680e794e6051915791a034ff65e5f100525a2"
+      }
+    },
+    {
+      "name": "blinker",
+      "version": "1.9.0",
+      "requested": false,
+      "archive_hashes": {
+        "sha256": "ba0efaa9080b619ff2f3459d1d500c57bddea4a6b424b60a91141db6fd2f08bc"
+      }
+    },
+    {
+      "name": "charset-normalizer",
+      "version": "3.5.2",
+      "requested": false,
+      "archive_hashes": {
+        "sha256": "3d31298449090ab8d47b7b1b2a555ff73cac7ed438a08b7ac160980c7ebed649"
+      }
+    },
+    {
+      "name": "click",
+      "version": "8.5.0",
+      "requested": false,
+      "archive_hashes": {
+        "sha256": "255bc9599cf7748b4b1a446ccc735421bd08a2ae529a8b88597d3de5664ee360"
+      }
+    },
+    {
+      "name": "h11",
+      "version": "0.16.0",
+      "requested": false,
+      "archive_hashes": {
+        "sha256": "63cf8bbe7522de3bf65932fda1d9c2772064ffb3dae62d55932da54b31cb6c86"
+      }
+    },
+    {
+      "name": "itsdangerous",
+      "version": "2.2.0",
+      "requested": false,
+      "archive_hashes": {
+        "sha256": "c6242fc49e35958c8b15141343aa660db5fc54d4f13a1db01a3f5891b98700ef"
+      }
+    },
+    {
+      "name": "Jinja2",
+      "version": "3.1.6",
+      "requested": false,
+      "archive_hashes": {
+        "sha256": "85ece4451f492d0c13c5dd7c13a64681a86afae63a5f347908daf103ce6d2f67"
+      }
+    },
+    {
+      "name": "MarkupSafe",
+      "version": "3.0.4",
+      "requested": false,
+      "archive_hashes": {
+        "sha256": "8e124f974786f831d6043728e38296969d3579db8896fe004682f5758e613581"
+      }
+    },
+    {
+      "name": "text-unidecode",
+      "version": "1.3",
+      "requested": false,
+      "archive_hashes": {
+        "sha256": "1311f10e8b895935241623731c2ba64f4c455287888b18189350b67134a822e8"
+      }
+    },
+    {
+      "name": "urllib3",
+      "version": "2.8.0",
+      "requested": false,
+      "archive_hashes": {
+        "sha256": "0cf3cae568d36aa9576b28dfb35f11328f1cb974ca7647d9475ebb86c75ac6e3"
+      }
+    },
+    {
+      "name": "zipp",
+      "version": "4.1.2",
+      "requested": false,
+      "archive_hashes": {
+        "sha256": "b30cb6cd253122169c47de245ca24a86bac2a5d3802ba15bf7ba6414eb9e144d"
+      }
+    }
+  ]
+}

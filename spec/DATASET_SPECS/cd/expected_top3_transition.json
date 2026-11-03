@@ -1,0 +1,83 @@
+{
+  "kind": "expected_top3_transition",
+  "contract_version": "1.0.0",
+  "deal_id": "deal_cd",
+  "event_id": "update_cd",
+  "approval": {
+    "id": "decision_cd_update",
+    "entity_version": 1,
+    "deal_id": "deal_cd",
+    "actor_id": "actor_fixture_reviewer",
+    "actor_role": "reviewer",
+    "target_type": "evidence_update",
+    "target_id": "update_cd",
+    "target_version": 1,
+    "selection_digest": null,
+    "action": "approve",
+    "reason": "Approve this synthetic event after inspecting its exact scope.",
+    "base_revision": 1,
+    "decided_at": "2026-11-04T00:01:00Z"
+  },
+  "before_revision": 1,
+  "after_revision": 2,
+  "before_top3": [
+    "q_cd_cutoff",
+    "q_cd_warranty",
+    "q_cd_inventory"
+  ],
+  "after_top3": [
+    "q_cd_warranty",
+    "q_cd_inventory",
+    "q_cd_receivable"
+  ],
+  "question_changes": [
+    {
+      "question_id": "q_cd_cutoff",
+      "before_rank": 1,
+      "after_rank": null,
+      "before_score": 100.0,
+      "after_score": null,
+      "before_status": "open",
+      "after_status": "resolved",
+      "reason": "CRITERIA_SATISFIED"
+    },
+    {
+      "question_id": "q_cd_warranty",
+      "before_rank": 2,
+      "after_rank": 1,
+      "before_score": 94.0,
+      "after_score": 94.0,
+      "before_status": "open",
+      "after_status": "open",
+      "reason": "RESIDUAL_PROMOTED"
+    },
+    {
+      "question_id": "q_cd_inventory",
+      "before_rank": 3,
+      "after_rank": 2,
+      "before_score": 89.0,
+      "after_score": 89.0,
+      "before_status": "open",
+      "after_status": "open",
+      "reason": "RESIDUAL_PROMOTED"
+    },
+    {
+      "question_id": "q_cd_receivable",
+      "before_rank": 4,
+      "after_rank": 3,
+      "before_score": 86.0,
+      "after_score": 86.0,
+      "before_status": "open",
+      "after_status": "open",
+      "reason": "RESIDUAL_PROMOTED"
+    }
+  ],
+  "claim_after": [
+    {
+      "claim_id": "claim_cd",
+      "support_status": "partial",
+      "truth_status": "document_only"
+    }
+  ],
+  "expected_live_api_calls": 0
+}

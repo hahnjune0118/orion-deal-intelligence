@@ -1,0 +1,484 @@
+{
+  "kind": "deal_state",
+  "contract_version": "1.0.0",
+  "state_revision": 1,
+  "mode": "demo",
+  "deal": {
+    "id": "deal_ns",
+    "entity_version": 1,
+    "name": "Northstar Analytics",
+    "business_model": "B2B AI subscriptions plus implementation services",
+    "currency": "USD",
+    "synthetic": true,
+    "as_of": "2026-11-03",
+    "thesis_ids": [
+      "thesis_ns"
+    ]
+  },
+  "documents": [
+    {
+      "id": "doc_ns_overview",
+      "entity_version": 1,
+      "deal_id": "deal_ns",
+      "filename": "ns_overview.pdf",
+      "format": "pdf",
+      "document_version": 1,
+      "asset_status": "fixture_text_only",
+      "file_sha256": null,
+      "parse_status": "parsed",
+      "parser_version": "fixture-text-1.0.0",
+      "source_origin": "company",
+      "origin_key": "ns_overview",
+      "created_at": "2026-11-03T00:00:00Z"
+    }
+  ],
+  "source_spans": [
+    {
+      "id": "span_ns_overview",
+      "entity_version": 1,
+      "deal_id": "deal_ns",
+      "document_id": "doc_ns_overview",
+      "document_version": 1,
+      "locator": {
+        "kind": "pdf",
+        "page": 1,
+        "block_index": 0
+      },
+      "normalized_text": "SYNTHETIC. Northstar reports PoCs with Aster Labs and Birch Systems. No executed paid contract, acceptance certificate or receipt is included. FY2025 revenue USD 1,200,000; cost of revenue USD 360,000; operating expense excluding depreciation USD 720,000; EBITDA USD 120,000.",
+      "text_sha256": "f7dfbee75ef2a59765ffa77df69c88d332d6212b01edf45e63c6af6a59c2b88e",
+      "quote": "SYNTHETIC. Northstar reports PoCs with Aster Labs and Birch Systems. No executed paid contract, acceptance certificate or receipt is included. FY2025 revenue USD 1,200,000; cost of revenue USD 360,000; operating expense excluding depreciation USD 720,000; EBITDA USD 120,000.",
+      "start": 0,
+      "end": 275,
+      "locator_status": "validated",
+      "extraction_method": "fixture"
+    }
+  ],
+  "theses": [
+    {
+      "id": "thesis_ns",
+      "entity_version": 1,
+      "deal_id": "deal_ns",
+      "title": "By 2027-10-31 at least two independent target customers have paid commercial contracts, acceptance and collection.",
+      "counter_thesis": "Commercial assumptions may not be supported by sufficient records.",
+      "claim_ids": [
+        "claim_ns",
+        "claim_ns_econ"
+      ],
+      "review_status": "approved"
+    }
+  ],
+  "claims": [
+    {
+      "id": "claim_ns",
+      "entity_version": 1,
+      "deal_id": "deal_ns",
+      "thesis_id": "thesis_ns",
+      "statement": "By 2027-10-31 at least two independent target customers have paid commercial contracts, acceptance and collection.",
+      "subject_key": "ns",
+      "period_start": "2026-11-01",
+      "period_end": "2027-10-31",
+      "claim_kind": "binary_hypothesis",
+      "source_span_ids": [
+        "span_ns_overview"
+      ],
+      "required_criterion_keys": [
+        "contract_a",
+        "contract_b",
+        "accept_a",
+        "accept_b",
+        "collect_a",
+        "collect_b",
+        "independence"
+      ],
+      "support_status": "missing",
+      "truth_status": "document_only",
+      "review_status": "approved"
+    },
+    {
+      "id": "claim_ns_econ",
+      "entity_version": 1,
+      "deal_id": "deal_ns",
+      "thesis_id": "thesis_ns",
+      "statement": "FY2025 recurring gross margin is supported by a reconciliation of subscription revenue and delivery costs.",
+      "subject_key": "ns_econ",
+      "period_start": "2025-01-01",
+      "period_end": "2025-12-31",
+      "claim_kind": "company_reported",
+      "source_span_ids": [
+        "span_ns_overview"
+      ],
+      "required_criterion_keys": [
+        "margin_bridge"
+      ],
+      "support_status": "missing",
+      "truth_status": "document_only",
+      "review_status": "approved"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "ev_ns_initial",
+      "entity_version": 1,
+      "deal_id": "deal_ns",
+      "claim_id": "claim_ns",
+      "source_span_ids": [
+        "span_ns_overview"
+      ],
+      "stance": "context",
+      "criterion_keys": [],
+      "provenance": "company_reported",
+      "source_reliability": 3,
+      "reliability_rationale": "Synthetic document inspected by fixture author; no independent authentication.",
+      "verification_level": "document_only",
+      "independent_check_reference": null,
+      "origin_key": "ns_initial",
+      "review_status": "approved",
+      "lifecycle": "active",
+      "created_at": "2026-11-03T00:00:00Z"
+    }
+  ],
+  "evidence_relations": [],
+  "dd_questions": [
+    {
+      "id": "q_ns_contract_a",
+      "entity_version": 1,
+      "deal_id": "deal_ns",
+      "claim_id": "claim_ns",
+      "canonical_key": "ns.contract.aster",
+      "issue": "Aster paid commercial contract",
+      "request_text": "Provide the executed paid commercial contract between Northstar and Aster Labs effective within 2026-11-01 through 2027-10-31, including counterparties, signature status, service term and fee. Acceptance and collection will be reviewed separately.",
+      "financial_driver": "revenue_quality",
+      "requirements": [
+        {
+          "key": "contract_a",
+          "label": "contract a",
+          "min_reliability": 3,
+          "require_independent": false
+        }
+      ],
+      "materiality": {
+        "score": 5,
+        "basis": "analyst_rubric",
+        "exposure_minor": null,
+        "denominator_minor": null,
+        "rationale": "Predeclared synthetic scenario materiality; not a measured loss estimate.",
+        "source_span_ids": []
+      },
+      "obtainability": {
+        "score": 5,
+        "basis": "analyst_estimate",
+        "days": null,
+        "external_cost_minor": null,
+        "rationale": "Predeclared analyst estimate; validate with document owner in Local Live."
+      },
+      "review_status": "approved",
+      "workflow_status": "open",
+      "duplicate_of": null,
+      "owner_label": "Demo analyst"
+    },
+    {
+      "id": "q_ns_contract_b",
+      "entity_version": 1,
+      "deal_id": "deal_ns",
+      "claim_id": "claim_ns",
+      "canonical_key": "ns.contract.birch",
+      "issue": "Birch independent paid commercial contract",
+      "request_text": "Provide the executed paid commercial contract between Northstar and Birch Systems effective within 2026-11-01 through 2027-10-31, including counterparties, signature status, service term and fee. Customer ownership independence requires separate evidence.",
+      "financial_driver": "revenue_quality",
+      "requirements": [
+        {
+          "key": "contract_b",
+          "label": "contract b",
+          "min_reliability": 3,
+          "require_independent": false
+        }
+      ],
+      "materiality": {
+        "score": 5,
+        "basis": "analyst_rubric",
+        "exposure_minor": null,
+        "denominator_minor": null,
+        "rationale": "Predeclared synthetic scenario materiality; not a measured loss estimate.",
+        "source_span_ids": []
+      },
+      "obtainability": {
+        "score": 4,
+        "basis": "analyst_estimate",
+        "days": null,
+        "external_cost_minor": null,
+        "rationale": "Predeclared analyst estimate; validate with document owner in Local Live."
+      },
+      "review_status": "approved",
+      "workflow_status": "open",
+      "duplicate_of": null,
+      "owner_label": "Demo analyst"
+    },
+    {
+      "id": "q_ns_accept_collect",
+      "entity_version": 1,
+      "deal_id": "deal_ns",
+      "claim_id": "claim_ns",
+      "canonical_key": "ns.acceptance.collection",
+      "issue": "Acceptance and collection for both target customers",
+      "request_text": "For Aster Labs and Birch Systems during 2026-11-01 through 2027-10-31, provide customer acceptance records and invoices matched to bank receipts or settlement records. Identify which customer and service period each record covers.",
+      "financial_driver": "revenue_quality",
+      "requirements": [
+        {
+          "key": "accept_a",
+          "label": "accept a",
+          "min_reliability": 3,
+          "require_independent": false
+        },
+        {
+          "key": "accept_b",
+          "label": "accept b",
+          "min_reliability": 3,
+          "require_independent": false
+        },
+        {
+          "key": "collect_a",
+          "label": "collect a",
+          "min_reliability": 3,
+          "require_independent": false
+        },
+        {
+          "key": "collect_b",
+          "label": "collect b",
+          "min_reliability": 3,
+          "require_independent": false
+        }
+      ],
+      "materiality": {
+        "score": 4,
+        "basis": "analyst_rubric",
+        "exposure_minor": null,
+        "denominator_minor": null,
+        "rationale": "Predeclared synthetic scenario materiality; not a measured loss estimate.",
+        "source_span_ids": []
+      },
+      "obtainability": {
+        "score": 4,
+        "basis": "analyst_estimate",
+        "days": null,
+        "external_cost_minor": null,
+        "rationale": "Predeclared analyst estimate; validate with document owner in Local Live."
+      },
+      "review_status": "approved",
+      "workflow_status": "open",
+      "duplicate_of": null,
+      "owner_label": "Demo analyst"
+    },
+    {
+      "id": "q_ns_concentration",
+      "entity_version": 1,
+      "deal_id": "deal_ns",
+      "claim_id": "claim_ns",
+      "canonical_key": "ns.customer.independence",
+      "issue": "Independent ownership of both target customers",
+      "request_text": "Provide independent ownership records or equivalent independent confirmation for Aster Labs and Birch Systems as of their proposed 2026-11-01 through 2027-10-31 commercial engagements, establishing whether they are independently controlled.",
+      "financial_driver": "customer_concentration",
+      "requirements": [
+        {
+          "key": "independence",
+          "label": "independence",
+          "min_reliability": 3,
+          "require_independent": true
+        }
+      ],
+      "materiality": {
+        "score": 4,
+        "basis": "analyst_rubric",
+        "exposure_minor": null,
+        "denominator_minor": null,
+        "rationale": "Predeclared synthetic scenario materiality; not a measured loss estimate.",
+        "source_span_ids": []
+      },
+      "obtainability": {
+        "score": 3,
+        "basis": "analyst_estimate",
+        "days": null,
+        "external_cost_minor": null,
+        "rationale": "Predeclared analyst estimate; validate with document owner in Local Live."
+      },
+      "review_status": "approved",
+      "workflow_status": "open",
+      "duplicate_of": null,
+      "owner_label": "Demo analyst"
+    },
+    {
+      "id": "q_ns_unit_econ",
+      "entity_version": 1,
+      "deal_id": "deal_ns",
+      "claim_id": "claim_ns_econ",
+      "canonical_key": "ns.unit.margin",
+      "issue": "Recurring gross margin bridge",
+      "request_text": "Provide the FY2025 subscription revenue and delivery-cost reconciliation, showing how recurring gross margin is calculated separately from implementation services and identifying underlying ledger records.",
+      "financial_driver": "unit_economics",
+      "requirements": [
+        {
+          "key": "margin_bridge",
+          "label": "margin bridge",
+          "min_reliability": 3,
+          "require_independent": false
+        }
+      ],
+      "materiality": {
+        "score": 3,
+        "basis": "analyst_rubric",
+        "exposure_minor": null,
+        "denominator_minor": null,
+        "rationale": "Predeclared synthetic scenario materiality; not a measured loss estimate.",
+        "source_span_ids": []
+      },
+      "obtainability": {
+        "score": 3,
+        "basis": "analyst_estimate",
+        "days": null,
+        "external_cost_minor": null,
+        "rationale": "Predeclared analyst estimate; validate with document owner in Local Live."
+      },
+      "review_status": "approved",
+      "workflow_status": "open",
+      "duplicate_of": null,
+      "owner_label": "Demo analyst"
+    }
+  ],
+  "ranking_snapshots": [
+    {
+      "id": "snap_ns_initial",
+      "entity_version": 1,
+      "deal_id": "deal_ns",
+      "state_revision": 1,
+      "scoring_version": "1.0.0",
+      "input_digest": "2f4b4451677b6a07f061576b7783cfb3bfbcc10576a143d7347d6f3adb11ac68",
+      "created_at": "2026-11-03T00:00:00Z",
+      "trigger_event_id": null,
+      "rows": [
+        {
+          "question_id": "q_ns_contract_a",
+          "rank": 1,
+          "gap": 5.0,
+          "materiality": 5,
+          "obtainability": 5,
+          "score": 100.0,
+          "provisional": false,
+          "reason_codes": [
+            "EVIDENCE_GAP"
+          ]
+        },
+        {
+          "question_id": "q_ns_contract_b",
+          "rank": 2,
+          "gap": 5.0,
+          "materiality": 5,
+          "obtainability": 4,
+          "score": 97.0,
+          "provisional": false,
+          "reason_codes": [
+            "EVIDENCE_GAP"
+          ]
+        },
+        {
+          "question_id": "q_ns_accept_collect",
+          "rank": 3,
+          "gap": 5.0,
+          "materiality": 4,
+          "obtainability": 4,
+          "score": 89.0,
+          "provisional": false,
+          "reason_codes": [
+            "EVIDENCE_GAP"
+          ]
+        },
+        {
+          "question_id": "q_ns_concentration",
+          "rank": 4,
+          "gap": 5.0,
+          "materiality": 4,
+          "obtainability": 3,
+          "score": 86.0,
+          "provisional": false,
+          "reason_codes": [
+            "EVIDENCE_GAP"
+          ]
+        },
+        {
+          "question_id": "q_ns_unit_econ",
+          "rank": 5,
+          "gap": 5.0,
+          "materiality": 3,
+          "obtainability": 3,
+          "score": 78.0,
+          "provisional": false,
+          "reason_codes": [
+            "EVIDENCE_GAP"
+          ]
+        }
+      ],
+      "top3": [
+        "q_ns_contract_a",
+        "q_ns_contract_b",
+        "q_ns_accept_collect"
+      ]
+    }
+  ],
+  "analyst_decisions": [
+    {
+      "id": "decision_ns_seed",
+      "entity_version": 1,
+      "deal_id": "deal_ns",
+      "actor_id": "actor_fixture_reviewer",
+      "actor_role": "reviewer",
+      "target_type": "seed",
+      "target_id": "deal_ns",
+      "target_version": 1,
+      "selection_digest": null,
+      "action": "approve",
+      "reason": "Authored synthetic initial state for specification arithmetic only.",
+      "base_revision": 0,
+      "decided_at": "2026-11-03T00:00:00Z"
+    }
+  ],
+  "audit_events": [
+    {
+      "id": "audit_ns_seed",
+      "entity_version": 1,
+      "deal_id": "deal_ns",
+      "sequence": 1,
+      "event_type": "seed_created",
+      "actor_id": "actor_fixture_reviewer",
+      "decision_id": "decision_ns_seed",
+      "before_revision": 0,
+      "after_revision": 1,
+      "idempotency_key": "ns_seed_v1",
+      "before_snapshot_id": null,
+      "after_snapshot_id": "snap_ns_initial",
+      "reason": "Initial synthetic branch.",
+      "created_at": "2026-11-03T00:00:00Z",
+      "previous_hash": null,
+      "event_hash": "6399e09e8aea24e094b89087b10a43bb040ce2b463788316c2e102fe863f1400"
+    }
+  ],
+  "analysis_runs": [
+    {
+      "id": "run_ns_cached",
+      "entity_version": 1,
+      "deal_id": "deal_ns",
+      "mode": "cached",
+      "status": "completed",
+      "model_id": null,
+      "prompt_version": "authored-fixture-1.0.0",
+      "input_digest": "f7dfbee75ef2a59765ffa77df69c88d332d6212b01edf45e63c6af6a59c2b88e",
+      "output_digest": "3cd26c3ebe8592f0ba3f48e72b9e0647b701b39a0e42686c2e51fbf5d00b1c5e",
+      "token_input": 0,
+      "token_output": 0,
+      "reserved_cost_usd": 0,
+      "actual_cost_usd": 0,
+      "pricing_version": null,
+      "started_at": "2026-11-03T00:00:00Z",
+      "finished_at": "2026-11-03T00:00:00Z",
+      "error_code": null
+    }
+  ],
+  "head_snapshot_id": "snap_ns_initial"
+}

@@ -1,0 +1,50 @@
+name: Foundation
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  foundation:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            lock: requirements-linux.lock
+          - os: windows-latest
+            lock: requirements-win.lock
+    runs-on: ${{ matrix.os }}
+    env:
+      ORION_MODE: demo
+      OPENAI_API_KEY: dummy-ci-never-send
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: ${{ matrix.lock }}
+      - name: Install exact dependencies
+        run: python -m pip install --require-hashes -r ${{ matrix.lock }}
+      - name: Install project without implicit dependency resolution
+        run: python -m pip install --no-deps --no-build-isolation -e .
+      - run: python -m pip check
+      - name: Validate fixture
+        run: python -m orion.cli validate-fixture spec/EXAMPLES/initial_state.json
+      - name: Test Foundation
+        run: python -m pytest tests/contracts tests/repository tests/security tests/smoke -q --strict-markers --junitxml=foundation-tests.xml
+      - run: git diff --exit-code -- spec
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: foundation-${{ matrix.os }}
+          path: foundation-tests.xml
+  dependency-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --require-hashes -r requirements-tooling.lock
+      - run: python -m pip_audit -r requirements-linux.lock --disable-pip --no-deps
+      - run: python -m pip_audit -r requirements-win.lock --disable-pip --no-deps

@@ -1,0 +1,13 @@
+Obtaining file:///workspace/scratch/174be2a3a3a0/orion-foundation
+  Checking if build backend supports build_editable: started
+  Checking if build backend supports build_editable: finished with status 'done'
+  Preparing editable metadata (pyproject.toml): started
+  Preparing editable metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: orion-deal-intelligence
+  Building editable for orion-deal-intelligence (pyproject.toml): started
+  Building editable for orion-deal-intelligence (pyproject.toml): finished with status 'done'
+  Created wheel for orion-deal-intelligence: filename=orion_deal_intelligence-0.1.0-0.editable-py3-none-any.whl size=2026 sha256=ab6bb6aa12fcd33dc82faaa9fb473e7b0a33d115f0605da01ec2777216e9babe
+  Stored in directory: /tmp/pip-ephem-wheel-cache-9ie7v3ri/wheels/ba/e4/d2/d0d3599fdd53b3d146e51eafff836000446ed0ebd058be303c
+Successfully built orion-deal-intelligence
+Installing collected packages: orion-deal-intelligence
+Successfully installed orion-deal-intelligence-0.1.0

@@ -1,0 +1,117 @@
+{
+  "contract_version": "1.0.0",
+  "case_id": "cd",
+  "not_model_input": true,
+  "status": "author-proposed gold; requires independent review before measured evaluation",
+  "event_id": "update_cd",
+  "critical_before": [
+    "q_cd_cutoff",
+    "q_cd_warranty",
+    "q_cd_inventory"
+  ],
+  "critical_after": [
+    "q_cd_warranty",
+    "q_cd_inventory",
+    "q_cd_receivable"
+  ],
+  "expected_claim_after": [
+    {
+      "claim_id": "claim_cd",
+      "support_status": "partial",
+      "truth_status": "document_only"
+    }
+  ],
+  "request_families": [
+    {
+      "family_id": "q_cd_cutoff",
+      "canonical_key": "cd.revenue.cutoff",
+      "claim_id": "claim_cd",
+      "request": "Provide the dispatch record and customer acceptance for batch C-17, and match both to the USD 180,000 invoice and FY2025 reporting cut-off. Explain any difference in dispatch, acceptance and recognition dates.",
+      "required_criteria": [
+        "shipment_acceptance"
+      ],
+      "match_rule": "One-to-one semantic match on target, requested records, period and criteria. Keyword overlap alone is insufficient."
+    },
+    {
+      "family_id": "q_cd_warranty",
+      "canonical_key": "cd.warranty.reserve",
+      "claim_id": "claim_cd",
+      "request": "Provide FY2025 warranty claims, settlement records and the closing warranty reserve reconciliation, identifying the products and periods covered and explaining any unresolved differences.",
+      "required_criteria": [
+        "warranty"
+      ],
+      "match_rule": "One-to-one semantic match on target, requested records, period and criteria. Keyword overlap alone is insufficient."
+    },
+    {
+      "family_id": "q_cd_inventory",
+      "canonical_key": "cd.inventory.age",
+      "claim_id": "claim_cd",
+      "request": "Provide the FY2025 closing inventory ageing and recoverability assessment, including subsequent usage or sales support for slow-moving items and reconciliation to USD 1,200,000 inventory.",
+      "required_criteria": [
+        "inventory"
+      ],
+      "match_rule": "One-to-one semantic match on target, requested records, period and criteria. Keyword overlap alone is insufficient."
+    },
+    {
+      "family_id": "q_cd_receivable",
+      "canonical_key": "cd.ar.confirm",
+      "claim_id": "claim_cd",
+      "request": "Provide independent customer confirmations or subsequent settlement records for FY2025 closing receivables, with invoice-level reconciliation to USD 900,000 and dates of collection.",
+      "required_criteria": [
+        "ar_confirm"
+      ],
+      "match_rule": "One-to-one semantic match on target, requested records, period and criteria. Keyword overlap alone is insufficient."
+    }
+  ],
+  "citation_gold": [
+    {
+      "span_id": "span_cd_overview",
+      "document_id": "doc_cd_overview",
+      "locator": {
+        "kind": "docx_paragraph",
+        "part_uri": "word/document.xml",
+        "block_index": 0,
+        "paragraph_index": 0,
+        "heading_path": [
+          "Synthetic source"
+        ]
+      },
+      "quote": "SYNTHETIC. Cedar FY2025 revenue USD 6,000,000; cost of revenue USD 3,600,000; operating expense excluding depreciation USD 1,800,000; EBITDA USD 600,000. Batch C-17 invoice is USD 180,000. Its dispatch and acceptance record is missing.",
+      "physical_source_verified": false
+    },
+    {
+      "span_id": "span_cd_update",
+      "document_id": "doc_cd_update",
+      "locator": {
+        "kind": "docx_paragraph",
+        "part_uri": "word/document.xml",
+        "block_index": 0,
+        "paragraph_index": 0,
+        "heading_path": [
+          "Synthetic source"
+        ]
+      },
+      "quote": "SYNTHETIC. Batch C-17 dispatch log and customer acceptance match the USD 180,000 invoice and the reporting cut-off. No warranty reconciliation, inventory ageing or receivable confirmation is provided.",
+      "physical_source_verified": false
+    }
+  ],
+  "initial_claim_judgments": [
+    {
+      "claim_id": "claim_cd",
+      "support_status": "missing",
+      "truth_status": "document_only"
+    }
+  ],
+  "forbidden_claims": [
+    "independently verified",
+    "deal success probability",
+    "all diligence complete"
+  ],
+  "negative_controls": {
+    "duplicate": "No extra criterion credit or score/rank change after the same fact has been approved.",
+    "unrelated": "No relevant criterion; ranking remains baseline.",
+    "invalid_locator": "Reject approval, no commit.",
+    "unapproved": "Staging/rejection leaves baseline committed ranking unchanged.",
+    "stale_revision": "Reject command atomically; preserve current committed state."
+  }
+}

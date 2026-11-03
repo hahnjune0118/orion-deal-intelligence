@@ -1,0 +1,78 @@
+{
+  "kind": "staged_evidence_update",
+  "contract_version": "1.0.0",
+  "id": "update_ns",
+  "deal_id": "deal_ns",
+  "base_revision": 1,
+  "idempotency_key": "ns_event_001",
+  "validation_status": "validated",
+  "created_at": "2026-11-04T00:00:00Z",
+  "documents": [
+    {
+      "id": "doc_ns_update",
+      "entity_version": 1,
+      "deal_id": "deal_ns",
+      "filename": "ns_update.docx",
+      "format": "docx",
+      "document_version": 1,
+      "asset_status": "fixture_text_only",
+      "file_sha256": null,
+      "parse_status": "parsed",
+      "parser_version": "fixture-text-1.0.0",
+      "source_origin": "company",
+      "origin_key": "ns_update",
+      "created_at": "2026-11-03T00:00:00Z"
+    }
+  ],
+  "source_spans": [
+    {
+      "id": "span_ns_update",
+      "entity_version": 1,
+      "deal_id": "deal_ns",
+      "document_id": "doc_ns_update",
+      "document_version": 1,
+      "locator": {
+        "kind": "docx_paragraph",
+        "part_uri": "word/document.xml",
+        "block_index": 0,
+        "paragraph_index": 0,
+        "heading_path": [
+          "Synthetic source"
+        ]
+      },
+      "normalized_text": "SYNTHETIC. Executed commercial contract with Aster Labs: annual fee USD 120,000, service term 2027-01-01 through 2027-12-31. This copy contains no acceptance certificate, invoice settlement or bank receipt. It says nothing about Birch Systems or customer ownership.",
+      "text_sha256": "9d2367eb7d8787101fa47b186d921429cf8e8ced9dca288ad061a54971a87d6f",
+      "quote": "SYNTHETIC. Executed commercial contract with Aster Labs: annual fee USD 120,000, service term 2027-01-01 through 2027-12-31. This copy contains no acceptance certificate, invoice settlement or bank receipt. It says nothing about Birch Systems or customer ownership.",
+      "start": 0,
+      "end": 265,
+      "locator_status": "validated",
+      "extraction_method": "fixture"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "ev_ns_update",
+      "entity_version": 1,
+      "deal_id": "deal_ns",
+      "claim_id": "claim_ns",
+      "source_span_ids": [
+        "span_ns_update"
+      ],
+      "stance": "supports",
+      "criterion_keys": [
+        "contract_a"
+      ],
+      "provenance": "company_reported",
+      "source_reliability": 3,
+      "reliability_rationale": "Synthetic document inspected by fixture author; no independent authentication.",
+      "verification_level": "document_only",
+      "independent_check_reference": null,
+      "origin_key": "ns_update",
+      "review_status": "draft",
+      "lifecycle": "active",
+      "created_at": "2026-11-03T00:00:00Z"
+    }
+  ],
+  "evidence_relations": [],
+  "analyst_note": "One atomic synthetic evidence event. Staging alone changes no ranking."
+}

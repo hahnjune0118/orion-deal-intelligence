@@ -1,0 +1,19 @@
+# Direct dependency candidates: publisher release existence verified; integration not tested.
+# Python 3.12. Chunk 1 must generate OS-specific transitive hash locks.
+dash==3.2.0
+dash-ag-grid==32.3.2
+plotly==6.3.0
+pydantic==2.11.7
+pypdf==6.21.4
+python-docx==1.2.0
+python-pptx==1.0.2
+openpyxl==3.1.5
+openai==1.109.1
+httpx==0.28.1
+jsonschema==4.25.1
+pytest==8.4.2
+pytest-playwright==0.7.1
+playwright==1.55.0
+gunicorn==23.0.0; sys_platform != "win32"
+waitress==3.0.2
+python-dotenv==1.1.1

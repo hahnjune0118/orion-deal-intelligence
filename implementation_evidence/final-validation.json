@@ -1,0 +1,310 @@
+[
+  {
+    "label": "final-wheel-build",
+    "command": [
+      "/workspace/scratch/174be2a3a3a0/orion-foundation/.venv-release/bin/python",
+      "-m",
+      "pip",
+      "wheel",
+      "--no-deps",
+      "--no-build-isolation",
+      "--wheel-dir",
+      "dist",
+      "."
+    ],
+    "cwd": "/workspace/scratch/174be2a3a3a0/orion-foundation",
+    "started_at": "2026-11-03T05:58:59.493992+00:00",
+    "elapsed_seconds": 6.168,
+    "exit_code": 0,
+    "log": "logs/final-wheel-build.log"
+  },
+  {
+    "label": "final-wheel-install",
+    "command": [
+      "/workspace/scratch/174be2a3a3a0/orion-foundation/.venv-release/bin/python",
+      "-m",
+      "pip",
+      "install",
+      "--no-deps",
+      "--force-reinstall",
+      "/workspace/scratch/174be2a3a3a0/orion-foundation/dist/orion_deal_intelligence-0.1.0-py3-none-any.whl"
+    ],
+    "cwd": "/workspace/scratch/174be2a3a3a0/orion-foundation",
+    "started_at": "2026-11-03T05:59:05.662538+00:00",
+    "elapsed_seconds": 0.911,
+    "exit_code": 0,
+    "log": "logs/final-wheel-install.log"
+  },
+  {
+    "label": "final-pip-check",
+    "command": [
+      "/workspace/scratch/174be2a3a3a0/orion-foundation/.venv-release/bin/python",
+      "-m",
+      "pip",
+      "check"
+    ],
+    "cwd": "/workspace/scratch/174be2a3a3a0/orion-foundation",
+    "started_at": "2026-11-03T05:59:06.574214+00:00",
+    "elapsed_seconds": 0.379,
+    "exit_code": 0,
+    "log": "logs/final-pip-check.log"
+  },
+  {
+    "label": "final-wheel-import",
+    "command": [
+      "/workspace/scratch/174be2a3a3a0/orion-foundation/.venv-release/bin/python",
+      "-c",
+      "import orion, pathlib; p=pathlib.Path(orion.__file__); print(p); assert \"site-packages\" in str(p)"
+    ],
+    "cwd": "/workspace/scratch/174be2a3a3a0",
+    "started_at": "2026-11-03T05:59:06.953134+00:00",
+    "elapsed_seconds": 0.034,
+    "exit_code": 0,
+    "log": "logs/final-wheel-import.log"
+  },
+  {
+    "label": "final-spec-integrity",
+    "command": [
+      "/workspace/scratch/174be2a3a3a0/orion-foundation/.venv-release/bin/python",
+      "scripts/verify_spec.py"
+    ],
+    "cwd": "/workspace/scratch/174be2a3a3a0/orion-foundation",
+    "started_at": "2026-11-03T05:59:06.987828+00:00",
+    "elapsed_seconds": 0.033,
+    "exit_code": 0,
+    "log": "logs/final-spec-integrity.log"
+  },
+  {
+    "label": "final-pytest",
+    "command": [
+      "/workspace/scratch/174be2a3a3a0/orion-foundation/.venv-release/bin/python",
+      "-m",
+      "pytest",
+      "tests/contracts",
+      "tests/repository",
+      "tests/security",
+      "tests/smoke",
+      "-q",
+      "--strict-markers",
+      "--junitxml=implementation_evidence/final-pytest.xml"
+    ],
+    "cwd": "/workspace/scratch/174be2a3a3a0/orion-foundation",
+    "started_at": "2026-11-03T05:59:07.022258+00:00",
+    "elapsed_seconds": 8.326,
+    "exit_code": 0,
+    "log": "logs/final-pytest.log"
+  },
+  {
+    "label": "final-demo-ns",
+    "command": [
+      "/workspace/scratch/174be2a3a3a0/orion-foundation/.venv-release/bin/python",
+      "-m",
+      "orion.cli",
+      "seed-demo",
+      "--case",
+      "ns"
+    ],
+    "cwd": "/workspace/scratch/174be2a3a3a0",
+    "started_at": "2026-11-03T05:59:15.348131+00:00",
+    "elapsed_seconds": 0.24,
+    "exit_code": 0,
+    "log": "logs/final-demo-ns.log"
+  },
+  {
+    "label": "final-demo-cd",
+    "command": [
+      "/workspace/scratch/174be2a3a3a0/orion-foundation/.venv-release/bin/python",
+      "-m",
+      "orion.cli",
+      "seed-demo",
+      "--case",
+      "cd"
+    ],
+    "cwd": "/workspace/scratch/174be2a3a3a0",
+    "started_at": "2026-11-03T05:59:15.588094+00:00",
+    "elapsed_seconds": 0.236,
+    "exit_code": 0,
+    "log": "logs/final-demo-cd.log"
+  },
+  {
+    "label": "final-demo-lm",
+    "command": [
+      "/workspace/scratch/174be2a3a3a0/orion-foundation/.venv-release/bin/python",
+      "-m",
+      "orion.cli",
+      "seed-demo",
+      "--case",
+      "lm"
+    ],
+    "cwd": "/workspace/scratch/174be2a3a3a0",
+    "started_at": "2026-11-03T05:59:15.824183+00:00",
+    "elapsed_seconds": 0.248,
+    "exit_code": 0,
+    "log": "logs/final-demo-lm.log"
+  },
+  {
+    "label": "final-cli-EXAMPLES-initial_state",
+    "command": [
+      "/workspace/scratch/174be2a3a3a0/orion-foundation/.venv-release/bin/python",
+      "-m",
+      "orion.cli",
+      "validate-fixture",
+      "/workspace/scratch/174be2a3a3a0/orion-foundation/spec/EXAMPLES/initial_state.json"
+    ],
+    "cwd": "/workspace/scratch/174be2a3a3a0/orion-foundation",
+    "started_at": "2026-11-03T05:59:16.073028+00:00",
+    "elapsed_seconds": 0.266,
+    "exit_code": 0,
+    "log": "logs/final-cli-EXAMPLES-initial_state.log"
+  },
+  {
+    "label": "final-cli-EXAMPLES-staged_evidence_update",
+    "command": [
+      "/workspace/scratch/174be2a3a3a0/orion-foundation/.venv-release/bin/python",
+      "-m",
+      "orion.cli",
+      "validate-fixture",
+      "/workspace/scratch/174be2a3a3a0/orion-foundation/spec/EXAMPLES/staged_evidence_update.json"
+    ],
+    "cwd": "/workspace/scratch/174be2a3a3a0/orion-foundation",
+    "started_at": "2026-11-03T05:59:16.339885+00:00",
+    "elapsed_seconds": 0.238,
+    "exit_code": 0,
+    "log": "logs/final-cli-EXAMPLES-staged_evidence_update.log"
+  },
+  {
+    "label": "final-cli-EXAMPLES-expected_top3_transition",
+    "command": [
+      "/workspace/scratch/174be2a3a3a0/orion-foundation/.venv-release/bin/python",
+      "-m",
+      "orion.cli",
+      "validate-fixture",
+      "/workspace/scratch/174be2a3a3a0/orion-foundation/spec/EXAMPLES/expected_top3_transition.json"
+    ],
+    "cwd": "/workspace/scratch/174be2a3a3a0/orion-foundation",
+    "started_at": "2026-11-03T05:59:16.578420+00:00",
+    "elapsed_seconds": 0.233,
+    "exit_code": 0,
+    "log": "logs/final-cli-EXAMPLES-expected_top3_transition.log"
+  },
+  {
+    "label": "final-cli-DATASET_SPECS-cd-initial_state",
+    "command": [
+      "/workspace/scratch/174be2a3a3a0/orion-foundation/.venv-release/bin/python",
+      "-m",
+      "orion.cli",
+      "validate-fixture",
+      "/workspace/scratch/174be2a3a3a0/orion-foundation/spec/DATASET_SPECS/cd/initial_state.json"
+    ],
+    "cwd": "/workspace/scratch/174be2a3a3a0/orion-foundation",
+    "started_at": "2026-11-03T05:59:16.812158+00:00",
+    "elapsed_seconds": 0.265,
+    "exit_code": 0,
+    "log": "logs/final-cli-DATASET_SPECS-cd-initial_state.log"
+  },
+  {
+    "label": "final-cli-DATASET_SPECS-cd-staged_evidence_update",
+    "command": [
+      "/workspace/scratch/174be2a3a3a0/orion-foundation/.venv-release/bin/python",
+      "-m",
+      "orion.cli",
+      "validate-fixture",
+      "/workspace/scratch/174be2a3a3a0/orion-foundation/spec/DATASET_SPECS/cd/staged_evidence_update.json"
+    ],
+    "cwd": "/workspace/scratch/174be2a3a3a0/orion-foundation",
+    "started_at": "2026-11-03T05:59:17.077114+00:00",
+    "elapsed_seconds": 0.268,
+    "exit_code": 0,
+    "log": "logs/final-cli-DATASET_SPECS-cd-staged_evidence_update.log"
+  },
+  {
+    "label": "final-cli-DATASET_SPECS-cd-expected_top3_transition",
+    "command": [
+      "/workspace/scratch/174be2a3a3a0/orion-foundation/.venv-release/bin/python",
+      "-m",
+      "orion.cli",
+      "validate-fixture",
+      "/workspace/scratch/174be2a3a3a0/orion-foundation/spec/DATASET_SPECS/cd/expected_top3_transition.json"
+    ],
+    "cwd": "/workspace/scratch/174be2a3a3a0/orion-foundation",
+    "started_at": "2026-11-03T05:59:17.345351+00:00",
+    "elapsed_seconds": 0.237,
+    "exit_code": 0,
+    "log": "logs/final-cli-DATASET_SPECS-cd-expected_top3_transition.log"
+  },
+  {
+    "label": "final-cli-DATASET_SPECS-lm-initial_state",
+    "command": [
+      "/workspace/scratch/174be2a3a3a0/orion-foundation/.venv-release/bin/python",
+      "-m",
+      "orion.cli",
+      "validate-fixture",
+      "/workspace/scratch/174be2a3a3a0/orion-foundation/spec/DATASET_SPECS/lm/initial_state.json"
+    ],
+    "cwd": "/workspace/scratch/174be2a3a3a0/orion-foundation",
+    "started_at": "2026-11-03T05:59:17.582291+00:00",
+    "elapsed_seconds": 0.276,
+    "exit_code": 0,
+    "log": "logs/final-cli-DATASET_SPECS-lm-initial_state.log"
+  },
+  {
+    "label": "final-cli-DATASET_SPECS-lm-staged_evidence_update",
+    "command": [
+      "/workspace/scratch/174be2a3a3a0/orion-foundation/.venv-release/bin/python",
+      "-m",
+      "orion.cli",
+      "validate-fixture",
+      "/workspace/scratch/174be2a3a3a0/orion-foundation/spec/DATASET_SPECS/lm/staged_evidence_update.json"
+    ],
+    "cwd": "/workspace/scratch/174be2a3a3a0/orion-foundation",
+    "started_at": "2026-11-03T05:59:17.858810+00:00",
+    "elapsed_seconds": 0.238,
+    "exit_code": 0,
+    "log": "logs/final-cli-DATASET_SPECS-lm-staged_evidence_update.log"
+  },
+  {
+    "label": "final-cli-DATASET_SPECS-lm-expected_top3_transition",
+    "command": [
+      "/workspace/scratch/174be2a3a3a0/orion-foundation/.venv-release/bin/python",
+      "-m",
+      "orion.cli",
+      "validate-fixture",
+      "/workspace/scratch/174be2a3a3a0/orion-foundation/spec/DATASET_SPECS/lm/expected_top3_transition.json"
+    ],
+    "cwd": "/workspace/scratch/174be2a3a3a0/orion-foundation",
+    "started_at": "2026-11-03T05:59:18.097112+00:00",
+    "elapsed_seconds": 0.269,
+    "exit_code": 0,
+    "log": "logs/final-cli-DATASET_SPECS-lm-expected_top3_transition.log"
+  },
+  {
+    "label": "final-compile",
+    "command": [
+      "/workspace/scratch/174be2a3a3a0/orion-foundation/.venv-release/bin/python",
+      "-m",
+      "compileall",
+      "-q",
+      "src"
+    ],
+    "cwd": "/workspace/scratch/174be2a3a3a0/orion-foundation",
+    "started_at": "2026-11-03T05:59:18.366108+00:00",
+    "elapsed_seconds": 0.045,
+    "exit_code": 0,
+    "log": "logs/final-compile.log"
+  },
+  {
+    "label": "final-spec-diff",
+    "command": [
+      "git",
+      "diff",
+      "--exit-code",
+      "--",
+      "spec"
+    ],
+    "cwd": "/workspace/scratch/174be2a3a3a0/orion-foundation",
+    "started_at": "2026-11-03T05:59:18.411556+00:00",
+    "elapsed_seconds": 0.003,
+    "exit_code": 0,
+    "log": "logs/final-spec-diff.log"
+  }
+]

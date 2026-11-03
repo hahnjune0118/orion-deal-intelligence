@@ -1,0 +1,20 @@
+{
+  "contract_version": "1.0.0",
+  "enabled": false,
+  "model_id": null,
+  "pricing_version": null,
+  "verified_at": null,
+  "official_pricing_url": null,
+  "input_usd_per_million_tokens": null,
+  "output_usd_per_million_tokens": null,
+  "billable_output_cap_verified": false,
+  "max_input_tokens": 12000,
+  "max_output_tokens": 2000,
+  "max_provider_calls_per_run": 3,
+  "max_concurrent_runs": 1,
+  "run_cap_usd": 0.5,
+  "daily_cap_usd": 2,
+  "evaluation_cap_usd": 5,
+  "sdk_max_retries": 0,
+  "store": false
+}

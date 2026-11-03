@@ -1,0 +1,9 @@
+* text=auto eol=lf
+# Preserve supplied specifications, source attachments and upstream licenses byte-for-byte.
+spec/** -text
+reference_inputs/** -text
+third_party_licenses/** -text -whitespace
+# Raw execution output and source patches retain their original whitespace.
+implementation_evidence/logs/** -text -whitespace
+implementation_evidence/*.patch -text -whitespace
+*.whl binary

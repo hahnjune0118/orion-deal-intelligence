@@ -1,0 +1,46 @@
+{
+  "checked_on": "2026-11-03",
+  "files": [
+    {
+      "name": "01_FINAL_DECISIONS.md",
+      "precedence": 1,
+      "role": "project source",
+      "size_bytes": 6475,
+      "sha256": "9d0ca60691cb8bbc38c6f1f2964d6ddaff1ae03f10c0c2a983946b2b2fef1c19",
+      "read_complete": true
+    },
+    {
+      "name": "(연한준)프로젝트_기획안.docx",
+      "precedence": 2,
+      "role": "project source",
+      "size_bytes": 41282,
+      "sha256": "1658547333559f2283955350c4f5f1c7bd2490f2f92687dc2ca7ce24fd4cec66",
+      "read_complete": true
+    },
+    {
+      "name": "3. (연한준) 금융인공지능실무 과제 기획안 피드백 보완 (2차).docx",
+      "precedence": 3,
+      "role": "project source",
+      "size_bytes": 3246876,
+      "sha256": "318d3eaa6c6ea1d5e95d9750a636658e876274fca8cd441c6c9a6b096881fccc",
+      "read_complete": true
+    },
+    {
+      "name": "2. (연한준)금융인공지능실무 과제 기획안 피드백 보완.docx",
+      "precedence": 4,
+      "role": "project source",
+      "size_bytes": 16554,
+      "sha256": "da8c80d5a107a68861923ffdfaa0cd88673de2c0392871d86d5e0107f7615f7c",
+      "read_complete": true
+    },
+    {
+      "name": "02_FIRST_PROMPT.md",
+      "precedence": 0,
+      "role": "production instruction",
+      "size_bytes": 9044,
+      "sha256": "2ed8fc8dd87de645e40912c417ce10440552edd213eafad59db42e0c45769892",
+      "read_complete": true
+    }
+  ],
+  "embedded_images_inspected": 2
+}

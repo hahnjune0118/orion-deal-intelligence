@@ -1,0 +1,615 @@
+{
+  "checked_on": "2026-11-03",
+  "status": "publisher metadata only; not an installed integration test",
+  "packages": [
+    {
+      "package": "dash",
+      "version": "3.2.0",
+      "url": "https://pypi.org/pypi/dash/3.2.0/json",
+      "verified": true,
+      "requires_python": ">=3.8",
+      "license_expression": null,
+      "license": "MIT",
+      "requires_dist": [
+        "Flask<3.2,>=1.0.4",
+        "Werkzeug<3.2",
+        "plotly>=5.0.0",
+        "importlib-metadata",
+        "typing-extensions>=4.1.1",
+        "requests",
+        "retrying",
+        "nest-asyncio",
+        "setuptools",
+        "flask[async]; extra == \"async\"",
+        "redis<=5.0.4,>=3.5.3; extra == \"celery\"",
+        "kombu<5.4.0; extra == \"celery\"",
+        "celery[redis]<5.4.0,>=5.1.2; extra == \"celery\"",
+        "black==22.3.0; extra == \"ci\"",
+        "flake8==7.0.0; extra == \"ci\"",
+        "flaky==3.8.1; extra == \"ci\"",
+        "flask-talisman==1.0.0; extra == \"ci\"",
+        "ipython<9.0.0; extra == \"ci\"",
+        "mimesis<=11.1.0; extra == \"ci\"",
+        "mock==4.0.3; extra == \"ci\"",
+        "numpy<=1.26.3; extra == \"ci\"",
+        "orjson==3.10.3; extra == \"ci\"",
+        "openpyxl; extra == \"ci\"",
+        "pandas>=1.4.0; extra == \"ci\"",
+        "pyarrow; extra == \"ci\"",
+        "pylint==3.0.3; extra == \"ci\"",
+        "pytest-mock; extra == \"ci\"",
+        "pytest-sugar==0.9.6; extra == \"ci\"",
+        "pyzmq==25.1.2; extra == \"ci\"",
+        "xlrd>=2.0.1; extra == \"ci\"",
+        "pytest-rerunfailures; extra == \"ci\"",
+        "jupyterlab<4.0.0; extra == \"ci\"",
+        "mypy==1.15.0; python_version >= \"3.12\" and extra == \"ci\"",
+        "pyright==1.1.398; python_version >= \"3.7\" and extra == \"ci\"",
+        "flask-compress; extra == \"compress\"",
+        "coloredlogs>=15.0.1; extra == \"dev\"",
+        "fire>=0.4.0; extra == \"dev\"",
+        "PyYAML>=5.4.1; extra == \"dev\"",
+        "diskcache>=5.2.1; extra == \"diskcache\"",
+        "multiprocess>=0.70.12; extra == \"diskcache\"",
+        "psutil>=5.8.0; extra == \"diskcache\"",
+        "beautifulsoup4>=4.8.2; extra == \"testing\"",
+        "cryptography; extra == \"testing\"",
+        "lxml>=4.6.2; extra == \"testing\"",
+        "percy>=2.0.2; extra == \"testing\"",
+        "pytest>=6.0.2; extra == \"testing\"",
+        "requests[security]>=2.21.0; extra == \"testing\"",
+        "selenium<=4.2.0,>=3.141.0; extra == \"testing\"",
+        "waitress>=1.4.4; extra == \"testing\"",
+        "multiprocess>=0.70.12; extra == \"testing\"",
+        "psutil>=5.8.0; extra == \"testing\"",
+        "dash-testing-stub>=0.0.2; extra == \"testing\""
+      ],
+      "release_files": [
+        {
+          "filename": "dash-3.2.0-py3-none-any.whl",
+          "sha256": "4c1819588d83bed2cbcf5807daa5c2380c8c85789a6935a733f018f04ad8a6a2"
+        },
+        {
+          "filename": "dash-3.2.0.tar.gz",
+          "sha256": "93300b9b99498f8b8ed267e61c455b4ee1282c7e4d4b518600eec87ce6ddea55"
+        }
+      ]
+    },
+    {
+      "package": "dash-ag-grid",
+      "version": "32.3.2",
+      "url": "https://pypi.org/pypi/dash-ag-grid/32.3.2/json",
+      "verified": true,
+      "requires_python": ">=3.6",
+      "license_expression": null,
+      "license": "MIT",
+      "requires_dist": [
+        "dash>=2",
+        "dash[ci,dev,testing]>=2.0; extra == \"dev\"",
+        "dash_mantine_components==0.12.1; extra == \"dev\"",
+        "pyyaml>=5.0; extra == \"dev\"",
+        "pytest<8.1.0; extra == \"dev\"",
+        "wheel; extra == \"dev\"",
+        "selenium<4.3.0,>=4.0.0; extra == \"dev\"",
+        "dash>=2.9.0; extra == \"docs\"",
+        "gunicorn>=19.9.0; extra == \"docs\"",
+        "pandas>=1.2.3; extra == \"docs\"",
+        "pyyaml>=6.0; extra == \"docs\"",
+        "dash-bootstrap-components>=1.0.0; extra == \"docs\"",
+        "yfinance; extra == \"docs\"",
+        "dash-mantine-components; extra == \"docs\"",
+        "dash-iconify; extra == \"docs\"",
+        "colorlover; extra == \"docs\"",
+        "statsmodels; extra == \"docs\""
+      ],
+      "release_files": [
+        {
+          "filename": "dash_ag_grid-32.3.2-py3-none-any.whl",
+          "sha256": "a690d18a83ebba96e68e63d928f3e30f97d38a8a6418ddd479db4ce825c0de91"
+        },
+        {
+          "filename": "dash_ag_grid-32.3.2.tar.gz",
+          "sha256": "c3137b66c73b2de82da379c2aa238f4fbe9b555913c3361e11d93096a0e61f50"
+        }
+      ]
+    },
+    {
+      "package": "plotly",
+      "version": "6.3.0",
+      "url": "https://pypi.org/pypi/plotly/6.3.0/json",
+      "verified": true,
+      "requires_python": ">=3.8",
+      "license_expression": null,
+      "license": "MIT License\n        \n        Copyright (c) 2016-2024 Plotly Technologies Inc.\n        \n        Permission is hereby granted, free of charge, to any person obtaining a copy\n        of this software and associated documentation files (the \"Software\"), to deal\n        in the Software without restriction, including without limitation the rights\n        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell\n        copies of the Software, and to permit persons to whom the Software is\n        furnished to do so, subject to the following conditions:\n        \n        The above copyright notice and this permission notice shall be included in\n        all copies or substantial portions of the Software.\n        \n        THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\n        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\n        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\n        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\n        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\n        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN\n        THE SOFTWARE.\n        ",
+      "requires_dist": [
+        "narwhals>=1.15.1",
+        "packaging",
+        "numpy; extra == \"express\"",
+        "kaleido>=1.0.0; extra == \"kaleido\"",
+        "pytest; extra == \"dev-core\"",
+        "requests; extra == \"dev-core\"",
+        "ruff==0.11.12; extra == \"dev-core\"",
+        "plotly[dev_core]; extra == \"dev-build\"",
+        "build; extra == \"dev-build\"",
+        "jupyter; extra == \"dev-build\"",
+        "plotly[dev_build]; extra == \"dev-optional\"",
+        "plotly[kaleido]; extra == \"dev-optional\"",
+        "anywidget; extra == \"dev-optional\"",
+        "colorcet; extra == \"dev-optional\"",
+        "fiona<=1.9.6; python_version <= \"3.8\" and extra == \"dev-optional\"",
+        "geopandas; extra == \"dev-optional\"",
+        "inflect; extra == \"dev-optional\"",
+        "numpy; extra == \"dev-optional\"",
+        "orjson; extra == \"dev-optional\"",
+        "pandas; extra == \"dev-optional\"",
+        "pdfrw; extra == \"dev-optional\"",
+        "pillow; extra == \"dev-optional\"",
+        "plotly-geo; extra == \"dev-optional\"",
+        "polars[timezone]; extra == \"dev-optional\"",
+        "pyarrow; extra == \"dev-optional\"",
+        "pyshp; extra == \"dev-optional\"",
+        "pytz; extra == \"dev-optional\"",
+        "scikit-image; extra == \"dev-optional\"",
+        "scipy; extra == \"dev-optional\"",
+        "shapely; extra == \"dev-optional\"",
+        "statsmodels; extra == \"dev-optional\"",
+        "vaex; python_version <= \"3.9\" and extra == \"dev-optional\"",
+        "xarray; extra == \"dev-optional\"",
+        "plotly[dev_optional]; extra == \"dev\""
+      ],
+      "release_files": [
+        {
+          "filename": "plotly-6.3.0-py3-none-any.whl",
+          "sha256": "7ad806edce9d3cdd882eaebaf97c0c9e252043ed1ed3d382c3e3520ec07806d4"
+        },
+        {
+          "filename": "plotly-6.3.0.tar.gz",
+          "sha256": "8840a184d18ccae0f9189c2b9a2943923fd5cae7717b723f36eef78f444e5a73"
+        }
+      ]
+    },
+    {
+      "package": "pydantic",
+      "version": "2.11.7",
+      "url": "https://pypi.org/pypi/pydantic/2.11.7/json",
+      "verified": true,
+      "requires_python": ">=3.9",
+      "license_expression": "MIT",
+      "license": null,
+      "requires_dist": [
+        "annotated-types>=0.6.0",
+        "pydantic-core==2.33.2",
+        "typing-extensions>=4.12.2",
+        "typing-inspection>=0.4.0",
+        "email-validator>=2.0.0; extra == \"email\"",
+        "tzdata; (python_version >= \"3.9\" and platform_system == \"Windows\") and extra == \"timezone\""
+      ],
+      "release_files": [
+        {
+          "filename": "pydantic-2.11.7-py3-none-any.whl",
+          "sha256": "dde5df002701f6de26248661f6835bbe296a47bf73990135c7d07ce741b9623b"
+        },
+        {
+          "filename": "pydantic-2.11.7.tar.gz",
+          "sha256": "d989c3c6cb79469287b1569f7447a17848c998458d49ebe294e975b9baf0f0db"
+        }
+      ]
+    },
+    {
+      "package": "pypdf",
+      "version": "6.21.4",
+      "url": "https://pypi.org/pypi/pypdf/6.21.4/json",
+      "verified": true,
+      "requires_python": ">=3.9",
+      "license_expression": "BSD-3-Clause",
+      "license": null,
+      "requires_dist": [
+        "typing_extensions>=4.0; python_version < \"3.11\"",
+        "brotli>=1.2.0; extra == \"brotli\"",
+        "cryptography>3.0; extra == \"crypto\"",
+        "PyCryptodome; extra == \"cryptodome\"",
+        "flit; extra == \"dev\"",
+        "pip-tools; extra == \"dev\"",
+        "pre-commit; extra == \"dev\"",
+        "pytest-cov; extra == \"dev\"",
+        "pytest-socket; extra == \"dev\"",
+        "pytest-timeout; extra == \"dev\"",
+        "pytest-xdist; extra == \"dev\"",
+        "wheel; extra == \"dev\"",
+        "myst_parser; extra == \"docs\"",
+        "sphinx; extra == \"docs\"",
+        "sphinx_rtd_theme; extra == \"docs\"",
+        "fonttools; extra == \"fonts\"",
+        "arabic-reshaper; extra == \"full\"",
+        "brotli>=1.2.0; extra == \"full\"",
+        "cryptography>3.0; extra == \"full\"",
+        "fonttools; extra == \"full\"",
+        "Pillow>=8.0.0; extra == \"full\"",
+        "python-bidi; extra == \"full\"",
+        "Pillow>=8.0.0; extra == \"image\"",
+        "arabic-reshaper; extra == \"rtl-text\"",
+        "python-bidi; extra == \"rtl-text\""
+      ],
+      "release_files": [
+        {
+          "filename": "pypdf-6.21.4-py3-none-any.whl",
+          "sha256": "33e4fb41ca352810eb4e9838aa0d82d6888a5f8bf682f43e99cce5faa666255c"
+        },
+        {
+          "filename": "pypdf-6.21.4.tar.gz",
+          "sha256": "c8817e3f888d47a087872ded69812c1ef30cacb871d6e053e0c00bbaf0bc2163"
+        }
+      ]
+    },
+    {
+      "package": "python-docx",
+      "version": "1.2.0",
+      "url": "https://pypi.org/pypi/python-docx/1.2.0/json",
+      "verified": true,
+      "requires_python": ">=3.9",
+      "license_expression": null,
+      "license": "MIT",
+      "requires_dist": [
+        "lxml>=3.1.0",
+        "typing_extensions>=4.9.0"
+      ],
+      "release_files": [
+        {
+          "filename": "python_docx-1.2.0-py3-none-any.whl",
+          "sha256": "3fd478f3250fbbbfd3b94fe1e985955737c145627498896a8a6bf81f4baf66c7"
+        },
+        {
+          "filename": "python_docx-1.2.0.tar.gz",
+          "sha256": "7bc9d7b7d8a69c9c02ca09216118c86552704edc23bac179283f2e38f86220ce"
+        }
+      ]
+    },
+    {
+      "package": "python-pptx",
+      "version": "1.0.2",
+      "url": "https://pypi.org/pypi/python-pptx/1.0.2/json",
+      "verified": true,
+      "requires_python": ">=3.8",
+      "license_expression": null,
+      "license": "MIT",
+      "requires_dist": [
+        "Pillow>=3.3.2",
+        "XlsxWriter>=0.5.7",
+        "lxml>=3.1.0",
+        "typing-extensions>=4.9.0"
+      ],
+      "release_files": [
+        {
+          "filename": "python_pptx-1.0.2-py3-none-any.whl",
+          "sha256": "160838e0b8565a8b1f67947675886e9fea18aa5e795db7ae531606d68e785cba"
+        },
+        {
+          "filename": "python_pptx-1.0.2.tar.gz",
+          "sha256": "479a8af0eaf0f0d76b6f00b0887732874ad2e3188230315290cd1f9dd9cc7095"
+        }
+      ]
+    },
+    {
+      "package": "openpyxl",
+      "version": "3.1.5",
+      "url": "https://pypi.org/pypi/openpyxl/3.1.5/json",
+      "verified": true,
+      "requires_python": ">=3.8",
+      "license_expression": null,
+      "license": "MIT",
+      "requires_dist": [
+        "et-xmlfile"
+      ],
+      "release_files": [
+        {
+          "filename": "openpyxl-3.1.5-py2.py3-none-any.whl",
+          "sha256": "5282c12b107bffeef825f4617dc029afaf41d0ea60823bbb665ef3079dc79de2"
+        },
+        {
+          "filename": "openpyxl-3.1.5.tar.gz",
+          "sha256": "cf0e3cf56142039133628b5acffe8ef0c12bc902d2aadd3e0fe5878dc08d1050"
+        }
+      ]
+    },
+    {
+      "package": "openai",
+      "version": "1.109.1",
+      "url": "https://pypi.org/pypi/openai/1.109.1/json",
+      "verified": true,
+      "requires_python": ">=3.8",
+      "license_expression": null,
+      "license": "Apache-2.0",
+      "requires_dist": [
+        "anyio<5,>=3.5.0",
+        "distro<2,>=1.7.0",
+        "httpx<1,>=0.23.0",
+        "jiter<1,>=0.4.0",
+        "pydantic<3,>=1.9.0",
+        "sniffio",
+        "tqdm>4",
+        "typing-extensions<5,>=4.11",
+        "aiohttp; extra == \"aiohttp\"",
+        "httpx-aiohttp>=0.1.8; extra == \"aiohttp\"",
+        "numpy>=1; extra == \"datalib\"",
+        "pandas-stubs>=1.1.0.11; extra == \"datalib\"",
+        "pandas>=1.2.3; extra == \"datalib\"",
+        "websockets<16,>=13; extra == \"realtime\"",
+        "numpy>=2.0.2; extra == \"voice-helpers\"",
+        "sounddevice>=0.5.1; extra == \"voice-helpers\""
+      ],
+      "release_files": [
+        {
+          "filename": "openai-1.109.1-py3-none-any.whl",
+          "sha256": "6bcaf57086cf59159b8e27447e4e7dd019db5d29a438072fbd49c290c7e65315"
+        },
+        {
+          "filename": "openai-1.109.1.tar.gz",
+          "sha256": "d173ed8dbca665892a6db099b4a2dfac624f94d20a93f46eb0b56aae940ed869"
+        }
+      ]
+    },
+    {
+      "package": "httpx",
+      "version": "0.28.1",
+      "url": "https://pypi.org/pypi/httpx/0.28.1/json",
+      "verified": true,
+      "requires_python": ">=3.8",
+      "license_expression": null,
+      "license": "BSD-3-Clause",
+      "requires_dist": [
+        "anyio",
+        "certifi",
+        "httpcore==1.*",
+        "idna",
+        "brotli; platform_python_implementation == \"CPython\" and extra == \"brotli\"",
+        "brotlicffi; platform_python_implementation != \"CPython\" and extra == \"brotli\"",
+        "click==8.*; extra == \"cli\"",
+        "pygments==2.*; extra == \"cli\"",
+        "rich<14,>=10; extra == \"cli\"",
+        "h2<5,>=3; extra == \"http2\"",
+        "socksio==1.*; extra == \"socks\"",
+        "zstandard>=0.18.0; extra == \"zstd\""
+      ],
+      "release_files": [
+        {
+          "filename": "httpx-0.28.1-py3-none-any.whl",
+          "sha256": "d909fcccc110f8c7faf814ca82a9a4d816bc5a6dbfea25d6591d6985b8ba59ad"
+        },
+        {
+          "filename": "httpx-0.28.1.tar.gz",
+          "sha256": "75e98c5f16b0f35b567856f597f06ff2270a374470a5c2392242528e3e3e42fc"
+        }
+      ]
+    },
+    {
+      "package": "jsonschema",
+      "version": "4.25.1",
+      "url": "https://pypi.org/pypi/jsonschema/4.25.1/json",
+      "verified": true,
+      "requires_python": ">=3.9",
+      "license_expression": "MIT",
+      "license": null,
+      "requires_dist": [
+        "attrs>=22.2.0",
+        "jsonschema-specifications>=2023.03.6",
+        "referencing>=0.28.4",
+        "rpds-py>=0.7.1",
+        "fqdn; extra == \"format\"",
+        "idna; extra == \"format\"",
+        "isoduration; extra == \"format\"",
+        "jsonpointer>1.13; extra == \"format\"",
+        "rfc3339-validator; extra == \"format\"",
+        "rfc3987; extra == \"format\"",
+        "uri-template; extra == \"format\"",
+        "webcolors>=1.11; extra == \"format\"",
+        "fqdn; extra == \"format-nongpl\"",
+        "idna; extra == \"format-nongpl\"",
+        "isoduration; extra == \"format-nongpl\"",
+        "jsonpointer>1.13; extra == \"format-nongpl\"",
+        "rfc3339-validator; extra == \"format-nongpl\"",
+        "rfc3986-validator>0.1.0; extra == \"format-nongpl\"",
+        "rfc3987-syntax>=1.1.0; extra == \"format-nongpl\"",
+        "uri-template; extra == \"format-nongpl\"",
+        "webcolors>=24.6.0; extra == \"format-nongpl\""
+      ],
+      "release_files": [
+        {
+          "filename": "jsonschema-4.25.1-py3-none-any.whl",
+          "sha256": "3fba0169e345c7175110351d456342c364814cfcf3b964ba4587f22915230a63"
+        },
+        {
+          "filename": "jsonschema-4.25.1.tar.gz",
+          "sha256": "e4a9655ce0da0c0b67a085847e00a3a51449e1157f4f75e9fb5aa545e122eb85"
+        }
+      ]
+    },
+    {
+      "package": "pytest",
+      "version": "8.4.2",
+      "url": "https://pypi.org/pypi/pytest/8.4.2/json",
+      "verified": true,
+      "requires_python": ">=3.9",
+      "license_expression": null,
+      "license": "MIT",
+      "requires_dist": [
+        "colorama>=0.4; sys_platform == \"win32\"",
+        "exceptiongroup>=1; python_version < \"3.11\"",
+        "iniconfig>=1",
+        "packaging>=20",
+        "pluggy<2,>=1.5",
+        "pygments>=2.7.2",
+        "tomli>=1; python_version < \"3.11\"",
+        "argcomplete; extra == \"dev\"",
+        "attrs>=19.2; extra == \"dev\"",
+        "hypothesis>=3.56; extra == \"dev\"",
+        "mock; extra == \"dev\"",
+        "requests; extra == \"dev\"",
+        "setuptools; extra == \"dev\"",
+        "xmlschema; extra == \"dev\""
+      ],
+      "release_files": [
+        {
+          "filename": "pytest-8.4.2-py3-none-any.whl",
+          "sha256": "872f880de3fc3a5bdc88a11b39c9710c3497a547cfa9320bc3c5e62fbf272e79"
+        },
+        {
+          "filename": "pytest-8.4.2.tar.gz",
+          "sha256": "86c0d0b93306b961d58d62a4db4879f27fe25513d4b969df351abdddb3c30e01"
+        }
+      ]
+    },
+    {
+      "package": "pytest-playwright",
+      "version": "0.7.1",
+      "url": "https://pypi.org/pypi/pytest-playwright/0.7.1/json",
+      "verified": true,
+      "requires_python": ">=3.9",
+      "license_expression": null,
+      "license": "Apache License \nVersion 2.0, January 2004 http://www.apache.org/licenses/ \n \nTERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION \n \n1. Definitions. \n \n\"License\" shall mean the terms and conditions for use, reproduction, \nand distribution as defined by Sections 1 through 9 of this document. \n \n\"Licensor\" shall mean the copyright owner or entity authorized by \nthe copyright owner that is granting the License. \n \n\"Legal Entity\" shall mean the union of the acting entity and all \nother entities that control, are controlled by, or are under common \ncontrol with that entity. For the purposes of this definition, \n\"control\" means (i) the power, direct or indirect, to cause the \ndirection or management of such entity, whether by contract or \notherwise, or (ii) ownership of fifty percent (50%) or more of the \noutstanding shares, or (iii) beneficial ownership of such entity. \n \n\"You\" (or \"Your\") shall mean an individual or Legal Entity \nexercising permissions granted by this License. \n \n\"Source\" form shall mean the preferred form for making modifications, \nincluding but not limited to software source code, documentation \nsource, and configuration files. \n \n\"Object\" form shall mean any form resulting from mechanical \ntransformation or translation of a Source form, including but \nnot limited to compiled object code, generated documentation, \nand conversions to other media types. \n \n\"Work\" shall mean the work of authorship, whether in Source or \nObject form, made available under the License, as indicated by a \ncopyright notice that is included in or attached to the work \n(an example is provided in the Appendix below). \n \n\"Derivative Works\" shall mean any work, whether in Source or Object \nform, that is based on (or derived from) the Work and for which the \neditorial revisions, annotations, elaborations, or other modifications \nrepresent, as a whole, an original work of authorship. For the purposes \nof this License, Derivative Works shall not include works that remain \nseparable from, or merely link (or bind by name) to the interfaces of, \nthe Work and Derivative Works thereof. \n \n\"Contribution\" shall mean any work of authorship, including \nthe original version of the Work and any modifications or additions \nto that Work or Derivative Works thereof, that is intentionally \nsubmitted to Licensor for inclusion in the Work by the copyright owner \nor by an individual or Legal Entity authorized to submit on behalf of \nthe copyright owner. For the purposes of this definition, \"submitted\" \nmeans any form of electronic, verbal, or written communication sent \nto the Licensor or its representatives, including but not limited to \ncommunication on electronic mailing lists, source code control systems, \nand issue tracking systems that are managed by, or on behalf of, the \nLicensor for the purpose of discussing and improving the Work, but \nexcluding communication that is conspicuously marked or otherwise \ndesignated in writing by the copyright owner as \"Not a Contribution.\" \n \n\"Contributor\" shall mean Licensor and any individual or Legal Entity \non behalf of whom a Contribution has been received by Licensor and \nsubsequently incorporated within the Work. \n \n2. Grant of Copyright License. Subject to the terms and conditions of \nthis License, each Contributor hereby grants to You a perpetual, \nworldwide, non-exclusive, no-charge, royalty-free, irrevocable \ncopyright license to reproduce, prepare Derivative Works of, \npublicly display, publicly perform, sublicense, and distribute the \nWork and such Derivative Works in Source or Object form. \n \n3. Grant of Patent License. Subject to the terms and conditions of \nthis License, each Contributor hereby grants to You a perpetual, \nworldwide, non-exclusive, no-charge, royalty-free, irrevocable \n(except as stated in this section) patent license to make, have made, \nuse, offer to sell, sell, import, and otherwise transfer the Work, \nwhere such license applies only to those patent claims licensable \nby such Contributor that are necessarily infringed by their \nContribution(s) alone or by combination of their Contribution(s) \nwith the Work to which such Contribution(s) was submitted. If You \ninstitute patent litigation against any entity (including a \ncross-claim or counterclaim in a lawsuit) alleging that the Work \nor a Contribution incorporated within the Work constitutes direct \nor contributory patent infringement, then any patent licenses \ngranted to You under this License for that Work shall terminate \nas of the date such litigation is filed. \n \n4. Redistribution. You may reproduce and distribute copies of the \nWork or Derivative Works thereof in any medium, with or without \nmodifications, and in Source or Object form, provided that You meet the following conditions: \n \n(a) You must give any other recipients of the Work or \nDerivative Works a copy of this License; and \n \n(b) You must cause any modified files to carry prominent notices \nstating that You changed the files; and \n \n(c) You must retain, in the Source form of any Derivative Works \nthat You distribute, all copyright, patent, trademark, and \nattribution notices from the Source form of the Work, \nexcluding those notices that do not pertain to any part of \nthe Derivative Works; and \n \n(d) If the Work includes a \"NOTICE\" text file as part of its \ndistribution, then any Derivative Works that You distribute must \ninclude a readable copy of the attribution notices contained \nwithin such NOTICE file, excluding those notices that do not \npertain to any part of the Derivative Works, in at least one of the following places: within a NOTICE text file distributed \nas part of the Derivative Works; within the Source form or \ndocumentation, if provided along with the Derivative Works; or, \nwithin a display generated by the Derivative Works, if and \nwherever such third-party notices normally appear. The contents \nof the NOTICE file are for informational purposes only and \ndo not modify the License. You may add Your own attribution \nnotices within Derivative Works that You distribute, alongside \nor as an addendum to the NOTICE text from the Work, provided \nthat such additional attribution notices cannot be construed \nas modifying the License. \n \nYou may add Your own copyright statement to Your modifications and \nmay provide additional or different license terms and conditions \nfor use, reproduction, or distribution of Your modifications, or \nfor any such Derivative Works as a whole, provided Your use, \nreproduction, and distribution of the Work otherwise complies with \nthe conditions stated in this License. \n \n5. Submission of Contributions. Unless You explicitly state otherwise, \nany Contribution intentionally submitted for inclusion in the Work \nby You to the Licensor shall be under the terms and conditions of \nthis License, without any additional terms or conditions. \nNotwithstanding the above, nothing herein shall supersede or modify \nthe terms of any separate license agreement you may have executed \nwith Licensor regarding such Contributions. \n \n6. Trademarks. This License does not grant permission to use the trade \nnames, trademarks, service marks, or product names of the Licensor, \nexcept as required for reasonable and customary use in describing the \norigin of the Work and reproducing the content of the NOTICE file. \n \n7. Disclaimer of Warranty. Unless required by applicable law or \nagreed to in writing, Licensor provides the Work (and each \nContributor provides its Contributions) on an \"AS IS\" BASIS, \nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or \nimplied, including, without limitation, any warranties or conditions \nof TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A \nPARTICULAR PURPOSE. You are solely responsible for determining the \nappropriateness of using or redistributing the Work and assume any \nrisks associated with Your exercise of permissions under this License. \n \n8. Limitation of Liability. In no event and under no legal theory, \nwhether in tort (including negligence), contract, or otherwise, \nunless required by applicable law (such as deliberate and grossly \nnegligent acts) or agreed to in writing, shall any Contributor be \nliable to You for damages, including any direct, indirect, special, \nincidental, or consequential damages of any character arising as a \nresult of this License or out of the use or inability to use the \nWork (including but not limited to damages for loss of goodwill, \nwork stoppage, computer failure or malfunction, or any and all \nother commercial damages or losses), even if such Contributor \nhas been advised of the possibility of such damages. \n \n9. Accepting Warranty or Additional Liability. While redistributing \nthe Work or Derivative Works thereof, You may choose to offer, \nand charge a fee for, acceptance of support, warranty, indemnity, \nor other liability obligations and/or rights consistent with this \nLicense. However, in accepting such obligations, You may act only \non Your own behalf and on Your sole responsibility, not on behalf \nof any other Contributor, and only if You agree to indemnify, \ndefend, and hold each Contributor harmless for any liability \nincurred by, or claims asserted against, such Contributor by reason \nof your accepting any such warranty or additional liability. \n \nEND OF TERMS AND CONDITIONS \n APPENDIX: How to apply the Apache License to your work. \n \nTo apply the Apache License to your work, attach the following \nboilerplate notice, with the fields enclosed by brackets \"[]\" \nreplaced with your own identifying information. (Don't include \nthe brackets!)  The text should be enclosed in the appropriate \ncomment syntax for the file format. We also recommend that a \nfile or class name and description of purpose be included on the \nsame \"printed page\" as the copyright notice for easier \nidentification within third-party archives. \n \nPortions Copyright (c) Microsoft Corporation. \nPortions Copyright 2017 Google Inc. \n \nLicensed under the Apache License, Version 2.0 (the \"License\"); \nyou may not use this file except in compliance with the License. \nYou may obtain a copy of the License at \n http://www.apache.org/licenses/LICENSE-2.0 \n \nUnless required by applicable law or agreed to in writing, software \ndistributed under the License is distributed on an \"AS IS\" BASIS, \nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. \nSee the License for the specific language governing permissions and \nlimitations under the License. \n",
+      "requires_dist": [
+        "playwright>=1.18",
+        "pytest<9.0.0,>=6.2.4",
+        "pytest-base-url<3.0.0,>=1.0.0",
+        "python-slugify<9.0.0,>=6.0.0"
+      ],
+      "release_files": [
+        {
+          "filename": "pytest_playwright-0.7.1-py3-none-any.whl",
+          "sha256": "fcc46510fb75f8eba6df3bc8e84e4e902483d92be98075f20b9d160651a36d90"
+        },
+        {
+          "filename": "pytest_playwright-0.7.1.tar.gz",
+          "sha256": "94b551b2677ecdc16284fcd6a4f0045eafda47a60e74410f3fe4d8260e12cabf"
+        }
+      ]
+    },
+    {
+      "package": "playwright",
+      "version": "1.55.0",
+      "url": "https://pypi.org/pypi/playwright/1.55.0/json",
+      "verified": true,
+      "requires_python": ">=3.9",
+      "license_expression": null,
+      "license": null,
+      "requires_dist": [
+        "pyee<14,>=13",
+        "greenlet<4.0.0,>=3.1.1"
+      ],
+      "release_files": [
+        {
+          "filename": "playwright-1.55.0-py3-none-macosx_10_13_x86_64.whl",
+          "sha256": "d7da108a95001e412effca4f7610de79da1637ccdf670b1ae3fdc08b9694c034"
+        },
+        {
+          "filename": "playwright-1.55.0-py3-none-macosx_11_0_arm64.whl",
+          "sha256": "8290cf27a5d542e2682ac274da423941f879d07b001f6575a5a3a257b1d4ba1c"
+        },
+        {
+          "filename": "playwright-1.55.0-py3-none-macosx_11_0_universal2.whl",
+          "sha256": "25b0d6b3fd991c315cca33c802cf617d52980108ab8431e3e1d37b5de755c10e"
+        },
+        {
+          "filename": "playwright-1.55.0-py3-none-manylinux1_x86_64.whl",
+          "sha256": "c6d4d8f6f8c66c483b0835569c7f0caa03230820af8e500c181c93509c92d831"
+        },
+        {
+          "filename": "playwright-1.55.0-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
+          "sha256": "29a0777c4ce1273acf90c87e4ae2fe0130182100d99bcd2ae5bf486093044838"
+        },
+        {
+          "filename": "playwright-1.55.0-py3-none-win32.whl",
+          "sha256": "29e6d1558ad9d5b5c19cbec0a72f6a2e35e6353cd9f262e22148685b86759f90"
+        },
+        {
+          "filename": "playwright-1.55.0-py3-none-win_amd64.whl",
+          "sha256": "7eb5956473ca1951abb51537e6a0da55257bb2e25fc37c2b75af094a5c93736c"
+        },
+        {
+          "filename": "playwright-1.55.0-py3-none-win_arm64.whl",
+          "sha256": "012dc89ccdcbd774cdde8aeee14c08e0dd52ddb9135bf10e9db040527386bd76"
+        }
+      ]
+    },
+    {
+      "package": "gunicorn",
+      "version": "23.0.0",
+      "url": "https://pypi.org/pypi/gunicorn/23.0.0/json",
+      "verified": true,
+      "requires_python": ">=3.7",
+      "license_expression": null,
+      "license": "MIT",
+      "requires_dist": [
+        "packaging",
+        "importlib-metadata; python_version < \"3.8\"",
+        "eventlet!=0.36.0,>=0.24.1; extra == \"eventlet\"",
+        "gevent>=1.4.0; extra == \"gevent\"",
+        "setproctitle; extra == \"setproctitle\"",
+        "gevent; extra == \"testing\"",
+        "eventlet; extra == \"testing\"",
+        "coverage; extra == \"testing\"",
+        "pytest; extra == \"testing\"",
+        "pytest-cov; extra == \"testing\"",
+        "tornado>=0.2; extra == \"tornado\""
+      ],
+      "release_files": [
+        {
+          "filename": "gunicorn-23.0.0-py3-none-any.whl",
+          "sha256": "ec400d38950de4dfd418cff8328b2c8faed0edb0d517d3394e457c317908ca4d"
+        },
+        {
+          "filename": "gunicorn-23.0.0.tar.gz",
+          "sha256": "f014447a0101dc57e294f6c18ca6b40227a4c90e9bdb586042628030cba004ec"
+        }
+      ]
+    },
+    {
+      "package": "waitress",
+      "version": "3.0.2",
+      "url": "https://pypi.org/pypi/waitress/3.0.2/json",
+      "verified": true,
+      "requires_python": ">=3.9.0",
+      "license_expression": null,
+      "license": "ZPL 2.1",
+      "requires_dist": [
+        "Sphinx>=1.8.1; extra == \"docs\"",
+        "docutils; extra == \"docs\"",
+        "pylons-sphinx-themes>=1.0.9; extra == \"docs\"",
+        "pytest; extra == \"testing\"",
+        "pytest-cov; extra == \"testing\"",
+        "coverage>=7.6.0; extra == \"testing\""
+      ],
+      "release_files": [
+        {
+          "filename": "waitress-3.0.2-py3-none-any.whl",
+          "sha256": "c56d67fd6e87c2ee598b76abdd4e96cfad1f24cacdea5078d382b1f9d7b5ed2e"
+        },
+        {
+          "filename": "waitress-3.0.2.tar.gz",
+          "sha256": "682aaaf2af0c44ada4abfb70ded36393f0e307f4ab9456a215ce0020baefc31f"
+        }
+      ]
+    },
+    {
+      "package": "python-dotenv",
+      "version": "1.1.1",
+      "url": "https://pypi.org/pypi/python-dotenv/1.1.1/json",
+      "verified": true,
+      "requires_python": ">=3.9",
+      "license_expression": null,
+      "license": "BSD-3-Clause",
+      "requires_dist": [
+        "click>=5.0; extra == \"cli\""
+      ],
+      "release_files": [
+        {
+          "filename": "python_dotenv-1.1.1-py3-none-any.whl",
+          "sha256": "31f23644fe2602f88ff55e1f5c79ba497e01224ee7737937930c448e4d0e24dc"
+        },
+        {
+          "filename": "python_dotenv-1.1.1.tar.gz",
+          "sha256": "a8a6399716257f45be6a007360200409fce5cda2661e3dec71d23dc15f6189ab"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1301 @@
+{
+  "generated_at_utc": "2026-11-03T05:58:09.131357Z",
+  "environment": "CPython3.12 Linux x86_64 (installed)",
+  "packages": [
+    {
+      "name": "annotated-types",
+      "version": "0.8.0",
+      "requires_python": ">=3.10",
+      "requires_dist": [],
+      "license": "MIT",
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "license_files": [
+        "third_party_licenses/annotated-types/annotated_types-0.8.0.dist-info__licenses__LICENSE"
+      ]
+    },
+    {
+      "name": "anyio",
+      "version": "4.16.0",
+      "requires_python": ">=3.10",
+      "requires_dist": [
+        "exceptiongroup>=1.0.2; python_version < \"3.11\"",
+        "idna>=2.8",
+        "typing_extensions>=4.16.0; python_version < \"3.15\"",
+        "trio>=0.32.0; extra == \"trio\""
+      ],
+      "license": "MIT",
+      "license_classifiers": [],
+      "license_files": [
+        "third_party_licenses/anyio/anyio-4.16.0.dist-info__licenses__LICENSE"
+      ]
+    },
+    {
+      "name": "attrs",
+      "version": "26.1.0",
+      "requires_python": ">=3.9",
+      "requires_dist": [],
+      "license": "MIT",
+      "license_classifiers": [],
+      "license_files": [
+        "third_party_licenses/attrs/attrs-26.1.0.dist-info__licenses__LICENSE"
+      ]
+    },
+    {
+      "name": "blinker",
+      "version": "1.9.0",
+      "requires_python": ">=3.9",
+      "requires_dist": [],
+      "license": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "license_files": [
+        "third_party_licenses/blinker/blinker-1.9.0.dist-info__LICENSE.txt"
+      ]
+    },
+    {
+      "name": "certifi",
+      "version": "2026.10.23",
+      "requires_python": ">=3.7",
+      "requires_dist": [],
+      "license": "MPL-2.0",
+      "license_classifiers": [
+        "License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)"
+      ],
+      "license_files": [
+        "third_party_licenses/certifi/certifi-2026.10.23.dist-info__licenses__LICENSE"
+      ]
+    },
+    {
+      "name": "charset-normalizer",
+      "version": "3.5.2",
+      "requires_python": ">=3.7",
+      "requires_dist": [],
+      "license": "MIT",
+      "license_classifiers": [],
+      "license_files": [
+        "third_party_licenses/charset-normalizer/charset_normalizer-3.5.2.dist-info__licenses__LICENSE"
+      ]
+    },
+    {
+      "name": "click",
+      "version": "8.5.0",
+      "requires_python": ">=3.10",
+      "requires_dist": [],
+      "license": "BSD-3-Clause",
+      "license_classifiers": [],
+      "license_files": [
+        "third_party_licenses/click/click-8.5.0.dist-info__licenses__LICENSE.txt"
+      ]
+    },
+    {
+      "name": "dash",
+      "version": "3.2.0",
+      "requires_python": ">=3.8",
+      "requires_dist": [
+        "Flask <3.2,>=1.0.4",
+        "Werkzeug <3.2",
+        "plotly >=5.0.0",
+        "importlib-metadata",
+        "typing-extensions >=4.1.1",
+        "requests",
+        "retrying",
+        "nest-asyncio",
+        "setuptools",
+        "flask[async] ; extra == 'async'",
+        "redis <=5.0.4,>=3.5.3 ; extra == 'celery'",
+        "kombu <5.4.0 ; extra == 'celery'",
+        "celery[redis] <5.4.0,>=5.1.2 ; extra == 'celery'",
+        "black ==22.3.0 ; extra == 'ci'",
+        "flake8 ==7.0.0 ; extra == 'ci'",
+        "flaky ==3.8.1 ; extra == 'ci'",
+        "flask-talisman ==1.0.0 ; extra == 'ci'",
+        "ipython <9.0.0 ; extra == 'ci'",
+        "mimesis <=11.1.0 ; extra == 'ci'",
+        "mock ==4.0.3 ; extra == 'ci'",
+        "numpy <=1.26.3 ; extra == 'ci'",
+        "orjson ==3.10.3 ; extra == 'ci'",
+        "openpyxl ; extra == 'ci'",
+        "pandas >=1.4.0 ; extra == 'ci'",
+        "pyarrow ; extra == 'ci'",
+        "pylint ==3.0.3 ; extra == 'ci'",
+        "pytest-mock ; extra == 'ci'",
+        "pytest-sugar ==0.9.6 ; extra == 'ci'",
+        "pyzmq ==25.1.2 ; extra == 'ci'",
+        "xlrd >=2.0.1 ; extra == 'ci'",
+        "pytest-rerunfailures ; extra == 'ci'",
+        "jupyterlab <4.0.0 ; extra == 'ci'",
+        "mypy ==1.15.0 ; (python_version >= \"3.12\") and extra == 'ci'",
+        "pyright ==1.1.398 ; (python_version >= \"3.7\") and extra == 'ci'",
+        "flask-compress ; extra == 'compress'",
+        "coloredlogs >=15.0.1 ; extra == 'dev'",
+        "fire >=0.4.0 ; extra == 'dev'",
+        "PyYAML >=5.4.1 ; extra == 'dev'",
+        "diskcache >=5.2.1 ; extra == 'diskcache'",
+        "multiprocess >=0.70.12 ; extra == 'diskcache'",
+        "psutil >=5.8.0 ; extra == 'diskcache'",
+        "beautifulsoup4 >=4.8.2 ; extra == 'testing'",
+        "cryptography ; extra == 'testing'",
+        "lxml >=4.6.2 ; extra == 'testing'",
+        "percy >=2.0.2 ; extra == 'testing'",
+        "pytest >=6.0.2 ; extra == 'testing'",
+        "requests[security] >=2.21.0 ; extra == 'testing'",
+        "selenium <=4.2.0,>=3.141.0 ; extra == 'testing'",
+        "waitress >=1.4.4 ; extra == 'testing'",
+        "multiprocess >=0.70.12 ; extra == 'testing'",
+        "psutil >=5.8.0 ; extra == 'testing'",
+        "dash-testing-stub >=0.0.2 ; extra == 'testing'"
+      ],
+      "license": "MIT",
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "license_files": [
+        "third_party_licenses/dash/dash-3.2.0.dist-info__LICENSE"
+      ]
+    },
+    {
+      "name": "dash_ag_grid",
+      "version": "32.3.2",
+      "requires_python": ">=3.6",
+      "requires_dist": [
+        "dash>=2",
+        "dash[ci,dev,testing]>=2.0; extra == \"dev\"",
+        "dash_mantine_components==0.12.1; extra == \"dev\"",
+        "pyyaml>=5.0; extra == \"dev\"",
+        "pytest<8.1.0; extra == \"dev\"",
+        "wheel; extra == \"dev\"",
+        "selenium<4.3.0,>=4.0.0; extra == \"dev\"",
+        "dash>=2.9.0; extra == \"docs\"",
+        "gunicorn>=19.9.0; extra == \"docs\"",
+        "pandas>=1.2.3; extra == \"docs\"",
+        "pyyaml>=6.0; extra == \"docs\"",
+        "dash-bootstrap-components>=1.0.0; extra == \"docs\"",
+        "yfinance; extra == \"docs\"",
+        "dash-mantine-components; extra == \"docs\"",
+        "dash-iconify; extra == \"docs\"",
+        "colorlover; extra == \"docs\"",
+        "statsmodels; extra == \"docs\""
+      ],
+      "license": "MIT",
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "license_files": [
+        "third_party_licenses/dash-ag-grid/dash_ag_grid-32.3.2.dist-info__licenses__LICENSE"
+      ]
+    },
+    {
+      "name": "distro",
+      "version": "1.9.0",
+      "requires_python": ">=3.6",
+      "requires_dist": [],
+      "license": "Apache License, Version 2.0",
+      "license_classifiers": [
+        "License :: OSI Approved :: Apache Software License"
+      ],
+      "license_files": [
+        "third_party_licenses/distro/distro-1.9.0.dist-info__LICENSE"
+      ]
+    },
+    {
+      "name": "et_xmlfile",
+      "version": "2.0.0",
+      "requires_python": ">=3.8",
+      "requires_dist": [],
+      "license": "MIT",
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "license_files": []
+    },
+    {
+      "name": "Flask",
+      "version": "3.1.3",
+      "requires_python": ">=3.9",
+      "requires_dist": [
+        "blinker>=1.9.0",
+        "click>=8.1.3",
+        "importlib-metadata>=3.6.0; python_version < '3.10'",
+        "itsdangerous>=2.2.0",
+        "jinja2>=3.1.2",
+        "markupsafe>=2.1.1",
+        "werkzeug>=3.1.0",
+        "asgiref>=3.2 ; extra == \"async\"",
+        "python-dotenv ; extra == \"dotenv\""
+      ],
+      "license": "BSD-3-Clause",
+      "license_classifiers": [],
+      "license_files": [
+        "third_party_licenses/flask/flask-3.1.3.dist-info__licenses__LICENSE.txt"
+      ]
+    },
+    {
+      "name": "greenlet",
+      "version": "3.5.6",
+      "requires_python": ">=3.10",
+      "requires_dist": [
+        "Sphinx; extra == \"docs\"",
+        "furo; extra == \"docs\"",
+        "objgraph; extra == \"test\"",
+        "psutil; extra == \"test\"",
+        "setuptools; extra == \"test\""
+      ],
+      "license": "MIT AND PSF-2.0",
+      "license_classifiers": [],
+      "license_files": [
+        "third_party_licenses/greenlet/greenlet-3.5.6.dist-info__licenses__LICENSE",
+        "third_party_licenses/greenlet/greenlet-3.5.6.dist-info__licenses__LICENSE.PSF"
+      ]
+    },
+    {
+      "name": "gunicorn",
+      "version": "23.0.0",
+      "requires_python": ">=3.7",
+      "requires_dist": [
+        "packaging",
+        "importlib-metadata ; python_version < \"3.8\"",
+        "eventlet !=0.36.0,>=0.24.1 ; extra == 'eventlet'",
+        "gevent >=1.4.0 ; extra == 'gevent'",
+        "setproctitle ; extra == 'setproctitle'",
+        "gevent ; extra == 'testing'",
+        "eventlet ; extra == 'testing'",
+        "coverage ; extra == 'testing'",
+        "pytest ; extra == 'testing'",
+        "pytest-cov ; extra == 'testing'",
+        "tornado >=0.2 ; extra == 'tornado'"
+      ],
+      "license": "MIT",
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "license_files": [
+        "third_party_licenses/gunicorn/gunicorn-23.0.0.dist-info__LICENSE"
+      ]
+    },
+    {
+      "name": "h11",
+      "version": "0.16.0",
+      "requires_python": ">=3.8",
+      "requires_dist": [],
+      "license": "MIT",
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "license_files": [
+        "third_party_licenses/h11/h11-0.16.0.dist-info__licenses__LICENSE.txt"
+      ]
+    },
+    {
+      "name": "httpcore",
+      "version": "1.0.9",
+      "requires_python": ">=3.8",
+      "requires_dist": [
+        "certifi",
+        "h11>=0.16",
+        "anyio<5.0,>=4.0; extra == 'asyncio'",
+        "h2<5,>=3; extra == 'http2'",
+        "socksio==1.*; extra == 'socks'",
+        "trio<1.0,>=0.22.0; extra == 'trio'"
+      ],
+      "license": "BSD-3-Clause",
+      "license_classifiers": [
+        "License :: OSI Approved :: BSD License"
+      ],
+      "license_files": [
+        "third_party_licenses/httpcore/httpcore-1.0.9.dist-info__licenses__LICENSE.md"
+      ]
+    },
+    {
+      "name": "httpx",
+      "version": "0.28.1",
+      "requires_python": ">=3.8",
+      "requires_dist": [
+        "anyio",
+        "certifi",
+        "httpcore==1.*",
+        "idna",
+        "brotli; (platform_python_implementation == 'CPython') and extra == 'brotli'",
+        "brotlicffi; (platform_python_implementation != 'CPython') and extra == 'brotli'",
+        "click==8.*; extra == 'cli'",
+        "pygments==2.*; extra == 'cli'",
+        "rich<14,>=10; extra == 'cli'",
+        "h2<5,>=3; extra == 'http2'",
+        "socksio==1.*; extra == 'socks'",
+        "zstandard>=0.18.0; extra == 'zstd'"
+      ],
+      "license": "BSD-3-Clause",
+      "license_classifiers": [
+        "License :: OSI Approved :: BSD License"
+      ],
+      "license_files": [
+        "third_party_licenses/httpx/httpx-0.28.1.dist-info__licenses__LICENSE.md"
+      ]
+    },
+    {
+      "name": "idna",
+      "version": "3.20",
+      "requires_python": ">=3.9",
+      "requires_dist": [
+        "ruff >= 0.16.0 ; extra == \"all\"",
+        "mypy >= 1.11.2 ; extra == \"all\"",
+        "ty >= 0.0.37 ; extra == \"all\"",
+        "pytest >= 8.3.2 ; extra == \"all\"",
+        "hypothesis >= 6.141.1 ; extra == \"all\"",
+        "coverage >= 7.10.0 ; extra == \"all\""
+      ],
+      "license": "BSD-3-Clause",
+      "license_classifiers": [],
+      "license_files": [
+        "third_party_licenses/idna/idna-3.20.dist-info__licenses__LICENSE.md"
+      ]
+    },
+    {
+      "name": "importlib_metadata",
+      "version": "10.1.0",
+      "requires_python": ">=3.11",
+      "requires_dist": [
+        "zipp>=3.20",
+        "pytest!=8.1.*,>=6; extra == \"test\"",
+        "packaging; extra == \"test\"",
+        "pyfakefs; extra == \"test\"",
+        "pytest-perf>=0.17; extra == \"test\"",
+        "sphinx>=3.5; extra == \"doc\"",
+        "jaraco.packaging>=9.3; extra == \"doc\"",
+        "rst.linker>=1.9; extra == \"doc\"",
+        "furo; extra == \"doc\"",
+        "sphinx-lint; extra == \"doc\"",
+        "jaraco.tidelift>=1.4; extra == \"doc\"",
+        "ipython; extra == \"perf\"",
+        "pytest-checkdocs>=2.14; extra == \"check\"",
+        "pytest-ruff>=0.2.1; sys_platform != \"cygwin\" and extra == \"check\"",
+        "pytest-cov; extra == \"cover\"",
+        "pytest-enabler>=3.4; extra == \"enabler\"",
+        "pytest-mypy>=1.0.1; platform_python_implementation != \"PyPy\" and extra == \"type\""
+      ],
+      "license": "Apache-2.0",
+      "license_classifiers": [],
+      "license_files": [
+        "third_party_licenses/importlib-metadata/importlib_metadata-10.1.0.dist-info__licenses__LICENSE"
+      ]
+    },
+    {
+      "name": "iniconfig",
+      "version": "2.3.1",
+      "requires_python": ">=3.10",
+      "requires_dist": [],
+      "license": "MIT",
+      "license_classifiers": [],
+      "license_files": [
+        "third_party_licenses/iniconfig/iniconfig-2.3.1.dist-info__licenses__LICENSE"
+      ]
+    },
+    {
+      "name": "itsdangerous",
+      "version": "2.2.0",
+      "requires_python": ">=3.8",
+      "requires_dist": [],
+      "license": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: BSD License"
+      ],
+      "license_files": [
+        "third_party_licenses/itsdangerous/itsdangerous-2.2.0.dist-info__LICENSE.txt"
+      ]
+    },
+    {
+      "name": "Jinja2",
+      "version": "3.1.6",
+      "requires_python": ">=3.7",
+      "requires_dist": [
+        "MarkupSafe>=2.0",
+        "Babel>=2.7 ; extra == \"i18n\""
+      ],
+      "license": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: BSD License"
+      ],
+      "license_files": [
+        "third_party_licenses/jinja2/jinja2-3.1.6.dist-info__licenses__LICENSE.txt"
+      ]
+    },
+    {
+      "name": "jiter",
+      "version": "0.18.0",
+      "requires_python": ">=3.10",
+      "requires_dist": [],
+      "license": "MIT",
+      "license_classifiers": [],
+      "license_files": [
+        "third_party_licenses/jiter/jiter-0.18.0.dist-info__licenses__LICENSE"
+      ]
+    },
+    {
+      "name": "jsonschema",
+      "version": "4.25.1",
+      "requires_python": ">=3.9",
+      "requires_dist": [
+        "attrs>=22.2.0",
+        "jsonschema-specifications>=2023.03.6",
+        "referencing>=0.28.4",
+        "rpds-py>=0.7.1",
+        "fqdn; extra == 'format'",
+        "idna; extra == 'format'",
+        "isoduration; extra == 'format'",
+        "jsonpointer>1.13; extra == 'format'",
+        "rfc3339-validator; extra == 'format'",
+        "rfc3987; extra == 'format'",
+        "uri-template; extra == 'format'",
+        "webcolors>=1.11; extra == 'format'",
+        "fqdn; extra == 'format-nongpl'",
+        "idna; extra == 'format-nongpl'",
+        "isoduration; extra == 'format-nongpl'",
+        "jsonpointer>1.13; extra == 'format-nongpl'",
+        "rfc3339-validator; extra == 'format-nongpl'",
+        "rfc3986-validator>0.1.0; extra == 'format-nongpl'",
+        "rfc3987-syntax>=1.1.0; extra == 'format-nongpl'",
+        "uri-template; extra == 'format-nongpl'",
+        "webcolors>=24.6.0; extra == 'format-nongpl'"
+      ],
+      "license": "MIT",
+      "license_classifiers": [],
+      "license_files": [
+        "third_party_licenses/jsonschema/jsonschema-4.25.1.dist-info__licenses__COPYING"
+      ]
+    },
+    {
+      "name": "jsonschema-specifications",
+      "version": "2025.9.1",
+      "requires_python": ">=3.9",
+      "requires_dist": [
+        "referencing>=0.31.0"
+      ],
+      "license": "MIT",
+      "license_classifiers": [],
+      "license_files": [
+        "third_party_licenses/jsonschema-specifications/jsonschema_specifications-2025.9.1.dist-info__licenses__COPYING"
+      ]
+    },
+    {
+      "name": "lxml",
+      "version": "6.1.3",
+      "requires_python": ">=3.8",
+      "requires_dist": [
+        "cssselect>=0.7; extra == \"cssselect\"",
+        "html5lib; extra == \"html5\"",
+        "BeautifulSoup4; extra == \"htmlsoup\"",
+        "lxml_html_clean; extra == \"html-clean\""
+      ],
+      "license": "BSD-3-Clause",
+      "license_classifiers": [],
+      "license_files": [
+        "third_party_licenses/lxml/lxml-6.1.3.dist-info__licenses__LICENSE.txt",
+        "third_party_licenses/lxml/lxml-6.1.3.dist-info__licenses__LICENSES.txt"
+      ]
+    },
+    {
+      "name": "MarkupSafe",
+      "version": "3.0.4",
+      "requires_python": ">=3.9",
+      "requires_dist": [],
+      "license": "BSD-3-Clause",
+      "license_classifiers": [],
+      "license_files": [
+        "third_party_licenses/markupsafe/markupsafe-3.0.4.dist-info__licenses__LICENSE.txt"
+      ]
+    },
+    {
+      "name": "narwhals",
+      "version": "2.28.0",
+      "requires_python": ">=3.10",
+      "requires_dist": [
+        "cudf-cu12>=24.10.0 ; sys_platform == 'linux' and extra == 'cudf'",
+        "dask[dataframe]>=2024.8 ; extra == 'dask'",
+        "duckdb>=1.1 ; extra == 'duckdb'",
+        "ibis-framework>=6.0.0 ; extra == 'ibis'",
+        "packaging>=21.3 ; extra == 'ibis'",
+        "pyarrow-hotfix>=0.7 ; extra == 'ibis'",
+        "modin>=0.22.0 ; extra == 'modin'",
+        "pandas>=1.3.4 ; extra == 'pandas'",
+        "polars>=0.20.4 ; extra == 'polars'",
+        "pyarrow>=13.0.0 ; extra == 'pyarrow'",
+        "pyspark>=3.5.0 ; extra == 'pyspark'",
+        "pyspark[connect]>=3.5.0 ; extra == 'pyspark-connect'",
+        "narwhals[duckdb] ; extra == 'sql'",
+        "sqlparse>=0.5.5 ; extra == 'sql'",
+        "sqlframe>=3.22.0,!=3.39.3 ; extra == 'sqlframe'"
+      ],
+      "license": "MIT",
+      "license_classifiers": [],
+      "license_files": [
+        "third_party_licenses/narwhals/narwhals-2.28.0.dist-info__licenses__LICENSE.md"
+      ]
+    },
+    {
+      "name": "nest-asyncio",
+      "version": "1.6.0",
+      "requires_python": ">=3.5",
+      "requires_dist": [],
+      "license": "BSD",
+      "license_classifiers": [
+        "License :: OSI Approved :: BSD License"
+      ],
+      "license_files": [
+        "third_party_licenses/nest-asyncio/nest_asyncio-1.6.0.dist-info__LICENSE"
+      ]
+    },
+    {
+      "name": "openai",
+      "version": "1.109.1",
+      "requires_python": ">=3.8",
+      "requires_dist": [
+        "anyio<5,>=3.5.0",
+        "distro<2,>=1.7.0",
+        "httpx<1,>=0.23.0",
+        "jiter<1,>=0.4.0",
+        "pydantic<3,>=1.9.0",
+        "sniffio",
+        "tqdm>4",
+        "typing-extensions<5,>=4.11",
+        "aiohttp; extra == 'aiohttp'",
+        "httpx-aiohttp>=0.1.8; extra == 'aiohttp'",
+        "numpy>=1; extra == 'datalib'",
+        "pandas-stubs>=1.1.0.11; extra == 'datalib'",
+        "pandas>=1.2.3; extra == 'datalib'",
+        "websockets<16,>=13; extra == 'realtime'",
+        "numpy>=2.0.2; extra == 'voice-helpers'",
+        "sounddevice>=0.5.1; extra == 'voice-helpers'"
+      ],
+      "license": "Apache-2.0",
+      "license_classifiers": [
+        "License :: OSI Approved :: Apache Software License"
+      ],
+      "license_files": [
+        "third_party_licenses/openai/openai-1.109.1.dist-info__licenses__LICENSE"
+      ]
+    },
+    {
+      "name": "openpyxl",
+      "version": "3.1.5",
+      "requires_python": ">=3.8",
+      "requires_dist": [
+        "et-xmlfile"
+      ],
+      "license": "MIT",
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "license_files": []
+    },
+    {
+      "name": "packaging",
+      "version": "26.3",
+      "requires_python": ">=3.9",
+      "requires_dist": [],
+      "license": "Apache-2.0 OR BSD-2-Clause",
+      "license_classifiers": [],
+      "license_files": [
+        "third_party_licenses/packaging/packaging-26.3.dist-info__licenses__LICENSE",
+        "third_party_licenses/packaging/packaging-26.3.dist-info__licenses__LICENSE.APACHE",
+        "third_party_licenses/packaging/packaging-26.3.dist-info__licenses__LICENSE.BSD",
+        "third_party_licenses/packaging/packaging__licenses____init__.py",
+        "third_party_licenses/packaging/packaging__licenses____pycache______init__.cpython-312.pyc",
+        "third_party_licenses/packaging/packaging__licenses____pycache_____spdx.cpython-312.pyc",
+        "third_party_licenses/packaging/packaging__licenses___spdx.py"
+      ]
+    },
+    {
+      "name": "pillow",
+      "version": "13.0.0",
+      "requires_python": ">=3.11",
+      "requires_dist": [
+        "furo; extra == \"docs\"",
+        "olefile; extra == \"docs\"",
+        "sphinx>=8.2; extra == \"docs\"",
+        "sphinx-autobuild; extra == \"docs\"",
+        "sphinx-copybutton; extra == \"docs\"",
+        "sphinx-inline-tabs; extra == \"docs\"",
+        "sphinxext-opengraph; extra == \"docs\"",
+        "olefile; extra == \"fpx\"",
+        "olefile; extra == \"mic\"",
+        "arro3-compute; extra == \"test-arrow\"",
+        "arro3-core; extra == \"test-arrow\"",
+        "nanoarrow; extra == \"test-arrow\"",
+        "pyarrow; extra == \"test-arrow\"",
+        "coverage>=7.4.2; extra == \"tests\"",
+        "defusedxml; extra == \"tests\"",
+        "markdown2; extra == \"tests\"",
+        "olefile; extra == \"tests\"",
+        "packaging; extra == \"tests\"",
+        "psutil; (sys_platform == \"linux\" or sys_platform == \"darwin\") and extra == \"tests\"",
+        "pytest; extra == \"tests\"",
+        "pytest-cov; extra == \"tests\"",
+        "pytest-timeout; extra == \"tests\"",
+        "pytest-xdist; extra == \"tests\"",
+        "setuptools; extra == \"tests\"",
+        "trove-classifiers>=2024.10.12; extra == \"tests\"",
+        "defusedxml; extra == \"xmp\""
+      ],
+      "license": "MIT-CMU",
+      "license_classifiers": [],
+      "license_files": [
+        "third_party_licenses/pillow/pillow-13.0.0.dist-info__licenses__LICENSE"
+      ]
+    },
+    {
+      "name": "playwright",
+      "version": "1.56.0",
+      "requires_python": ">=3.9",
+      "requires_dist": [
+        "pyee<14,>=13",
+        "greenlet<4.0.0,>=3.1.1"
+      ],
+      "license": "Apache-2.0",
+      "license_classifiers": [],
+      "license_files": [
+        "third_party_licenses/playwright/playwright-1.56.0.dist-info__licenses__LICENSE",
+        "third_party_licenses/playwright/playwright__driver__LICENSE",
+        "third_party_licenses/playwright/playwright__driver__package__LICENSE",
+        "third_party_licenses/playwright/playwright__driver__package__NOTICE"
+      ]
+    },
+    {
+      "name": "plotly",
+      "version": "6.3.0",
+      "requires_python": ">=3.8",
+      "requires_dist": [
+        "narwhals>=1.15.1",
+        "packaging",
+        "numpy; extra == \"express\"",
+        "kaleido>=1.0.0; extra == \"kaleido\"",
+        "pytest; extra == \"dev-core\"",
+        "requests; extra == \"dev-core\"",
+        "ruff==0.11.12; extra == \"dev-core\"",
+        "plotly[dev_core]; extra == \"dev-build\"",
+        "build; extra == \"dev-build\"",
+        "jupyter; extra == \"dev-build\"",
+        "plotly[dev_build]; extra == \"dev-optional\"",
+        "plotly[kaleido]; extra == \"dev-optional\"",
+        "anywidget; extra == \"dev-optional\"",
+        "colorcet; extra == \"dev-optional\"",
+        "fiona<=1.9.6; python_version <= \"3.8\" and extra == \"dev-optional\"",
+        "geopandas; extra == \"dev-optional\"",
+        "inflect; extra == \"dev-optional\"",
+        "numpy; extra == \"dev-optional\"",
+        "orjson; extra == \"dev-optional\"",
+        "pandas; extra == \"dev-optional\"",
+        "pdfrw; extra == \"dev-optional\"",
+        "pillow; extra == \"dev-optional\"",
+        "plotly-geo; extra == \"dev-optional\"",
+        "polars[timezone]; extra == \"dev-optional\"",
+        "pyarrow; extra == \"dev-optional\"",
+        "pyshp; extra == \"dev-optional\"",
+        "pytz; extra == \"dev-optional\"",
+        "scikit-image; extra == \"dev-optional\"",
+        "scipy; extra == \"dev-optional\"",
+        "shapely; extra == \"dev-optional\"",
+        "statsmodels; extra == \"dev-optional\"",
+        "vaex; python_version <= \"3.9\" and extra == \"dev-optional\"",
+        "xarray; extra == \"dev-optional\"",
+        "plotly[dev_optional]; extra == \"dev\""
+      ],
+      "license": "Full license text in metadata/notices",
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "license_files": [
+        "third_party_licenses/plotly/plotly-6.3.0.dist-info__licenses__LICENSE.txt"
+      ]
+    },
+    {
+      "name": "pluggy",
+      "version": "1.7.0",
+      "requires_python": ">=3.10",
+      "requires_dist": [],
+      "license": "MIT",
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "license_files": [
+        "third_party_licenses/pluggy/pluggy-1.7.0.dist-info__licenses__LICENSE"
+      ]
+    },
+    {
+      "name": "pydantic",
+      "version": "2.11.7",
+      "requires_python": ">=3.9",
+      "requires_dist": [
+        "annotated-types>=0.6.0",
+        "pydantic-core==2.33.2",
+        "typing-extensions>=4.12.2",
+        "typing-inspection>=0.4.0",
+        "email-validator>=2.0.0; extra == 'email'",
+        "tzdata; (python_version >= '3.9' and platform_system == 'Windows') and extra == 'timezone'"
+      ],
+      "license": "MIT",
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "license_files": [
+        "third_party_licenses/pydantic/pydantic-2.11.7.dist-info__licenses__LICENSE"
+      ]
+    },
+    {
+      "name": "pydantic_core",
+      "version": "2.33.2",
+      "requires_python": ">=3.9",
+      "requires_dist": [
+        "typing-extensions>=4.6.0,!=4.7.0"
+      ],
+      "license": "MIT",
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "license_files": [
+        "third_party_licenses/pydantic-core/pydantic_core-2.33.2.dist-info__licenses__LICENSE"
+      ]
+    },
+    {
+      "name": "pyee",
+      "version": "13.0.1",
+      "requires_python": ">=3.8",
+      "requires_dist": [
+        "typing-extensions",
+        "build; extra == \"dev\"",
+        "flake8; extra == \"dev\"",
+        "flake8-black; extra == \"dev\"",
+        "pytest; extra == \"dev\"",
+        "pytest-asyncio; python_version >= \"3.4\" and extra == \"dev\"",
+        "pytest-trio; python_version >= \"3.7\" and extra == \"dev\"",
+        "black; extra == \"dev\"",
+        "isort; extra == \"dev\"",
+        "jupyter-console; extra == \"dev\"",
+        "mkdocs; extra == \"dev\"",
+        "mkdocs-include-markdown-plugin; extra == \"dev\"",
+        "mkdocstrings[python]; extra == \"dev\"",
+        "mypy; extra == \"dev\"",
+        "sphinx; extra == \"dev\"",
+        "toml; extra == \"dev\"",
+        "tox; extra == \"dev\"",
+        "trio; extra == \"dev\"",
+        "trio; python_version > \"3.6\" and extra == \"dev\"",
+        "trio-typing; python_version > \"3.6\" and extra == \"dev\"",
+        "twine; extra == \"dev\"",
+        "twisted; extra == \"dev\"",
+        "validate-pyproject[all]; extra == \"dev\""
+      ],
+      "license": "MIT",
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "license_files": [
+        "third_party_licenses/pyee/pyee-13.0.1.dist-info__licenses__LICENSE"
+      ]
+    },
+    {
+      "name": "Pygments",
+      "version": "2.21.0",
+      "requires_python": ">=3.9",
+      "requires_dist": [
+        "colorama>=0.4.6; extra == 'windows-terminal'"
+      ],
+      "license": "BSD-2-Clause",
+      "license_classifiers": [],
+      "license_files": [
+        "third_party_licenses/pygments/pygments-2.21.0.dist-info__licenses__AUTHORS",
+        "third_party_licenses/pygments/pygments-2.21.0.dist-info__licenses__LICENSE"
+      ]
+    },
+    {
+      "name": "pypdf",
+      "version": "6.21.4",
+      "requires_python": ">=3.9",
+      "requires_dist": [
+        "typing_extensions >= 4.0; python_version < '3.11'",
+        "brotli>=1.2.0 ; extra == \"brotli\"",
+        "cryptography>3.0 ; extra == \"crypto\"",
+        "PyCryptodome ; extra == \"cryptodome\"",
+        "flit ; extra == \"dev\"",
+        "pip-tools ; extra == \"dev\"",
+        "pre-commit ; extra == \"dev\"",
+        "pytest-cov ; extra == \"dev\"",
+        "pytest-socket ; extra == \"dev\"",
+        "pytest-timeout ; extra == \"dev\"",
+        "pytest-xdist ; extra == \"dev\"",
+        "wheel ; extra == \"dev\"",
+        "myst_parser ; extra == \"docs\"",
+        "sphinx ; extra == \"docs\"",
+        "sphinx_rtd_theme ; extra == \"docs\"",
+        "fonttools ; extra == \"fonts\"",
+        "arabic-reshaper ; extra == \"full\"",
+        "brotli>=1.2.0 ; extra == \"full\"",
+        "cryptography>3.0 ; extra == \"full\"",
+        "fonttools ; extra == \"full\"",
+        "Pillow>=8.0.0 ; extra == \"full\"",
+        "python-bidi ; extra == \"full\"",
+        "Pillow>=8.0.0 ; extra == \"image\"",
+        "arabic-reshaper ; extra == \"rtl-text\"",
+        "python-bidi ; extra == \"rtl-text\""
+      ],
+      "license": "BSD-3-Clause",
+      "license_classifiers": [],
+      "license_files": [
+        "third_party_licenses/pypdf/pypdf-6.21.4.dist-info__licenses__LICENSE"
+      ]
+    },
+    {
+      "name": "pytest",
+      "version": "9.0.3",
+      "requires_python": ">=3.10",
+      "requires_dist": [
+        "colorama>=0.4; sys_platform == \"win32\"",
+        "exceptiongroup>=1; python_version < \"3.11\"",
+        "iniconfig>=1.0.1",
+        "packaging>=22",
+        "pluggy<2,>=1.5",
+        "pygments>=2.7.2",
+        "tomli>=1; python_version < \"3.11\"",
+        "argcomplete; extra == \"dev\"",
+        "attrs>=19.2; extra == \"dev\"",
+        "hypothesis>=3.56; extra == \"dev\"",
+        "mock; extra == \"dev\"",
+        "requests; extra == \"dev\"",
+        "setuptools; extra == \"dev\"",
+        "xmlschema; extra == \"dev\""
+      ],
+      "license": "MIT",
+      "license_classifiers": [],
+      "license_files": [
+        "third_party_licenses/pytest/pytest-9.0.3.dist-info__licenses__LICENSE"
+      ]
+    },
+    {
+      "name": "pytest-base-url",
+      "version": "2.1.0",
+      "requires_python": ">=3.8",
+      "requires_dist": [
+        "pytest>=7.0.0",
+        "requests>=2.9",
+        "black>=22.1.0; extra == 'test'",
+        "flake8>=4.0.1; extra == 'test'",
+        "pre-commit>=2.17.0; extra == 'test'",
+        "pytest-localserver>=0.7.1; extra == 'test'",
+        "tox>=3.24.5; extra == 'test'"
+      ],
+      "license": "MPL-2.0",
+      "license_classifiers": [
+        "License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)"
+      ],
+      "license_files": [
+        "third_party_licenses/pytest-base-url/pytest_base_url-2.1.0.dist-info__licenses__LICENSE"
+      ]
+    },
+    {
+      "name": "pytest-playwright",
+      "version": "0.7.2",
+      "requires_python": ">=3.10",
+      "requires_dist": [
+        "playwright >=1.18",
+        "pytest <10.0.0,>=6.2.4",
+        "pytest-base-url <3.0.0,>=1.0.0",
+        "python-slugify <9.0.0,>=6.0.0"
+      ],
+      "license": "Full license text in metadata/notices",
+      "license_classifiers": [
+        "License :: OSI Approved :: Apache Software License"
+      ],
+      "license_files": [
+        "third_party_licenses/pytest-playwright/pytest_playwright-0.7.2.dist-info__LICENSE"
+      ]
+    },
+    {
+      "name": "python-docx",
+      "version": "1.2.0",
+      "requires_python": ">=3.9",
+      "requires_dist": [
+        "lxml>=3.1.0",
+        "typing_extensions>=4.9.0"
+      ],
+      "license": "MIT",
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "license_files": [
+        "third_party_licenses/python-docx/python_docx-1.2.0.dist-info__licenses__LICENSE"
+      ]
+    },
+    {
+      "name": "python-dotenv",
+      "version": "1.2.2",
+      "requires_python": ">=3.10",
+      "requires_dist": [
+        "click>=5.0; extra == \"cli\""
+      ],
+      "license": "BSD-3-Clause",
+      "license_classifiers": [],
+      "license_files": [
+        "third_party_licenses/python-dotenv/python_dotenv-1.2.2.dist-info__licenses__LICENSE"
+      ]
+    },
+    {
+      "name": "python-pptx",
+      "version": "1.0.2",
+      "requires_python": ">=3.8",
+      "requires_dist": [
+        "Pillow >=3.3.2",
+        "XlsxWriter >=0.5.7",
+        "lxml >=3.1.0",
+        "typing-extensions >=4.9.0"
+      ],
+      "license": "MIT",
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "license_files": [
+        "third_party_licenses/python-pptx/python_pptx-1.0.2.dist-info__LICENSE"
+      ]
+    },
+    {
+      "name": "python-slugify",
+      "version": "8.0.4",
+      "requires_python": ">=3.7",
+      "requires_dist": [
+        "text-unidecode (>=1.3)",
+        "Unidecode (>=1.1.1) ; extra == 'unidecode'"
+      ],
+      "license": "MIT",
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "license_files": [
+        "third_party_licenses/python-slugify/python_slugify-8.0.4.dist-info__LICENSE"
+      ]
+    },
+    {
+      "name": "referencing",
+      "version": "0.37.0",
+      "requires_python": ">=3.10",
+      "requires_dist": [
+        "attrs>=22.2.0",
+        "rpds-py>=0.7.0",
+        "typing-extensions>=4.4.0; python_version < '3.13'"
+      ],
+      "license": "MIT",
+      "license_classifiers": [],
+      "license_files": [
+        "third_party_licenses/referencing/referencing-0.37.0.dist-info__licenses__COPYING"
+      ]
+    },
+    {
+      "name": "requests",
+      "version": "2.34.2",
+      "requires_python": ">=3.10",
+      "requires_dist": [
+        "charset_normalizer<4,>=2",
+        "idna<4,>=2.5",
+        "urllib3<3,>=1.26",
+        "certifi>=2023.5.7",
+        "PySocks!=1.5.7,>=1.5.6; extra == \"socks\"",
+        "chardet<8,>=3.0.2; extra == \"use-chardet-on-py3\""
+      ],
+      "license": "Apache-2.0",
+      "license_classifiers": [
+        "License :: OSI Approved :: Apache Software License"
+      ],
+      "license_files": [
+        "third_party_licenses/requests/requests-2.34.2.dist-info__licenses__LICENSE",
+        "third_party_licenses/requests/requests-2.34.2.dist-info__licenses__NOTICE"
+      ]
+    },
+    {
+      "name": "retrying",
+      "version": "1.4.2",
+      "requires_python": ">=3.6",
+      "requires_dist": [],
+      "license": "Apache-2.0",
+      "license_classifiers": [],
+      "license_files": [
+        "third_party_licenses/retrying/retrying-1.4.2.dist-info__licenses__LICENSE.txt",
+        "third_party_licenses/retrying/retrying-1.4.2.dist-info__licenses__NOTICE.txt"
+      ]
+    },
+    {
+      "name": "rpds-py",
+      "version": "2026.9.1",
+      "requires_python": ">=3.11",
+      "requires_dist": [],
+      "license": "MIT",
+      "license_classifiers": [],
+      "license_files": [
+        "third_party_licenses/rpds-py/rpds_py-2026.9.1.dist-info__licenses__LICENSE"
+      ]
+    },
+    {
+      "name": "setuptools",
+      "version": "84.2.1",
+      "requires_python": ">=3.10",
+      "requires_dist": [
+        "pytest!=8.1.*,>=6; extra == \"test\"",
+        "virtualenv>=13.0.0; extra == \"test\"",
+        "wheel>=0.44.0; extra == \"test\"",
+        "pip>=19.1; extra == \"test\"",
+        "packaging>=26.3; extra == \"test\"",
+        "jaraco.envs>=2.2; extra == \"test\"",
+        "pytest-xdist>=3; extra == \"test\"",
+        "jaraco.path>=3.7.2; extra == \"test\"",
+        "build[virtualenv]>=1.0.3; extra == \"test\"",
+        "filelock>=3.4.0; extra == \"test\"",
+        "ini2toml[lite]>=0.14; extra == \"test\"",
+        "tomli-w>=1.0.0; extra == \"test\"",
+        "pytest-timeout; extra == \"test\"",
+        "pytest-perf; sys_platform != \"cygwin\" and extra == \"test\"",
+        "jaraco.develop>=7.21; (python_version >= \"3.9\" and sys_platform != \"cygwin\") and extra == \"test\"",
+        "pytest-home>=0.5; extra == \"test\"",
+        "pytest-subprocess; extra == \"test\"",
+        "pyproject-hooks!=1.1; extra == \"test\"",
+        "jaraco.test>=5.5; extra == \"test\"",
+        "sphinx>=3.5; extra == \"doc\"",
+        "jaraco.packaging>=9.3; extra == \"doc\"",
+        "rst.linker>=1.9; extra == \"doc\"",
+        "furo; extra == \"doc\"",
+        "sphinx-lint; extra == \"doc\"",
+        "jaraco.tidelift>=1.4; extra == \"doc\"",
+        "pygments-github-lexers==0.0.5; extra == \"doc\"",
+        "sphinx-favicon; extra == \"doc\"",
+        "sphinx-inline-tabs; extra == \"doc\"",
+        "sphinx-reredirects; extra == \"doc\"",
+        "sphinxcontrib-towncrier; extra == \"doc\"",
+        "sphinx-notfound-page<2,>=1; extra == \"doc\"",
+        "pyproject-hooks!=1.1; extra == \"doc\"",
+        "towncrier<24.7; extra == \"doc\"",
+        "packaging>=26.3; extra == \"core\"",
+        "more_itertools>=8.8; extra == \"core\"",
+        "jaraco.text>=3.7; extra == \"core\"",
+        "importlib_metadata>=6; python_version < \"3.10\" and extra == \"core\"",
+        "tomli>=2.0.1; python_version < \"3.11\" and extra == \"core\"",
+        "wheel>=0.43.0; extra == \"core\"",
+        "jaraco.functools>=4; extra == \"core\"",
+        "more_itertools; extra == \"core\"",
+        "pytest-checkdocs>=2.14; extra == \"check\"",
+        "pytest-ruff>=0.2.1; sys_platform != \"cygwin\" and extra == \"check\"",
+        "ruff>=0.13.0; sys_platform != \"cygwin\" and extra == \"check\"",
+        "pytest-cov; extra == \"cover\"",
+        "pytest-enabler>=3.4; extra == \"enabler\"",
+        "pytest-mypy>=1.0.1; platform_python_implementation != \"PyPy\" and extra == \"type\"",
+        "mypy==1.18.*; extra == \"type\"",
+        "importlib_metadata>=7.0.2; python_version < \"3.10\" and extra == \"type\"",
+        "jaraco.develop>=7.21; sys_platform != \"cygwin\" and extra == \"type\""
+      ],
+      "license": "MIT",
+      "license_classifiers": [],
+      "license_files": [
+        "third_party_licenses/setuptools/setuptools-84.2.1.dist-info__licenses__LICENSE",
+        "third_party_licenses/setuptools/setuptools___vendor__autocommand-2.2.2.dist-info__LICENSE",
+        "third_party_licenses/setuptools/setuptools___vendor__backports.tarfile-1.2.0.dist-info__LICENSE",
+        "third_party_licenses/setuptools/setuptools___vendor__importlib_metadata-8.7.1.dist-info__licenses__LICENSE",
+        "third_party_licenses/setuptools/setuptools___vendor__jaraco.text-4.0.0.dist-info__LICENSE",
+        "third_party_licenses/setuptools/setuptools___vendor__jaraco_context-6.1.0.dist-info__licenses__LICENSE",
+        "third_party_licenses/setuptools/setuptools___vendor__jaraco_functools-4.4.0.dist-info__licenses__LICENSE",
+        "third_party_licenses/setuptools/setuptools___vendor__more_itertools-10.8.0.dist-info__licenses__LICENSE",
+        "third_party_licenses/setuptools/setuptools___vendor__packaging-26.3.dist-info__licenses__LICENSE",
+        "third_party_licenses/setuptools/setuptools___vendor__packaging-26.3.dist-info__licenses__LICENSE.APACHE",
+        "third_party_licenses/setuptools/setuptools___vendor__packaging-26.3.dist-info__licenses__LICENSE.BSD",
+        "third_party_licenses/setuptools/setuptools___vendor__packaging__licenses____init__.py",
+        "third_party_licenses/setuptools/setuptools___vendor__packaging__licenses____pycache______init__.cpython-312.pyc",
+        "third_party_licenses/setuptools/setuptools___vendor__packaging__licenses____pycache_____spdx.cpython-312.pyc",
+        "third_party_licenses/setuptools/setuptools___vendor__packaging__licenses___spdx.py",
+        "third_party_licenses/setuptools/setuptools___vendor__platformdirs-4.4.0.dist-info__licenses__LICENSE",
+        "third_party_licenses/setuptools/setuptools___vendor__tomli-2.4.0.dist-info__licenses__LICENSE",
+        "third_party_licenses/setuptools/setuptools___vendor__wheel-0.46.3.dist-info__licenses__LICENSE.txt",
+        "third_party_licenses/setuptools/setuptools___vendor__zipp-3.23.0.dist-info__licenses__LICENSE",
+        "third_party_licenses/setuptools/setuptools__config__NOTICE",
+        "third_party_licenses/setuptools/setuptools__config___validate_pyproject__NOTICE"
+      ]
+    },
+    {
+      "name": "sniffio",
+      "version": "1.3.1",
+      "requires_python": ">=3.7",
+      "requires_dist": [],
+      "license": "MIT OR Apache-2.0",
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License",
+        "License :: OSI Approved :: Apache Software License"
+      ],
+      "license_files": [
+        "third_party_licenses/sniffio/sniffio-1.3.1.dist-info__LICENSE",
+        "third_party_licenses/sniffio/sniffio-1.3.1.dist-info__LICENSE.APACHE2",
+        "third_party_licenses/sniffio/sniffio-1.3.1.dist-info__LICENSE.MIT"
+      ]
+    },
+    {
+      "name": "text-unidecode",
+      "version": "1.3",
+      "requires_python": null,
+      "requires_dist": [],
+      "license": "Artistic License",
+      "license_classifiers": [
+        "License :: OSI Approved :: Artistic License",
+        "License :: OSI Approved :: GNU General Public License (GPL)",
+        "License :: OSI Approved :: GNU General Public License v2 or later (GPLv2+)"
+      ],
+      "license_files": [
+        "third_party_licenses/text-unidecode/text_unidecode-1.3.dist-info__LICENSE.txt"
+      ]
+    },
+    {
+      "name": "tqdm",
+      "version": "4.70.1",
+      "requires_python": ">=3.8",
+      "requires_dist": [
+        "colorama; platform_system == \"Windows\"",
+        "requests; extra == \"discord\"",
+        "envwrap; extra == \"discord\"",
+        "slack-sdk; extra == \"slack\"",
+        "envwrap; extra == \"slack\"",
+        "requests; extra == \"telegram\"",
+        "envwrap; extra == \"telegram\"",
+        "ipywidgets>=6; extra == \"notebook\""
+      ],
+      "license": "MPL-2.0 AND MIT",
+      "license_classifiers": [],
+      "license_files": [
+        "third_party_licenses/tqdm/tqdm-4.70.1.dist-info__licenses__LICENCE"
+      ]
+    },
+    {
+      "name": "typing_extensions",
+      "version": "4.16.0",
+      "requires_python": ">=3.9",
+      "requires_dist": [],
+      "license": "PSF-2.0",
+      "license_classifiers": [],
+      "license_files": [
+        "third_party_licenses/typing-extensions/typing_extensions-4.16.0.dist-info__licenses__LICENSE"
+      ]
+    },
+    {
+      "name": "typing-inspection",
+      "version": "0.4.4",
+      "requires_python": ">=3.10",
+      "requires_dist": [
+        "typing-extensions>=4.15.0"
+      ],
+      "license": "MIT",
+      "license_classifiers": [],
+      "license_files": [
+        "third_party_licenses/typing-inspection/typing_inspection-0.4.4.dist-info__licenses__LICENSE"
+      ]
+    },
+    {
+      "name": "urllib3",
+      "version": "2.8.0",
+      "requires_python": ">=3.10",
+      "requires_dist": [
+        "brotli>=1.2.0; (platform_python_implementation == 'CPython') and extra == 'brotli'",
+        "brotlicffi>=1.2.0.0; (platform_python_implementation != 'CPython') and extra == 'brotli'",
+        "h2<5,>=4; extra == 'h2'",
+        "pysocks!=1.5.7,<2.0,>=1.5.6; extra == 'socks'",
+        "backports-zstd>=1.0.0; (python_version < '3.14') and extra == 'zstd'"
+      ],
+      "license": "MIT",
+      "license_classifiers": [],
+      "license_files": [
+        "third_party_licenses/urllib3/urllib3-2.8.0.dist-info__licenses__LICENSE.txt"
+      ]
+    },
+    {
+      "name": "waitress",
+      "version": "3.0.2",
+      "requires_python": ">=3.9.0",
+      "requires_dist": [
+        "Sphinx >=1.8.1 ; extra == 'docs'",
+        "docutils ; extra == 'docs'",
+        "pylons-sphinx-themes >=1.0.9 ; extra == 'docs'",
+        "pytest ; extra == 'testing'",
+        "pytest-cov ; extra == 'testing'",
+        "coverage >=7.6.0 ; extra == 'testing'"
+      ],
+      "license": "ZPL 2.1",
+      "license_classifiers": [
+        "License :: OSI Approved :: Zope Public License"
+      ],
+      "license_files": [
+        "third_party_licenses/waitress/waitress-3.0.2.dist-info__LICENSE.txt"
+      ]
+    },
+    {
+      "name": "Werkzeug",
+      "version": "3.1.9",
+      "requires_python": ">=3.9",
+      "requires_dist": [
+        "markupsafe>=2.1.1",
+        "watchdog>=2.3 ; extra == \"watchdog\""
+      ],
+      "license": "BSD-3-Clause",
+      "license_classifiers": [],
+      "license_files": [
+        "third_party_licenses/werkzeug/werkzeug-3.1.9.dist-info__licenses__LICENSE.txt"
+      ]
+    },
+    {
+      "name": "xlsxwriter",
+      "version": "3.3.1",
+      "requires_python": ">=3.8",
+      "requires_dist": [],
+      "license": "BSD-2-Clause",
+      "license_classifiers": [],
+      "license_files": [
+        "third_party_licenses/xlsxwriter/xlsxwriter-3.3.1.dist-info__licenses__LICENSE.txt"
+      ]
+    },
+    {
+      "name": "zipp",
+      "version": "4.1.2",
+      "requires_python": ">=3.10",
+      "requires_dist": [
+        "pytest!=8.1.*,>=6; extra == \"test\"",
+        "jaraco.itertools; extra == \"test\"",
+        "jaraco.functools; extra == \"test\"",
+        "more_itertools; extra == \"test\"",
+        "big-O; extra == \"test\"",
+        "pytest-ignore-flaky; extra == \"test\"",
+        "jaraco.test; extra == \"test\"",
+        "sphinx>=3.5; extra == \"doc\"",
+        "jaraco.packaging>=9.3; extra == \"doc\"",
+        "rst.linker>=1.9; extra == \"doc\"",
+        "furo; extra == \"doc\"",
+        "sphinx-lint; extra == \"doc\"",
+        "jaraco.tidelift>=1.4; extra == \"doc\"",
+        "pytest-checkdocs>=2.14; extra == \"check\"",
+        "pytest-ruff>=0.2.1; sys_platform != \"cygwin\" and extra == \"check\"",
+        "pytest-cov; extra == \"cover\"",
+        "pytest-enabler>=3.4; extra == \"enabler\"",
+        "pytest-mypy>=1.0.1; platform_python_implementation != \"PyPy\" and extra == \"type\""
+      ],
+      "license": "MIT",
+      "license_classifiers": [],
+      "license_files": [
+        "third_party_licenses/zipp/zipp-4.1.2.dist-info__licenses__LICENSE"
+      ]
+    }
+  ],
+  "lock_sha256": {
+    "requirements-win.lock": "42a560139504b5838dc379352e4a53c9306a8461744e284dbb7cc96223eb9b0d",
+    "requirements-linux.lock": "5cbdfc3fcd8e5215664e248128454114ad918313a214c7f81e3fb86197af3f0a",
+    "requirements-tooling.lock": "b21d90818cd078df19f897d0feee726df1ab78ff6f46fc0efa461c8707cd1c1a"
+  },
+  "windows_only_packages": [
+    {
+      "name": "colorama",
+      "version": "0.4.6",
+      "license": "BSD-3-Clause",
+      "verification": "Windows hash-verified wheel; native execution not_run",
+      "license_files": [
+        "third_party_licenses/colorama/LICENSE.txt"
+      ]
+    }
+  ]
+}
