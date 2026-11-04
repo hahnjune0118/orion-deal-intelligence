@@ -1,0 +1,31 @@
+{
+  "command": "python -m orion.app",
+  "url": "http://127.0.0.1:8050",
+  "checks": [
+    {
+      "path": "/healthz",
+      "status": 200,
+      "bytes": 52
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 4353
+    },
+    {
+      "path": "/_dash-layout",
+      "status": 200,
+      "bytes": 11133
+    },
+    {
+      "path": "/_dash-dependencies",
+      "status": 200,
+      "bytes": 3403
+    },
+    {
+      "path": "/assets/orion.css",
+      "status": 200,
+      "bytes": 16044
+    }
+  ]
+}
