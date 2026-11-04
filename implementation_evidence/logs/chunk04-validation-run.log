@@ -1,0 +1,4 @@
+spec-integrity: exit 0
+pip-check: exit 0
+compile: exit 0
+full-regression: exit 0

@@ -1,6 +1,39 @@
-# Orion Deal Intelligence 2.0 — Chunk 1 + Chunk 2 + Chunk 3
+# Orion Deal Intelligence 2.0 — Chunk 4 Dash Workbench
 
-Python 3.12 기반 Foundation과 Adaptive DD Core Engine에 **합성 데이터·native source parsing·Bayesian/EIG·평가 harness**를 통합했습니다. 실제 LLM 호출, 전체 Dash UI, 배포는 아직 구현하지 않았습니다. 작성된 fixture 결과와 모델 성능을 구분합니다.
+Python 3.12 기반 Chunk 1–3에 **Dash + Dash AG Grid 분석 화면, 증빙 승인·반려, 전후 순위 비교, Bayesian/EIG 설명, 승인 후 보고서 내보내기**를 연결했습니다. 사용자 제공 `orion-deal-intelligence-main.zip`만 코드 기준본으로 사용합니다. 실제 LLM 호출, 공개 배포, 실제 B0–B3 모델 성능 측정은 이번 구현에 포함되지 않습니다.
+
+## 웹 앱 시작
+
+Windows PowerShell에서 이 README가 있는 프로젝트 폴더로 이동한 뒤 실행합니다.
+
+```powershell
+py -3.12 -m venv .venv
+.\.venv\Scripts\python -m pip install --require-hashes -r requirements-win.lock
+.\.venv\Scripts\python -m pip install --no-deps --no-build-isolation -e .
+.\.venv\Scripts\python -m orion.app
+```
+
+브라우저에서 **http://127.0.0.1:8050**을 엽니다. Linux는 아래 기존 설치 절차 후 `.venv/bin/python -m orion.app`을 실행합니다. 최초 패키지 설치 후 Demo는 API key 없이 오프라인으로 동작합니다. 웹 앱은 이 전체 소스 트리의 합성 원문 파일을 사용하므로 프로젝트 폴더를 유지해야 합니다. 과거 `artifacts/` wheel은 Chunk 1–3 보존 자료입니다.
+
+- [한국어 설치·사용 안내](docs/ORION_WEBAPP_USER_GUIDE.md)
+- [5–7분 시연 순서](docs/ORION_DEMO_WALKTHROUGH.md)
+- [구조와 상태 관리](docs/UI_ARCHITECTURE.md)
+- [구현·실행 검증 보고](implementation_evidence/CHUNK_04.md)
+
+Northstar 심화 사례(`nb`)의 T1–T4, 제조업(`mf`), Lumen의 상충 증빙 사례를 사용할 수 있습니다. Demo의 검토자는 모의 역할이며, 기존 기관의 실제 권한이나 투자 승인을 뜻하지 않습니다. 브라우저 탭마다 서명된 행동 이력을 메모리에 보관하고 기존 엔진으로 재현합니다. 새로고침·초기화·서버 재시작 시 Demo 작업은 유지되지 않을 수 있습니다. Local Live 문서 업로드와 외부 AI 실행은 활성화하지 않습니다.
+
+## 전체 회귀·브라우저 검증
+
+```powershell
+.\.venv\Scripts\python -m playwright install chromium
+.\.venv\Scripts\python scripts/validate_chunk04.py --require-browser
+```
+
+브라우저 설치 없이 `python -m pytest -q --strict-markers`도 실행할 수 있으나, 이 경우 브라우저 시험이 생략되면 전체 UI 검증 통과로 해석하지 마세요. 검증 스크립트는 실제 명령·종료 코드·JUnit·원본 파일 보존 결과를 `implementation_evidence/`에 기록합니다. Windows 명령은 실행 안내이며 이번 작업의 실제 검증 운영체제는 보고서를 참조하세요.
+
+## 기존 Chunk 1–3 설명과 CLI
+
+아래는 기존 코드·CLI·데이터 계약에 관한 설명입니다. 과거 Chunk 보고서의 미구현 상태는 당시 기준이며, 현재 웹 기능 상태는 위 Chunk 4 보고서가 우선합니다.
 
 기준은 `spec/`에 원본 그대로 보존한 Handoff 1.0.0입니다. Scoring Formula, Data Contracts, State Transition 및 기대값은 변경하지 않았습니다. Chunk 2 실행 결과와 한계는 [CHUNK_02.md](implementation_evidence/CHUNK_02.md), 기존 Foundation 증빙은 [CHUNK_01.md](implementation_evidence/CHUNK_01.md)에 있습니다. Chunk 3는 첨부 Chunk 2 코드에서 만든 로컬 `feature/chunk-03-synthetic-evaluation` 브랜치입니다. 원격 GitHub 접근·commit·push는 수행하지 않았습니다. [Chunk 3 기술 보고서](implementation_evidence/CHUNK_03.md)와 [통합 결정](implementation_evidence/CHUNK_03_INTEGRATION_DECISIONS.md)을 확인하세요.
 
@@ -96,7 +129,7 @@ Windows용 lock은 별도 target으로 생성하고 wheel 확보를 검증했습
 
 Windows에서 반영할 때는 [WINDOWS_APPLY_CHUNK_02.md](implementation_evidence/WINDOWS_APPLY_CHUNK_02.md)를 참고하세요. GitHub commit/push는 사용자가 개인 PC에서 직접 수행합니다.
 
-미구현: 전체 Dash UI, export 승인·파일, Live API·비용 예약, 공개 배포, 실제 모델 B0–B3 비교. 단위테스트 및 authored-fixture 성공은 학술 목표의 실제 모델 성능이 아닙니다. 실제 두 브라우저 탭 검증과 Windows 실행은 별도 환경에서 확인해야 합니다.
+후속 범위: Live API·비용 예약, 공개 배포, 실제 모델 B0–B3 비교. 단위테스트 및 authored-fixture 성공은 학술 목표의 실제 모델 성능이 아닙니다. Dash·export·브라우저 격리는 Chunk 4 보고서를, Windows 실제 실행 여부는 해당 보고서의 한계를 참조하세요.
 
 
 ## Chunk 3 전체 실행
@@ -137,4 +170,4 @@ python -m pytest -q --strict-markers
 
 새 runtime dependency는 추가하지 않았습니다. 기존 Pydantic와 parser extras, Python 표준 라이브러리로 계산·생성을 수행합니다. NumPy/pandas 없이도 이 크기의 자료를 재현할 수 있도록 구성했습니다. 원본 OS별 hash lock은 그대로 보존합니다. 최신 코드는 소스 설치 또는 `artifacts/orion_deal_intelligence-0.3.0-py3-none-any.whl`을 사용하고, 0.1.0/0.2.0 wheel은 과거 호환성 증빙으로만 사용하세요.
 
-실행 가능한 웹 앱 진입점은 아직 없습니다. 다음 Chunk 4는 검증된 source index·review service·evaluation 결과를 Dash UI에 연결하는 단계입니다.
+Chunk 4의 실행 가능한 웹 진입점은 `python -m orion.app`입니다. 기존 source index·승인 전이·정량 엔진을 사용하며, 원래의 Core Engine과 평가 명령은 계속 사용할 수 있습니다.

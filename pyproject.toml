@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "orion-deal-intelligence"
-version = "0.3.0"
-description = "Orion Deal Intelligence 2.0 — Adaptive DD, Synthetic Data and Evaluation"
+version = "0.4.0"
+description = "Orion Deal Intelligence 2.0 — Evidence-Grounded Adaptive DD Workbench"
 readme = "README.md"
 requires-python = ">=3.12,<3.13"
 dependencies = ["pydantic==2.11.7"]
@@ -19,12 +19,13 @@ serve = ["gunicorn==23.0.0; sys_platform != 'win32'", "waitress==3.0.2"]
 
 [project.scripts]
 orion = "orion.cli:main"
+orion-web = "orion.app:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
 
 [tool.setuptools.package-data]
-orion = ["resources/demo/*/*.json", "resources/native/*.json", "quant/README.md"]
+orion = ["resources/demo/*/*.json", "resources/native/*.json", "quant/README.md", "web/assets/*"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

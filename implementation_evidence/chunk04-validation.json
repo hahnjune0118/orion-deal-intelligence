@@ -1,0 +1,85 @@
+{
+  "started_at_utc": "2026-11-04T01:45:54.440222+00:00",
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.39",
+  "native_windows_status": "not_run",
+  "real_llm_benchmark_status": "not_run",
+  "public_deployment_status": "not_run",
+  "require_browser": true,
+  "baseline_preservation": {
+    "status": "pass",
+    "original_zip_sha256": "11f1308464faaa72eaf8ccf8b4736c35841ffbb4d492ba0ade572e3f3f9fd1fe",
+    "original_file_count": 662,
+    "byte_identical_files": 657,
+    "modified_original_files": [
+      "README.md",
+      "pyproject.toml",
+      "CHECKSUMS.sha256",
+      "DELIVERY_FILES.txt",
+      "REPOSITORY_TREE.txt"
+    ],
+    "missing_original_files": [],
+    "unexpected_changes": []
+  },
+  "commands": [
+    {
+      "name": "spec-integrity",
+      "command": [
+        "/workspace/scratch/a36462bd9c4a/venv/bin/python",
+        "scripts/verify_spec.py"
+      ],
+      "started_at_utc": "2026-11-04T01:45:54.504882+00:00",
+      "finished_at_utc": "2026-11-04T01:45:54.548087+00:00",
+      "exit_code": 0,
+      "status": "pass",
+      "log": "implementation_evidence/logs/chunk04-spec-integrity.log"
+    },
+    {
+      "name": "pip-check",
+      "command": [
+        "/workspace/scratch/a36462bd9c4a/venv/bin/python",
+        "-m",
+        "pip",
+        "check"
+      ],
+      "started_at_utc": "2026-11-04T01:45:54.548277+00:00",
+      "finished_at_utc": "2026-11-04T01:45:54.966006+00:00",
+      "exit_code": 0,
+      "status": "pass",
+      "log": "implementation_evidence/logs/chunk04-pip-check.log"
+    },
+    {
+      "name": "compile",
+      "command": [
+        "/workspace/scratch/a36462bd9c4a/venv/bin/python",
+        "-m",
+        "compileall",
+        "-q",
+        "src"
+      ],
+      "started_at_utc": "2026-11-04T01:45:54.966202+00:00",
+      "finished_at_utc": "2026-11-04T01:45:55.010618+00:00",
+      "exit_code": 0,
+      "status": "pass",
+      "log": "implementation_evidence/logs/chunk04-compile.log"
+    },
+    {
+      "name": "full-regression",
+      "command": [
+        "/workspace/scratch/a36462bd9c4a/venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "--strict-markers",
+        "--junitxml=implementation_evidence/chunk04-pytest.xml"
+      ],
+      "started_at_utc": "2026-11-04T01:45:55.010768+00:00",
+      "finished_at_utc": "2026-11-04T01:48:06.926404+00:00",
+      "exit_code": 0,
+      "status": "pass",
+      "log": "implementation_evidence/logs/chunk04-full-regression.log"
+    }
+  ],
+  "status": "pass",
+  "finished_at_utc": "2026-11-04T01:48:06.926632+00:00"
+}
