@@ -30,8 +30,9 @@ def create_app(project_root=None, settings=None, secret_key=None):
     workspace = WebWorkspace(root, key)
     exports = ExportService(key)
     application = Dash(__name__, assets_folder=str(Path(__file__).parent / "web" / "assets"),
-                       title="Orion · Deal Intelligence", update_title="Reviewing…",
+                       title="Orion · 투자 분석", update_title="검토 중…",
                        suppress_callback_exceptions=True, external_scripts=[], external_stylesheets=[])
+    application.index_string = application.index_string.replace("<html>", '<html lang="ko">')
     server = application.server
     server.secret_key = key
     server.config.update(MAX_CONTENT_LENGTH=1024 * 1024, SESSION_COOKIE_HTTPONLY=True,

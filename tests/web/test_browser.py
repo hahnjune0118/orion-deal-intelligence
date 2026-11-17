@@ -62,14 +62,14 @@ def _open(browser, url, *, size=(1440, 900)):
 
 def _revision(page, revision):
     expect(page.locator("#snapshot-summary strong")).to_contain_text(
-        re.compile(rf"revision\s*[:·]?\s*{revision}\b", re.IGNORECASE), timeout=60000
+        re.compile(rf"리비전\s*[:·]?\s*{revision}\b", re.IGNORECASE), timeout=60000
     )
 
 
 def _navigate(page, name):
     order = ["overview", "evidence", "thesis", "questions", "review", "analytics", "export"]
     page.locator("#workspace-tabs label").nth(order.index(name)).click()
-    titles = {"overview": "Deal overview", "evidence": "Evidence explorer", "thesis": "Investment thesis board", "questions": "Adaptive DD matrix", "review": "Analyst review & evidence updates", "analytics": "Adaptive analytics", "export": "Screening memo & DD export"}
+    titles = {"overview": "투자 건 개요", "evidence": "증빙 탐색", "thesis": "투자 가설 검토판", "questions": "맞춤형 실사 질문표", "review": "분석가 검토 및 증빙 업데이트", "analytics": "맞춤형 분석", "export": "예비 심사 메모 및 실사 자료 내보내기"}
     expect(page.locator("#page-content h2").first).to_have_text(titles[name], timeout=60000)
 
 
@@ -101,6 +101,11 @@ def test_northstar_full_approved_flow_and_exports(chromium_browser, live_url, tm
     assert sha256(original.read_bytes()).digest() == sha256(expected_source.read_bytes()).digest()
     _navigate(page, "evidence")
     expect(page.locator("#evidence-grid .ag-row").first).to_be_visible()
+    expect(page.locator('#evidence-grid .ag-header-cell[col-id="review_status"]')).to_contain_text("검토")
+    expect(page.locator('#evidence-grid .ag-row [col-id="review_status"]').first).to_have_text("승인")
+    page.locator('#evidence-grid .ag-row [col-id="review_status"]').first.hover()
+    expect(page.locator(".ag-tooltip")).to_have_text("승인")
+    page.mouse.move(0, 0)
     first_row = page.locator("#evidence-grid .ag-row").first
     evidence_id = first_row.get_attribute("row-id")
     initial = json.loads((ROOT / "chunk3_synthetic_evaluation/data/synthetic_northstar/structured/initial_state.json").read_text())
@@ -109,6 +114,11 @@ def test_northstar_full_approved_flow_and_exports(chromium_browser, live_url, tm
     first_row.click()
     expect(page.locator("#source-inspector")).to_contain_text(span["quote"])
     expect(page.locator("#source-inspector .locator").first).to_contain_text("word/document.xml")
+    document_search = page.locator("#document-selector input")
+    document_search.fill("no-matching-source-document")
+    expect(page.locator("#document-selector .Select-noresults")).to_have_text("검색 결과가 없습니다")
+    document_search.fill("")
+    page.locator("#page-content h2").click()
     _shot(page, "02_evidence_1440.png", tmp_path)
     _navigate(page, "thesis")
     expect(page.locator("#thesis-grid .ag-row").first).to_be_visible()
@@ -128,18 +138,18 @@ def test_northstar_full_approved_flow_and_exports(chromium_browser, live_url, tm
             assert page.locator("#top3-list").inner_text() == prior_top3
     assert page.locator("#top3-list").inner_text() != before
     _navigate(page, "analytics")
-    expect(page.locator("#page-content")).to_contain_text(re.compile("posterior", re.I))
-    expect(page.locator("#page-content")).to_contain_text(re.compile("bits", re.I))
+    expect(page.locator("#page-content")).to_contain_text("사후확률")
+    expect(page.locator("#page-content")).to_contain_text("비트")
     _shot(page, "06_analytics_1440.png", tmp_path)
     _navigate(page, "export")
     _shot(page, "07_export_1440.png", tmp_path)
-    for label, member in [("DD Request List · Excel", "xl/workbook.xml"), ("Screening Memo · Word", "word/document.xml")]:
+    for label, member in [("실사 요청 목록 · Excel", "xl/workbook.xml"), ("예비 심사 메모 · Word", "word/document.xml")]:
         control = page.locator("#export-format")
         control.click()
         control.locator(".Select-menu-outer").get_by_text(label, exact=True).click()
         expect(page.locator('#export-confirm input')).not_to_be_checked(timeout=60000)
         page.locator('#export-confirm input').check()
-        expect(page.locator("#export-approval-status")).to_contain_text("Ready to download", timeout=60000)
+        expect(page.locator("#export-approval-status")).to_contain_text("다운로드할 수 있습니다", timeout=60000)
         with page.expect_download() as info:
             page.locator("#export-button").click()
         download = info.value
@@ -178,11 +188,11 @@ def test_rejection_reset_context_and_tab_isolation(chromium_browser, live_url):
     page.unroute("**/_dash-update-component", tamper_approval)
     page.locator("#review-reason").fill("Reject this draft; source does not justify acceptance in this branch.")
     page.locator("#review-reject").click()
-    expect(page.locator("#status-live-region")).to_contain_text(re.compile("reject", re.I), timeout=60000)
+    expect(page.locator("#status-live-region")).to_contain_text("반려", timeout=60000)
     _revision(page, 1)
     assert page.locator("#top3-list").inner_text() == before
     page.locator("#reset-demo").click()
-    expect(page.locator("#status-live-region")).to_contain_text(re.compile("reset|initial", re.I))
+    expect(page.locator("#status-live-region")).to_contain_text("초기")
     page.locator("#review-reason").fill("Checked original source; approve synthetic event.")
     page.locator("#review-approve").click()
     _revision(page, 2)
@@ -199,9 +209,9 @@ def test_rejection_reset_context_and_tab_isolation(chromium_browser, live_url):
 
 def test_secondary_cases_keyboard_and_responsive_views(chromium_browser, live_url, tmp_path):
     context, page = _open(chromium_browser, live_url)
-    _choose_case(page, "manufacturing")
+    _choose_case(page, "제조업")
     _navigate(page, "analytics")
-    expect(page.locator("#page-content")).to_contain_text(re.compile("unavailable|not parameterized|not_parameterized", re.I))
+    expect(page.locator("#page-content")).to_contain_text("분석 불가")
     page.locator("#review-reason").fill("Checked inventory evidence.")
     page.locator("#review-approve").click()
     _revision(page, 2)

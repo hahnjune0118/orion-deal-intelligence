@@ -7,6 +7,7 @@ from flask import session
 
 from orion.services.workspace import ActorContext
 from .layout import empty, question_columns, render_inspection, render_page, render_preview, render_top3
+from .i18n import text
 
 
 def _session_id():
@@ -16,15 +17,15 @@ def _session_id():
 def safe_error(error):
     code = getattr(error, "code", "REQUEST_REJECTED")
     messages = {
-        "REVISION_CONFLICT": "The snapshot changed. Review the current revision and try again.",
-        "INVALID_TOKEN": "The workspace token is invalid or belongs to another browser session. Reset the demo.",
-        "TOKEN_INVALID": "The workspace token is invalid or belongs to another browser session. Reset the demo.",
-        "EVENT_NOT_AVAILABLE": "This event is not available on the current review branch.",
-        "DEMO_ACTION_NOT_ALLOWED": "This action is not allowed in the synthetic demo.",
-        "IDEMPOTENCY_CONFLICT": "This review request conflicts with an earlier decision.",
-        "EXPORT_APPROVAL_REQUIRED": "Review and approve the current snapshot before downloading.",
+        "REVISION_CONFLICT": "스냅샷이 변경되었습니다. 현재 리비전을 검토한 뒤 다시 시도하세요.",
+        "INVALID_TOKEN": "작업 영역 토큰이 유효하지 않거나 다른 브라우저 세션에 속합니다. 데모를 초기화하세요.",
+        "TOKEN_INVALID": "작업 영역 토큰이 유효하지 않거나 다른 브라우저 세션에 속합니다. 데모를 초기화하세요.",
+        "EVENT_NOT_AVAILABLE": "현재 검토 분기에서는 이 이벤트를 사용할 수 없습니다.",
+        "DEMO_ACTION_NOT_ALLOWED": "합성 자료 데모에서는 이 작업을 허용하지 않습니다.",
+        "IDEMPOTENCY_CONFLICT": "이 검토 요청은 이전 결정과 충돌합니다.",
+        "EXPORT_APPROVAL_REQUIRED": "다운로드 전에 현재 스냅샷을 검토하고 승인하세요.",
     }
-    return f"{code}: {messages.get(code, 'The request was rejected. Check the selected event, review note and snapshot, or reset the demo.')}"
+    return f"{code}: {messages.get(code, '요청이 거부되었습니다. 선택한 이벤트, 검토 의견, 스냅샷을 확인하거나 데모를 초기화하세요.')}"
 
 
 def register_callbacks(app, workspace, exports):
@@ -42,17 +43,17 @@ def register_callbacks(app, workspace, exports):
         try:
             sid = _session_id()
             if trigger in (None, "deal-selector", "reset-demo") or not token:
-                return workspace.new(case_id, sid), "Initial synthetic snapshot loaded. Review source evidence before approving an update."
+                return workspace.new(case_id, sid), "초기 합성 스냅샷을 불러왔습니다. 업데이트 승인 전에 원문 증빙을 검토하세요."
             action = {"review-approve": "approve", "review-reject": "reject"}.get(trigger)
             if action is None:
                 return no_update, no_update
             if not event_id:
-                return no_update, "No event is available. Reset the demo to start another review branch."
+                return no_update, "검토 가능한 이벤트가 없습니다. 데모를 초기화하여 새 검토 분기를 시작하세요."
             result = workspace.act(token, sid, action=action, event_id=event_id,
                                    expected_revision=revision,
                                    idempotency_key=f"web:{case_id}:{event_id}:{action}",
                                    reason=reason)
-            return result["token"], result.get("message", "Review action completed.")
+            return result["token"], text(result.get("message", "검토 작업이 완료되었습니다."))
         except Exception as error:
             return no_update, safe_error(error)
 
@@ -69,7 +70,7 @@ def register_callbacks(app, workspace, exports):
     )
     def render(token, page, selected_document, selected_event):
         if not token:
-            return ("Loading opportunity…", "", "", empty("Loading validated priorities…"), empty("Loading validated workspace…"),
+            return ("투자 대상을 불러오는 중…", "", "", empty("검증된 우선순위를 불러오는 중…"), empty("검증된 작업 영역을 불러오는 중…"),
                     [], None, "", [], None, {"display": "none"}, None, None, None)
         try:
             view = workspace.view(token, _session_id())
@@ -78,18 +79,18 @@ def register_callbacks(app, workspace, exports):
             doc_ids = {d["id"] for d in docs}
             document = selected_document if selected_document in doc_ids else (docs[0]["id"] if docs else None)
             events = view.get("events", [])
-            event_options = [{"label": f"{e.get('label', e['id'])} · {e.get('status', 'pending')}",
+            event_options = [{"label": f"{text(e.get('label', e['id']))} · {text(e.get('status', 'pending'))}",
                               "value": e["id"], "disabled": not e.get("available", False)} for e in events]
             available = [e["id"] for e in events if e.get("available")]
             event = selected_event if selected_event in available else (available[0] if available else None)
-            summary = [html.Strong(f"Revision {view['revision']}"), html.Span(f"Stage T{view.get('stage', 0)}"),
+            summary = [html.Strong(f"리비전 {view['revision']}"), html.Span(f"단계 T{view.get('stage', 0)}"),
                        html.Span(view.get("snapshot_id", ""), className="identifier")]
             return (view["deal"]["name"], view["deal"].get("business_model", ""), summary, render_top3(view),
                     render_page(page, view), document_options, document,
-                    f"{len(docs)} available source documents · future documents remain staged", event_options, event,
+                    f"{len(docs)}개 원문 문서 사용 가능 · 후속 문서는 검토 대기 상태 유지", event_options, event,
                     {"display": "block" if page == "export" else "none"}, view["revision"], view["snapshot_id"], token)
         except Exception as error:
-            return ("Workspace unavailable", "", "", empty("Validated state unavailable."), empty(safe_error(error)),
+            return ("작업 영역을 사용할 수 없습니다", "", "", empty("검증된 상태를 사용할 수 없습니다."), empty(safe_error(error)),
                     [], None, "", [], None, {"display": "none"}, None, None, None)
 
     @app.callback(
@@ -106,7 +107,7 @@ def register_callbacks(app, workspace, exports):
     )
     def inspect(document_id, token, evidence, claims, questions, theses, evidence_click, claim_click, question_click, thesis_click):
         if not token:
-            return empty("Select a source to inspect its original passage.")
+            return empty("자료를 선택해 원문 구간을 확인하세요.")
         trigger = ctx.triggered_id
         kind, item_id = "document", document_id
         sources = {
@@ -123,7 +124,7 @@ def register_callbacks(app, workspace, exports):
             if not item_id:
                 return no_update
         if not item_id:
-            return empty("No source selected.")
+            return empty("선택한 원문이 없습니다.")
         try:
             return render_inspection(workspace.inspect(token, _session_id(), kind, item_id))
         except Exception as error:
@@ -132,7 +133,7 @@ def register_callbacks(app, workspace, exports):
     @app.callback(Output("event-preview", "children"), Input("event-selector", "value"), Input("workspace-token", "data"))
     def preview(event_id, token):
         if not event_id or not token:
-            return empty("No reviewable event. A rejected branch requires Reset demo before retrying.")
+            return empty("검토할 이벤트가 없습니다. 반려된 분기는 데모 초기화 후 다시 시도하세요.")
         try:
             return render_preview(workspace.preview(token, _session_id(), event_id))
         except Exception as error:
@@ -156,11 +157,11 @@ def register_callbacks(app, workspace, exports):
             sid = _session_id()
             state, resolver = workspace.validated_state(token, sid)
             if token != rendered_token or state.state_revision != displayed_revision or state.head_snapshot_id != displayed_snapshot:
-                return None, "The snapshot is still updating. Review the displayed snapshot and check approval again."
+                return None, "스냅샷을 업데이트하는 중입니다. 표시된 스냅샷을 검토한 뒤 승인을 다시 체크하세요."
             approval = exports.approve(state, resolver, actor=ActorContext("actor_web_reviewer", "reviewer"),
                                        session_id=sid, format=format_name,
                                        reason="Analyst explicitly reviewed the displayed synthetic snapshot and approved this preliminary screening export.")
-            return {"receipt": approval, "workspace_token": token, "format": format_name}, f"Export approved for displayed revision {displayed_revision}. Ready to download."
+            return {"receipt": approval, "workspace_token": token, "format": format_name}, f"표시된 리비전 {displayed_revision}의 내보내기가 승인되었습니다. 다운로드할 수 있습니다."
         except Exception as error:
             return None, safe_error(error)
 
@@ -171,9 +172,9 @@ def register_callbacks(app, workspace, exports):
                   prevent_initial_call=True)
     def export_file(_click, confirmation, format_name, token, approval):
         if confirmation != ["approved"] or not approval:
-            return no_update, "Review the current snapshot and check the export approval box first."
+            return no_update, "먼저 현재 스냅샷을 검토하고 내보내기 승인란을 체크하세요."
         if not isinstance(approval, dict) or approval.get("workspace_token") != token or approval.get("format") != format_name:
-            return no_update, "The workspace or format changed. Review and approve the current export again."
+            return no_update, "작업 영역이나 형식이 변경되었습니다. 현재 내보내기를 다시 검토하고 승인하세요."
         try:
             sid = _session_id()
             state, resolver = workspace.validated_state(token, sid)
@@ -182,7 +183,7 @@ def register_callbacks(app, workspace, exports):
             if isinstance(content, str):
                 content = content.encode("utf-8")
             return {"content": base64.b64encode(content).decode("ascii"), "filename": artifact.filename,
-                    "type": artifact.mime_type, "base64": True}, f"Export generated for the reviewed snapshot at revision {state.state_revision}: {artifact.filename}."
+                    "type": artifact.mime_type, "base64": True}, f"검토한 스냅샷의 리비전 {state.state_revision} 내보내기 완료: {artifact.filename}."
         except Exception as error:
             return no_update, safe_error(error)
 
@@ -191,11 +192,11 @@ def register_callbacks(app, workspace, exports):
                   State("workspace-token", "data"), prevent_initial_call=True)
     def download_source(_click, document_id, token):
         if not document_id or not token:
-            return no_update, "Select an available source document."
+            return no_update, "사용 가능한 원문 문서를 선택하세요."
         try:
             filename, content = workspace.document_bytes(token, _session_id(), document_id)
             return {"content": base64.b64encode(content).decode("ascii"), "filename": filename,
-                    "type": "application/octet-stream", "base64": True}, "Original source verified and downloaded."
+                    "type": "application/octet-stream", "base64": True}, "원문을 검증하고 다운로드했습니다."
         except Exception as error:
             return no_update, safe_error(error)
 

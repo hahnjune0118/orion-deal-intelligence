@@ -81,7 +81,7 @@ def test_old_screen_and_checked_box_cannot_approve_new_branch(endpoint, action):
                                 f"consent-{action}", "Checked synthetic source.")["token"]
     result = consent(endpoint, current, rendered_token=token, displayed_state=before)
     assert result["export-approval"]["data"] is None
-    assert "still updating" in result["export-approval-status"]["children"]
+    assert "업데이트하는 중" in result["export-approval-status"]["children"]
     assert "export-download" not in download(endpoint, current, approval)
 
 
