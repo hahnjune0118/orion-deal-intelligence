@@ -1,0 +1,84 @@
+{
+  "schema": 1,
+  "classification": "synthetic",
+  "company": "Northstar FDD Lab",
+  "notice": "기존 Northstar 증빙팩과 별개의 재무 분석 검증용 합성 자료. 실제 회사·감사자료가 아닙니다.",
+  "currency": "USD",
+  "unit": "천 달러",
+  "start": "2024-01",
+  "end": "2025-12",
+  "opening_period": "2023-12",
+  "opening_nwc": {
+    "ar": 280,
+    "inventory": 110,
+    "other_assets": 24,
+    "ap": 180,
+    "other_liabilities": 40
+  },
+  "documents": [
+    {
+      "id": "monthly_financials",
+      "filename": "monthly_financials.csv",
+      "version": 1,
+      "description": "관리손익·재무상태·현금흐름 | 월별, 비용·잔액은 양수; other_operating은 부호 있는 현금 영향",
+      "classification": "synthetic",
+      "sha256": "686497b9d799baa6403b05703d433d347d3a5ff69dc790ba9291f0c1306a4bcc"
+    },
+    {
+      "id": "trial_balance",
+      "filename": "trial_balance.csv",
+      "version": 1,
+      "description": "시산표 손익 집계 | 2025-12 매출 12의 미전기 차이를 의도적으로 포함",
+      "classification": "synthetic",
+      "sha256": "c993876fc66b5fe9d08d009239b20388df8c41b110b41d84a1aa80ef45ada2d4"
+    },
+    {
+      "id": "gl_balances",
+      "filename": "gl_balances.csv",
+      "version": 1,
+      "description": "총계정원장 계정별 월 잔액 집계 | 차변 + / 대변 −, 계정 매핑 후 시산표와 대사",
+      "classification": "synthetic",
+      "sha256": "0e1499ecf9001dae76f3e14f2abd99cd358613e9fc3f61319646d4135c883d68"
+    },
+    {
+      "id": "statutory_financials",
+      "filename": "statutory_financials.csv",
+      "version": 1,
+      "description": "연간 외부재무제표 역할의 합성 수치; 실제 감사자료가 아님",
+      "classification": "synthetic",
+      "sha256": "4d07a9d1caf8c8a13cbb032c99acef0f71b39fda29bc8cddf6c7ae90a2ce0f7d"
+    },
+    {
+      "id": "revenue_segments",
+      "filename": "revenue_segments.csv",
+      "version": 1,
+      "description": "상호 배타적인 사업부문별 월 매출·원가; 관리손익 합계와 일치",
+      "classification": "synthetic",
+      "sha256": "f13caf262c542e2ed446a4d67bae0a9df1a8177d924c9ffe2dcfb6a7b3175f31"
+    },
+    {
+      "id": "adjustment_ledger",
+      "filename": "adjustment_ledger.csv",
+      "version": 1,
+      "description": "조정 후보의 계정·기간·금액을 확인하는 합성 원장 발췌",
+      "classification": "synthetic",
+      "sha256": "d0bbc67f3614e652b2f372668423c20186bf948c10c8457ed8dd0574130e7fc4"
+    },
+    {
+      "id": "aging",
+      "filename": "aging.csv",
+      "version": 1,
+      "description": "2025-12 AR·재고·AP 연령; 총액이 월별 잔액에 대사됨",
+      "classification": "synthetic",
+      "sha256": "c6c69be68b3195d82d646075ff8bd26b85ded70f77a63fa78022f60baba02181"
+    },
+    {
+      "id": "budget",
+      "filename": "budget.csv",
+      "version": 1,
+      "description": "2026 합성 경영계획과 계약 커버리지·매출 환산 공급능력 가정",
+      "classification": "synthetic",
+      "sha256": "a3b8fbe63bfe4e360bf1ae72b90c085da9f5937c98bd073622be1f80c18a069e"
+    }
+  ]
+}

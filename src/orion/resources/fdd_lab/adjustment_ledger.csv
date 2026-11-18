@@ -1,0 +1,6 @@
+id,period,account,amount,description
+GL-001,2025-07,litigation_expense,35,"일회성 소송 합의 비용, 관리손익에 포함"
+GL-002,2025-09,shareholder_personal,18,"주주 개인 비용, 관리손익에 포함"
+GL-003,2025-12,maintenance_underaccrual,12,지속 발생 유지보수 비용 미계상; EBITDA 차감 및 별도 부채성 항목
+GL-004,2025-12,ar_reserve,20,91일 초과 채권에 대한 추가 충당금 후보
+GL-005,2025-12,bonus_payable,25,거래 전 미지급 성과급; 월별 NWC 기타부채에 포함되지 않음

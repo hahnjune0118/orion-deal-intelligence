@@ -5,13 +5,14 @@ from dash import dcc, html
 import dash_ag_grid as dag
 import plotly.graph_objects as go
 from .i18n import GRID_LOCALE, LABELS, text
+from .visuals import page_visuals
+from . import studio, fdd
+from . import fdd_workspace as finance
 
-NAVIGATION = [
-    ("overview", "투자 건 개요"), ("evidence", "증빙 탐색"),
-    ("thesis", "투자 가설"), ("questions", "맞춤형 실사 질문표"),
-    ("review", "분석가 검토"), ("analytics", "맞춤형 분석"),
-    ("export", "예비 심사 및 내보내기"),
-]
+NAVIGATION = finance.NAVIGATION
+SUPPORT_TOOLS = [("studio", "질문 검토 작업 공간"), ("evidence", "원문·증빙 탐색"), ("thesis", "투자 가설"),
+                 ("questions", "질문 중요도 평가"), ("review", "새 증거 반영"), ("analytics", "증빙 요청 분석 · Bayesian/EIG"),
+                 ("export", "예비 심사 문서"), ("overview", "기존 증빙 개요"), ("fdd", "기존 수동 FDD 조서")]
 CASE_OPTIONS = [
     {"label": "Northstar Analytics", "value": "nb"},
     {"label": "제조업 사례", "value": "mf"},
@@ -75,13 +76,13 @@ def grid(identifier, rows, columns, *, identity="id", height=440):
                          "localeText": GRID_LOCALE,
                          "context": {"displayLabels": LABELS},
                          "suppressCellFocus": False},
-        style={"height": f"{height}px", "width": "100%"}, className="ag-theme-alpine orion-grid",
+        style={"height": f"{min(height, max(150, 52 * len(rows) + 70))}px", "width": "100%"}, className="ag-theme-alpine orion-grid",
     )
 
 
 def column(field, name, width=None, flex=None, **extra):
     result = {"field": field, "headerName": name, "tooltipField": field, **extra}
-    if field in {"stance", "provenance", "verification_level", "review_status", "lifecycle",
+    if field in {"issue", "stance", "provenance", "verification_level", "review_status", "lifecycle",
                  "support_status", "truth_status", "claim_kind", "evidence_status", "financial_drivers",
                  "financial_driver", "workflow_status", "before_status", "after_status", "reason_codes"}:
         # Format cells and tooltips without rewriting raw row data or filter values.
@@ -111,23 +112,33 @@ def layout():
         dcc.Store(id="workspace-snapshot", storage_type="memory"),
         dcc.Store(id="rendered-workspace-token", storage_type="memory"),
         dcc.Store(id="export-approval", storage_type="memory"),
+        dcc.Store(id="studio-draft-token", storage_type="memory"),
+        dcc.Store(id="fdd-store", storage_type="session"), dcc.Download(id="fdd-download"),
+        dcc.Store(id="finance-registry", storage_type="session"), dcc.Store(id="finance-token", storage_type="memory"),
+        dcc.Download(id="finance-download"),
+        dcc.Store(id='finance-scroll', storage_type='memory'),
+        dcc.Download(id="studio-download"),
         dcc.Download(id="export-download"),
         dcc.Download(id="source-download"),
         html.A("작업 영역으로 건너뛰기", href="#main-workspace", className="skip-link"),
         html.Header([
             html.Div([html.Span("O", className="brand-mark"), html.Div([
-                html.Strong("ORION", className="brand"), html.Span("투자 분석", className="brand-subtitle")])], className="brand-group"),
-            html.Div([html.Span("합성 자료 데모", className="mode-pill", id="mode-banner"),
-                      html.Span("증빙 기반 예비 심사", className="header-caption")], className="header-right"),
+                html.Strong("ORION", className="brand"), html.Span("Deal Intelligence · FDD", className="brand-subtitle")])], className="brand-group"),
+            html.Details([html.Summary("자료 목록", title="모든 작업 화면에서 프로젝트 자료 검색·원문 확인"),
+                          html.Div(studio.sidebar(), className="source-library-content")], id="source-library-drawer", className="source-library-drawer"),
+            html.Div([html.Details([html.Summary("질문·증빙 도구"), html.Div([finance.route(label, page) for page, label in SUPPORT_TOOLS], className="fw-tools-menu")], id='support-tools-drawer', className="fw-tools-drawer"),
+                      html.Button("원문 패널 접기", id="inspector-toggle", n_clicks=0, className="button button-quiet"),
+                      html.Span("합성 자료 데모", className="mode-pill", id="mode-banner"),
+                      html.Span("재무 실사 작업 공간", className="header-caption")], className="header-right"),
         ], className="global-header"),
         html.Div([
             html.Aside([
                 html.Div("작업 영역", className="eyebrow"),
                 html.Label("투자 대상", htmlFor="deal-selector", className="control-label"),
                 dcc.Dropdown(id="deal-selector", options=CASE_OPTIONS, value="nb", clearable=False, searchable=False),
-                html.Div("분석", className="eyebrow nav-eyebrow"),
+                html.Div("FDD WORKFLOW", className="eyebrow nav-eyebrow"),
                 dcc.RadioItems(id="workspace-tabs", options=[{"label": label, "value": value} for value, label in NAVIGATION],
-                               value="overview", className="workspace-nav", labelClassName="nav-item", inputClassName="nav-radio"),
+                               value="deal", className="workspace-nav", labelClassName="nav-item", inputClassName="nav-radio"),
                 html.Div(className="sidebar-divider"),
                 html.Label("원문 자료실", htmlFor="document-selector", className="eyebrow"),
                 dcc.Dropdown(id="document-selector", options=[], placeholder="검토할 문서 선택", clearable=False),
@@ -143,9 +154,11 @@ def layout():
                                     html.H1("투자 대상을 불러오는 중…", id="deal-heading"),
                                     html.P(id="deal-description", className="subtitle")]),
                           html.Div(id="snapshot-summary", className="snapshot-summary")], className="workspace-heading"),
+                html.Div(id="dashboard-metrics"),
                 html.Section([html.Div([html.H2("우선 검토 질문"), html.Span("공식 상위 3개", className="muted")], className="section-bar"),
                               html.Div(id="top3-list")], className="top3-panel", **{"aria-label": "현재 우선순위 상위 실사 질문 3개"}),
                 html.Div(id="status-live-region", role="status", **{"aria-live": "polite", "aria-atomic": "true"}, className="status-line"),
+                finance.root(), html.Div(studio.workspace(None), id="studio-center"), fdd.layout(),
                 dcc.Loading(html.Div(id="page-content"), type="circle", color="#145e63", delay_show=200),
                 html.Section([
                     html.Div([html.H2("예비 심사 문서 내보내기 승인"), html.Span("현재 스냅샷에만 적용", className="muted")], className="section-bar"),
@@ -157,9 +170,15 @@ def layout():
                     html.Button("승인 후 다운로드", id="export-button", n_clicks=0, className="button button-primary"),
                     html.Div(id="export-status", role="status", **{"aria-live": "polite"}, className="status-line"),
                 ], id="export-controls", className="panel", style={"display": "none"}),
-                html.Footer("예비 심사 · 합성 자료 · 결정론적 분석", className="workspace-footer"),
+                html.Footer("IB · Big 4 · PE 재무 실사 지원 / 합성 자료 검증 환경", className="workspace-footer"),
             ], id="main-workspace", className="main-pane", tabIndex=-1),
             html.Aside([
+                finance.inspector_root(),
+                dcc.RadioItems(id="studio-side-tabs", options=[{"label": "질문 설정", "value": "settings"}, {"label": "질문 편집", "value": "editor"}, {"label": "원문·증빙", "value": "source"}],
+                               value="settings", className="studio-side-tabs mode-settings", inline=True),
+                html.Div(id="studio-message", role="status", **{"aria-live": "polite"}, className="studio-message"),
+                studio.settings(), studio.editor(),
+                html.Div([
                 html.Div([html.H2("원문 검토"), html.Div([html.A("업데이트 검토", href="#review-panel", className="text-link"),
                            html.A("분석으로 돌아가기", href="#main-workspace", className="text-link")], className="inspector-links")], className="section-bar inspector-header"),
                 html.Div(id="source-inspector", children=empty("문서, 주장, 증빙 기록 또는 실사 질문을 선택해 원문을 확인하세요.")),
@@ -176,8 +195,9 @@ def layout():
                     ], className="review-actions"),
                     html.P("승인한 경우에만 확정된 증빙 상태가 변경됩니다. 반려하면 순위가 유지됩니다.", className="muted"),
                 ], id="review-panel", className="review-panel", tabIndex=-1),
-            ], className="inspector-pane", **{"aria-label": "원문 확인 및 분석가 검토"}),
-        ], className="workbench"),
+                ], className="legacy-inspector"),
+            ], id="inspector-pane", className="inspector-pane", **{"aria-label": "원문 확인 및 분석가 검토"}),
+        ], id="workbench", className="workbench"),
     ], className="orion-app")
 
 
@@ -187,7 +207,7 @@ def render_top3(view):
         return empty("검토 대상인 미해결 질문이 없습니다. 임의의 우선순위를 추가하지 않습니다.")
     return html.Ol([html.Li([
         html.Span(str(row.get("rank", index + 1)).zfill(2), className="rank-number"),
-        html.Div([html.Strong(row.get("issue", row.get("request_text", row.get("id", "")))),
+        html.Div([html.Strong(text(row.get("issue", row.get("request_text", row.get("id", ""))))),
                   html.Span(human(row.get("financial_driver", "")), className="watchlist-driver")], className="watchlist-question"),
         html.Strong(f'{row.get("score", "—"):g}' if isinstance(row.get("score"), (int, float)) else str(row.get("score", "—")), className="score-number"),
     ]) for index, row in enumerate(rows)], className="watchlist")
@@ -195,15 +215,61 @@ def render_top3(view):
 
 def metrics(view):
     summary = view.get("summary", {})
-    data = [("문서", summary.get("documents", 0)), ("투자 가설", summary.get("theses", 0)),
-            ("미해결 실사 질문", summary.get("open_questions", 0)), ("미해결 위험", summary.get("unresolved_risks", 0))]
-    return html.Div([html.Div([html.Span(label), html.Strong(str(value))], className="metric") for label, value in data], className="metrics")
+    data = [("원문 문서", summary.get("documents", 0), "현재 투자 건의 등록 문서", "documents"),
+            ("투자 가설", summary.get("theses", 0), "증빙과 연결된 검토 가설", "theses"),
+            ("미해결 실사 질문", summary.get("open_questions", 0), "추가 확인이 필요한 요청", "questions"),
+            ("미해결 위험", summary.get("unresolved_risks", 0), "증빙 누락 · 부분 충족 · 상충", "risks")]
+    return html.Div([html.Div([html.Span(label), html.Strong(str(value)), html.Small(note)],
+                             className=f"metric metric-{kind}") for label, value, note, kind in data], className="metrics")
+
+
+def overview_charts(view):
+    """Visual summaries of existing snapshot values, never new engine inputs."""
+    questions = [q for q in view.get("questions", []) if q.get("workflow_status") == "open"]
+    ranked = sorted(questions, key=lambda q: q.get("rank", 9999))[:6]
+    if ranked:
+        chart = go.Figure(go.Bar(
+            x=[float(q.get("score", 0)) for q in reversed(ranked)],
+            y=[f"Q{q.get('rank', i + 1):02}" for i, q in reversed(list(enumerate(ranked)))],
+            orientation="h", customdata=[q.get("issue", "") for q in reversed(ranked)],
+            text=[f"{float(q.get('score', 0)):g}" for q in reversed(ranked)], textposition="outside",
+            marker_color=["#b8c3dc" if i < len(ranked) - 3 else "#5264d9" for i in range(len(ranked))],
+            hovertemplate="%{customdata}<br>공식 우선순위 점수: %{x}<extra></extra>"))
+        figure_layout(chart, height=255)
+        chart.update_layout(margin={"l": 42, "r": 42, "t": 10, "b": 38}, showlegend=False)
+        chart.update_xaxes(title_text="공식 우선순위 점수", range=[0, max(1, max(float(q.get("score", 0)) for q in ranked)) * 1.18], gridcolor="#edf0f5")
+        chart.update_yaxes(title_text=None, type="category")
+        priority = dcc.Graph(id="overview-priority-chart", figure=chart, style={"height": "255px"}, config={"displayModeBar": False, "responsive": True})
+    else:
+        priority = empty("미해결 질문이 없습니다.")
+    counts = {}
+    for claim in view.get("claims", []):
+        label = claim.get("support_status", "unknown")
+        counts[label] = counts.get(label, 0) + 1
+    if counts:
+        donut = go.Figure(go.Pie(labels=[human(label) for label in counts], values=list(counts.values()), hole=.76,
+                                sort=False, textinfo="none", marker={"colors": [{"missing": "#c0c8dd", "partial": "#e8b45b", "supported": "#53a49a", "contradicted": "#cf7f83"}.get(label, "#929bb1") for label in counts]},
+                                hovertemplate="%{label}: %{value}개<extra></extra>"))
+        figure_layout(donut, height=255)
+        donut.update_layout(margin={"l": 12, "r": 12, "t": 12, "b": 30},
+                            legend={"orientation": "h", "y": -.05, "x": .5, "xanchor": "center"},
+                            annotations=[{"text": f"<b>{len(view.get('claims', []))}</b><br>검토 주장", "showarrow": False, "font": {"size": 17}}])
+        coverage = dcc.Graph(id="overview-coverage-chart", figure=donut, style={"height": "255px"}, config={"displayModeBar": False, "responsive": True})
+    else:
+        coverage = empty("검토할 주장이 없습니다.")
+    return html.Div([
+        html.Section([html.Div([html.H3("질문별 우선순위"), html.Span("상위 6개 · 현재 스냅샷", className="muted")], className="section-bar"),
+                      priority, html.P("막대에 마우스를 올리면 질문을 확인할 수 있습니다. 엔진의 공식 순위를 그대로 표시합니다.", className="chart-caption")], className="panel"),
+        html.Section([html.Div([html.H3("증빙 충족 현황"), html.Span("주장 기준", className="muted")], className="section-bar"),
+                      coverage, html.P("증빙 충족은 독립적인 사실 검증이나 투자 성공확률을 의미하지 않습니다.", className="chart-caption")], className="panel"),
+    ], className="overview-charts")
 
 
 def render_overview(view):
     summary = view.get("summary", {})
     return html.Div([
-        html.Div([html.H2("투자 건 개요"), badge("synthetic")], className="section-bar"), metrics(view),
+        html.Div([html.H2("투자 건 개요"), badge("synthetic")], className="section-bar"),
+        overview_charts(view),
         html.Div([
             html.Section([html.H3("증빙 준비 현황"),
                           html.P(f"증빙 충족률: {human(summary.get('evidence_coverage'))}%의 주장이 완전히 뒷받침됨"),
@@ -215,10 +281,13 @@ def render_overview(view):
                 html.Li("제안된 업데이트를 승인하거나 반려하세요."), html.Li("확정된 우선순위를 비교한 뒤 내보내세요.")]),
                 html.P("새 증빙은 요청을 해결하거나 상충 상태를 다시 열 수 있으며, 상위 3개 질문은 유지될 수도 있습니다.", className="muted")], className="panel"),
         ], className="two-column"),
-        html.Section([html.H3("원문 자료실"),
-                      html.Div([html.Div([html.Strong(d.get("title", d.get("filename", d["id"]))),
-                                          html.Div([badge(d.get("parse_status")), badge(d.get("source_origin")), html.Span(f"v{d.get('document_version', 1)}", className="muted")], className="badge-row")], className="document-card") for d in view.get("documents", [])])], className="panel"),
-        html.Section([html.H3("범위 및 한계"), html.Ul([html.Li(text(item)) for item in view.get("limitations", [])])], className="panel quiet-panel"),
+        html.Section([html.Div([html.H3("원문 자료실"), html.Span("왼쪽 자료실에서 문서 선택 · 원문 확인", className="muted")], className="section-bar"),
+                      html.Div(html.Table([html.Thead(html.Tr([html.Th("문서"), html.Th("추출 상태"), html.Th("출처"), html.Th("버전")])),
+                          html.Tbody([html.Tr([html.Td([html.Span(str(d.get("filename", d.get("title", ""))).rsplit(".", 1)[-1].upper()[:4] or "FILE", className="file-icon file-" + studio.file_family(d.get("filename", ""))), html.Strong(d.get("title", d.get("filename", d["id"])))]),
+                                              html.Td(badge(d.get("parse_status"))), html.Td(badge(d.get("source_origin"))),
+                                              html.Td(f"v{d.get('document_version', 1)}")]) for d in view.get("documents", [])])], className="document-matrix"), className="table-scroll")
+                      if view.get("documents") else empty("등록된 문서가 없습니다.")], className="panel"),
+        html.Details([html.Summary("범위 및 한계 · 합성 자료 데모 안내"), html.Ul([html.Li(text(item)) for item in view.get("limitations", [])])], className="panel quiet-panel"),
     ])
 
 
@@ -361,9 +430,16 @@ def render_export(view):
 
 
 def render_page(page, view):
-    return {"overview": render_overview, "evidence": render_evidence, "thesis": render_thesis,
+    if page in finance.PAGES:
+        return html.Div(className="finance-page-marker")
+    content = {"fdd": lambda _: html.Div(className="fdd-page-marker"), "studio": lambda _: html.Div(className="studio-page-marker"), "overview": render_overview, "evidence": render_evidence, "thesis": render_thesis,
             "questions": render_questions, "review": render_review, "analytics": render_analytics,
             "export": render_export}.get(page, render_overview)(view)
+    visuals = page_visuals(page, view)
+    if visuals is not None:
+        content.children.insert(1, visuals)
+        content.className = "dashboard-page"
+    return content
 
 
 def render_span(span):
@@ -404,8 +480,8 @@ def render_inspection(detail):
             html.Dd(metadata_value(key, value))],
             className="metadata-row") for key, value in metadata.items()])]),
         html.Div(source_content),
-        html.Div([html.H4("관련 주장"), *[html.P(c.get("statement", c.get("id", ""))) for c in detail.get("claims", [])]]) if detail.get("claims") else None,
-        html.Div([html.H4("관련 실사 질문"), *[html.P(q.get("issue", q.get("id", ""))) for q in detail.get("questions", [])]]) if detail.get("questions") else None,
+        html.Details([html.Summary(f"관련 주장 · {len(detail['claims'])}개"), *[html.P(c.get("statement", c.get("id", ""))) for c in detail.get("claims", [])]], className="related-records") if detail.get("claims") else None,
+        html.Details([html.Summary(f"관련 실사 질문 · {len(detail['questions'])}개"), *[html.P(q.get("issue", q.get("id", ""))) for q in detail.get("questions", [])]], className="related-records") if detail.get("questions") else None,
     ])
 
 

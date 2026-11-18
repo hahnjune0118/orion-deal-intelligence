@@ -19,8 +19,9 @@ def create_app(project_root=None, settings=None, secret_key=None):
 
     The server session cookie supplies an opaque nonce. Authoritative data is
     reconstructed only from a service-signed per-tab log bound to that nonce.
-    Browser row data, actor roles, scores, source text and filesystem paths are
-    never accepted as service inputs.
+    Canonical evidence, scores and filesystem paths are never accepted from the
+    browser. The separate FDD draft boundary accepts validated financial entries
+    as unverified user inputs; they never become canonical evidence implicitly.
     """
     settings = settings or Settings.from_env()
     if settings.mode != "demo":
@@ -30,7 +31,7 @@ def create_app(project_root=None, settings=None, secret_key=None):
     workspace = WebWorkspace(root, key)
     exports = ExportService(key)
     application = Dash(__name__, assets_folder=str(Path(__file__).parent / "web" / "assets"),
-                       title="Orion · 투자 분석", update_title="검토 중…",
+                       title="Orion · FDD 작업 공간", update_title="검토 중…",
                        suppress_callback_exceptions=True, external_scripts=[], external_stylesheets=[])
     application.index_string = application.index_string.replace("<html>", '<html lang="ko">')
     server = application.server

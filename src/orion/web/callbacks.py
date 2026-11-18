@@ -6,8 +6,9 @@ from dash import Input, Output, State, ctx, html, no_update
 from flask import session
 
 from orion.services.workspace import ActorContext
-from .layout import empty, question_columns, render_inspection, render_page, render_preview, render_top3
+from .layout import empty, metrics, question_columns, render_inspection, render_page, render_preview, render_top3
 from .i18n import text
+from .visuals import score_waterfall
 
 
 def _session_id():
@@ -29,6 +30,32 @@ def safe_error(error):
 
 
 def register_callbacks(app, workspace, exports):
+    from .studio_callbacks import register_studio
+    register_studio(app, workspace)
+    from .fdd import register as register_fdd
+    register_fdd(app, workspace)
+    from .fdd_callbacks import register_finance
+    register_finance(app, workspace)
+    @app.callback(Output("score-waterfall-content", "children"),
+                  Input("score-question-selector", "value", allow_optional=True),
+                  Input("workspace-token", "data"))
+    def selected_score(question_id, token):
+        if not question_id or not token:
+            return no_update
+        try:
+            view = workspace.view(token, _session_id())
+            question = next((q for q in view["questions"] if q["id"] == question_id), None)
+            return score_waterfall(question)
+        except Exception as error:
+            return empty(safe_error(error))
+
+    @app.callback(Output("workbench", "className"), Output("inspector-toggle", "children"),
+                  Output("inspector-toggle", "aria-expanded"), Input("inspector-toggle", "n_clicks"))
+    def toggle_inspector(clicks):
+        collapsed = (clicks or 0) % 2 == 1
+        return ("workbench inspector-collapsed" if collapsed else "workbench",
+                "원문 패널 열기" if collapsed else "원문 패널 접기", "false" if collapsed else "true")
+
     @app.callback(
         Output("workspace-token", "data"), Output("status-live-region", "children"),
         Input("deal-selector", "value"), Input("reset-demo", "n_clicks"),
@@ -65,13 +92,14 @@ def register_callbacks(app, workspace, exports):
         Output("event-selector", "options"), Output("event-selector", "value"),
         Output("export-controls", "style"), Output("workspace-revision", "data"), Output("workspace-snapshot", "data"),
         Output("rendered-workspace-token", "data"),
+        Output("dashboard-metrics", "children"),
         Input("workspace-token", "data"), Input("workspace-tabs", "value"),
         State("document-selector", "value"), State("event-selector", "value"),
     )
     def render(token, page, selected_document, selected_event):
         if not token:
             return ("투자 대상을 불러오는 중…", "", "", empty("검증된 우선순위를 불러오는 중…"), empty("검증된 작업 영역을 불러오는 중…"),
-                    [], None, "", [], None, {"display": "none"}, None, None, None)
+                    [], None, "", [], None, {"display": "none"}, None, None, None, None)
         try:
             view = workspace.view(token, _session_id())
             docs = view.get("documents", [])
@@ -88,10 +116,10 @@ def register_callbacks(app, workspace, exports):
             return (view["deal"]["name"], view["deal"].get("business_model", ""), summary, render_top3(view),
                     render_page(page, view), document_options, document,
                     f"{len(docs)}개 원문 문서 사용 가능 · 후속 문서는 검토 대기 상태 유지", event_options, event,
-                    {"display": "block" if page == "export" else "none"}, view["revision"], view["snapshot_id"], token)
+                    {"display": "block" if page == "export" else "none"}, view["revision"], view["snapshot_id"], token, metrics(view))
         except Exception as error:
             return ("작업 영역을 사용할 수 없습니다", "", "", empty("검증된 상태를 사용할 수 없습니다."), empty(safe_error(error)),
-                    [], None, "", [], None, {"display": "none"}, None, None, None)
+                    [], None, "", [], None, {"display": "none"}, None, None, None, None)
 
     @app.callback(
         Output("source-inspector", "children"),

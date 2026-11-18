@@ -1,0 +1,15 @@
+/* Shared navigation, inspector proportions and readable source text. */
+.studio-view-tabs{display:none}
+.workbench,body:has(.studio-page-marker) .workbench{grid-template-columns:220px minmax(0,1fr) 420px;gap:16px;padding-right:16px;max-width:none}
+.inspector-collapsed,body:has(.studio-page-marker) .inspector-collapsed{grid-template-columns:220px minmax(0,1fr)}
+.navigation-pane,body:has(.studio-page-marker) .navigation-pane{padding:16px 12px}
+.nav-item,body:has(.studio-page-marker) .workspace-nav .nav-item{font-size:14px;min-height:40px}
+.inspector-pane,body:has(.studio-page-marker) .inspector-pane{padding:18px;margin-top:12px;height:calc(100vh - 82px);border:1px solid #dce3ee;border-radius:12px;top:16px}
+.inspector-pane p,.inspector-pane .source-excerpt,.inspector-pane .source-span,.inspector-pane .locator,.inspector-pane .metadata-row dt,.inspector-pane .metadata-row dd,.inspector-pane .identifier,.inspector-pane .hash-value,.inspector-pane summary,.inspector-pane .badge,.inspector-pane .text-link{font-size:15px!important;line-height:1.8!important}
+.inspector-pane h2{font-size:20px}.inspector-pane h3{font-size:18px}.inspector-pane h4{font-size:16px}.inspector-pane .review-note{font-size:15px}.inspector-header{top:-18px}
+@media(min-width:1600px){.workbench,body:has(.studio-page-marker) .workbench{grid-template-columns:240px minmax(0,1fr) clamp(440px,23vw,560px);gap:18px;padding-right:18px}.inspector-collapsed,body:has(.studio-page-marker) .inspector-collapsed{grid-template-columns:240px minmax(0,1fr)}}
+@media(min-width:1100px) and (max-width:1359px){.workbench,body:has(.studio-page-marker) .workbench{grid-template-columns:185px minmax(0,1fr) 370px;gap:12px;padding-right:12px}.inspector-collapsed,body:has(.studio-page-marker) .inspector-collapsed{grid-template-columns:185px minmax(0,1fr)}}
+@media(min-width:900px) and (max-width:1099px){.workbench,body:has(.studio-page-marker) .workbench{grid-template-columns:minmax(0,1fr) 360px;padding:0 12px;gap:12px}.inspector-collapsed,body:has(.studio-page-marker) .inspector-collapsed{grid-template-columns:minmax(0,1fr)}.inspector-pane,body:has(.studio-page-marker) .inspector-pane{height:auto;position:static}}
+@media(max-width:899px){.workbench,body:has(.studio-page-marker) .workbench{display:flex;padding:0;gap:0}.inspector-pane,body:has(.studio-page-marker) .inspector-pane{width:calc(100% - 32px);height:auto;position:static;margin:0 16px 16px}.navigation-pane{height:auto}}
+
+#fdd-workpaper{display:none}body:has(.fdd-page-marker) #fdd-workpaper{display:block}body:has(.fdd-page-marker) #dashboard-metrics,body:has(.fdd-page-marker) .top3-panel{display:none}#fdd-workpaper p{font-size:14px;line-height:1.8}#fdd-workpaper .button{margin:8px}#fdd-workpaper textarea{font-size:15px;padding:12px}
