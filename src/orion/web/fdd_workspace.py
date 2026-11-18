@@ -17,10 +17,11 @@ from orion.services.fdd_finance import (DATASETS, LABELS, calculations, decimal,
 from orion.services.fdd_workpapers import (AREAS, ADJUSTMENT_DECISIONS, ISSUE_STATES, REQUEST_STATES,
                                             review_blockers, review_status, content_hash)
 from .i18n import GRID_LOCALE
+from .file_icons import file_icon
 
-NAVIGATION = [("deal", "1. Deal 개요·실사 범위"), ("dataroom", "2. 자료실·자료 요청"),
+NAVIGATION = [("deal", "1. 거래 개요·실사 범위"), ("dataroom", "2. 자료실·자료 요청"),
               ("reconciliation", "3. 재무 데이터·대사"), ("financial", "4. 재무 실사 분석"),
-              ("issues", "5. 쟁점·경영진 Q&A"), ("adjustments", "6. 조정사항·거래 영향"),
+              ("issues", "5. 쟁점·실사 질문·경영진 Q&A"), ("adjustments", "6. 조정사항·거래 영향"),
               ("quality", "7. 작성·검토 관리"), ("deliverables", "8. 보고서·산출물")]
 PAGES = {k for k, _ in NAVIGATION}
 ANALYSES = [("historical", "과거 실적"), ("qoe", "QoE"), ("nwc", "운전자본"),
@@ -172,15 +173,6 @@ def display_months(c):
 
 def root():
     return html.Div([
-        html.Div([html.Div([html.H2(id="fw-title"), html.P(id="fw-context", className="fw-context")]),
-                  html.Div([html.Label("업무 보기"), dcc.Dropdown(id="fw-role", value="Big 4", clearable=False, searchable=False,
-                            options=[{"label": "Big 4 · 조서·대사", "value": "Big 4"}, {"label": "PE · 이익·현금", "value": "PE"}, {"label": "IB · 거래·쟁점", "value": "IB"}])], className="fw-role")], className="fw-title-row"),
-        html.Nav([route(label.split('. ', 1)[0].zfill(2) + " " + short, page) for (page, label), short in zip(NAVIGATION,
-                   ("범위", "자료 요청", "대사", "재무 분석", "Q&A", "거래 영향", "검토", "산출물"))], className="fw-stage-nav", **{"aria-label": "FDD 업무 단계 이동"}),
-        html.Div([html.Div([html.Label("분석 기간"), dcc.Dropdown(id="fw-period", options=[], value=None, clearable=False, searchable=False)], className="fw-period"),
-                  html.Div(id="fw-status-pills")], className="fw-toolbar"),
-        html.Div(dcc.RadioItems(id="fw-area", value="historical", options=[{"label": label, "value": key} for key, label in ANALYSES],
-                               inline=True, className="fw-analysis-tabs"), id="fw-area-wrap"),
         html.Div(id="fw-message", role="status", **{"aria-live": "polite"}),
         html.Div(id="fw-content"),
         html.Details([html.Summary('재무 조서 새로 시작'),
@@ -191,7 +183,7 @@ def root():
 
 
 def inspector_root():
-    return html.Div([html.Div([html.H2("조서·근거 상세"), pill("공통 상세 패널", "blue")], className="fw-inspector-heading"),
+    return html.Div([
                      html.P('선택 항목의 금액·원천·판단을 함께 확인합니다.', className='fw-inspector-help'),
                      html.Label("선택한 항목", htmlFor="fw-inspection"),
                      dcc.Dropdown(id="fw-inspection", options=[], clearable=False, placeholder="표의 행·차트 막대를 선택"),
@@ -260,7 +252,7 @@ def render_dataroom(state, c, original_docs):
     sources = c["pack"]["documents"]
     source_cards = []
     for doc in sources.values():
-        source_cards.append(html.Button([html.Span("CSV", className="fw-file fw-file-xlsx"),
+        source_cards.append(html.Button([file_icon(doc["filename"]),
                             html.Div([html.Strong(doc["filename"]), html.Small(f"v{doc['version']} · {DATASET_LABELS[doc['kind']]}" )]),
                             pill("합성" if doc["classification"] == "synthetic" else "직접 입력", "blue")],
                             id={"type": "fw-select", "target": "source:" + doc["id"]}, n_clicks=0, className="fw-source-tile"))
@@ -270,7 +262,7 @@ def render_dataroom(state, c, original_docs):
                  table("requests", rows, [("id", "요청 ID"), ("title", "요청 자료"), ("status", "수령 상태"), ("owner", "담당자"), ("due", "기한"),
                        ("area", "영역"), ("source_id", "수령 자료"), ("version", "버전"), ("followup", "보완 사유")])], "수령은 분석·검토 완료와 별도"),
             card("재무 원천 자료", [html.Div(source_cards, className="fw-source-grid"), download("재무 원천 CSV 묶음", "sources"),
-                  html.P("기존 투자 문서와 인용문은 상단 ‘자료 목록’에서 모든 화면에서 확인할 수 있습니다.")]),
+                  html.P("기존 투자 문서와 인용문은 오른쪽 아래 프로젝트 자료에서 모든 화면에서 확인할 수 있습니다.")]),
             html.Details([html.Summary("재무 표 입력 · CSV 붙여넣기"),
                   html.P("템플릿의 열 이름·순서를 유지하세요. 빈칸은 미제공이며 0으로 바뀌지 않습니다. 자료 교체 시 관련 조정과 검토를 다시 확인합니다."),
                   html.Div([field("dataset_kind", "자료 종류", "monthly", options=[(key, label) for key, label in DATASET_LABELS.items()]),
@@ -509,7 +501,7 @@ def render_source(c, ref):
         return html.Div('원천 버전이 변경됐거나 연결되지 않았습니다. 새 자료로 근거를 다시 지정하세요.', className='fw-empty')
     return html.Div([
         html.H3('원천·계산 추적'),
-        html.Div([html.Span('CSV', className='fw-file fw-file-xlsx'), html.Strong(resolved['filename'])], className='fw-actions'),
+        html.Div([file_icon(resolved['filename']), html.Strong(resolved['filename'])], className='fw-actions'),
         html.P(f"v{resolved['version']} · {resolved['row']}행 · {resolved['column']} 열"),
         html.Blockquote([html.Strong(str(resolved['value']) if resolved['value'] is not None else '미제공'),
                          html.Small('원천 셀 값 · ' + ('합성 자료' if resolved['classification'] == 'synthetic' else '사용자 직접 입력'))], className='fw-source-value'),

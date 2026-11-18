@@ -18,7 +18,7 @@ def register_finance(app, workspace):
             const pane = document.getElementById('inspector-pane');
             if (pane) pane.scrollTop = 0;
             if (trigger && !trigger.prop_id.startsWith('fw-inspection.')) {
-                const main = document.getElementById('main-workspace');
+                const main = document.getElementById('frame-content');
                 if (main) main.scrollTop = 0;
                 window.scrollTo({top:0, behavior:'instant'});
             }
@@ -87,12 +87,12 @@ def register_finance(app, workspace):
 
     @app.callback(Output('fw-title', 'children'), Output('fw-context', 'children'), Output('fw-content', 'children'),
                   Output('fw-status-pills', 'children'), Output('fw-area-wrap', 'style'),
-                  Output('fw-period', 'options'), Output('fw-period', 'value'),
+                  Output('fw-period', 'options'), Output('fw-period', 'value'), Output('frame-toolbar-note', 'children'),
                   Input('workspace-token', 'data'), Input('finance-token', 'data'), Input('workspace-tabs', 'value'),
                   Input('fw-area', 'value'), Input('fw-role', 'value'), Input('fw-period', 'value'))
     def render(workspace_token, finance_token, page, area, role, period):
-        if not workspace_token or not finance_token or page not in ui.PAGES:
-            return (no_update,) * 7
+        if not workspace_token or not finance_token:
+            return (no_update,) * 8
         try:
             view, state = current(workspace_token, finance_token)
             rows = pack_for(state)['data']['monthly']
@@ -104,22 +104,29 @@ def register_finance(app, workspace):
             context = f"{s['entity']} · {s['currency']} {s['unit']} · 기준일 {s['as_of']}"
             period_text = f"{c['periods'][0]} → {c['periods'][-1]} · {len(c['periods'])}개월" if c['periods'] else '재무자료 미제공'
             pills = [ui.pill(period_text), ui.pill(review_status(state), 'blue'), ui.pill('조서 v' + str(state['revision']))]
+            from .layout import SUPPORT_TOOLS
+            from .workflow import PARENT
+            options = [{'label': ('최근 12개월 · LTM' if y == 'LTM' else y + '년 · 제공 월 기준'), 'value': y} for y in allowed]
+            if page not in ui.PAGES:
+                title = dict(SUPPORT_TOOLS).get(page, '질문·증빙 도구')
+                return title, view['deal']['name'] + ' · ' + ui.TITLES[PARENT[page]], no_update, [ui.pill('재무 기간 필터 미적용')], {'display': 'none'}, options, period, '원문·질문·증빙을 연결해 검토합니다. 증빙 승인과 조서 검토는 별도입니다.'
             content = ui.render_page(state, page, c, area or 'historical', role or 'Big 4', view['documents'])
             if state['demo_pack']:
                 content.insert(0, html.Div('합성 재무 검증팩 · 기존 투자 문서와 별개의 수치입니다. 실제 기업의 재무자료가 아닙니다.', className='fw-demo-note'))
             # Different pages must not reuse native <details> open state or an
             # editor DOM node simply because it occupied the same list position.
             content = html.Div(content, key=page + ':' + (area if page == 'financial' else 'page'))
-            return ui.TITLES[page], context, content, pills, {'display': 'block' if page == 'financial' else 'none'}, [
-                {'label': ('최근 12개월 · LTM' if y == 'LTM' else y + '년 · 제공 월 기준'), 'value': y} for y in allowed], period
+            return ui.TITLES[page], context, content, pills, {'display': 'block' if page == 'financial' else 'none'}, options, period, '' if page == 'financial' else '자료·분석 항목을 선택하면 오른쪽에서 근거와 판단을 확인할 수 있습니다.'
         except FinanceError as error:
-            return '재무 조서 확인 필요', '', html.Div(str(error), className='fw-empty'), [], {}, [], None
+            return '재무 조서 확인 필요', '', html.Div(str(error), className='fw-empty'), [], {'display': 'none'}, [], None, '자료 연결 상태를 확인하세요.'
 
     @app.callback(Output('fw-inspection', 'options'), Output('fw-inspection', 'value'), Output('fw-detail', 'children'),
                   Input('workspace-token', 'data'), Input('finance-token', 'data'), Input('workspace-tabs', 'value'),
                   Input('fw-area', 'value'), Input('fw-period', 'value'), Input('fw-inspection', 'value'))
     def inspect(workspace_token, finance_token, page, area, period, selection):
-        if not workspace_token or not finance_token or page not in ui.PAGES:
+        if not workspace_token or not finance_token:
+            return (no_update,) * 3
+        if page not in ui.PAGES and not (selection or '').startswith(('source:', 'native:')):
             return (no_update,) * 3
         try:
             view, state = current(workspace_token, finance_token)
@@ -129,7 +136,7 @@ def register_finance(app, workspace):
             # click may add any valid source cell from this project's active pack.
             native_id = selection.split(':', 1)[1] if selection and selection.startswith('native:') else None
             is_native = native_id in {d['id'] for d in view['documents']}
-            if ctx.triggered_id in {'workspace-tabs', 'fw-area'} or not (is_native or ui.valid_selection(state, c, selection)):
+            if (ctx.triggered_id in {'workspace-tabs', 'fw-area'} and not (page == 'issues' and (selection or '').startswith('issue:') and ui.valid_selection(state, c, selection))) or not (is_native or ui.valid_selection(state, c, selection)):
                 selection = options[0]['value'] if options else None
                 is_native = False
             if selection and selection not in {o['value'] for o in options}:
@@ -152,6 +159,61 @@ def register_finance(app, workspace):
             return options, selection, detail
         except FinanceError as error:
             return [], None, html.P(str(error))
+
+    @app.callback(Output('finance-source-list', 'children'),
+                  Input('workspace-token', 'data'), Input('finance-token', 'data'),
+                  Input('studio-source-search', 'value'), Input('studio-source-type', 'value'), State('fw-inspection', 'value'))
+    def financial_sources(token, finance_token, query, file_type, selection):
+        from .file_icons import file_icon
+        if not token or not finance_token:
+            return []
+        try:
+            _, state = current(token, finance_token)
+        except FinanceError:
+            return html.P('선택한 투자 대상의 재무 원천표를 불러오는 중입니다.', className='studio-help')
+        documents = pack_for(state)['documents']
+        rows = [d for d in documents.values() if (not query or str(query).casefold() in d['filename'].casefold())
+                and file_type in {None, 'all', 'csv'}]
+        return html.Section([html.H4('재무 원천표 · 별도 조서 자료'),
+                             *[html.Button([file_icon(d['filename']), html.Span([
+                                 html.Span(d['filename'], className='studio-file-name'),
+                                 html.Small(('합성 자료' if d['classification'] == 'synthetic' else '직접 입력') + ' · 연결됨 · v' + str(d['version']))], className='frame-file-label')],
+                                 id={'type': 'fw-library-source', 'target': 'source:' + d['id']}, n_clicks=0,
+                                 title=d['filename'], className='studio-file selected' if selection == 'source:' + d['id'] else 'studio-file') for d in rows],
+                             *([] if rows else [html.P('표시할 재무 원천표가 없습니다.', className='studio-help')])], className='frame-file-group')
+
+    @app.callback(Output('fw-inspection', 'value', allow_duplicate=True),
+                  Input({'type': 'fw-library-source', 'target': ALL}, 'n_clicks'),
+                  State('workspace-token', 'data'), State('finance-token', 'data'), prevent_initial_call=True)
+    def choose_financial_source(clicks, token, finance_token):
+        trigger = ctx.triggered_id
+        if not isinstance(trigger, dict) or not any(item.get('value') for item in ctx.triggered) or not token:
+            return no_update
+        _, state = current(token, finance_token)
+        selection = trigger['target']
+        return selection if ui.valid_selection(state, calculations(state), selection) else no_update
+
+    @app.callback(Output('inspector-pane', 'className'), Input('workspace-tabs', 'value'), Input('fw-inspection', 'value'),
+                  Input('studio-side-tabs', 'value'))
+    def inspector_mode(page, selection, studio_mode):
+        return 'inspector-pane financial-preview' if (selection or '').startswith('source:') and ctx.triggered_id != 'workspace-tabs' else 'inspector-pane'
+
+    @app.callback(Output('frame-finance-download', 'style'), Output('source-download-button', 'style'),
+                  Input('fw-inspection', 'value'))
+    def download_mode(selection):
+        financial = (selection or '').startswith('source:')
+        return ({}, {'display': 'none'}) if financial else ({'display': 'none'}, {})
+
+    @app.callback(Output('finance-download', 'data', allow_duplicate=True), Input('frame-finance-download', 'n_clicks'),
+                  State('workspace-token', 'data'), State('finance-token', 'data'), State('fw-inspection', 'value'), prevent_initial_call=True)
+    def download_financial_source(clicks, token, finance_token, selection):
+        if not clicks or not token or not (selection or '').startswith('source:'):
+            return no_update
+        _, state = current(token, finance_token)
+        doc = pack_for(state)['documents'].get(selection.split(':', 1)[1])
+        if not doc:
+            return no_update
+        return dcc.send_bytes(doc['text'].encode('utf-8'), doc['filename'])
 
     @app.callback(Output('workspace-tabs', 'value', allow_duplicate=True),
                   Input({'type': 'fw-route', 'page': ALL, 'key': ALL}, 'n_clicks'), prevent_initial_call=True)

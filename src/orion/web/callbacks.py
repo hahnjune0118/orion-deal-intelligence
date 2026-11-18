@@ -36,6 +36,8 @@ def register_callbacks(app, workspace, exports):
     register_fdd(app, workspace)
     from .fdd_callbacks import register_finance
     register_finance(app, workspace)
+    from .workflow import register_workflow
+    register_workflow(app, workspace)
     @app.callback(Output("score-waterfall-content", "children"),
                   Input("score-question-selector", "value", allow_optional=True),
                   Input("workspace-token", "data"))
@@ -48,13 +50,6 @@ def register_callbacks(app, workspace, exports):
             return score_waterfall(question)
         except Exception as error:
             return empty(safe_error(error))
-
-    @app.callback(Output("workbench", "className"), Output("inspector-toggle", "children"),
-                  Output("inspector-toggle", "aria-expanded"), Input("inspector-toggle", "n_clicks"))
-    def toggle_inspector(clicks):
-        collapsed = (clicks or 0) % 2 == 1
-        return ("workbench inspector-collapsed" if collapsed else "workbench",
-                "원문 패널 열기" if collapsed else "원문 패널 접기", "false" if collapsed else "true")
 
     @app.callback(
         Output("workspace-token", "data"), Output("status-live-region", "children"),
@@ -124,6 +119,7 @@ def register_callbacks(app, workspace, exports):
     @app.callback(
         Output("source-inspector", "children"),
         Input("document-selector", "value"), Input("workspace-token", "data"),
+        Input("deal-selector", "value"),
         Input("evidence-grid", "selectedRows", allow_optional=True),
         Input("claim-grid", "selectedRows", allow_optional=True),
         Input("question-grid", "selectedRows", allow_optional=True),
@@ -133,9 +129,14 @@ def register_callbacks(app, workspace, exports):
         Input("question-grid", "cellClicked", allow_optional=True),
         Input("thesis-grid", "cellClicked", allow_optional=True),
     )
-    def inspect(document_id, token, evidence, claims, questions, theses, evidence_click, claim_click, question_click, thesis_click):
+    def inspect(document_id, token, selected_case, evidence, claims, questions, theses, evidence_click, claim_click, question_click, thesis_click):
         if not token:
             return empty("자료를 선택해 원문 구간을 확인하세요.")
+        try:
+            if workspace.view(token, _session_id())['case_id'] != selected_case:
+                return empty('선택한 투자 대상의 자료를 불러오는 중입니다.')
+        except Exception as error:
+            return empty(safe_error(error))
         trigger = ctx.triggered_id
         kind, item_id = "document", document_id
         sources = {

@@ -1,0 +1,30 @@
+from playwright.sync_api import expect
+from test_browser import chromium_browser,live_url,_navigate,_fw_navigate,_fw_field,_fw_command,_fw_option
+
+
+def test_integrated_question_issue_roundtrip(chromium_browser,live_url):
+    c=chromium_browser.new_context(viewport={'width':1440,'height':1000});p=c.new_page();p.goto(live_url)
+    expect(p.locator('#fw-title')).to_contain_text('1.',timeout=60000)
+    expect(p.locator('#support-tools-drawer')).to_have_count(0)
+    expect(p.locator('#fdd-stage label')).to_have_count(8)
+    _navigate(p,'studio')
+    assert p.locator('#fdd-stage input:checked').evaluate('(e)=>e.closest("label").textContent').startswith('5.')
+    p.locator('#studio-question-selection input').first.check();p.locator('#studio-review-selection').click()
+    p.locator('#workflow-question-issue').click()
+    expect(_fw_field(p,'edit_id')).to_have_value('ISS-004',timeout=30000)
+    expect(p.locator('#workflow-open-question')).to_be_enabled()
+    _fw_field(p,'edit_conclusion').fill('근거 추가 확인')
+    _fw_command(p,'issue').click();expect(p.locator('#fw-message')).to_contain_text('저장했습니다')
+    p.locator('#workflow-open-question').click()
+    expect(p.locator('#studio-editor')).to_be_visible(timeout=30000)
+    p.locator('#workflow-question-issue').click()
+    expect(_fw_field(p,'edit_id')).to_have_value('ISS-004')
+    expect(p.locator('#fw-inspection')).not_to_contain_text('ISS-005')
+    expect(p.locator('#snapshot-summary')).to_contain_text('리비전 1')
+    _fw_navigate(p,3)
+    control=p.locator('#workflow-target-issue');control.click();control.locator('input').fill('ISS-004');control.locator('.Select-menu-outer').get_by_text(__import__('re').compile('ISS-004')).click()
+    p.locator('#workflow-origin-issue').click()
+    expect(_fw_field(p,'edit_id')).to_have_value('ISS-004')
+    expect(p.locator('#workflow-related')).to_contain_text('발견 원천 확인')
+    _fw_navigate(p,7);expect(p.locator('#fw-status-pills')).to_contain_text('작성 중')
+    c.close()

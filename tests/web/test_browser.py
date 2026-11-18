@@ -68,9 +68,10 @@ def _revision(page, revision):
 
 
 def _navigate(page, name):
-    if page.locator('#support-tools-drawer').get_attribute('open') is None:
-        page.locator('#support-tools-drawer > summary').click()
-    page.locator(f'.fw-tools-menu button[id*=\'"page":"{name}"\']').click()
+    from orion.web.workflow import PARENT, VIEWS
+    parent=PARENT[name]
+    page.locator('#fdd-stage label').filter(has_text=re.compile(r'^'+str(list(VIEWS).index(parent)+1)+r'\.')).click()
+    page.locator('#stage-view label').get_by_text(dict(VIEWS[parent])[name],exact=True).click()
     titles = {"overview": "투자 건 개요", "evidence": "증빙 탐색", "thesis": "투자 가설 검토판", "questions": "맞춤형 실사 질문표", "review": "분석가 검토 및 증빙 업데이트", "analytics": "맞춤형 분석", "export": "예비 심사 메모 및 실사 자료 내보내기"}
     if name == 'studio':
         expect(page.locator('#studio-center')).to_be_visible(timeout=60000)
@@ -119,12 +120,10 @@ def test_northstar_full_approved_flow_and_exports(chromium_browser, live_url, tm
     first_row.click()
     expect(page.locator("#source-inspector")).to_contain_text(span["quote"])
     expect(page.locator("#source-inspector .locator").first).to_contain_text("word/document.xml")
-    page.locator("#source-library-drawer > summary").click()
     document_search = page.locator("#studio-source-search")
     document_search.fill("no-matching-source-document")
     expect(page.locator("#studio-source-list")).to_contain_text("검색 결과가 없습니다")
     document_search.fill("")
-    page.locator("#source-library-drawer > summary").click()
     _shot(page, "02_evidence_1440.png", tmp_path)
     _navigate(page, "thesis")
     expect(page.locator("#thesis-grid .ag-row").first).to_be_visible()
@@ -241,14 +240,14 @@ def test_secondary_cases_keyboard_and_responsive_views(chromium_browser, live_ur
     assert page.evaluate("document.activeElement !== document.body")
     for width, height, name in [(1280, 720, "08_questions_1280.png"), (1024, 768, "09_questions_1024.png"), (720, 450, "10_questions_200percent_reflow.png")]:
         page.set_viewport_size({"width": width, "height": height})
-        expect(page.locator("#workspace-tabs")).to_be_visible()
+        expect(page.locator("#fdd-stage")).to_be_visible()
         _shot(page, name, tmp_path)
         assert page.evaluate("document.documentElement.scrollWidth <= innerWidth + 2"), "Whole-page horizontal overflow"
         assert page.locator("#review-approve").is_visible()
     context.close()
 
 
-def test_dashboard_charts_and_inspector_toggle(chromium_browser, live_url, tmp_path):
+def test_dashboard_charts_and_persistent_inspector(chromium_browser, live_url, tmp_path):
     context, page = _open(chromium_browser, live_url)
     expect(page.locator('#dashboard-metrics')).to_contain_text('미해결 실사 질문')
     for chart_id in ['overview-priority-chart', 'overview-coverage-chart']:
@@ -256,12 +255,9 @@ def test_dashboard_charts_and_inspector_toggle(chromium_browser, live_url, tmp_p
         expect(chart.locator('.main-svg').first).to_be_visible()
         assert chart.bounding_box()['height'] >= 250
     _shot(page, '11_dashboard_refresh_1440.png', tmp_path)
-    page.locator('#inspector-toggle').click()
-    expect(page.locator('#inspector-pane')).not_to_be_visible()
-    expect(page.locator('#inspector-toggle')).to_have_attribute('aria-expanded', 'false')
-    page.locator('#inspector-toggle').click()
+    expect(page.locator('#inspector-toggle')).to_have_count(0)
     expect(page.locator('#inspector-pane')).to_be_visible()
-    expect(page.locator('#inspector-toggle')).to_have_attribute('aria-expanded', 'true')
+    expect(page.locator('#project-library')).to_be_visible()
     for size in [(1440, 900), (1024, 768), (720, 900), (390, 844)]:
         page.set_viewport_size({'width': size[0], 'height': size[1]})
         assert page.evaluate('document.documentElement.scrollWidth <= innerWidth + 2'), (size, page.evaluate("Array.from(document.querySelectorAll('body *')).filter(e => e.getBoundingClientRect().right > innerWidth+2).map(e => [e.tagName,e.id,e.className,e.getBoundingClientRect().right]).slice(0,12)"))
@@ -318,16 +314,13 @@ def test_studio_document_review_edit_and_exports(chromium_browser, live_url, tmp
     page.set_viewport_size({'width': 1440, 'height': 900})
     _shot(page, 'studio_workspace_1440.png', tmp_path)
     canonical = page.locator('#top3-list').inner_text()
-    page.locator('#source-library-drawer > summary').click()
     page.locator('#studio-source-search').fill('financial')
-    expect(page.locator('.studio-file')).to_have_count(1)
-    page.locator('.studio-file').click()
+    expect(page.locator('#studio-source-list .studio-file')).to_have_count(1)
+    page.locator('#studio-source-list .studio-file').click()
     expect(page.locator('.legacy-inspector')).to_be_visible()
     expect(page.locator('#source-inspector')).to_contain_text('nb_doc_financial.docx')
-    page.locator('#source-library-drawer > summary').click()
     page.locator('#studio-source-search').fill('')
-    expect(page.locator('.studio-file')).to_have_count(4)
-    page.locator('#source-library-drawer > summary').click()
+    expect(page.locator('#studio-source-list .studio-file')).to_have_count(4)
     page.locator('#studio-question-selection input').first.check()
     page.locator('#studio-review-selection').click()
     expect(page.locator('#studio-editor')).to_be_visible()
@@ -387,7 +380,7 @@ def _fw_command(page, action):
 
 
 def _fw_navigate(page, number):
-    page.locator('#workspace-tabs label').filter(has_text=re.compile(rf'^{number}\.')).click()
+    page.locator('#fdd-stage label').filter(has_text=re.compile(rf'^{number}\.')).click()
     expect(page.locator('#fw-title')).to_contain_text(re.compile(rf'^{number}\.'))
 
 
@@ -432,6 +425,7 @@ def test_fdd_financial_workflow_and_workpaper_exports(chromium_browser, live_url
     _fw_field(page, 'edit_source_column').fill('revenue')
     _fw_command(page, 'reconciliation').click()
     expect(page.locator('#fw-message')).to_contain_text('저장했습니다')
+    page.locator('#fw-content .ag-body-horizontal-scroll-viewport').first.evaluate('(e) => {e.scrollLeft = e.scrollWidth;}')
     expect(page.locator('#fw-content')).to_contain_text('조정 대사')
     _fw_navigate(page, 5)
     for label in ['ISS-001 · 관리매출과 시산표의 12월 차이', 'ISS-003 · 현금·차입잔액의 외부 확인 미수령']:
@@ -495,10 +489,9 @@ def test_fdd_all_pages_sources_panel_and_mobile_layout(chromium_browser, live_ur
     _shot(page, 'fdd_nwc_2560.png', tmp_path)
     page.set_viewport_size({'width': 1440, 'height': 1000})
     # The global document library also opens original Word evidence inside FDD.
-    page.locator('#source-library-drawer > summary').click()
     page.locator('#studio-source-search').fill('financial')
-    expect(page.locator('.studio-file')).to_have_count(1)
-    page.locator('.studio-file').click()
+    expect(page.locator('#studio-source-list .studio-file')).to_have_count(1)
+    page.locator('#studio-source-list .studio-file').click()
     expect(page.locator('#fw-detail')).to_contain_text('nb_doc_financial.docx')
     assert page.locator('#fw-detail .source-excerpt').first.evaluate('(e) => parseFloat(getComputedStyle(e).fontSize)') >= 15
     for width in [1440, 1024, 720, 390]:
@@ -553,6 +546,7 @@ def test_fdd_financial_csv_and_request_entry(chromium_browser, live_url, tmp_pat
     _fw_field(page, 'scope_currency').fill('KRW')
     _fw_command(page, 'scope').click()
     expect(page.locator('#fw-message')).to_contain_text('통화·단위만 변경할 수 없습니다')
+    page.once('dialog', lambda dialog: dialog.accept())
     _choose_case(page, '제조업')
     _fw_navigate(page, 2)
     page.get_by_text('재무 표 입력 · CSV 붙여넣기', exact=True).click()

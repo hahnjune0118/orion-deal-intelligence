@@ -1,0 +1,37 @@
+{
+  "retrieved": "2026-11-18",
+  "source": "Microsoft Fluent UI file type icons",
+  "license": "https://aka.ms/fluentui-assets-license",
+  "icons": [
+    {
+      "file": "file-word.svg",
+      "url": "https://res.cdn.office.net/files/fabric-cdn-prod_20230815.002/assets/item-types/24/docx.svg",
+      "sha256": "a314853cc642af2e11779994a0d3d5865c488322df4f6777fd9637b8de48e107"
+    },
+    {
+      "file": "file-excel.svg",
+      "url": "https://res.cdn.office.net/files/fabric-cdn-prod_20230815.002/assets/item-types/24/xlsx.svg",
+      "sha256": "5e9f888a3462bab321eb38cfe0d6d60f1d35acef60aff8e8fe45ca4e76a77943"
+    },
+    {
+      "file": "file-powerpoint.svg",
+      "url": "https://res.cdn.office.net/files/fabric-cdn-prod_20230815.002/assets/item-types/24/pptx.svg",
+      "sha256": "b0a122be3158d04dbe49f7430ff9761632ae7b49a3eebeedab7edfabc4420d29"
+    },
+    {
+      "file": "file-pdf.svg",
+      "url": "https://res.cdn.office.net/files/fabric-cdn-prod_20230815.002/assets/item-types/24/pdf.svg",
+      "sha256": "deba499241056ce007d8e79b4196f0dfe69531a80eee35644e9e79a29a06506a"
+    },
+    {
+      "file": "file-csv.svg",
+      "url": "https://res.cdn.office.net/files/fabric-cdn-prod_20230815.002/assets/item-types/24/csv.svg",
+      "sha256": "0bbd334bd27fe49b65c85b742ccdec5d2eda705fe2823882cbb10a1f7c8afb0a"
+    },
+    {
+      "file": "file-other.svg",
+      "url": "https://res.cdn.office.net/files/fabric-cdn-prod_20230815.002/assets/item-types/24/genericfile.svg",
+      "sha256": "3f82c777bedeba66dcc50bd114dd5589b6a22a0a1930ddc91c60a0d7c1a2b802"
+    }
+  ]
+}

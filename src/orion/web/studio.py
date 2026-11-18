@@ -5,6 +5,7 @@ import re
 from dash import dcc, html
 
 from .i18n import text
+from .file_icons import file_icon
 
 TYPES = [("core", "핵심 검증"), ("finance", "재무"), ("business", "사업"), ("customer", "고객"), ("risk", "리스크")]
 
@@ -37,11 +38,11 @@ def filtered_questions(view, categories, query="", kpi_first=False):
 
 def sidebar():
     return html.Div([
-        html.Div([html.H3("프로젝트 자료"), html.Span("SOURCE LIBRARY", className="studio-overline")], className="studio-side-heading"),
-        dcc.Input(id="studio-source-search", type="search", placeholder="파일명 검색…", maxLength=200, debounce=.2, className="studio-search"),
-        html.Div(id="studio-source-list"),
-        html.Div([html.Span("자료 추가", className="studio-mini-label"),
-                  html.P("현재는 제공된 합성 자료를 검토합니다. 업로드·AI 분석은 다음 연결 단계입니다.")], className="studio-local-notice"),
+        html.Div([html.H3("프로젝트 자료"), html.Span("모든 업무 화면에서 확인", className="studio-help")], className="studio-side-heading"),
+        html.Div([dcc.Input(id="studio-source-search", type="search", placeholder="파일명 검색…", maxLength=200, debounce=.2, className="studio-search"),
+                  dcc.Dropdown(id="studio-source-type", value="all", clearable=False, searchable=True, maxHeight=140,
+                               options=[{"label": label, "value": value} for value, label in [("all", "전체 형식"), ("word", "Word"), ("excel", "Excel"), ("powerpoint", "PowerPoint"), ("pdf", "PDF"), ("csv", "CSV"), ("other", "기타")]])], className="frame-library-filters"),
+        html.Div([html.Div(id="studio-source-list"), html.Div(id="finance-source-list")], id="frame-file-list", tabIndex=0),
     ], className="studio-sidebar")
 
 
@@ -77,18 +78,14 @@ def editor():
         html.Button("수정 초안 저장", id="studio-save", n_clicks=0, className="button button-primary"),
         html.Div([html.Button("검토 완료", id="studio-approve", n_clicks=0, className="button button-secondary"),
                   html.Button("제외 표시", id="studio-reject", n_clicks=0, className="button button-secondary")], className="studio-review-actions"),
+        html.Button("이 질문을 쟁점에 연결", id="workflow-question-issue", n_clicks=0, className="button button-secondary"),
         html.Button("인용 원문 확인 ↗", id="studio-open-source", n_clicks=0, className="button button-quiet"),
         html.P("검토 완료는 이 초안에 대한 확인입니다. 공식 질문·점수·증빙 승인은 변경하지 않습니다.", className="studio-help"),
     ], id="studio-editor")
 
 
 def workspace(view):
-    steps = [("evidence", "자료 분석"), ("thesis", "가설 정리"), ("studio", "질문 검토"), ("questions", "중요도 평가"), ("review", "새 증거 반영")]
     return html.Div([
-        html.Div([html.Div([html.Span("DEAL WORKSPACE", className="studio-overline"), html.H2("실사 질문 검토 워크스페이스")]),
-                  html.Nav([html.Button([html.Span(str(i + 1).zfill(2)), html.Small(label)], id={"type": "studio-route", "page": page},
-                                       n_clicks=0, className="studio-step active" if page == "studio" else "studio-step") for i, (page, label) in enumerate(steps)],
-                           className="studio-stepper", **{"aria-label": "실사 작업 단계"})], className="studio-workflow-header"),
         html.Section([
             html.Div([html.H3("현재 투자 가설"), html.Span("원문 연결 · 합성 사례", className="studio-status blue")], className="section-bar"),
             html.Div(id="studio-theses"),
@@ -118,22 +115,23 @@ def workspace(view):
     ], className="studio-workspace")
 
 
-def source_list(view, query, selected):
+def source_list(view, query, selected, file_type="all"):
     groups = defaultdict(list)
     for doc in view["documents"]:
         name = doc.get("filename", doc["id"])
-        if query and str(query).casefold() not in name.casefold():
+        if (file_type != "all" and file_family(name) != file_type) or (query and str(query).casefold() not in name.casefold()):
             continue
         group = "투자 소개 · CIM" if "cim" in name.lower() else "재무 자료" if any(word in name.lower() for word in ["financ", "ledger", "cost"]) else "사업 · 운영 자료"
         groups[group].append(doc)
-    result = [html.Div([html.Span("등록 자료"), html.Strong(f"{len(view['documents'])}개")], className="studio-file-count")]
+    result = [html.Div([html.Span("원문 문서"), html.Strong(f"{len(view['documents'])}개")], className="studio-file-count")]
     for group, docs in groups.items():
-        result.append(html.Details([html.Summary([html.Span(group), html.Small(str(len(docs)))]),
-            *[html.Button([html.Span(d.get("filename", "").rsplit(".", 1)[-1].upper(), className="studio-file-type file-" + file_family(d.get("filename", ""))),
-                           html.Span(d.get("filename", d["id"]), className="studio-file-name"),
-                           html.Small(text(d.get("parse_status", "unknown")))],
+        result.append(html.Section([html.H4(group),
+            *[html.Button([file_icon(d.get("filename", "")),
+                           html.Span([html.Span(d.get("filename", d["id"]), className="studio-file-name"),
+                                      html.Small(text(d.get("parse_status", "unknown")) + " · v" + str(d.get("version", 1)))], className="frame-file-label")],
                           id={"type": "studio-document", "document": d["id"]}, n_clicks=0,
-                          className="studio-file selected" if selected == d["id"] else "studio-file") for d in docs]], open=True))
+                          title=d.get("filename", d["id"]),
+                          className="studio-file selected" if selected == d["id"] else "studio-file") for d in docs]], className="frame-file-group"))
     if not groups:
         result.append(html.P("검색 결과가 없습니다.", className="studio-help"))
     return result
@@ -141,7 +139,7 @@ def source_list(view, query, selected):
 
 def file_family(filename):
     extension = filename.rsplit(".", 1)[-1].lower()
-    return {"doc": "word", "docx": "word", "xls": "excel", "xlsx": "excel", "csv": "excel",
+    return {"doc": "word", "docx": "word", "xls": "excel", "xlsx": "excel", "csv": "csv",
             "ppt": "powerpoint", "pptx": "powerpoint", "pdf": "pdf"}.get(extension, "other")
 
 

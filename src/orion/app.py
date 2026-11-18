@@ -1,4 +1,4 @@
-"""Run the offline synthetic workbench with ``python -m orion.app``."""
+"""Start the rules MVP; ``--legacy`` opens the preserved synthetic workbench."""
 from __future__ import annotations
 
 from pathlib import Path
@@ -79,9 +79,23 @@ def __getattr__(name):
 
 
 def main():
+    import argparse
+    import os
+    parser = argparse.ArgumentParser(description='Orion local rule-based adaptive DD MVP')
+    parser.add_argument('--legacy', action='store_true', help='Open the preserved eight-stage synthetic FDD workbench')
+    parser.add_argument('--port', type=int, default=None)
+    args = parser.parse_args()
     settings = Settings.from_env()
-    application = create_app(settings=settings)
-    application.run(host=settings.bind_host, port=settings.port, debug=False)
+    port = settings.port if args.port is None else args.port
+    if not 1 <= port <= 65535:
+        parser.error('port must be 1..65535')
+    if args.legacy:
+        application = create_app(settings=settings)
+        application.run(host=settings.bind_host, port=port, debug=False)
+    else:
+        from orion.web.rules_app import create_rules_app
+        application = create_rules_app(data_dir=os.environ.get('ORION_RULES_DATA_DIR'), port=port)
+        application.run(host='127.0.0.1', port=port, debug=False)
 
 
 if __name__ == "__main__":

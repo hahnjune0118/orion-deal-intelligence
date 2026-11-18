@@ -276,6 +276,10 @@ class FDDWorkpapers:
                        status=_choice(values.get("status"), ISSUE_STATES, "쟁점 상태"),
                        request_id=values.get("request_id") or "", adjustment_id=values.get("adjustment_id") or "",
                        management=_text(values.get("management"), "경영진 답변"), conclusion=_text(values.get("conclusion"), "실사팀 결론"))
+            previous = next((i for i in state['issues'] if i['id'] == identifier), {})
+            for key in ('question_ref', 'question_snapshot', 'origin_ref'):
+                if key in previous:
+                    row[key] = deepcopy(previous[key])
             for field, collection in (("request_id", "requests"), ("adjustment_id", "adjustments")):
                 if row[field] and row[field] not in {r["id"] for r in state[collection]}:
                     raise FinanceError("현재 프로젝트의 요청·조정사항을 선택하세요.")
@@ -441,7 +445,7 @@ def report_markdown(state, period=None):
     lines += ["## 발견사항·경영진 Q&A", ""]
     for issue in state["issues"]:
         lines += [f"- {issue['id']} [{issue['priority']} / {issue['status']}] {issue['title']} · 영향 {fmt(decimal(issue['impact']))}",
-                  f"  - 경영진: {issue['management']}", f"  - 실사팀: {issue['conclusion']} | 자료 요청 {issue['request_id']} | 조정 {issue['adjustment_id']}"]
+                  f"  - 연결 질문: {issue.get('question_ref', '—')} ({issue.get('question_snapshot', '—')}) | 발견 원천: {issue.get('origin_ref', '—')}", f"  - 경영진: {issue['management']}", f"  - 실사팀: {issue['conclusion']} | 자료 요청 {issue['request_id']} | 조정 {issue['adjustment_id']}"]
     lines += ["", "## 미해결 검토 조건", *[f"- {b}" for b in review_blockers(state)], "", "## 작성·검토 기록",
               f"작성자: {state['review']['preparer'] or '미입력'} | 검토자: {state['review']['reviewer'] or '미입력'}",
               "이름은 자기기입 기록으로 로그인·권한·독립성을 인증하지 않습니다. 회계법인 서명 또는 감사의견이 아닙니다.",

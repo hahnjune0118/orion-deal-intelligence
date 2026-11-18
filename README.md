@@ -1,4 +1,28 @@
-# Orion Deal Intelligence 2.0 — Chunk 4 Dash Workbench
+# Orion Deal Intelligence — 규칙 기반 Adaptive DD MVP
+
+현재 기본 화면은 **자료 분석 → 가설 검토·확정 → 질문 생성 → 중요도 평가 → 새 증거 반영**의 5단계입니다. 한국어 질문 라이브러리와 Python 규칙으로 동작하며 OpenAI API·로컬 LLM·API 키가 필요하지 않습니다. 등록 원본과 검토 기록은 이 PC의 `.local/orion-rules/projects.sqlite3`에 저장합니다.
+
+기존 환경이 설치되어 있다면 다음 명령으로 시작합니다.
+
+```powershell
+.\.venv\Scripts\python -m orion.app
+```
+
+브라우저에서 **http://127.0.0.1:8050**을 엽니다. 새 프로젝트에 자료를 올리거나 **합성 검증 사례 열기**로 계산 예시를 확인하세요. 실제 프로젝트의 확률·EIG·EVSI는 근거와 가정을 직접 설정할 때만 계산합니다.
+
+- [새 MVP의 사용 방법·계산 정책·지원 범위](docs/RULE_BASED_MVP_20261118.md)
+- [익명화 딜 사례 열기·EIG/EVSI 실습](docs/CASE_STUDIES.md)
+- [원래 MVP 설계안](docs/ORION_ADAPTIVE_DD_MVP_BLUEPRINT_20261118.md)
+
+기존 FDD 화면과 차트는 보존했습니다. 아래 명령으로 별도 포트에서 실행할 수 있습니다.
+
+```powershell
+.\.venv\Scripts\python -m orion.app --legacy --port 8051
+```
+
+아래 Chunk 4 설명은 **보존된 기존 Dash 앱**의 설명입니다. 해당 앱은 합성 자료 검토용이며 새 MVP와 데이터 저장소가 다릅니다.
+
+## 보존된 Chunk 4 Dash Workbench
 
 Python 3.12 기반 Chunk 1–3에 **Dash + Dash AG Grid 분석 화면, 증빙 승인·반려, 전후 순위 비교, Bayesian/EIG 설명, 승인 후 보고서 내보내기**를 연결했습니다. 사용자 제공 `orion-deal-intelligence-main.zip`만 코드 기준본으로 사용합니다. 실제 LLM 호출, 공개 배포, 실제 B0–B3 모델 성능 측정은 이번 구현에 포함되지 않습니다.
 
@@ -10,10 +34,10 @@ Windows PowerShell에서 이 README가 있는 프로젝트 폴더로 이동한 �
 py -3.12 -m venv .venv
 .\.venv\Scripts\python -m pip install --require-hashes -r requirements-win.lock
 .\.venv\Scripts\python -m pip install --no-deps --no-build-isolation -e .
-.\.venv\Scripts\python -m orion.app
+.\.venv\Scripts\python -m orion.app --legacy --port 8051
 ```
 
-브라우저에서 **http://127.0.0.1:8050**을 엽니다. Linux는 아래 기존 설치 절차 후 `.venv/bin/python -m orion.app`을 실행합니다. 최초 패키지 설치 후 Demo는 API key 없이 오프라인으로 동작합니다. 웹 앱은 이 전체 소스 트리의 합성 원문 파일을 사용하므로 프로젝트 폴더를 유지해야 합니다. 과거 `artifacts/` wheel은 Chunk 1–3 보존 자료입니다.
+브라우저에서 **http://127.0.0.1:8051**을 엽니다. Linux는 아래 기존 설치 절차 후 `.venv/bin/python -m orion.app --legacy --port 8051`을 실행합니다. 최초 패키지 설치 후 Demo는 API key 없이 오프라인으로 동작합니다. 웹 앱은 이 전체 소스 트리의 합성 원문 파일을 사용하므로 프로젝트 폴더를 유지해야 합니다. 과거 `artifacts/` wheel은 Chunk 1–3 보존 자료입니다.
 
 - [한국어 설치·사용 안내](docs/ORION_WEBAPP_USER_GUIDE.md)
 - [5–7분 시연 순서](docs/ORION_DEMO_WALKTHROUGH.md)

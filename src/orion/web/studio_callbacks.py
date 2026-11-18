@@ -11,6 +11,10 @@ from .layout import render_inspection
 def register_studio(app, workspace):
     drafts = DraftReview(app.server.secret_key)
 
+    @app.callback(Output('studio-source-search', 'value'), Output('studio-source-type', 'value'), Input('deal-selector', 'value'))
+    def reset_library_filter(_case):
+        return '', 'all'
+
     def current(token):
         sid = session["orion_session"]
         return sid, workspace.view(token, sid)
@@ -59,9 +63,9 @@ def register_studio(app, workspace):
                   Output("studio-active-question", "options"), Output("studio-active-question", "value"),
                   Output("studio-claims-heading", "children"), Output("studio-linked-claims", "children"),
                   Input("workspace-token", "data"), Input("studio-draft-token", "data"), Input("studio-source-search", "value"),
-                  Input("document-selector", "value"), Input("studio-types", "value"), Input("studio-question-search", "value"),
+                  Input("studio-source-type", "value"), Input("document-selector", "value"), Input("studio-types", "value"), Input("studio-question-search", "value"),
                   Input("studio-kpi", "value"), Input("studio-view", "value"), State("studio-active-question", "value"))
-    def render(token, draft_token, source_query, document, categories, query, kpi, mode, active):
+    def render(token, draft_token, source_query, file_type, document, categories, query, kpi, mode, active):
         if not token:
             return (no_update,) * 14
         try:
@@ -77,7 +81,7 @@ def register_studio(app, workspace):
             history = [html.Div([html.Span(f"{item['sequence']:02}", className="studio-history-sequence"), html.Strong(actions[item["action"]]),
                                  html.Small(f"질문 {len(item['question_ids'])}개" if item["question_ids"] else "참고 메모"),
                                  html.Details([html.Summary("수정 전후"), html.P("이전: " + item["before"]["issue"]), html.P("변경: " + item["after"]["issue"])]) if item.get("before") else None], className="studio-history-item") for item in reversed(draft["history"])]
-            return (studio.source_list(view, source_query, document), studio.thesis_cards(view), studio.question_options(view, rows, draft),
+            return (studio.source_list(view, source_query, document, file_type), studio.thesis_cards(view), studio.question_options(view, rows, draft),
                     f"{len(rows)} / {len(view['questions'])}", "studio-question-list mode-" + (mode if mode in {"list", "matrix", "checklist"} else "list"),
                     [html.Span("공식 순위 · 질문 / 요청 자료"), html.Span("재무 요인"), html.Span("점수"), html.Span("초안 검토") ] if mode == "matrix" else [],
                     "표시할 질문이 없습니다. 질문 유형이나 검색어를 변경하세요." if not rows else "", studio.analysis_summary(view, draft), studio.attention(view),
@@ -168,14 +172,6 @@ def register_studio(app, workspace):
         if active not in {q["id"] for q in view["questions"]}:
             return no_update, no_update
         return render_inspection(workspace.inspect(token, sid, "question", active)), "source"
-
-    @app.callback(Output("workspace-tabs", "value"), Input({"type": "studio-route", "page": ALL}, "n_clicks"), prevent_initial_call=True)
-    def route(_clicks):
-        trigger = ctx.triggered_id
-        if not isinstance(trigger, dict) or not ctx.triggered[0].get("value"):
-            return no_update
-        page = trigger.get("page")
-        return page if page in {"studio", "evidence", "thesis", "questions", "review"} else no_update
 
     @app.callback(Output("studio-download", "data"), Output("studio-message", "children", allow_duplicate=True),
                   Input("studio-export-draft", "n_clicks"), Input("studio-export-reviewed", "n_clicks"),
