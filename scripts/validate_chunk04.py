@@ -17,6 +17,11 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 EVIDENCE = ROOT / "implementation_evidence"
+# The original baseline remains immutable. Only this reviewed ignore-file
+# version may differ: it adds .local/ to keep private projects out of Git.
+REVIEWED_BASELINE_UPDATES = {
+    ".gitignore": "927f25a8f1ba4b44d9583125cec2711866741aab661aec3afaa60a61f701fa06",
+}
 
 
 def verify_baseline() -> dict:
@@ -31,7 +36,9 @@ def verify_baseline() -> dict:
             modified.append(name)
         else:
             preserved += 1
-    unexpected = sorted(set(modified) - allowed)
+    unexpected = sorted(name for name in set(modified) - allowed
+                        if hashlib.sha256((ROOT / name).read_bytes()).hexdigest()
+                        != REVIEWED_BASELINE_UPDATES.get(name))
     return dict(status="pass" if not missing and not unexpected else "failed",
                 original_zip_sha256=manifest["zip_sha256"], original_file_count=len(manifest["files"]),
                 byte_identical_files=preserved, modified_original_files=modified,

@@ -108,8 +108,11 @@ def register_callbacks(app, workspace, exports):
             event = selected_event if selected_event in available else (available[0] if available else None)
             summary = [html.Strong(f"리비전 {view['revision']}"), html.Span(f"단계 T{view.get('stage', 0)}"),
                        html.Span(view.get("snapshot_id", ""), className="identifier")]
+            # Re-rendering another page must not publish a redundant document
+            # selection after the analyst has selected a question in its grid.
+            document_value = no_update if document == selected_document else document
             return (view["deal"]["name"], view["deal"].get("business_model", ""), summary, render_top3(view),
-                    render_page(page, view), document_options, document,
+                    render_page(page, view), document_options, document_value,
                     f"{len(docs)}개 원문 문서 사용 가능 · 후속 문서는 검토 대기 상태 유지", event_options, event,
                     {"display": "block" if page == "export" else "none"}, view["revision"], view["snapshot_id"], token, metrics(view))
         except Exception as error:
@@ -137,21 +140,31 @@ def register_callbacks(app, workspace, exports):
                 return empty('선택한 투자 대상의 자료를 불러오는 중입니다.')
         except Exception as error:
             return empty(safe_error(error))
-        trigger = ctx.triggered_id
         kind, item_id = "document", document_id
         sources = {
             "evidence-grid": ("evidence", evidence, evidence_click), "claim-grid": ("claim", claims, claim_click),
             "question-grid": ("question", questions, question_click), "thesis-grid": ("thesis", theses, thesis_click),
         }
-        if trigger in sources:
-            kind, rows, click = sources[trigger]
-            prop = ctx.triggered[0]["prop_id"] if ctx.triggered else ""
-            if prop.endswith("cellClicked") and click:
-                item_id = click.get("rowId") or click.get("data", {}).get("id")
+        changed = ctx.triggered_prop_ids
+        grid_changed = False
+        # A single browser action can publish both selectedRows and cellClicked,
+        # alongside a render-driven document value. Prefer the fresh row event.
+        for prop in ("cellClicked", "selectedRows"):
+            for identifier, (row_kind, rows, click) in sources.items():
+                if f"{identifier}.{prop}" not in changed:
+                    continue
+                grid_changed = True
+                chosen = ((click.get("rowId") or click.get("data", {}).get("id"))
+                          if prop == "cellClicked" and click else
+                          rows[0].get("id") if prop == "selectedRows" and rows else None)
+                if chosen:
+                    kind, item_id = row_kind, chosen
+                    break
             else:
-                item_id = rows[0].get("id") if rows else None
-            if not item_id:
-                return no_update
+                continue
+            break
+        if grid_changed and kind == "document" and "document-selector.value" not in changed and "workspace-token.data" not in changed:
+            return no_update
         if not item_id:
             return empty("선택한 원문이 없습니다.")
         try:

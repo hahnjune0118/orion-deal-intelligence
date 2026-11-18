@@ -1,5 +1,7 @@
 """Real browser acceptance of the persistent five-step MVP and local cases."""
 from hashlib import sha256
+import os
+from pathlib import Path
 import threading
 from urllib.parse import urlsplit
 
@@ -31,6 +33,11 @@ def server(tmp_path_factory):
 @pytest.fixture(scope='module')
 def browser():
     with sync_playwright() as p:
+        if not Path(p.chromium.executable_path).is_file():
+            message='Chromium is not installed; run python -m playwright install chromium'
+            if os.environ.get('ORION_REQUIRE_BROWSER')=='1':
+                pytest.fail(message)
+            pytest.skip(message)
         b=p.chromium.launch(headless=True)
         yield b
         b.close()
