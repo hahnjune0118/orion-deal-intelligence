@@ -35,6 +35,9 @@ def _units(source, filename):
                 result.append((f'{i}페이지',value))
             else:
                 warnings.append(f'{i}페이지: 추출 텍스트 없음 · OCR/직접 확인 필요')
+    elif ext == '.xlsx':
+        from .xlsx import units
+        result,warnings,total = units(source)
     elif ext in {'.docx','.pptx'}:
         from orion.adapters.parsers.native import _parse_bytes
         metadata = dict(id='doc_rules',entity_version=1,deal_id='deal_rules',filename=filename,
@@ -61,8 +64,8 @@ def _units(source, filename):
         total = len(lines)
         result = [(f'{i}행',line) for i,line in enumerate(lines,1) if line.strip()]
     else:
-        raise ValueError('PDF, DOCX, PPTX, TXT, MD, CSV 형식을 지원합니다. XLSX 자동 해석은 포함하지 않습니다.')
-    if sum(len(v) for _,v in result) > MAX_CHARS:
+        raise ValueError('PDF, DOCX, PPTX, XLSX, TXT, MD, CSV 형식을 지원합니다.')
+    if sum(len(row[1]) for row in result) > MAX_CHARS:
         raise ValueError('추출 텍스트가 150만 자 한도를 초과했습니다. 문서를 분할하세요.')
     return result,warnings,total
 
@@ -73,7 +76,8 @@ def _parse(source, filename):
     units,warnings,total = _units(source,filename)
     digest = hashlib.sha256(source).hexdigest()
     spans = []
-    for location,value in units:
+    for unit in units:
+        location,value = unit[:2]
         # Exact slices of extracted text, never summaries or invented citations.
         for start in range(0,len(value),1200):
             quote = value[start:start+1200]
@@ -82,6 +86,8 @@ def _parse(source, filename):
             identifier = 's_'+hashlib.sha256((digest+'|'+location+'|'+str(start)+'|'+quote).encode()).hexdigest()[:24]
             spans.append(dict(id=identifier,location=location+f' · 문자 {start}~{start+len(quote)}',
                               text=quote,sha256=hashlib.sha256(quote.encode()).hexdigest()))
+            if len(unit)>2:
+                spans[-1]['cell'] = unit[2]
     return dict(sha256=digest,spans=spans,warnings=warnings,total_units=total,
                 parsed_units=len(units),status='검토 필요' if warnings or not spans else '추출 완료',
                 parser='rules-local-1.0.0')

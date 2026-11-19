@@ -10,6 +10,11 @@
 
 브라우저에서 **http://127.0.0.1:8050**을 엽니다. 새 프로젝트에 자료를 올리거나 **합성 검증 사례 열기**로 계산 예시를 확인하세요. 실제 프로젝트의 확률·EIG·EVSI는 근거와 가정을 직접 설정할 때만 계산합니다.
 
+- [거래 자금 흐름·조달 구조·FDD 워터폴 사용 안내](docs/DEAL_VISUALIZATION_GUIDE.md)
+- [기말과제 구현·시연·데이터 품질·효과 검증 안내](docs/FINAL_PROJECT_GUIDE.md)
+
+일반 XLSX 업로드, 셀/수식/저장된 계산값 확인, 재무 관측치 검토·동일 기준 대사, 로컬 BM25 근거 검색, 답변별 의사결정·가정 민감도, 합성 정책 비교, 검토 보고서 HTML 내보내기를 지원합니다. 4단계에서 계산과 합성 비교 실험을 확인하고, `python scripts/evaluate_rules_mvp.py`로 공개 가능한 실험 결과를 재현할 수 있습니다.
+
 - [새 MVP의 사용 방법·계산 정책·지원 범위](docs/RULE_BASED_MVP_20261118.md)
 - [익명화 딜 사례 열기·EIG/EVSI 실습](docs/CASE_STUDIES.md)
 - [원래 MVP 설계안](docs/ORION_ADAPTIVE_DD_MVP_BLUEPRINT_20261118.md)

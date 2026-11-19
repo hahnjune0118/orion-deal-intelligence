@@ -9,7 +9,7 @@ from uuid import uuid4
 
 from flask import Flask, abort, jsonify, request, send_file
 
-from orion.rules import engine
+from orion.rules import engine, retrieval, analysis, reporting, deal_visuals
 from orion.rules.store import Store, Conflict
 from orion.rules.parsing import parse
 from orion.rules.case_studies import CaseStudies, apply_scenario
@@ -64,7 +64,9 @@ def create_rules_app(data_dir=None, port=8050):
         return dict(status='ok',mode='rules_local',live_provider=False,persistent=True,policy=engine.POLICY)
 
     def result(row):
-        return dict(id=row['id'],version=row['version'],state=engine.view(row['state']),snapshots=row['snapshots'])
+        value=engine.view(row['state'])
+        value['visual_workspace']=deal_visuals.view(row['state'])
+        return dict(id=row['id'],version=row['version'],state=value,snapshots=row['snapshots'])
 
     @app.get('/api/projects')
     def projects():
@@ -128,14 +130,7 @@ def create_rules_app(data_dir=None, port=8050):
     def search(pid):
         state=store.get(pid)['state']
         query=engine.text(request.args.get('q',''),'검색어',200,required=False).casefold()
-        terms=query.split()
-        candidates=[]
-        for doc in state['documents']:
-            for s in doc['spans']:
-                score=sum(t in s['text'].casefold() for t in terms)
-                if not terms or score:
-                    candidates.append({**s,'document':doc['id'],'filename':doc['filename'],'matches':score})
-        return jsonify(sorted(candidates,key=lambda r:(-r['matches'],r['id']))[:40])
+        return jsonify(retrieval.search(state['documents'],query,40))
 
     @app.post('/api/projects/<pid>/actions/<action>')
     def mutate(pid,action):
@@ -145,7 +140,11 @@ def create_rules_app(data_dir=None, port=8050):
                     'hypothesis':lambda s:engine.hypothesis_update(s,d),
                     'question':lambda s:engine.question_update(s,d),
                     'custom':lambda s:engine.custom_question(s,d),
-                    'decision':lambda s:engine.decision_update(s,d)}
+                    'decision':lambda s:engine.decision_update(s,d),
+                    'fact':lambda s:engine.fact_update(s,d),
+                    'fact_new':lambda s:engine.fact_add(s,d),
+                    'visual':lambda s:save_visual(s,d),
+                    'visual_import':lambda s:import_visual(s)}
         if action=='evidence':
             if d.get('reviewed') is not True:
                 raise ValueError('원문과 판정 기준을 검토한 뒤 적용하세요.')
@@ -163,6 +162,16 @@ def create_rules_app(data_dir=None, port=8050):
             abort(404)
         return result(store.update(pid,d.get('version'),operations[action]))
 
+    def save_visual(state,data):
+        deal_visuals.update(state,data)
+        deal_visuals.calculate(state['deal_visuals'])
+        deal_visuals.calculate(state['deal_visuals'],True)
+        engine.audit(state,'거래 시각화 시나리오 저장','재무 조정 시나리오 · 질문/증거 승인과 별개')
+
+    def import_visual(state):
+        deal_visuals.import_budget(state)
+        engine.audit(state,'사례 자금표 연결','기존 사례의 기재 예산 · 조달 확약 확인 전')
+
     @app.post('/api/projects/<pid>/preview')
     def preview(pid):
         d=request.get_json()
@@ -172,7 +181,7 @@ def create_rules_app(data_dir=None, port=8050):
         before=engine.snapshot(row['state'])
         state=deepcopy(row['state'])
         e=engine.evidence_apply(state,d,reject=d.get('reject') is True)
-        return dict(before=before,after=engine.snapshot(state),evidence={**e,'application':engine.replay(state)[1].get(e['id'],'미적용')})
+        return dict(before=before,after=engine.snapshot(state),trace=engine.evidence_trace(state),evidence={**e,'application':engine.replay(state)[1].get(e['id'],'미적용')})
 
     @app.get('/api/projects/<pid>/history')
     def history(pid):
@@ -184,17 +193,45 @@ def create_rules_app(data_dir=None, port=8050):
         if kind=='json':
             data=json.dumps({**row,'state':state,'all_snapshots':store.history(pid)},ensure_ascii=False,indent=2).encode('utf-8')
             return send_file(io.BytesIO(data),as_attachment=True,download_name='Orion_rules_review.json',mimetype='application/json')
+        if kind=='html':
+            data=reporting.report(row['state'],row['version']).encode('utf-8')
+            return send_file(io.BytesIO(data),as_attachment=True,download_name='Orion_review_report.html',mimetype='text/html')
         if kind!='csv':
             abort(404)
         buf=io.StringIO(newline='');writer=csv.writer(buf)
-        writer.writerow(['질문 ID','질문','가설','요청 자료','판정 기준','상태','현재 추천 순위','중요도','EIG(bits)','추천 점수','가정 기반 확률','EVSI','효용 단위','원문 참조','정책'])
+        writer.writerow(['질문 ID','질문','가설','요청 자료','판정 기준','상태','현재 추천 순위','중요도','EIG(bits)','추천 점수','가정 기반 확률','EVSI','효용 단위','원문 참조','정책','확보 비용','지연 비용','EVSI 비용 차감 후','EVPI','우도 가정 출처','효용 가정 출처'])
         def safe(v):
             if isinstance(v,str) and v.lstrip().startswith(('=','+','-','@')):
                 return "'"+v
             return v
         for q in state['questions']:
-            writer.writerow([safe(v) for v in [q['id'],q['title'],q['topic'],q['request'],q['criterion'],q['status'],q.get('rank',''),q['importance'],q['eig'],q['score'],q['probability'],q['evsi']['gross'] if q['evsi'] else '',q['evsi']['unit'] if q['evsi'] else '', ';'.join(q['refs']),engine.POLICY]])
+            writer.writerow([safe(v) for v in [q['id'],q['title'],q['topic'],q['request'],q['criterion'],q['status'],q.get('rank',''),q['importance'],q['eig'],q['score'],q['probability'],q['evsi']['gross'] if q['evsi'] else '',q['evsi']['unit'] if q['evsi'] else '', ';'.join(q['refs']),engine.POLICY,
+                state['decisions'].get(q['id'],{}).get('cost'),state['decisions'].get(q['id'],{}).get('delay'),
+                q['evsi']['net'] if q['evsi'] else '',q['evsi']['evpi'] if q['evsi'] else '',
+                state['models'].get(q['id'],{}).get('source',''),state['decisions'].get(q['id'],{}).get('source','')]])
         return send_file(io.BytesIO(('\ufeff'+buf.getvalue()).encode()),as_attachment=True,download_name='Orion_rules_questions.csv',mimetype='text/csv')
+
+    @app.get('/api/projects/<pid>/analysis')
+    def decision_analysis(pid):
+        row=store.get(pid)
+        return jsonify(analysis.inspect(row['state'],request.args.get('question')))
+
+    @app.get('/api/evaluation')
+    def evaluation():
+        from orion.rules.benchmark import evaluate
+        return jsonify(evaluate())
+
+    @app.get('/api/templates/financial.xlsx')
+    def financial_template():
+        from openpyxl import Workbook
+        wb=Workbook();ws=wb.active;ws.title='재무 관측치'
+        ws.append(['항목','값','단위','기간','범위','구분'])
+        ws.append(['매출',100,'억원','2025년','별도','실적'])
+        ws.append(['매출',120,'억원','2026년','별도','계획'])
+        ws.append(['현금',15,'억원','2025년말','별도','실적'])
+        note=wb.create_sheet('읽어주세요');note.append(['합성 예시입니다. 실제 회사 자료가 아닙니다. 원본 수치와 기준을 확인한 뒤 교체하세요.'])
+        stream=io.BytesIO();wb.save(stream);wb.close();stream.seek(0)
+        return send_file(stream,as_attachment=True,download_name='Orion_financial_template.xlsx')
 
     @app.post('/api/example')
     def example():
@@ -207,6 +244,7 @@ def create_rules_app(data_dir=None, port=8050):
         parsed=parse(source,'합성_사례.txt');fid='d_'+uuid4().hex[:20]
         def setup(s):
             s['demo']=True
+            s['deal_visuals']=deal_visuals.sample()
             s['documents']=[dict(id=fid,filename='합성_사례.txt',group='company-example',origin='company',version=1,**parsed)]
             engine.analyze(s)
             for h in s['hypotheses']:

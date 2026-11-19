@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Orion · 규칙 기반 실사 MVP</title><link rel="stylesheet" href="/assets/rules.css"><script defer src="/assets/rules.js"></script></head>
+<title>Orion · 규칙 기반 실사 MVP</title><link rel="stylesheet" href="/assets/rules.css"><link rel="stylesheet" href="/assets/deal_visuals.css"><script defer src="/assets/deal_visuals.js"></script><script defer src="/assets/rules.js"></script></head>
 <body class="rules-app">
 <a href="#r-main" class="r-skip">작업 영역으로 건너뛰기</a>
 <header class="r-header"><div class="r-brand"><span>O</span><div><strong>ORION</strong><small>Adaptive Due Diligence</small></div></div>
@@ -10,6 +10,7 @@
 <details id="r-new-project"><summary>＋ 새 프로젝트</summary><form id="r-create"><label>기업명<input name="company" required maxlength="120" placeholder="검토할 기업명"></label><label>검토 기간<input name="period" required maxlength="120" placeholder="예: 2025년 / 2026년 3분기"></label><label>업종<select name="industry"><option value="general">일반 기업</option><option value="subscription">구독·소프트웨어</option><option value="manufacturing">제조업</option><option value="service">서비스업</option></select></label><button class="r-primary">프로젝트 만들기</button></form></details>
 <section id="r-case-library" hidden><label for="r-case">등록된 사례 연구</label><select id="r-case"></select><button id="r-open-case" class="r-primary">사례 열기·이어하기</button></section>
 <div class="r-nav-label">ADAPTIVE DD WORKFLOW</div><nav id="r-nav" aria-label="실사 5단계"></nav>
+<button id="r-deal-map" type="button">거래 구조·FDD 시각화 ↗</button>
 <div class="r-left-bottom"><p>같은 질문을 반복하기보다<br>지금 필요한 질문을 선택합니다.</p><button id="r-example">합성 검증 사례 열기</button><small>파일·검토 이력은 이 PC에 저장됩니다.</small></div></aside>
 <main id="r-main" tabindex="-1"><div class="r-heading"><div><small id="r-step-kicker"></small><h1 id="r-title"></h1><p id="r-description"></p></div><div id="r-actions"></div></div>
 <div id="r-notice" role="status" aria-live="polite"></div><div id="r-content" tabindex="0"></div></main>
