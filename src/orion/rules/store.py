@@ -14,8 +14,9 @@ class Conflict(ValueError):
 
 
 class Store:
-    def __init__(self,path):
+    def __init__(self,path,*,max_bytes=None):
         self.path=str(path)
+        self.max_bytes=max_bytes
         Path(path).parent.mkdir(parents=True,exist_ok=True)
         with self.connection() as c:
             c.executescript('''
@@ -31,8 +32,15 @@ class Store:
         c=sqlite3.connect(self.path,timeout=10)
         c.execute('PRAGMA foreign_keys=ON')
         try:
+            if self.max_bytes:
+                page_size=c.execute('PRAGMA page_size').fetchone()[0]
+                c.execute(f'PRAGMA max_page_count={self.max_bytes // page_size}')
             with c:
                 yield c
+        except sqlite3.OperationalError as exc:
+            if self.max_bytes and getattr(exc,'sqlite_errorcode',None)==sqlite3.SQLITE_FULL:
+                raise ValueError('데모 저장 공간이 가득 찼습니다. 필요한 기록을 내보내세요.') from exc
+            raise
         finally:
             c.close()
 
@@ -49,18 +57,19 @@ class Store:
             c.execute('INSERT INTO snapshots VALUES(?,?,?)',(identifier,1,json.dumps(engine.snapshot(state),ensure_ascii=False)))
         return self.get(identifier)
 
-    def import_case(self,state,files):
-        """Commit a prepared anonymized case and its text derivatives together."""
-        identifier=uuid4().hex
+    def import_case(self,state,files,*,identifier=None):
+        """Commit a prepared case and its project-local files together."""
+        identifier=identifier or uuid4().hex
         body=json.dumps(state,ensure_ascii=False)
         snapshot=json.dumps(engine.snapshot(state),ensure_ascii=False)
         if len(body)>20_000_000:
             raise ValueError('사례 데이터 한도를 초과했습니다.')
         with self.connection() as c:
-            c.execute('INSERT INTO projects VALUES(?,?,?)',(identifier,1,body))
-            for file in files:
-                c.execute('INSERT INTO files VALUES(?,?,?,?,?)',(identifier,*file))
-            c.execute('INSERT INTO snapshots VALUES(?,?,?)',(identifier,1,snapshot))
+            inserted=c.execute('INSERT OR IGNORE INTO projects VALUES(?,?,?)',(identifier,1,body))
+            if inserted.rowcount:
+                for file in files:
+                    c.execute('INSERT INTO files VALUES(?,?,?,?,?)',(identifier,*file))
+                c.execute('INSERT INTO snapshots VALUES(?,?,?)',(identifier,1,snapshot))
         return self.get(identifier)
 
     def get(self,identifier):

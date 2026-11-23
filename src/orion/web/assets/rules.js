@@ -21,19 +21,135 @@ const currentQ=()=>questions().find(q=>q.id===qid);
 const units=()=>state()?.documents.flatMap(d=>d.spans.map(s=>({...s,document:d})))||[];
 function notify(message,error=false){$('r-notice').textContent=message;$('r-notice').className=error?'r-error':'';}
 function guard(){if(!dirty)return true;if(!confirm('미저장 입력이 있습니다. 저장하지 않고 이동하시겠습니까? 취소하면 현재 화면에서 저장할 수 있습니다.'))return false;dirty=false;return true;}
-async function api(path,body){const response=await fetch(path,{method:body===undefined?'GET':'POST',headers:body instanceof FormData?{}:{'Content-Type':'application/json'},body:body===undefined?undefined:body instanceof FormData?body:JSON.stringify(body)});let data;try{data=await response.json();}catch{throw Error('요청을 처리하지 못했습니다. 로컬 서버 상태를 확인하세요.');}if(!response.ok)throw Error(data.error||'요청 처리 실패');return data;}
+async function api(path,body){const response=await fetch(path,{method:body===undefined?'GET':'POST',headers:body instanceof FormData?{}:{'Content-Type':'application/json'},body:body===undefined?undefined:body instanceof FormData?body:JSON.stringify(body)});let data;try{data=await response.json();}catch{throw Error('요청을 처리하지 못했습니다. 서버 상태를 확인하세요.');}if(!response.ok)throw Error(data.error||'요청 처리 실패');return data;}
 async function task(label,fn){$('r-busy-label').textContent=label;$('r-busy').hidden=false;try{return await fn();}catch(e){notify(e.message,true);return null;}finally{$('r-busy').hidden=true;}}
-async function projects(){const rows=await api('/api/projects');$('r-project').replaceChildren(el('option',{value:''},'프로젝트 선택'),...rows.map(r=>el('option',{value:r.id},r.company+' · '+r.period)));if(project)$('r-project').value=project.id;}
+const hosted=document.body.dataset.hosted==='true';
+const orionCaseId='orion-271560';
+const isOrion=()=>state()?.case_study?.id===orionCaseId;
+let catalog=[];
+function addCaseOptions(){
+  if(!hosted||!catalog.length)return;
+  const labels={'logistics-alpha':'사례 A','spirits-beta':'사례 B'};
+  const options=catalog.map(c=>el('option',{value:'case:'+c.id},[labels[c.id],c.title].filter(Boolean).join(' · ')));
+  $('r-project').append(el('optgroup',{label:'공개 사례 열기·이어하기'},options));
+}
+async function projects(){
+  const rows=await api('/api/projects');
+  const options=rows.map(r=>el('option',{value:r.id},r.company+' · '+r.period));
+  $('r-project').replaceChildren(el('option',{value:''},'프로젝트 선택'));
+  addCaseOptions();
+  if(rows.length)$('r-project').append(...(hosted?[el('optgroup',{label:'내 프로젝트'},options)]:options));
+  if(project)$('r-project').value=project.id;
+}
 async function load(id){const value=await api('/api/projects/'+id);project=value;dirty=false;preview=null;localStorage.setItem('orion-rule-project',id);if(qid&&!questions().some(q=>q.id===qid))qid=null;if(hid&&!state().hypotheses.some(h=>h.id===hid))hid=null;render();}
-async function action(name,data={}){if(!project)return;return task('검토 내용 저장 중…',async()=>{const value=await api('/api/projects/'+project.id+'/actions/'+name,{...data,version:project.version});project=value;dirty=false;preview=null;render();notify('저장했습니다. 새 버전과 변경 이력을 로컬에 보관했습니다.');return value;});}
+async function action(name,data={}){if(!project)return;return task('검토 내용 저장 중…',async()=>{const value=await api('/api/projects/'+project.id+'/actions/'+name,{...data,version:project.version});project=value;dirty=false;preview=null;render();notify('저장했습니다. 새 버전과 변경 이력을 저장했습니다.');return value;});}
 function field(name,label,value='',type='text',required=false){let input;if(type==='textarea')input=el('textarea',{name,required,rows:3,maxlength:6000},value||'');else input=el('input',{name,type,required,value,step:type==='number'?'any':undefined});if(type==='number'){input.removeAttribute('required');if(required)input.required=true;}return el('label',{},label,input);}
 function check(name,label,value=false){return el('label',{class:'r-check'},el('input',{name,type:'checkbox',checked:value}),label);}
 function select(name,label,options,value){const input=el('select',{name},...options.map(([key,title])=>el('option',{value:key},title)));input.value=value??options[0]?.[0]??'';return el('label',{},label,input);}
 function formValues(form){const result=Object.fromEntries(new FormData(form));form.querySelectorAll('input[type=number]').forEach(n=>{result[n.name]=n.value===''?null:Number(n.value);});form.querySelectorAll('input[type=checkbox]').forEach(n=>{result[n.name]=n.checked;});if(result.practice!==undefined)result.practice=result.practice==='true';return result;}
-async function caseCatalog(){const rows=await api('/api/cases');$('r-case-library').hidden=!rows.length;$('r-case').replaceChildren(...rows.map(c=>el('option',{value:c.id},c.title)));return rows;}
-async function openCase(key){if(!guard())return;$('r-case').value=key;await task('익명화 사례 불러오는 중…',async()=>{project=await api('/api/cases/'+encodeURIComponent(key)+'/open',{});step=1;detail=null;qid=null;hid=null;preview=null;dirty=false;localStorage.setItem('orion-rule-project',project.id);await projects();render();notify('익명화 사례를 열었습니다. 4단계에서 실습 가정을 적용하고 5단계에서 증거를 반영할 수 있습니다.');});}
+async function caseCatalog(){catalog=await api('/api/cases');$('r-case-library').hidden=hosted||!catalog.length;$('r-case').replaceChildren(...catalog.map(c=>el('option',{value:c.id},c.title)));return catalog;}
+async function openCase(key){if(!guard())return;$('r-case').value=key;await task('사례 불러오는 중…',async()=>{project=await api('/api/cases/'+encodeURIComponent(key)+'/open',{});dealMode=false;step=1;detail=null;qid=null;hid=null;preview=null;dirty=false;localStorage.setItem('orion-rule-project',project.id);await projects();render();notify(isOrion()?'오리온 공개자료와 검토 이력을 불러왔습니다.':'익명화 사례를 열었습니다. 4단계에서 실습 가정을 적용하고 5단계에서 증거를 반영할 수 있습니다.');});}
 const downloadLabel=d=>d.masked?'마스킹 텍스트 다운로드':'원본 파일 다운로드';
-function fillCaseEvidence(sample){if(!guard())return;qid=sample.question;preview=null;detail=null;renderMain();renderRight();const form=$('r-evidence-form');for(const name of ['outcome','span','response','group','note']){const field=form.elements.namedItem(name);if(field)field.value=sample[name]||'';}form.elements.namedItem('practice').value=sample.simulated?'true':'false';dirty=true;if(sample.span){detail={kind:'span',id:sample.span};renderRight();}notify(sample.simulated?'가상 후속 증거를 입력했습니다. 실제 딜에서 받은 답변이 아닙니다. 검토 후 미리보기로 확인하세요.':'현재 자료의 확인 예시를 입력했습니다. 검토 전 자동 반영하지 않습니다.');}
+const orionSourceURL=source=>'/case-sources/'+orionCaseId+'/'+encodeURIComponent(source.id);
+
+async function showOrionSource(source,page){
+  const dialog=$('r-source-dialog');
+  const url=orionSourceURL(source);
+  const viewerURL=url+(page?'#page='+page:'');
+  const body=el('div',{class:'r-source-body'});
+  const pdf=source.format==='.pdf';
+  dialog.replaceChildren(
+    el('div',{class:'r-source-dialog-header'},
+      el('div',{},el('small',{},source.folder),el('h2',{id:'r-source-title'},source.filename)),
+      btn('닫기',()=>dialog.close())),
+    el('div',{class:'r-source-toolbar'},
+      pdf?el('a',{href:viewerURL,target:'_blank',rel:'noopener'},page?'PDF '+page+'쪽 새 탭에서 열기':'PDF 새 탭에서 열기'):null,
+      el('a',{href:url+'?download=1'},'원본 파일 다운로드')),
+    body);
+  if(!dialog.open)dialog.showModal();
+  if(pdf){
+    body.append(el('iframe',{class:'r-source-pdf',src:viewerURL,title:source.filename}));
+    return;
+  }
+  body.append(p('워크시트를 불러오는 중입니다.','r-muted'));
+  try{
+    const sheets=await api(url+'?view=worksheet');
+    const tab=select('sheet','워크시트',sheets.map((sheet,index)=>[String(index),sheet.title]),'0');
+    const output=el('div',{class:'r-sheet-preview'});
+    function showSheet(){
+      const sheet=sheets[Number(tab.querySelector('select').value)];
+      const columns=Array.from({length:Math.max(...sheet.rows.map(row=>row.length))},(_,i)=>i)
+        .filter(i=>sheet.rows.some(row=>row[i]));
+      const alphabet=index=>index<26?String.fromCharCode(65+index):
+        alphabet(Math.floor(index/26)-1)+String.fromCharCode(65+(index%26));
+      output.replaceChildren(table(['행',...columns.map(alphabet)],sheet.rows
+        .map((row,index)=>[index+1,...columns.map(col=>row[col]||'')])));
+    }
+    tab.onchange=showSheet;
+    body.replaceChildren(tab,p('원본 셀의 값 또는 수식을 표시합니다. 빈 열은 접었습니다.','r-form-help'),output);
+    showSheet();
+  }catch(error){
+    body.replaceChildren(p(error.message,'r-error'));
+  }
+}
+
+async function openOrionReview(group){
+  if(!guard())return;
+  if(!state().case_study.active_groups.includes(group)){
+    const changed=await action('case_documents',{group});
+    if(!changed)return;
+  }
+  jump(5);
+  const sample=state().case_study.evidence_samples.find(row=>row.packet===group);
+  const applied=state().evidence.some(e=>e.span===sample.span&&e.status==='approved');
+  if(applied){
+    qid=sample.question;
+    renderMain();
+    detail={kind:'span',id:sample.span};
+    renderRight();
+  }else{
+    fillCaseEvidence(sample);
+  }
+}
+
+function renderOrionSources(root,reviewOnly=false){
+  const c=state().case_study;
+  const sources=c.source_catalog;
+  const panels=[];
+  for(const group of ['public','related-party','foreign-subsidiaries']){
+    const label=c.groups[group];
+    if(reviewOnly&&group==='public')continue;
+    const documents=sources.filter(d=>d.group===group);
+    const active=c.active_groups.includes(group);
+    const sample=c.evidence_samples.find(row=>row.packet===group);
+    const applied=sample&&state().evidence.some(e=>e.span===sample.span&&e.status==='approved');
+    panels.push(el('section',{class:'r-source-group'},
+      el('div',{class:'r-source-group-top'},el('h4',{},label),
+        badge(applied?'검토 반영':active?'분석에 등록됨':'추가 증빙',applied?'r-green':'r-blue')),
+      sample?btn(applied?'반영한 근거 보기':active?'근거 검토 열기':'폴더 등록·증거 검토',()=>openOrionReview(group),!applied):null,
+      el('details',{class:'r-source-list'},el('summary',{},'원본 '+documents.length+'개'),
+        el('ul',{},documents.map(source=>el('li',{},
+          el('div',{},el('small',{},source.folder),el('strong',{},source.filename)),
+          btn('원본 보기',()=>showOrionSource(source),false,{'aria-label':source.filename+' 원본 보기'})))))));
+  }
+  const annual=sources.find(d=>d.filename.includes('2026.03.18'));
+  root.append(card(reviewOnly?'추가 자료를 증거로 검토':'데이터 소스 · 원본 '+sources.length+'개',
+    p(reviewOnly?'폴더 자료를 등록한 뒤 원문과 판정 기준을 확인하고 미리보기를 적용하세요.':
+      '공개 기초자료에서 시작합니다. 두 후속 폴더의 원본도 바로 열 수 있고, 등록한 자료는 5단계에서 검토합니다.','r-muted'),
+    !reviewOnly&&annual?btn('2025 사업보고서 원본 보기',()=>showOrionSource(annual)):null,
+    ...panels));
+}
+
+function renderOrionSummary(root){
+  const active=state().case_study.active_groups.length-1;
+  root.append(metrics([['분석 자료',state().documents.length+'개'],['등록한 후속 폴더',active+' / 2'],['답변 대기 질문',questions().filter(q=>q.eligible).length+'개']]));
+  renderOrionSources(root);
+}
+
+function orionSourceLink(source,page){
+  return source.original?btn(page?'PDF '+page+'쪽 원본 보기':'문서 내 원본 보기',()=>showOrionSource(source,page)):null;
+}
+function fillCaseEvidence(sample){if(!guard())return;qid=sample.question;preview=null;detail=null;renderMain();renderRight();const form=$('r-evidence-form');for(const name of ['outcome','span','response','group','note']){const field=form.elements.namedItem(name);if(field)field.value=sample[name]||'';}form.elements.namedItem('practice').value=sample.simulated?'true':'false';dirty=true;if(sample.span){detail={kind:'span',id:sample.span};renderRight();}notify(sample.simulated?'가상 후속 증거를 입력했습니다. 실제 딜에서 받은 답변이 아닙니다. 검토 후 미리보기로 확인하세요.':'원문과 판정 초안을 불러왔습니다. 미리보기에서 변화를 확인한 뒤 적용하세요.');}
 function documentSources(d){const root=el('div');let shown=0;const more=btn('원문 구간 더 보기',()=>append(50));function append(count){more.remove();const next=Math.min(shown+count,d.spans.length);root.append(...d.spans.slice(shown,next).map(s=>sourceButton(s.id)));shown=next;if(shown<d.spans.length){more.textContent='원문 구간 더 보기 · '+(d.spans.length-shown)+'개 남음';root.append(more);}}append(15);return root;}
 function caseScenario(root){const c=state().case_study;if(!c)return;root.append(card('EIG·EVSI 계산 실습',p('확률·우도·효용·확보 비용은 실제 자료에서 추정한 값이 아닙니다. 실습 가정을 적용한 뒤 오른쪽 상세에서 수정할 수 있습니다.','r-muted'),c.scenario_enabled?badge('실습 가정 적용 중 · 실제 딜 확률 아님','r-warn'):btn('편집 가능한 실습 가정 적용',()=>action('case_scenario'),true)));}
 function renderCaseOverview(root){const c=state().case_study;
@@ -59,9 +175,10 @@ function scoreParts(q){const colors={importance:'#6e73d9',gap:'#e9a154',obtainab
 function jump(next){if(!guard())return;dealMode=false;step=next;preview=null;detail=null;render();$('r-content').scrollTop=0;}
 function render(){renderFrame();renderMain();renderRight();renderFiles();}
 function renderFrame(){for(const [i,node] of [...$('r-nav').children].entries())node.setAttribute('aria-current',i+1===step?'step':'false');$('r-step-kicker').textContent='STEP '+String(step).padStart(2,'0')+' / 05';$('r-title').textContent=dealMode?'거래 구조·FDD 시각화':steps[step-1][0];$('r-description').textContent=steps[step-1][1];$('r-project-heading').textContent=project?state().company+' · '+state().period:'근거에서 다음 질문으로';$('r-version').textContent=project?'저장됨 · v'+project.version:'';$('r-actions').replaceChildren();if(project){$('r-actions').append(el('a',{href:`/api/projects/${project.id}/export/csv`},'질문표 CSV'),el('a',{href:`/api/projects/${project.id}/export/json`},'검토 기록 JSON'),el('a',{href:`/api/projects/${project.id}/export/html`},'검토 보고서 HTML'));if(state().case_study)$('r-case').value=state().case_study.id;} }
-function renderMain(){const root=$('r-content');root.replaceChildren();if(!project){root.append(el('div',{class:'r-empty'},el('h2',{},'다음에 무엇을 물어야 할까요?'),p('프로젝트를 만들고 자료를 등록하거나 합성 사례로 5단계 흐름을 확인하세요.'),btn('합성 검증 사례 열기',example,true)));return;}
+function renderMain(){const root=$('r-content');root.replaceChildren();if(!project){root.append(el('div',{class:'r-empty'},el('h2',{},'다음에 무엇을 물어야 할까요?'),p('프로젝트를 선택하거나 새 자료를 등록하세요.'),catalog.some(c=>c.id===orionCaseId)?btn('오리온(271560) 사례 열기',()=>openCase(orionCaseId),true):btn('합성 검증 사례 열기',example,true)));return;}
 root.append(el('div',{class:'r-stage-summary'},badge('자료 '+state().documents.length+'개'),badge('가설 '+state().hypotheses.length+'개'),badge('미해결 '+questions().filter(q=>q.eligible).length+'개'),badge('추천 '+state().recommendations.length+'개')));
-if(state().case_study)root.append(el('div',{class:'r-card r-demo'},badge('익명화 실제 딜','r-blue'),p('자료 기반 검토 초안 · 확률·효용은 별도 실습 가정입니다.','r-form-help')));
+if(isOrion())root.append(el('div',{class:'r-card r-demo'},badge('오리온(271560) · 실제 공개자료','r-blue'),p('확률·우도·효용·비용은 편집 가능한 수업 시연 가정입니다.','r-form-help')));
+else if(state().case_study)root.append(el('div',{class:'r-card r-demo'},badge('익명화 실제 딜','r-blue'),p('자료 기반 검토 초안 · 확률·효용은 별도 실습 가정입니다.','r-form-help')));
 if(state().demo)root.append(el('div',{class:'r-card r-demo'},badge('합성 예시','r-blue'),el('span',{},' 실제 기업 자료·실증 확률이 아닙니다. 입력 가정으로 계산 과정을 검증하는 사례입니다.')));
 if(dealMode){window.OrionDealVisuals.render({root,projectId:project.id,data:state().visual_workspace,hasBudget:!!state().case_study?.waterfall,questions:questions(),units,sourceButton,el,p,card,btn,badge,field,select,check,fmt,table,metrics,formValues,guard,onAction:action,chooseQuestion:id=>{jump(3);chooseQ(id);},openExample:async()=>{await example();dealMode=true;render();}});return;}
 if(step===1)renderAnalysis(root);if(step===2)renderHypotheses(root);if(step===3)renderQuestions(root);if(step===4)renderRanking(root);if(step===5)renderEvidence(root);}
@@ -95,7 +212,7 @@ function renderFactDetail(root){
  form.onsubmit=async e=>{e.preventDefault();await action('fact',{id:f.id,...formValues(form)});};root.append(form);return true;
 }
 
-function renderAnalysis(root){const docs=state().documents;if(state().case_study)renderCaseOverview(root);else root.append(metrics([['등록 자료',docs.length],['추출 원문 구간',units().length],['검토할 가설',state().hypotheses.length]]));
+function renderAnalysis(root){const docs=state().documents;if(isOrion())renderOrionSummary(root);else if(state().case_study)renderCaseOverview(root);else root.append(metrics([['등록 자료',docs.length],['추출 원문 구간',units().length],['검토할 가설',state().hypotheses.length]]));
 const form=el('form',{id:'r-upload'},field('file','분석할 파일','','file',true),select('origin','자료 출처',[['company','회사 제공'],['counterparty','거래 상대방'],['independent','독립 출처'],['analyst','담당자 작성']],'company'),field('group','자료 의존 그룹 (기본: 파일명)','','text'),p('PDF·DOCX·PPTX·XLSX·TXT·MD·CSV / 파일당 10MB. 수식은 실행하지 않으며 스캔·복잡한 표는 검토가 필요합니다.','r-form-help'),el('button',{class:'r-primary'},'자료 등록·텍스트 추출'));
 form.querySelector('[name=file]').accept='.pdf,.docx,.pptx,.xlsx,.txt,.md,.csv';form.onsubmit=async e=>{e.preventDefault();const body=new FormData(form);body.set('version',project.version);await task('자료 추출 중…',async()=>{project=await api(`/api/projects/${project.id}/documents`,body);dirty=false;render();notify(project.notice||'자료를 등록했습니다. 아래에서 분석 규칙을 실행하세요.');});};root.append(card('투자자료 등록',form));
 root.append(el('div',{class:'r-actions'},btn('자료 분석·가설 초안 구성',()=>action('analyze'),true),btn('가설 검토로 이동 →',()=>jump(2))));
@@ -186,7 +303,7 @@ function compare(before,after){
  })));
  return panel;
 }
-function renderEvidence(root){if(!questions().length){root.append(p('가설과 질문을 먼저 구성하세요.','r-empty'));return;}if(state().case_study){caseScenario(root);root.append(card('증거 반영 실습',p('현재 자료를 확인하는 예시와 가상 후속 증거를 구분합니다. 예시는 입력만 채우며, 미리보기와 검토 후 적용해야 합니다.','r-form-help'),...state().case_study.evidence_samples.map(sample=>btn(sample.label,()=>fillCaseEvidence(sample)))));}if(!currentQ())qid=state().recommendations[0]||questions()[0].id;const q=currentQ();
+function renderEvidence(root){if(!questions().length){root.append(p('가설과 질문을 먼저 구성하세요.','r-empty'));return;}if(isOrion()){renderOrionSources(root,true);}else if(state().case_study){caseScenario(root);root.append(card('증거 반영 실습',p('현재 자료를 확인하는 예시와 가상 후속 증거를 구분합니다. 예시는 입력만 채우며, 미리보기와 검토 후 적용해야 합니다.','r-form-help'),...state().case_study.evidence_samples.map(sample=>btn(sample.label,()=>fillCaseEvidence(sample)))));}if(!currentQ())qid=state().recommendations[0]||questions()[0].id;const q=currentQ();
 const picker=select('question','반영할 질문',questions().map(x=>[x.id,x.title]),qid);picker.querySelector('select').onchange=e=>{if(!guard()){e.target.value=qid;return;}qid=e.target.value;preview=null;renderMain();renderRight();};root.append(card('증거를 연결할 질문',picker,p(q.request,'r-muted'),p('판정 기준: '+q.criterion)));
 const u=units();const form=el('form',{id:'r-evidence-form'},el('input',{type:'hidden',name:'practice',value:'false'}),select('outcome','검토 결과',[['support','지지 증거 확인'],['contradict','반박 증거 확인'],['insufficient','불충분 · 확률 유지'],['reopen','질문 재개 · 확률 유지']],'support'),select('span','연결 원문 (또는 답변 직접 입력)',[['','답변 직접 입력 · 외부 검증 전'],...u.map(s=>[s.id,s.document.filename+' · '+s.location+' · '+s.text.slice(0,65)])],''),field('response','답변 원문 (원문 구간을 선택하지 않을 때)','','textarea'),field('group','증거 의존 그룹 (동일 원천은 같은 이름)','','text'),field('note','원문·판정 기준에 따른 검토 이유','','textarea',true),check('independent','이미 반영한 증거와 별개의 정보이며 독립성을 검토했습니다.'),p('독립성 미확인·동일 그룹은 추가 확률 반영을 보류합니다. 계약·검수·수금을 무조건 독립으로 인정하지 않습니다.','r-form-help'),check('reviewed','원문과 판정 기준을 검토했고, 아래 미리보기 결과의 적용/반려를 확인합니다.'),el('div',{class:'r-actions'},el('button',{class:'r-primary'},'적용 전 미리보기')));
 form.querySelector('[name=span]').onchange=e=>{const s=u.find(s=>s.id===e.target.value);if(s){detail={kind:'span',id:s.id};renderRight();}};
@@ -198,8 +315,8 @@ root.append(el('details',{class:'r-card'},el('summary',{},'프로젝트 변경 �
 function renderPreview(output){if(!preview)return;const value=preview.value;const h=value.evidence.hypothesis;output.replaceChildren(card('증거 적용 미리보기',value.evidence.practice?badge('실습용 가상 증거','r-warn'):null,p('가설: '+topicLabel(h)+' · '+prob(value.before.probabilities[h])+' → '+prob(value.after.probabilities[h])),p(value.evidence.application),table(['질문','EIG 이전 → 이후','EVSI 순효용 이전 → 이후'],Object.keys(value.after.questions).filter(id=>value.before.questions[id]?.eig!==value.after.questions[id].eig||value.before.questions[id]?.evsi?.net!==value.after.questions[id].evsi?.net).map(id=>[value.after.questions[id].title,fmt(value.before.questions[id]?.eig,4)+' → '+fmt(value.after.questions[id].eig,4),fmt(value.before.questions[id]?.evsi?.net)+' → '+fmt(value.after.questions[id].evsi?.net)])),value.trace?.length?p('적용 우도비: '+(value.trace[value.trace.length-1].likelihood_ratio??'미계산')+' · '+value.trace[value.trace.length-1].application,'r-form-help'):null,compare(value.before,value.after),el('div',{class:'r-actions'},btn('검토 결과 적용',()=>commitPreview(false),true),btn('반려하고 현재 추천 유지',()=>commitPreview(true)))));}
 async function commitPreview(reject){if(!preview)return;const f=$('r-evidence-form');if(!formValues(f).reviewed){notify('원문과 판정 기준을 검토했다는 확인을 선택하세요.',true);return;}const data={...preview.data,reviewed:true,reject};const response=await action('evidence',data);if(response)notify(reject?'반려 기록을 남겼습니다. 확률과 추천은 유지됩니다.':'증거를 적용하고 질문 상태·후속 질문·추천을 다시 계산했습니다.');}
 function renderRight(){const root=$('r-detail');root.replaceChildren();if(detail?.kind==='fact'&&renderFactDetail(root))return;if(!project){root.append(p('프로젝트를 만들고 자료·가설·질문을 선택하세요.'));return;}
-if(detail?.kind==='span'){const s=units().find(s=>s.id===detail.id);if(s){root.append(el('h3',{},s.document.filename),p(s.location,'r-muted'),badge(s.document.status),p(s.text,'r-quote'),s.cell?card('Excel 셀 메타데이터',p('원래 값: '+s.cell.raw),p('수식: '+(s.cell.formula||'없음')),p('저장된 계산값: '+(s.cell.cached??'없음')),p('표시 형식: '+s.cell.number_format),p('시트: '+s.cell.sheet_state),s.cell.cached!==null&&s.cell.cached!==''&&Number.isFinite(Number(s.cell.cached))?btn('이 셀을 재무 관측치로 등록',async()=>{const v=await action('fact_new',{span:s.id});if(v){detail={kind:'fact',id:'manual_'+''};const f=state().financial_facts.find(x=>x.span===s.id);detail.id=f.id;renderRight();}}):null):null,p((s.document.masked?'마스킹 텍스트 해시: ':'원본 해시: ')+s.document.sha256,'r-rule'),el('a',{href:`/api/projects/${project.id}/files/${s.document.id}`},downloadLabel(s.document)));return;}}
-if(detail?.kind==='document'){const d=state().documents.find(d=>d.id===detail.id);if(d){root.append(el('h3',{},d.filename),badge(d.status),p('버전 '+d.version+' · 출처 '+originLabel(d.origin)+' · 의존 그룹 '+d.group),p('처리 구간 '+d.parsed_units+' / '+d.total_units+' · 원문 조각 '+d.spans.length),...d.warnings.map(w=>p(w,'r-muted')),el('a',{href:`/api/projects/${project.id}/files/${d.id}`},downloadLabel(d)),p(d.sha256,'r-rule'),documentSources(d));return;}}
+if(detail?.kind==='span'){const s=units().find(s=>s.id===detail.id);if(s){root.append(el('h3',{},s.document.filename),p(s.location,'r-muted'),badge(s.document.status),p(s.text,'r-quote'),orionSourceLink(s.document,s.page),s.cell?card('Excel 셀 메타데이터',p('원래 값: '+s.cell.raw),p('수식: '+(s.cell.formula||'없음')),p('저장된 계산값: '+(s.cell.cached??'없음')),p('표시 형식: '+s.cell.number_format),p('시트: '+s.cell.sheet_state),s.cell.cached!==null&&s.cell.cached!==''&&Number.isFinite(Number(s.cell.cached))?btn('이 셀을 재무 관측치로 등록',async()=>{const v=await action('fact_new',{span:s.id});if(v){detail={kind:'fact',id:'manual_'+''};const f=state().financial_facts.find(x=>x.span===s.id);detail.id=f.id;renderRight();}}):null):null,p((s.document.masked?'마스킹 텍스트 해시: ':'원본 해시: ')+s.document.sha256,'r-rule'),el('a',{href:`/api/projects/${project.id}/files/${s.document.id}`},downloadLabel(s.document)));return;}}
+if(detail?.kind==='document'){const d=state().documents.find(d=>d.id===detail.id);if(d){root.append(el('h3',{},d.filename),badge(d.status),p('버전 '+d.version+' · 출처 '+originLabel(d.origin)+' · 의존 그룹 '+d.group),p('처리 구간 '+d.parsed_units+' / '+d.total_units+' · 원문 조각 '+d.spans.length),...d.warnings.map(w=>p(w,'r-muted')),el('a',{href:`/api/projects/${project.id}/files/${d.id}`},downloadLabel(d)),p(d.sha256,'r-rule'),orionSourceLink(d),documentSources(d));return;}}
 if(step===2&&detail?.kind==='hypothesis'){const h=state().hypotheses.find(h=>h.id===detail.id);if(h){const f=el('form',{id:'r-hypothesis-form'},el('h3',{},h.label),field('title','검증할 가설',h.title,'textarea',true),field('counter','반대 가설',h.counter,'textarea',true),check('approved','가설의 범위·기간·검증 기준을 검토하고 확정합니다.',h.approved),field('prior','사전확률 (0~1, 선택)',h.prior,'number'),field('prior_source','사전확률의 근거·가정',h.prior_source,'textarea'),p('자동 추정 확률이 아닙니다. 미설정 시 정성 추천만 제공합니다. 변경하면 승인된 증거를 새 사전확률에서 재생합니다.','r-form-help'),el('button',{class:'r-primary'},'가설 검토 저장'));f.onsubmit=async e=>{e.preventDefault();await action('hypothesis',{id:h.id,...formValues(f)});};root.append(f,...h.refs.slice(0,5).map(sourceButton));return;}}
 const q=currentQ();if(q&&(step===3||step===4||step===5)){root.append(badge(q.id,'r-blue'),badge(q.status),el('h3',{},q.title),p('가정 기반 가설 확률: '+prob(q.probability)),p(q.eig===null?'EIG 미계산':`EIG ${fmt(q.eig,4)} bits`),p(q.reason,'r-muted'));
 root.append(el('details',{class:'r-advanced'},el('summary',{},'관측 사실 · 검증 공백 · 질문 근거'),p(q.grounding?.observation||'관련 원문 미검출 · 기본 점검 과제'),p('검증 공백: '+q.criterion),p('연결 방식: '+(q.grounding?.method||'기존 연결')+' · 검색 결과는 사실 검증 완료를 뜻하지 않습니다.','r-form-help'),...q.refs.slice(0,3).map(sourceButton)));
@@ -214,12 +331,20 @@ root.append(p('자료·가설·질문을 선택하면 원문과 평가 근거를
 function renderFiles(){const search=$('r-file-search').value.toLowerCase();const root=$('r-files');root.replaceChildren();if(!project)return;for(const d of state().documents.filter(d=>d.filename.toLowerCase().includes(search))){const ext=d.filename.split('.').pop().toLowerCase();const family=({docx:'word',xlsx:'excel',pptx:'powerpoint',pdf:'pdf',csv:'csv'})[ext]||'other';root.append(btn('',()=>{if(step!==5&&!guard())return;detail={kind:'document',id:d.id};renderRight();},false,{class:'r-file',title:d.filename}));root.lastChild.append(el('img',{src:'/assets/file-'+family+'.svg',alt:ext+' 파일'}),el('span',{},el('strong',{},d.filename),el('small',{},d.status+' · v'+d.version+' · '+d.parsed_units+'/'+d.total_units)));}if(!root.children.length)root.append(p('표시할 자료가 없습니다.','r-muted'));}
 async function example(){if(!guard())return;await task('합성 검증 사례 준비 중…',async()=>{project=await api('/api/example',{});dirty=false;qid=null;hid=null;detail=null;step=1;localStorage.setItem('orion-rule-project',project.id);await projects();render();notify('합성 사례를 열었습니다. 4단계에서 정보가치를 보고 5단계에서 증거를 반영해 보세요.');});}
 $('r-create').onsubmit=async e=>{e.preventDefault();if(!guard())return;await task('프로젝트 생성 중…',async()=>{project=await api('/api/projects',formValues(e.target));step=1;dirty=false;qid=null;hid=null;detail=null;localStorage.setItem('orion-rule-project',project.id);await projects();$('r-new-project').open=false;render();notify('프로젝트를 만들었습니다. 검토할 자료를 등록하세요.');});};
-$('r-project').onchange=async e=>{if(!guard()){e.target.value=project?.id||'';return;}const id=e.target.value;if(!id){project=null;localStorage.removeItem('orion-rule-project');render();return;}step=1;detail=null;qid=null;hid=null;$('r-file-search').value='';await task('프로젝트 불러오는 중…',()=>load(id));};
+$('r-project').onchange=async e=>{
+  if(!guard()){e.target.value=project?.id||'';return;}
+  const id=e.target.value;
+  dealMode=false;step=1;detail=null;qid=null;hid=null;preview=null;$('r-file-search').value='';
+  if(!id){project=null;localStorage.removeItem('orion-rule-project');render();return;}
+  if(id.startsWith('case:'))await openCase(id.slice(5));
+  else await task('프로젝트 불러오는 중…',()=>load(id));
+  $('r-project').value=project?.id||'';
+};
 $('r-deal-map').onclick=()=>{if(!guard())return;dealMode=!dealMode;detail=null;render();$('r-content').scrollTop=0;};
 $('r-example').onclick=example;$('r-file-search').oninput=renderFiles;$('r-open-case').onclick=()=>openCase($('r-case').value);
 steps.forEach((s,i)=>$('r-nav').append(btn('',()=>jump(i+1),false,{'data-step':i+1,'aria-current':i===0?'step':'false'})));[...$('r-nav').children].forEach((n,i)=>n.append(el('span',{},String(i+1).padStart(2,'0')),steps[i][0]));
 document.addEventListener('input',e=>{if(e.target.closest('form')&&!e.target.closest('#r-create'))dirty=true;});
 document.addEventListener('change',e=>{if(e.target.closest('form')&&!e.target.closest('#r-create'))dirty=true;});
 window.addEventListener('beforeunload',e=>{if(dirty){e.preventDefault();e.returnValue='';}});
-(async()=>{render();await task('저장된 프로젝트 확인 중…',async()=>{await projects();const cases=await caseCatalog();const requested=new URLSearchParams(location.search).get('case');if(requested&&cases.some(c=>c.id===requested)){await openCase(requested);return;}const id=localStorage.getItem('orion-rule-project');if(id){try{await load(id);$('r-project').value=id;}catch{localStorage.removeItem('orion-rule-project');}}});})();
+(async()=>{render();await task('저장된 프로젝트 확인 중…',async()=>{const cases=await caseCatalog();await projects();render();const requested=new URLSearchParams(location.search).get('case');if(requested&&cases.some(c=>c.id===requested)){await openCase(requested);return;}const id=localStorage.getItem('orion-rule-project');if(id){try{await load(id);$('r-project').value=id;return;}catch{localStorage.removeItem('orion-rule-project');}}if(cases.some(c=>c.id===orionCaseId))await openCase(orionCaseId);});})();
 })();

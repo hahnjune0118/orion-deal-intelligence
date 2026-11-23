@@ -1,4 +1,4 @@
-"""Loopback-only persistent rules MVP; separate from the preserved demo app."""
+"""Persistent rules MVP with local and explicitly configured hosted entry points."""
 import csv
 from copy import deepcopy
 from hashlib import sha256
@@ -7,28 +7,34 @@ import json
 from pathlib import Path
 from uuid import uuid4
 
-from flask import Flask, abort, jsonify, request, send_file
+from flask import Flask, abort, g, jsonify, request, send_file, render_template_string
+from werkzeug.local import LocalProxy
 
 from orion.rules import engine, retrieval, analysis, reporting, deal_visuals
 from orion.rules.store import Store, Conflict
 from orion.rules.parsing import parse
 from orion.rules.case_studies import CaseStudies, apply_scenario
+from orion.rules.orion_case import CASE_ID, FORMATS
 
 
 ASSETS = Path(__file__).parent/'assets'
 
 
-def create_rules_app(data_dir=None, port=8050):
+def create_rules_app(data_dir=None, port=8050, *, hosted=None):
     root=Path(data_dir) if data_dir else Path(__file__).resolve().parents[3]/'.local'/'orion-rules'
-    store=Store(root/'projects.sqlite3')
-    cases=CaseStudies(root/'case-studies')
+    store=LocalProxy(lambda: g.rules_store) if hosted else Store(root/'projects.sqlite3')
+    cases=CaseStudies(root/'case-studies') if not hosted else hosted.cases
     app=Flask(__name__,static_folder=str(ASSETS),static_url_path='/assets')
     app.config['MAX_CONTENT_LENGTH']=16*1024*1024
     app.config['RULES_PORT']=port
     app.extensions['rules_store']=store
+    if hosted:
+        hosted.configure(app)
 
     @app.before_request
     def local_only():
+        if hosted:
+            return hosted.guard()
         if request.remote_addr not in {'127.0.0.1','::1',None}:
             abort(403)
         current_port=app.config['RULES_PORT']
@@ -57,11 +63,11 @@ def create_rules_app(data_dir=None, port=8050):
 
     @app.get('/')
     def home():
-        return (ASSETS/'rules.html').read_text(encoding='utf-8')
+        return render_template_string((ASSETS/'rules.html').read_text(encoding='utf-8'), hosted=bool(hosted))
 
     @app.get('/healthz')
     def health():
-        return dict(status='ok',mode='rules_local',live_provider=False,persistent=True,policy=engine.POLICY)
+        return dict(status='ok',mode='pythonanywhere_demo' if hosted else 'rules_local',live_provider=False,persistent=True,policy=engine.POLICY)
 
     def result(row):
         value=engine.view(row['state'])
@@ -74,10 +80,30 @@ def create_rules_app(data_dir=None, port=8050):
 
     @app.get('/api/cases')
     def case_catalog():
-        return jsonify(cases.catalog())
+        return jsonify(cases.catalog() if cases else [])
+
+    def original_file(fid, *, download=False):
+        source = cases.orion.source(fid) if cases else None
+        if source is None:
+            abort(404)
+        path = cases.orion.original_path(source)
+        if not path.is_file() or path.stat().st_size != source['bytes']:
+            abort(404)
+        file_format = source['format']
+        if file_format == '.xlsx' and request.args.get('view') == 'worksheet':
+            return jsonify(cases.orion.worksheet_preview(source))
+        attachment = download or file_format != '.pdf' or request.args.get('download') == '1'
+        return send_file(path, mimetype=FORMATS[file_format], as_attachment=attachment,
+                         download_name=source['filename'], conditional=True, etag=source['sha256'])
+
+    @app.get('/case-sources/orion-271560/<fid>')
+    def orion_source(fid):
+        return original_file(fid)
 
     @app.post('/api/cases/<key>/open')
     def open_case(key):
+        if cases is None:
+            abort(404)
         data=request.get_json() or {}
         return result(cases.open(store,key,copy=data.get('copy') is True))
 
@@ -92,13 +118,13 @@ def create_rules_app(data_dir=None, port=8050):
 
     @app.post('/api/projects/<pid>/documents')
     def upload(pid):
+        row=store.get(pid)
         file=request.files.get('file')
         if not file:
             raise ValueError('자료 파일을 선택하세요.')
         filename=engine.text(file.filename.replace('\\','/').rsplit('/',1)[-1],'파일명',200)
         source=file.read(10*1024*1024+1)
-        parsed=parse(source,filename)
-        row=store.get(pid)
+        parsed=parse(source,filename,python=hosted.python if hosted else None)
         for doc in row['state']['documents']:
             if doc['sha256']==parsed['sha256']:
                 answer=result(row);answer['notice']='동일 파일은 이미 등록되어 있어 중복 저장하지 않았습니다.'
@@ -123,6 +149,11 @@ def create_rules_app(data_dir=None, port=8050):
 
     @app.get('/api/projects/<pid>/files/<fid>')
     def download(pid,fid):
+        row=store.get(pid)
+        if row['state'].get('case_study',{}).get('id') == CASE_ID:
+            doc=next((d for d in row['state']['documents'] if d['id']==fid and d.get('original')),None)
+            if doc:
+                return original_file(fid, download=True)
         name,data=store.file(pid,fid)
         return send_file(io.BytesIO(data),as_attachment=True,download_name=name)
 
@@ -145,7 +176,9 @@ def create_rules_app(data_dir=None, port=8050):
                     'fact_new':lambda s:engine.fact_add(s,d),
                     'visual':lambda s:save_visual(s,d),
                     'visual_import':lambda s:import_visual(s)}
-        if action=='evidence':
+        if action=='case_documents' and cases and cases.orion.available():
+            operations[action]=lambda s:cases.orion.register_group(s,d.get('group'))
+        elif action=='evidence':
             if d.get('reviewed') is not True:
                 raise ValueError('원문과 판정 기준을 검토한 뒤 적용하세요.')
             operations[action]=lambda s:engine.evidence_apply(s,d,reject=d.get('reject') is True)
@@ -235,13 +268,14 @@ def create_rules_app(data_dir=None, port=8050):
 
     @app.post('/api/example')
     def example():
-        row=store.create('Orion 합성 검증 사례','2025년','subscription')
         source=('합성 사례입니다. 실제 기업의 자료가 아닙니다.\n'
                 '2025년 매출 100 중 반복매출 70이라고 회사가 설명했습니다. 반복매출의 산정 정의는 추가 확인이 필요합니다.\n'
                 '고객 A와 B가 주요 고객입니다. 고객별 매출과 독립성, 계약 갱신 조건을 확인해야 합니다.\n'
                 '매출 인식·채권 잔액·후속 수금의 연결표는 미제공입니다.\n'
                 '성장 전망은 계약 확보와 공급능력 검토가 필요합니다.').encode()
-        parsed=parse(source,'합성_사례.txt');fid='d_'+uuid4().hex[:20]
+        parsed=parse(source,'합성_사례.txt',python=hosted.python if hosted else None)
+        row=store.create('Orion 합성 검증 사례','2025년','subscription')
+        fid='d_'+uuid4().hex[:20]
         def setup(s):
             s['demo']=True
             s['deal_visuals']=deal_visuals.sample()

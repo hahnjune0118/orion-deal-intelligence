@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Orion · 규칙 기반 실사 MVP</title><link rel="stylesheet" href="/assets/rules.css"><link rel="stylesheet" href="/assets/deal_visuals.css"><script defer src="/assets/deal_visuals.js"></script><script defer src="/assets/rules.js"></script></head>
-<body class="rules-app">
+<title>Orion · Adaptive Due Diligence</title><link rel="stylesheet" href="/assets/rules.css"><link rel="stylesheet" href="/assets/deal_visuals.css"><script defer src="/assets/deal_visuals.js"></script><script defer src="/assets/rules.js"></script></head>
+<body class="rules-app"{% if hosted %} data-hosted="true"{% endif %}>
 <a href="#r-main" class="r-skip">작업 영역으로 건너뛰기</a>
 <header class="r-header"><div class="r-brand"><span>O</span><div><strong>ORION</strong><small>Adaptive Due Diligence</small></div></div>
 <div id="r-project-heading">근거에서 다음 질문으로</div><span class="r-mode">규칙 기반 · 외부 AI 사용 없음</span><span id="r-version"></span></header>
@@ -11,10 +11,11 @@
 <section id="r-case-library" hidden><label for="r-case">등록된 사례 연구</label><select id="r-case"></select><button id="r-open-case" class="r-primary">사례 열기·이어하기</button></section>
 <div class="r-nav-label">ADAPTIVE DD WORKFLOW</div><nav id="r-nav" aria-label="실사 5단계"></nav>
 <button id="r-deal-map" type="button">거래 구조·FDD 시각화 ↗</button>
-<div class="r-left-bottom"><p>같은 질문을 반복하기보다<br>지금 필요한 질문을 선택합니다.</p><button id="r-example">합성 검증 사례 열기</button><small>파일·검토 이력은 이 PC에 저장됩니다.</small></div></aside>
+<div class="r-left-bottom"><button id="r-example">합성 검증 사례 열기</button><small>{% if hosted %}검토 이력은 이 브라우저에서 24시간 열 수 있습니다. 필요한 결과는 내보내세요.{% else %}파일·검토 이력은 이 PC에 저장됩니다.{% endif %}</small></div></aside>
 <main id="r-main" tabindex="-1"><div class="r-heading"><div><small id="r-step-kicker"></small><h1 id="r-title"></h1><p id="r-description"></p></div><div id="r-actions"></div></div>
 <div id="r-notice" role="status" aria-live="polite"></div><div id="r-content" tabindex="0"></div></main>
 <aside class="r-right" aria-label="근거 상세와 프로젝트 자료"><section class="r-detail"><h2>근거·평가 상세</h2><div id="r-detail" tabindex="0"></div></section>
 <section class="r-library"><h2>프로젝트 자료</h2><label class="r-sr" for="r-file-search">파일명 검색</label><input id="r-file-search" placeholder="파일명 검색…"><div id="r-files" tabindex="0"></div></section></aside></div>
-<div id="r-busy" role="status" hidden><span></span><strong id="r-busy-label">처리 중…</strong><p>원문을 읽고 로컬 계산을 실행하고 있습니다.</p></div>
+<div id="r-busy" role="status" hidden><span></span><strong id="r-busy-label">처리 중…</strong><p>자료를 처리하고 있습니다.</p></div>
+<dialog id="r-source-dialog" aria-labelledby="r-source-title"></dialog>
 </body></html>

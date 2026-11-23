@@ -6,11 +6,13 @@ from pathlib import Path
 import re
 
 from . import engine
+from .orion_case import CASE_ID, OrionCase
 
 
 class CaseStudies:
     def __init__(self,root):
         self.root=Path(root)
+        self.orion=OrionCase(self.root)
 
     def read(self,key):
         if not re.fullmatch(r'[a-z0-9][a-z0-9-]{0,60}',key or ''):
@@ -23,14 +25,22 @@ class CaseStudies:
             raise ValueError('사례 형식을 확인하세요.')
         return pack
 
+    def keys(self):
+        return ([CASE_ID] if self.orion.available() else []) + self.anonymized_keys()
+
+    def anonymized_keys(self):
+        return sorted(path.stem for path in self.root.glob('*.json') if path.is_file())
+
     def catalog(self):
-        rows=[]
-        for path in sorted(self.root.glob('*.json')):
-            pack=self.read(path.stem)
+        rows=[self.orion.catalog_entry()] if self.orion.available() else []
+        for key in self.anonymized_keys():
+            pack=self.read(key)
             rows.append({k:pack[k] for k in ('id','title','description','period')})
         return rows
 
     def open(self,store,key,*,copy=False):
+        if key == CASE_ID and self.orion.available():
+            return self.orion.open(store,copy=copy)
         pack=self.read(key)
         if not copy:
             for row in store.list():

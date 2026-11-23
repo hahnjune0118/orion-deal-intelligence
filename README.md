@@ -4,9 +4,25 @@
 
 브라우저에서 투자자료, 가설, 실사 질문, EIG·EVSI, 새 증거 반영을 확인할 수 있습니다. 계정이나 API 키가 필요 없습니다.
 
+### 오리온(271560) 시연
+
+[오리온 사례 바로 열기](https://hahnjune0118.pythonanywhere.com/?case=orion-271560)
+
+1. **투자자료 분석**의 데이터 소스에서 첨부 원본 23개를 확인합니다. 초기 분석은 사업보고서·IR 등 공개 기초자료 18개에서 시작합니다.
+2. **Related Party** 또는 **Foreign Subsidiaries**의 **폴더 등록·증거 검토**를 선택합니다.
+3. **적용 전 미리보기**에서 사후확률·EIG·EVSI·추가 질문의 변화를 확인하고 **검토 결과 적용**을 누릅니다.
+
+PDF는 화면 안에서 원본 페이지를 열 수 있고, Excel은 워크시트 미리보기와 원본 다운로드를 제공합니다. 확률·우도·효용·비용은 수업용 가정입니다.
+
 ## 로컬 개발 환경
 
 기본 화면은 **자료 분석 → 가설 검토·확정 → 질문 생성 → 중요도 평가 → 새 증거 반영**의 5단계입니다. 한국어 질문 라이브러리와 Python 규칙으로 동작합니다. 로컬에서 등록한 원본과 검토 기록은 `.local/orion-rules/projects.sqlite3`에 저장됩니다.
+
+로컬에서 오리온 사례를 실행할 때는 제공받은 원본 ZIP으로 자료 폴더를 먼저 준비합니다.
+
+```powershell
+.\.venv\Scripts\python scripts/build_orion_case.py "FDD Sources.zip" .local/orion-rules/case-studies
+```
 
 기존 환경이 설치되어 있다면 다음 명령으로 시작합니다.
 

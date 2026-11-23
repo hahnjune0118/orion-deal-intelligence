@@ -12,3 +12,25 @@
 .rules-app .r-information-heading{padding:4px 0 12px}.rules-app .r-information-heading h2{font-size:25px;margin:0 0 6px}.rules-app .r-information-heading p{font-size:16px;margin:0;color:var(--r-muted)}
 .rules-app .r-information-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:14px;align-items:start}.rules-app .r-information-grid>.r-card{min-width:0}.rules-app #r-information-guide .r-card{border-top:4px solid #5475cf}.rules-app #r-information-guide .r-card:nth-child(2){border-top-color:#268579}.rules-app #r-information-guide p{font-size:15px;line-height:1.8}.rules-app #r-information-guide .r-metric-english{font-size:13px;color:var(--r-muted);margin-top:-6px}.rules-app .r-formula{padding:10px 12px;background:#f1f5fc;border-radius:7px;overflow-wrap:anywhere;font-weight:600}.rules-app .r-information-note{padding:14px 16px;background:#edf3fd;border-left:4px solid #5475cf;border-radius:6px;font-size:15px;line-height:1.8;margin:0 0 14px}.rules-app #r-information-guide details{margin:0 0 16px;font-size:14px}.rules-app #r-information-guide a{color:#315caa}
 .rules-app .r-value-bars{margin-top:12px}.rules-app .r-value-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(90px,1fr);gap:5px 12px;margin:0 0 16px;align-items:center}.rules-app .r-value-row>button{grid-column:1/-1;text-align:left;padding:0;border:0;background:none;color:#314f92;white-space:normal;overflow-wrap:anywhere;font-size:15px;line-height:1.6}.rules-app .r-value-row>strong{font-size:14px;font-variant-numeric:tabular-nums;text-align:right;overflow-wrap:anywhere}.rules-app .r-value-track{height:18px;background:#eef1f6;border-radius:3px;position:relative;min-width:0}.rules-app .r-value-fill{position:absolute;height:100%;border-radius:3px;min-width:0}.rules-app .r-eig-fill{background:#5475cf}.rules-app .r-evsi-fill{background:#268579}.rules-app .r-negative-fill{background:#bd7939}.rules-app .r-value-zero{position:absolute;top:-3px;bottom:-3px;border-left:1px solid #52647b;z-index:1}.rules-app .r-negative-text{color:#995d22}.rules-app .r-positive-text{color:#206e63}.rules-app #r-information-dashboard td small{display:block;max-width:320px;overflow-wrap:anywhere;font-size:13px;margin:5px 0;color:var(--r-muted)}.rules-app #r-information-dashboard th{font-size:14px}.rules-app #r-information-dashboard td{font-size:15px;min-width:110px}.rules-app #r-information-dashboard td:first-child{min-width:220px}.rules-app #r-information-dashboard .r-form-help{font-size:14px;line-height:1.75}.rules-app #r-information-dashboard h4{font-size:16px;margin-bottom:6px}
+.rules-app .r-source-group{padding:13px 0;border-top:1px solid var(--r-line)}
+.rules-app .r-source-group-top,.rules-app .r-source-dialog-header,.rules-app .r-source-toolbar{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:9px}
+.rules-app .r-source-group h4{margin:0}
+.rules-app .r-source-group button{margin-top:6px}
+.rules-app .r-source-list{margin-top:7px}
+.rules-app .r-source-list ul{list-style:none;margin:6px 0 0;padding:0}
+.rules-app .r-source-list li{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:7px 0;border-bottom:1px solid var(--r-line)}
+.rules-app .r-source-list li strong{display:block;overflow-wrap:anywhere}
+.rules-app .r-source-list li small,.rules-app .r-source-dialog-header small{color:var(--r-muted)}
+.rules-app .r-source-list li button{flex-shrink:0;margin:0}
+.rules-app .r-badge.r-green{color:#14584e;background:#d9f1eb}
+.rules-app #r-source-dialog{width:min(1060px,94vw);max-height:94vh;padding:0;border:1px solid var(--r-line);border-radius:12px;color:inherit;background:white;box-shadow:0 16px 60px #172c4b45}
+.rules-app #r-source-dialog::backdrop{background:#14213199}
+.rules-app .r-source-dialog-header,.rules-app .r-source-toolbar,.rules-app .r-source-body{padding:12px 18px}
+.rules-app .r-source-dialog-header{border-bottom:1px solid var(--r-line)}
+.rules-app .r-source-dialog-header h2{margin:2px 0;overflow-wrap:anywhere}
+.rules-app .r-source-toolbar{justify-content:flex-start;gap:16px}
+.rules-app .r-source-body{padding-top:0}
+.rules-app .r-source-pdf{display:block;border:1px solid var(--r-line);width:100%;height:70vh}
+.rules-app .r-sheet-preview{max-height:61vh;overflow:auto}
+.rules-app .r-sheet-preview table{width:max-content;min-width:100%}
+.rules-app .r-sheet-preview td{max-width:320px}
