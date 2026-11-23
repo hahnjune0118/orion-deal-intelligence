@@ -110,6 +110,15 @@ def create_rules_app(data_dir=None, port=8050, *, hosted=None):
     def orion_source(fid):
         return original_file(fid)
 
+    @app.get('/case-demo/orion-271560/<group>')
+    def orion_evidence_demo(group):
+        if cases is None or not cases.orion.available():
+            abort(404)
+        result = cases.orion.evidence_demo(group)
+        if result is None:
+            abort(404)
+        return jsonify(result)
+
     @app.post('/api/cases/<key>/open')
     def open_case(key):
         if cases is None:

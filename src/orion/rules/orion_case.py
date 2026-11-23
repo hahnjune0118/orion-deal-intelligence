@@ -58,8 +58,11 @@ class OrionCase:
                     description='오리온 공개자료와 특수관계자·러시아 법인 후속 증빙')
 
     def open(self, store, *, copy=False):
+        project_id = None if copy else uuid5(NAMESPACE_URL, 'orion-dd/' + self.manifest['archive_sha256']).hex
+        return store.import_case(self.initial_state(), [], identifier=project_id)
+
+    def initial_state(self):
         pack = self.manifest
-        project_id = None if copy else uuid5(NAMESPACE_URL, 'orion-dd/' + pack['archive_sha256']).hex
         state = engine.initial(TITLE, pack['period'], 'manufacturing')
         state['library'] = CASE_ID
         catalog = [
@@ -80,7 +83,30 @@ class OrionCase:
         for q in state['questions']:
             q['model_version'] = state['models'][q['id']]['version']
         engine.audit(state, '오리온 사례 개설', '공개 기초자료와 편집 가능한 EIG·EVSI 실습 가정을 적용했습니다.')
-        return store.import_case(state, [], identifier=project_id)
+        return state
+
+    def evidence_demo(self, group):
+        sample = next((row for row in self.manifest['reviews'] if row['packet'] == group), None)
+        if sample is None:
+            return None
+        state = self.initial_state()
+        before = engine.snapshot(state)
+        self.register_group(state, group)
+        evidence = engine.evidence_apply(state, sample)
+        after = engine.snapshot(state)
+        hypothesis = engine.find(state['hypotheses'], evidence['hypothesis'], '가설')
+        source = next(d for d in state['documents'] if any(s['id'] == evidence['span'] for s in d['spans']))
+        span = engine.find(source['spans'], evidence['span'], '원문 구간')
+        source_info = {key: source[key] for key in ('id', 'filename', 'folder', 'format', 'total_units')}
+        application = engine.replay(state)[1].get(evidence['id'], '미적용')
+        fields = ('hypothesis', 'question', 'outcome', 'note', 'origin')
+        summary_keys = ('probabilities', 'ranks', 'questions')
+        return dict(
+            before={key: before[key] for key in summary_keys},
+            after={key: after[key] for key in summary_keys},
+            evidence=dict({k: evidence[k] for k in fields}, application=application),
+            hypothesis=hypothesis['title'], source=source_info, page=span.get('page'),
+        )
 
     def register_group(self, state, group):
         case = state.get('case_study', {})

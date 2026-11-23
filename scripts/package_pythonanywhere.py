@@ -19,7 +19,7 @@ MODULES = {
 PACKAGES = set('flask werkzeug jinja2 itsdangerous click blinker markupsafe '
                'pydantic pydantic-core typing-extensions typing-inspection annotated-types '
                'openpyxl et-xmlfile python-docx python-pptx pypdf pillow lxml xlsxwriter'.split())
-ASSETS = ('rules.html rules.css rules.js deal_visuals.css deal_visuals.js file-word.svg file-excel.svg '
+ASSETS = ('rules.html rules.css rules.js evidence_impact.css deal_visuals.css deal_visuals.js file-word.svg file-excel.svg '
           'file-powerpoint.svg file-pdf.svg file-other.svg file-csv.svg file-icons-sources.json').split()
 
 
