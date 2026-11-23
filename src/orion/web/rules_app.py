@@ -14,7 +14,7 @@ from orion.rules import engine, retrieval, analysis, reporting, deal_visuals
 from orion.rules.store import Store, Conflict
 from orion.rules.parsing import parse
 from orion.rules.case_studies import CaseStudies, apply_scenario
-from orion.rules.orion_case import CASE_ID, FORMATS
+from orion.rules.orion_case import CASE_ID, FORMATS, pdf_preview
 
 
 ASSETS = Path(__file__).parent/'assets'
@@ -90,6 +90,16 @@ def create_rules_app(data_dir=None, port=8050, *, hosted=None):
         if not path.is_file() or path.stat().st_size != source['bytes']:
             abort(404)
         file_format = source['format']
+        if request.args.get('view') == 'details':
+            return jsonify(total_units=source['total_units'])
+        if file_format == '.pdf' and request.args.get('view') == 'page':
+            page = request.args.get('page', type=int)
+            if page is None or not 1 <= page <= source['total_units']:
+                abort(404)
+            data = pdf_preview(path, page, source['sha256'])
+            if data is None:
+                abort(503)
+            return send_file(io.BytesIO(data), mimetype='image/png')
         if file_format == '.xlsx' and request.args.get('view') == 'worksheet':
             return jsonify(cases.orion.worksheet_preview(source))
         attachment = download or file_format != '.pdf' or request.args.get('download') == '1'

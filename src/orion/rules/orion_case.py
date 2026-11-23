@@ -1,8 +1,10 @@
 """Original-file source room for the Orion (271560) public-disclosure case."""
 from copy import deepcopy
-from functools import cached_property
+from functools import cached_property, lru_cache
 import json
 from pathlib import Path
+from shutil import which
+from subprocess import run, TimeoutExpired
 from uuid import NAMESPACE_URL, uuid5
 
 from . import engine, financial
@@ -17,6 +19,24 @@ GROUPS = {
 }
 FORMATS = {'.pdf': 'application/pdf',
            '.xlsx': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'}
+
+
+@lru_cache(maxsize=10)
+def pdf_preview(path, page, _revision):
+    """Render one page of a bundled original for browsers without an inline PDF viewer."""
+    renderer = which('pdftocairo')
+    options = ['-singlefile', str(path), '-'] if renderer else [str(path)]
+    renderer = renderer or which('pdftoppm')
+    if not renderer:
+        return None
+    args = [renderer, '-f', str(page), '-l', str(page), '-scale-to', '1600', '-png', *options]
+    try:
+        result = run(args, capture_output=True, timeout=8)
+    except (OSError, TimeoutExpired):
+        return None
+    if result.returncode == 0 and result.stdout.startswith(b'\x89PNG\r\n\x1a\n'):
+        return result.stdout
+    return None
 
 
 class OrionCase:
@@ -43,7 +63,7 @@ class OrionCase:
         state = engine.initial(TITLE, pack['period'], 'manufacturing')
         state['library'] = CASE_ID
         catalog = [
-            {k: d[k] for k in ('id', 'filename', 'folder', 'group', 'format', 'bytes', 'sha256')}
+            {k: d[k] for k in ('id', 'filename', 'folder', 'group', 'format', 'bytes', 'sha256', 'total_units')}
             for d in pack['documents']
         ]
         state['case_study'] = dict(

@@ -31,6 +31,10 @@
 .rules-app .r-source-toolbar{justify-content:flex-start;gap:16px}
 .rules-app .r-source-body{padding-top:0}
 .rules-app .r-source-pdf{display:block;border:1px solid var(--r-line);width:100%;height:70vh}
+.rules-app .r-pdf-controls{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:8px}
+.rules-app .r-pdf-controls input{width:72px}
+.rules-app .r-pdf-page{height:66vh;overflow:auto;border:1px solid var(--r-line);background:#f4f6fa}
+.rules-app .r-pdf-page img{display:block;width:min(100%,940px);height:auto;margin:0 auto;background:white}
 .rules-app .r-sheet-preview{max-height:61vh;overflow:auto}
 .rules-app .r-sheet-preview table{width:max-content;min-width:100%}
 .rules-app .r-sheet-preview td{max-width:320px}

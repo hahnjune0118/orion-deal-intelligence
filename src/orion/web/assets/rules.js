@@ -58,17 +58,18 @@ async function showOrionSource(source,page){
   const viewerURL=url+(page?'#page='+page:'');
   const body=el('div',{class:'r-source-body'});
   const pdf=source.format==='.pdf';
+  const originalTab=el('a',{href:viewerURL,target:'_blank',rel:'noopener'},'PDF 원본 새 탭에서 열기');
   dialog.replaceChildren(
     el('div',{class:'r-source-dialog-header'},
       el('div',{},el('small',{},source.folder),el('h2',{id:'r-source-title'},source.filename)),
       btn('닫기',()=>dialog.close())),
     el('div',{class:'r-source-toolbar'},
-      pdf?el('a',{href:viewerURL,target:'_blank',rel:'noopener'},page?'PDF '+page+'쪽 새 탭에서 열기':'PDF 새 탭에서 열기'):null,
+      pdf?originalTab:null,
       el('a',{href:url+'?download=1'},'원본 파일 다운로드')),
     body);
   if(!dialog.open)dialog.showModal();
   if(pdf){
-    body.append(el('iframe',{class:'r-source-pdf',src:viewerURL,title:source.filename}));
+    await showPDFPages(body,source,page||1,originalTab);
     return;
   }
   body.append(p('워크시트를 불러오는 중입니다.','r-muted'));
@@ -91,6 +92,35 @@ async function showOrionSource(source,page){
   }catch(error){
     body.replaceChildren(p(error.message,'r-error'));
   }
+}
+
+async function showPDFPages(body,source,page,originalTab){
+  const url=orionSourceURL(source);
+  let pages=source.total_units;
+  if(!pages){
+    try{pages=(await api(url+'?view=details')).total_units;}
+    catch{body.append(el('iframe',{class:'r-source-pdf',src:originalTab.href,title:source.filename}));return;}
+  }
+  const panel=el('div',{class:'r-pdf-page'});
+  const number=el('input',{type:'number','aria-label':'PDF 페이지 번호',min:1,max:pages,value:page});
+  const previous=btn('이전 쪽',()=>show(page-1));
+  const next=btn('다음 쪽',()=>show(page+1));
+  const controls=el('div',{class:'r-pdf-controls'},previous,number,el('span',{},'/ '+pages+'쪽'),next);
+  function show(requested){
+    page=Math.max(1,Math.min(pages,requested));
+    number.value=page;
+    previous.disabled=page===1;
+    next.disabled=page===pages;
+    originalTab.href=url+'#page='+page;
+    const image=el('img',{src:url+'?view=page&page='+page,alt:source.filename+' '+page+'쪽'});
+    image.onerror=()=>panel.replaceChildren(el('iframe',{class:'r-source-pdf',src:originalTab.href,title:source.filename}));
+    panel.replaceChildren(image);
+    panel.scrollTop=0;
+  }
+  number.onchange=()=>show(Number.parseInt(number.value,10)||page);
+  number.onkeydown=event=>{if(event.key==='Enter'){event.preventDefault();show(Number.parseInt(number.value,10)||page);}};
+  body.append(controls,panel);
+  show(page);
 }
 
 async function openOrionReview(group){
