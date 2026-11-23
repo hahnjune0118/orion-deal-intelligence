@@ -1,6 +1,12 @@
-# Orion Deal Intelligence — 규칙 기반 Adaptive DD MVP
+# Orion Deal Intelligence — Adaptive DD Workbench
 
-현재 기본 화면은 **자료 분석 → 가설 검토·확정 → 질문 생성 → 중요도 평가 → 새 증거 반영**의 5단계입니다. 한국어 질문 라이브러리와 Python 규칙으로 동작하며 OpenAI API·로컬 LLM·API 키가 필요하지 않습니다. 등록 원본과 검토 기록은 이 PC의 `.local/orion-rules/projects.sqlite3`에 저장합니다.
+**[대시보드 실행 · PythonAnywhere](https://hahnjune0118.pythonanywhere.com/)**
+
+브라우저에서 투자자료, 가설, 실사 질문, EIG·EVSI, 새 증거 반영을 확인할 수 있습니다. 계정이나 API 키가 필요 없습니다.
+
+## 로컬 개발 환경
+
+기본 화면은 **자료 분석 → 가설 검토·확정 → 질문 생성 → 중요도 평가 → 새 증거 반영**의 5단계입니다. 한국어 질문 라이브러리와 Python 규칙으로 동작합니다. 로컬에서 등록한 원본과 검토 기록은 `.local/orion-rules/projects.sqlite3`에 저장됩니다.
 
 기존 환경이 설치되어 있다면 다음 명령으로 시작합니다.
 
@@ -8,7 +14,7 @@
 .\.venv\Scripts\python -m orion.app
 ```
 
-브라우저에서 **http://127.0.0.1:8050**을 엽니다. 새 프로젝트에 자료를 올리거나 **합성 검증 사례 열기**로 계산 예시를 확인하세요. 실제 프로젝트의 확률·EIG·EVSI는 근거와 가정을 직접 설정할 때만 계산합니다.
+로컬 서버를 실행한 뒤 브라우저에서 `http://127.0.0.1:8050`을 엽니다. 새 프로젝트에 자료를 올리거나 **합성 검증 사례 열기**로 계산 예시를 확인하세요. 실제 프로젝트의 확률·EIG·EVSI는 근거와 가정을 직접 설정할 때만 계산합니다.
 
 - [거래 자금 흐름·조달 구조·FDD 워터폴 사용 안내](docs/DEAL_VISUALIZATION_GUIDE.md)
 - [기말과제 구현·시연·데이터 품질·효과 검증 안내](docs/FINAL_PROJECT_GUIDE.md)
