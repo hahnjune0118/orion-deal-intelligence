@@ -26,6 +26,8 @@ async function task(label,fn){$('r-busy-label').textContent=label;$('r-busy').hi
 const hosted=document.body.dataset.hosted==='true';
 const orionCaseId='orion-271560';
 const isOrion=()=>state()?.case_study?.id===orionCaseId;
+const isOrionOverview=()=>isOrion()&&step===1&&!dealMode;
+let overviewGroup=null;
 let catalog=[];
 function addCaseOptions(){
   if(!hosted||!catalog.length)return;
@@ -170,12 +172,90 @@ function renderOrionSources(root,reviewOnly=false){
     ...panels));
 }
 
+function overviewDelta(before,after,digits,unit,scale=1){
+  if(!Number.isFinite(before)||!Number.isFinite(after))return null;
+  const move=Number(((after-before)*scale).toFixed(digits));
+  return move?el('span',{class:'r-overview-delta '+(move>0?'r-overview-up':'r-overview-down')},
+    (move>0?'↑ +':'↓ −')+fmt(Math.abs(move),digits)+unit):null;
+}
+
+function overviewKpi(label,before,after,format,delta){
+  return el('div',{class:'r-overview-kpi'+(delta?' r-overview-changed':'')},
+    el('div',{class:'r-overview-kpi-top'},el('span',{},label),delta),
+    el('strong',{},format(after)),
+    el('small',{},delta?'이전 '+format(before):'현재'));
+}
+
+function overviewProbability(label,before,after){
+  const change=overviewDelta(before,after,1,'%p',100);
+  const shown=Number.isFinite(after);
+  const start=Number.isFinite(before)?before:after;
+  return el('div',{class:'r-overview-probability'},
+    el('div',{},el('strong',{},label),el('span',{},change?prob(before)+' → '+prob(after):prob(after),change)),
+    shown?el('div',{class:'r-overview-track','aria-hidden':'true'},
+      el('i',{class:'r-overview-fill'+(change?' r-overview-moving '+(after>before?'r-overview-up':'r-overview-down'):''),
+        style:`--probability-start:${start*100}%;width:${after*100}%`}),
+      change?el('i',{class:'r-overview-previous',style:`left:${before*100}%`}):null):null);
+}
+
+async function changeOverviewEvidence(sample,approved){
+  if(!guard())return;
+  overviewGroup=sample.packet;
+  const response=approved?await action('revoke',{id:approved.id}):await action('case_evidence',{group:sample.packet});
+  if(response){
+    notify(approved?'증빙 반영을 취소하고 지표를 다시 계산했습니다.':'증빙을 반영하고 지표와 실사 질문 순위를 다시 계산했습니다.');
+    $('r-content').querySelector(`button[data-evidence="${sample.packet}"]`)?.focus({preventScroll:true});
+  }
+}
+
 function renderOrionSummary(root){
-  root.append(el('section',{class:'r-impact-entry'},
-    el('div',{},el('h3',{},'증거 반영 전후'),p('원본 공시를 반영해 가설과 다음 실사 질문이 어떻게 달라지는지 확인하세요.')),
-    btn('시연 모드 열기',openImpactDemo,true)));
-  const active=state().case_study.active_groups.length-1;
-  root.append(metrics([['분석 자료',state().documents.length+'개'],['등록한 후속 폴더',active+' / 2'],['답변 대기 질문',questions().filter(q=>q.eligible).length+'개']]));
+  const [after,before=after]=project.snapshots;
+  const rows=state().case_study.evidence_samples.map(sample=>{
+    const question=after.questions[sample.question];
+    const topic=questions().find(q=>q.id===sample.question)?.topic;
+    const approved=state().evidence.find(e=>e.span===sample.span&&e.question===sample.question&&e.status==='approved');
+    return {sample,question,topic,approved,label:topicLabel(topic),source:state().review_sources?.[sample.packet]};
+  });
+  const previousStatus=new Map(before.evidence.map(e=>[e.id,e.status]));
+  const changedEvidence=[...after.evidence].reverse().find(e=>previousStatus.get(e.id)!==e.status);
+  const selected=rows.find(row=>row.sample.packet===overviewGroup)||
+    rows.find(({sample})=>sample.span===changedEvidence?.span&&sample.question===changedEvidence?.question)||rows[0];
+  const count=snapshot=>rows.filter(({sample})=>snapshot.evidence.some(e=>e.span===sample.span&&e.question===sample.question&&e.status==='approved')).length;
+  const selector=select('overview_focus','정보가치 기준',rows.map(row=>[row.sample.packet,row.label]),selected.sample.packet);
+  selector.onchange=event=>{overviewGroup=event.target.value;renderMain();$('r-content').querySelector('[name=overview_focus]')?.focus({preventScroll:true});};
+  const oldQuestion=before.questions[selected.sample.question];
+  const eq=selected.question;
+  const evsiBefore=oldQuestion?.evsi?.unit===eq?.evsi?.unit?oldQuestion?.evsi?.net:null;
+  const metric=(name,a,b,digits,unit)=>overviewKpi(name,a,b,n=>Number.isFinite(n)?fmt(n,digits)+unit:'미계산',overviewDelta(a,b,digits,''));
+  const changedRank=Object.keys(after.ranks).some(id=>before.ranks[id]!==after.ranks[id])||
+    Object.keys(before.ranks).some(id=>before.ranks[id]!==after.ranks[id]);
+  const evidencePanel=el('section',{class:'r-overview-panel'},el('h3',{},'증빙 반영'),
+    rows.map(({sample,approved,label,source})=>el('div',{class:'r-overview-evidence-row','data-packet':sample.packet},
+      el('div',{},el('h4',{},label),el('small',{},sample.label)),
+      badge(approved?({support:'지지 반영',contradict:'반박 반영'}[approved.outcome]||'검토 반영'):'반영 대기',approved?'r-green':''),
+      el('div',{class:'r-overview-source-actions'},
+        source?btn('원문 보기',()=>showOrionSource(source,source.page),false,{'aria-label':label+' 원문 보기'}):null,
+        btn(approved?'반영 취소':'증빙 반영',()=>changeOverviewEvidence(sample,approved),!approved,
+          {'data-evidence':sample.packet,'aria-label':label+(approved?' 반영 취소':' 증빙 반영')})),
+      el('details',{},el('summary',{},'판정 근거'),p(approved?.note||sample.note)))));
+  root.append(el('div',{class:'r-overview'},
+    el('div',{class:'r-overview-kpis'},
+      rows.map(({topic,label})=>overviewKpi(label+' 가설',before.probabilities[topic],after.probabilities[topic],prob,
+        overviewDelta(before.probabilities[topic],after.probabilities[topic],1,'%p',100))),
+      metric('EIG',oldQuestion?.eig,eq?.eig,3,' bit'),
+      metric('EVSI · 비용 차감 후',evsiBefore,eq?.evsi?.net,1,eq?.evsi?' '+eq.evsi.unit:''),
+      metric('반영 증빙',count(before),count(after),0,' / '+rows.length),
+      metric('남은 실사 질문',Object.keys(before.ranks).length,Object.keys(after.ranks).length,0,'개')),
+    el('div',{class:'r-overview-grid'},
+      el('section',{class:'r-overview-panel'},el('div',{class:'r-overview-panel-head'},el('h3',{},'가설 확률'),selector),
+        rows.map(({topic,label})=>overviewProbability(label,before.probabilities[topic],after.probabilities[topic])),
+        el('div',{class:'r-overview-ticks','aria-hidden':'true'},el('span',{},'0%'),el('span',{},'25%'),el('span',{},'50%'),el('span',{},'75%'),el('span',{},'100%')),
+        p('확률과 효용은 수업용 가정입니다.','r-muted')),
+      evidencePanel),
+    el('section',{class:'r-overview-panel r-overview-priority'},el('h3',{},'다음 실사 질문'),
+      el('div',{class:'r-impact-rank-grid'},
+        changedRank?impactPriority('반영 전',before):null,
+        impactPriority(changedRank?'반영 후':'현재 우선순위',after,changedRank?before:null)))));
   renderOrionSources(root);
 }
 
@@ -246,50 +326,6 @@ function evidenceImpact(value,{reveal=true,heading,showSource,animate=false}={})
       el('div',{},metric('EIG · 불확실성 감소','eig'),metric('EVSI · 비용 차감 후','evsi'))):null);
 }
 
-function openImpactDemo(){
-  const dialog=$('r-impact-dialog');
-  const choices=[['related-party','특수관계자 임차'],['foreign-subsidiaries','러시아 법인 수익성']];
-  const content=el('div',{class:'r-impact-demo-content'});
-  const controls=el('div',{class:'r-impact-demo-controls'});
-  const tabs=el('div',{class:'r-impact-tabs',role:'group','aria-label':'시연 사례'});
-  const cached=new Map();
-  let activeGroup=null;
-  function show(value,reveal=false){
-    const showSource=()=>showOrionSource(value.source,value.page);
-    content.replaceChildren(evidenceImpact(value,{reveal,showSource,animate:reveal}));
-    controls.replaceChildren(btn(reveal?'다시 시연':'증거 반영',()=>show(value,!reveal),!reveal));
-    const title=content.querySelector('.r-impact-hero h4');
-    title.tabIndex=-1;
-    title.focus({preventScroll:true});
-    dialog.scrollTop=0;
-  }
-  async function selectDemo(group){
-    activeGroup=group;
-    for(const option of tabs.children)option.setAttribute('aria-pressed',String(option.dataset.group===group));
-    controls.replaceChildren();
-    content.replaceChildren(el('p',{role:'status',class:'r-impact-loading'},'시연 자료를 불러오는 중입니다…'));
-    try{
-      const value=cached.get(group)||await api('/case-demo/'+orionCaseId+'/'+group);
-      cached.set(group,value);
-      if(dialog.open&&activeGroup===group)show(value);
-    }catch(error){
-      if(dialog.open&&activeGroup===group)content.replaceChildren(p(error.message,'r-error'));
-    }
-  }
-  for(const [key,label] of choices){
-    tabs.append(btn(label,()=>selectDemo(key),false,{'data-group':key,'aria-pressed':'false'}));
-  }
-  dialog.replaceChildren(
-    el('header',{class:'r-impact-demo-header'},
-      el('div',{},el('span',{},'오리온 · 271560'),el('h2',{id:'r-impact-dialog-title'},'증거 반영 전후')),
-      btn('닫기',()=>dialog.close())),
-    el('div',{class:'r-impact-demo-toolbar'},tabs,
-      el('div',{class:'r-impact-demo-actions'},el('small',{},'시연 결과는 프로젝트에 저장되지 않습니다.'),controls)),
-    content);
-  if(!dialog.open)dialog.showModal();
-  selectDemo(choices[0][0]);
-}
-
 function reviewedEvidenceImpact(root){
   const [after,before]=project.snapshots;
   if(!after||!before)return;
@@ -330,11 +366,11 @@ function probabilityBar(value){return el('div',{class:'r-prob-track',role:'img',
 function scoreParts(q){const colors={importance:'#6e73d9',gap:'#e9a154',obtainability:'#4aada2',eig:'#71a5df'},names={importance:'중요도',gap:'증빙 공백',obtainability:'확보 가능성',eig:'EIG'};const divisor=q.eig===null?.75:1;return el('div',{},el('div',{class:'r-score-parts',role:'img','aria-label':'추천 점수 구성'},...Object.entries(q.parts).map(([key,value])=>el('span',{style:`width:${value/divisor*100}%;background:${colors[key]}`}))),el('div',{class:'r-legend'},...Object.keys(q.parts).map(k=>el('span',{},el('i',{style:'background:'+colors[k]}),names[k]))));}
 function jump(next){if(!guard())return;dealMode=false;step=next;preview=null;detail=null;render();$('r-content').scrollTop=0;}
 function render(){renderFrame();renderMain();renderRight();renderFiles();}
-function renderFrame(){for(const [i,node] of [...$('r-nav').children].entries())node.setAttribute('aria-current',i+1===step?'step':'false');$('r-step-kicker').textContent='STEP '+String(step).padStart(2,'0')+' / 05';$('r-title').textContent=dealMode?'거래 구조·FDD 시각화':steps[step-1][0];$('r-description').textContent=steps[step-1][1];$('r-project-heading').textContent=project?state().company+' · '+state().period:'근거에서 다음 질문으로';$('r-version').textContent=project?'저장됨 · v'+project.version:'';$('r-actions').replaceChildren();if(project){$('r-actions').append(el('a',{href:`/api/projects/${project.id}/export/csv`},'질문표 CSV'),el('a',{href:`/api/projects/${project.id}/export/json`},'검토 기록 JSON'),el('a',{href:`/api/projects/${project.id}/export/html`},'검토 보고서 HTML'));if(state().case_study)$('r-case').value=state().case_study.id;} }
+function renderFrame(){document.body.classList.toggle('r-orion-overview',isOrionOverview());for(const [i,node] of [...$('r-nav').children].entries())node.setAttribute('aria-current',i+1===step?'step':'false');$('r-step-kicker').textContent='STEP '+String(step).padStart(2,'0')+' / 05';$('r-title').textContent=dealMode?'거래 구조·FDD 시각화':isOrionOverview()?'오리온 실사 대시보드':steps[step-1][0];$('r-description').textContent=isOrionOverview()?'증빙을 반영하고 가설 확률과 다음 질문의 변화를 확인하세요.':steps[step-1][1];$('r-project-heading').textContent=project?state().company+' · '+state().period:'근거에서 다음 질문으로';$('r-version').textContent=project?'저장됨 · v'+project.version:'';$('r-actions').replaceChildren();if(project){$('r-actions').append(el('a',{href:`/api/projects/${project.id}/export/csv`},'질문표 CSV'),el('a',{href:`/api/projects/${project.id}/export/json`},'검토 기록 JSON'),el('a',{href:`/api/projects/${project.id}/export/html`},'검토 보고서 HTML'));if(state().case_study)$('r-case').value=state().case_study.id;} }
 function renderMain(){const root=$('r-content');root.replaceChildren();if(!project){root.append(el('div',{class:'r-empty'},el('h2',{},'다음에 무엇을 물어야 할까요?'),p('프로젝트를 선택하거나 새 자료를 등록하세요.'),catalog.some(c=>c.id===orionCaseId)?btn('오리온(271560) 사례 열기',()=>openCase(orionCaseId),true):btn('합성 검증 사례 열기',example,true)));return;}
-root.append(el('div',{class:'r-stage-summary'},badge('자료 '+state().documents.length+'개'),badge('가설 '+state().hypotheses.length+'개'),badge('미해결 '+questions().filter(q=>q.eligible).length+'개'),badge('추천 '+state().recommendations.length+'개')));
-if(isOrion())root.append(el('div',{class:'r-card r-demo'},badge('오리온(271560) · 실제 공개자료','r-blue'),p('확률·우도·효용·비용은 편집 가능한 수업 시연 가정입니다.','r-form-help')));
-else if(state().case_study)root.append(el('div',{class:'r-card r-demo'},badge('익명화 실제 딜','r-blue'),p('자료 기반 검토 초안 · 확률·효용은 별도 실습 가정입니다.','r-form-help')));
+if(!isOrionOverview())root.append(el('div',{class:'r-stage-summary'},badge('자료 '+state().documents.length+'개'),badge('가설 '+state().hypotheses.length+'개'),badge('미해결 '+questions().filter(q=>q.eligible).length+'개'),badge('추천 '+state().recommendations.length+'개')));
+if(isOrion()&&!isOrionOverview())root.append(el('div',{class:'r-card r-demo'},badge('오리온(271560) · 실제 공개자료','r-blue'),p('확률·우도·효용·비용은 편집 가능한 수업 시연 가정입니다.','r-form-help')));
+else if(!isOrion()&&state().case_study)root.append(el('div',{class:'r-card r-demo'},badge('익명화 실제 딜','r-blue'),p('자료 기반 검토 초안 · 확률·효용은 별도 실습 가정입니다.','r-form-help')));
 if(state().demo)root.append(el('div',{class:'r-card r-demo'},badge('합성 예시','r-blue'),el('span',{},' 실제 기업 자료·실증 확률이 아닙니다. 입력 가정으로 계산 과정을 검증하는 사례입니다.')));
 if(dealMode){window.OrionDealVisuals.render({root,projectId:project.id,data:state().visual_workspace,hasBudget:!!state().case_study?.waterfall,questions:questions(),units,sourceButton,el,p,card,btn,badge,field,select,check,fmt,table,metrics,formValues,guard,onAction:action,chooseQuestion:id=>{jump(3);chooseQ(id);},openExample:async()=>{await example();dealMode=true;render();}});return;}
 if(step===1)renderAnalysis(root);if(step===2)renderHypotheses(root);if(step===3)renderQuestions(root);if(step===4)renderRanking(root);if(step===5)renderEvidence(root);}
@@ -526,5 +562,5 @@ steps.forEach((s,i)=>$('r-nav').append(btn('',()=>jump(i+1),false,{'data-step':i
 document.addEventListener('input',e=>{if(e.target.closest('form')&&!e.target.closest('#r-create'))dirty=true;});
 document.addEventListener('change',e=>{if(e.target.closest('form')&&!e.target.closest('#r-create'))dirty=true;});
 window.addEventListener('beforeunload',e=>{if(dirty){e.preventDefault();e.returnValue='';}});
-(async()=>{render();await task('저장된 프로젝트 확인 중…',async()=>{const cases=await caseCatalog();await projects();render();const query=new URLSearchParams(location.search);const requested=query.get('case');if(requested&&cases.some(c=>c.id===requested)){await openCase(requested);if(isOrion()&&query.get('demo')==='1')openImpactDemo();return;}const id=localStorage.getItem('orion-rule-project');if(id){try{await load(id);$('r-project').value=id;return;}catch{localStorage.removeItem('orion-rule-project');}}if(cases.some(c=>c.id===orionCaseId))await openCase(orionCaseId);});})();
+(async()=>{render();await task('저장된 프로젝트 확인 중…',async()=>{const cases=await caseCatalog();await projects();render();const query=new URLSearchParams(location.search);const requested=query.get('case');if(requested&&cases.some(c=>c.id===requested)){await openCase(requested);return;}const id=localStorage.getItem('orion-rule-project');if(id){try{await load(id);$('r-project').value=id;return;}catch{localStorage.removeItem('orion-rule-project');}}if(cases.some(c=>c.id===orionCaseId))await openCase(orionCaseId);});})();
 })();

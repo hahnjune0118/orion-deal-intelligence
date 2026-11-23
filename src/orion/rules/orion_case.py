@@ -85,28 +85,28 @@ class OrionCase:
         engine.audit(state, '오리온 사례 개설', '공개 기초자료와 편집 가능한 EIG·EVSI 실습 가정을 적용했습니다.')
         return state
 
-    def evidence_demo(self, group):
-        sample = next((row for row in self.manifest['reviews'] if row['packet'] == group), None)
-        if sample is None:
-            return None
-        state = self.initial_state()
-        before = engine.snapshot(state)
-        self.register_group(state, group)
-        evidence = engine.evidence_apply(state, sample)
-        after = engine.snapshot(state)
-        hypothesis = engine.find(state['hypotheses'], evidence['hypothesis'], '가설')
-        source = next(d for d in state['documents'] if any(s['id'] == evidence['span'] for s in d['spans']))
-        span = engine.find(source['spans'], evidence['span'], '원문 구간')
-        source_info = {key: source[key] for key in ('id', 'filename', 'folder', 'format', 'total_units')}
-        application = engine.replay(state)[1].get(evidence['id'], '미적용')
-        fields = ('hypothesis', 'question', 'outcome', 'note', 'origin')
-        summary_keys = ('probabilities', 'ranks', 'questions')
-        return dict(
-            before={key: before[key] for key in summary_keys},
-            after={key: after[key] for key in summary_keys},
-            evidence=dict({k: evidence[k] for k in fields}, application=application),
-            hypothesis=hypothesis['title'], source=source_info, page=span.get('page'),
-        )
+    @cached_property
+    def review_sources(self):
+        spans = {span['id']: (doc, span) for doc in self.manifest['documents'] for span in doc['spans']}
+        sources = {}
+        for review in self.manifest['reviews']:
+            doc, span = spans[review['span']]
+            sources[review['packet']] = {
+                **{key: doc[key] for key in ('id', 'filename', 'folder', 'format', 'total_units')},
+                'page': span.get('page'),
+            }
+        return sources
+
+    def apply_group(self, state, group):
+        case = state.get('case_study', {})
+        if case.get('id') != CASE_ID or case.get('archive_sha256') != self.manifest['archive_sha256']:
+            raise ValueError('오리온 사례의 현재 문서 묶음에서 자료를 선택하세요.')
+        review = next((row for row in self.manifest['reviews'] if row['packet'] == group), None)
+        if review is None:
+            raise ValueError('반영할 증빙을 선택하세요.')
+        if group not in case['active_groups']:
+            self.register_group(state, group)
+        engine.evidence_apply(state, review)
 
     def register_group(self, state, group):
         case = state.get('case_study', {})

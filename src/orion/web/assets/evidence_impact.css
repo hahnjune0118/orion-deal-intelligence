@@ -1,65 +1,78 @@
-.rules-app .r-impact-entry {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-bottom: 12px;
-  padding: 16px 18px;
-  border: 1px solid #d6e0f1;
-  border-radius: 12px;
-  background: #edf3fd;
-}
 
-.rules-app .r-impact-entry h3,
-.rules-app .r-impact-entry p { margin: 0; }
-.rules-app .r-impact-entry p { color: #495d79; font-size: 14px; }
-
-.rules-app #r-impact-dialog {
-  width: min(1100px, calc(100vw - 32px));
-  max-width: none;
-  max-height: calc(100dvh - 32px);
-  padding: 0;
-  border: 1px solid #d2dbe9;
-  border-radius: 16px;
-  color: var(--r-ink);
-  background: #f5f7fb;
-  box-shadow: 0 18px 60px #0c1f4566;
-}
-
-.rules-app #r-impact-dialog::backdrop { background: #10213dbf; }
-
-.rules-app .r-impact-demo-header,
-.rules-app .r-impact-demo-toolbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 10px 20px;
-  padding: 12px clamp(14px, 3vw, 30px);
-  border-bottom: 1px solid #dce4f0;
+.rules-app.r-orion-overview .r-shell { grid-template-columns: clamp(180px, 16vw, 232px) minmax(0, 1fr); }
+.rules-app.r-orion-overview .r-right { display: none; }
+.rules-app.r-orion-overview #r-main { grid-template-rows: auto auto minmax(0,1fr); }
+.rules-app.r-orion-overview #r-content { grid-row: 3; }
+.rules-app.r-orion-overview .r-heading { flex-direction: row; align-items: center; flex-wrap: wrap; padding: 2px 0 9px; }
+.rules-app.r-orion-overview #r-step-kicker { display: none; }
+.rules-app.r-orion-overview #r-notice:empty { display: none; }
+.rules-app.r-orion-overview #r-notice { min-height: 25px; max-height: 46px; margin-bottom: 6px; line-height: 1.45; }
+.rules-app .r-overview { display: grid; gap: 13px; margin-bottom: 14px; }
+.rules-app .r-overview-kpis { display: grid; grid-template-columns: repeat(6,minmax(0,1fr)); gap: 8px; }
+.rules-app .r-overview-kpi, .rules-app .r-overview-panel {
+  min-width: 0;
+  border: 1px solid var(--r-line);
+  border-radius: 9px;
   background: #fff;
 }
-
-.rules-app .r-impact-demo-header h2 {
-  margin: 0;
-  font-size: clamp(23px, 3.2vw, 35px);
-  letter-spacing: -.035em;
-  line-height: 1.2;
+.rules-app .r-overview-kpi { padding: 10px 11px; }
+.rules-app .r-overview-kpi-top { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 2px 6px; }
+.rules-app .r-overview-kpi-top > span:first-child { color: #445772; font-size: 12px; font-weight: 650; }
+.rules-app .r-overview-kpi > strong { display: block; margin: 4px 0 1px; color: #142d4e; font-size: clamp(17px,2vw,27px); line-height: 1.25; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.rules-app .r-overview-kpi small { color: #526782; font-size: 11px; }
+.rules-app .r-overview-changed { border-color: #b2c8f0; background: #f2f7ff; animation: r-overview-highlight 950ms ease-out both; }
+.rules-app .r-overview-delta { font-size: 11px; font-weight: 750; white-space: nowrap; }
+.rules-app .r-overview-delta.r-overview-up { color: #12674f; }
+.rules-app .r-overview-delta.r-overview-down { color: #a04229; }
+.rules-app .r-overview-grid { display: grid; grid-template-columns: minmax(0,1.22fr) minmax(0,1fr); gap: 12px; align-items: start; }
+.rules-app .r-overview-panel { padding: 13px 14px; }
+.rules-app .r-overview-panel :is(h3,h4,p) { margin: 0; }
+.rules-app .r-overview-panel h3 { color: #183352; font-size: 16px; }
+.rules-app .r-overview-panel-head { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 4px 10px; margin-bottom: 12px; }
+.rules-app .r-overview-panel-head label { display: flex; align-items: center; gap: 6px; margin: 0; color: #506681; font-size: 12px; }
+.rules-app .r-overview-panel-head select { width: auto; margin: 0; padding: 3px 6px; }
+.rules-app .r-overview-probability { margin-bottom: 16px; }
+.rules-app .r-overview-probability > div:first-child { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 2px 10px; margin-bottom: 5px; font-size: 13px; }
+.rules-app .r-overview-probability .r-overview-delta { margin-left: 6px; }
+.rules-app .r-overview-track {
+  position: relative;
+  height: 14px;
+  background: repeating-linear-gradient(90deg,#e9eff9 0,#e9eff9 calc(25% - 1px),#cdd8eb calc(25% - 1px),#cdd8eb 25%);
+  border-radius: 4px;
 }
-
-.rules-app .r-impact-demo-header span { color: #465e7e; font-size: 13px; font-weight: 750; }
-.rules-app .r-impact-tabs, .rules-app .r-impact-demo-actions {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 6px 10px;
+.rules-app .r-overview-fill { display: block; height: 100%; border-radius: 4px; background: #567ac6; }
+.rules-app .r-overview-fill.r-overview-up { background: #338771; }
+.rules-app .r-overview-fill.r-overview-down { background: #b96345; }
+.rules-app .r-overview-moving { animation: r-overview-move 760ms cubic-bezier(.22,.76,.22,1) both; }
+.rules-app .r-overview-previous { position: absolute; top: -3px; bottom: -3px; border-left: 2px solid #223858; }
+.rules-app .r-overview-ticks { display: flex; justify-content: space-between; margin-top: -9px; color: #526782; font-size: 11px; }
+.rules-app .r-overview-panel-head ~ .r-muted { margin-top: 7px; font-size: 12px; }
+.rules-app .r-overview-evidence-row { display: grid; grid-template-columns: minmax(0,1fr) auto; align-items: start; gap: 4px 8px; padding: 7px 0; border-bottom: 1px solid #e2e9f3; }
+.rules-app .r-overview-evidence-row:last-child { padding-bottom: 0; border-bottom: 0; }
+.rules-app .r-overview-evidence-row h4 { font-size: 14px; }
+.rules-app .r-overview-evidence-row small { color: #526782; }
+.rules-app .r-overview-evidence-row .r-badge { justify-self: end; margin: 1px 0; }
+.rules-app .r-overview-source-actions { display: flex; justify-content: flex-end; flex-wrap: wrap; gap: 5px; grid-column: 2; }
+.rules-app .r-overview-source-actions button { font-size: 12px; padding: 4px 7px; }
+.rules-app .r-overview-evidence-row details { grid-row: 2; grid-column: 1; }
+.rules-app .r-overview-evidence-row details[open] { grid-row: 3; grid-column: 1 / -1; }
+.rules-app .r-overview-evidence-row summary { color: #425c82; font-size: 12px; }
+.rules-app .r-overview-evidence-row details p { margin-top: 4px; font-size: 13px; }
+.rules-app .r-overview-priority h3 { margin-bottom: 6px; }
+.rules-app .r-overview-priority .r-impact-rank-grid > :only-child { grid-column: 1 / -1; }
+.rules-app .r-overview-priority .r-impact-ranks li span small { color: #276346; }
+.rules-app .r-overview-priority .r-impact-new { color: #1a5d46; background: #e9f7ef; border-color: #aed9be; animation: r-overview-highlight 950ms ease-out both; }
+@keyframes r-overview-highlight { from { background: #dceaff; } }
+@keyframes r-overview-move { from { width: var(--probability-start); } }
+@media (max-width: 1024px) { .rules-app.r-orion-overview .r-shell { grid-template-columns: minmax(0,1fr); } }
+@media (max-width: 820px) { .rules-app .r-overview-kpis { grid-template-columns: repeat(3,minmax(0,1fr)); } }
+@media (max-width: 620px) {
+  .rules-app .r-overview-grid { grid-template-columns: minmax(0,1fr); }
+  .rules-app .r-overview-kpis { grid-template-columns: repeat(2,minmax(0,1fr)); }
 }
-.rules-app .r-impact-demo-actions small { color: #4d6079; }
-.rules-app .r-impact-tabs button[aria-pressed="true"] { color: #23469e; background: #eaf0ff; border-color: #99afea; font-weight: 740; }
-.rules-app .r-impact-demo-actions button { min-width: 110px; font-weight: 750; }
-.rules-app .r-impact-demo-content { padding: 14px clamp(14px, 3vw, 30px) 20px; }
-.rules-app .r-impact-loading { padding: 38px 0; text-align: center; }
+@media (prefers-reduced-motion: reduce) {
+  .rules-app :is(.r-overview-changed,.r-overview-moving,.r-overview-priority .r-impact-new) { animation: none; }
+}
 
 .rules-app .r-impact-result {
   --impact-accent: #afcaff;
@@ -220,8 +233,6 @@
 @keyframes r-impact-reveal { from { opacity: .35; transform: translateY(5px); } }
 
 @media (max-width: 560px) {
-  .rules-app #r-impact-dialog { width: calc(100vw - 12px); max-height: calc(100dvh - 12px); }
-  .rules-app .r-impact-demo-content { padding-inline: 9px; }
   .rules-app .r-impact-number > strong { font-size: clamp(23px, 8vw, 44px); }
   .rules-app .r-impact-rank-grid { grid-template-columns: 1fr; }
   .rules-app .r-impact-metrics > div { grid-template-columns: 1fr; }

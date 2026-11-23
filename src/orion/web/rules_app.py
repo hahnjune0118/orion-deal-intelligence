@@ -72,6 +72,8 @@ def create_rules_app(data_dir=None, port=8050, *, hosted=None):
     def result(row):
         value=engine.view(row['state'])
         value['visual_workspace']=deal_visuals.view(row['state'])
+        if cases and cases.orion.available() and value.get('case_study', {}).get('id') == CASE_ID:
+            value['review_sources'] = cases.orion.review_sources
         return dict(id=row['id'],version=row['version'],state=value,snapshots=row['snapshots'])
 
     @app.get('/api/projects')
@@ -109,15 +111,6 @@ def create_rules_app(data_dir=None, port=8050, *, hosted=None):
     @app.get('/case-sources/orion-271560/<fid>')
     def orion_source(fid):
         return original_file(fid)
-
-    @app.get('/case-demo/orion-271560/<group>')
-    def orion_evidence_demo(group):
-        if cases is None or not cases.orion.available():
-            abort(404)
-        result = cases.orion.evidence_demo(group)
-        if result is None:
-            abort(404)
-        return jsonify(result)
 
     @app.post('/api/cases/<key>/open')
     def open_case(key):
@@ -197,6 +190,8 @@ def create_rules_app(data_dir=None, port=8050, *, hosted=None):
                     'visual_import':lambda s:import_visual(s)}
         if action=='case_documents' and cases and cases.orion.available():
             operations[action]=lambda s:cases.orion.register_group(s,d.get('group'))
+        elif action=='case_evidence' and cases and cases.orion.available():
+            operations[action]=lambda s:cases.orion.apply_group(s,d.get('group'))
         elif action=='evidence':
             if d.get('reviewed') is not True:
                 raise ValueError('원문과 판정 기준을 검토한 뒤 적용하세요.')
