@@ -10,6 +10,21 @@ def report(state, version):
     parts=['<!doctype html><html lang="ko"><meta charset="utf-8"><title>Orion 검토 보고서</title><style>body{font:15px/1.7 system-ui,sans-serif;max-width:1200px;margin:36px auto;padding:20px;color:#20334e}h1,h2{color:#304c96}table{width:100%;border-collapse:collapse}td,th{border:1px solid #dde4ef;padding:9px;text-align:left;vertical-align:top;overflow-wrap:anywhere}th{background:#edf2fa}.scroll{overflow:auto}small{color:#536781}@media print{body{margin:0}tr{break-inside:avoid}}</style>']
     parts += ['<h1>Orion · 실사 질문 검토 보고서</h1>', '<p>'+escape(view['company'])+' · '+escape(view['period'])+' · v'+str(version)+'</p>',
         '<p>검색 기반 규칙형 의사결정 지원. 감사의견·투자권고가 아닙니다. 원문 기재·담당자 판단·계산 가정을 구분합니다. 확률·효용은 명시적 시나리오이며 실증 추정값이 아닙니다.</p>']
+    demo = state.get('disclosure_demo')
+    if demo:
+        source, terms = demo['source'], demo['terms']
+        parts += ['<h2>기말 공시 데모 · 전후 요약</h2>', table(['항목', '공시 반영 전', '공시 처리 후'], [
+            [demo['hypothesis'], f"{demo['before']:.1%}", f"{demo['after']:.1%} · {demo['status']}"],
+            *[[q['title'], q['before'], q['after']] for q in demo['questions']],
+            ['남은 증빙', '장기 임차계약의 기간·임대료 확인', demo['open_evidence']],
+        ]), '<p>'+escape(demo['rule'])+' '+escape(demo['assumption'])+'</p>',
+            '<h2>공시 PDF 추출 결과</h2>', table(['항목', '추출·검증 결과'], [
+                ['원문', source['filename']], ['추출 위치', demo['location'] or '검토 필요'],
+                ['파서', f"{source['parser']} · {source['parsed_units']}/{source['total_units']}페이지"],
+                ['계약기간', f"{terms['start']} ~ {terms['end']}" if terms else '검토 필요'],
+                ['연간 임대료', terms['rent_display'] if terms else '검토 필요'],
+                ['SHA-256', source['sha256']],
+            ])]
     parts += ['<h2>자료 범위와 품질</h2>',table(['자료','버전','상태','처리 범위','SHA-256','경고'],[[d['filename'],d['version'],d['status'],f"{d['parsed_units']}/{d['total_units']}",d['sha256'],'; '.join(d['warnings'])] for d in state['documents']])]
     parts += ['<h2>가설과 미확인 사항</h2>',table(['가설','분류','현재 확률','확률 근거','반대 가설'],[[h['title'],h.get('origin_kind','사례 작성'),h['probability'],h['prior_source'],h['counter']] for h in view['hypotheses']])]
     parts += ['<h2>재무 관측치 · 검토 여부</h2>',table(['항목','값','단위','기간','범위','실적/계획','검토','출처'],[[f.get(k,'') for k in ('metric','value','unit','period','scope','basis','reviewed','location')] for f in view['financial_facts']])]

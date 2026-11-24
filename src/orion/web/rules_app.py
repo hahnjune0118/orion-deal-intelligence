@@ -112,6 +112,13 @@ def create_rules_app(data_dir=None, port=8050, *, hosted=None):
     def orion_source(fid):
         return original_file(fid)
 
+    @app.post('/case-sources/orion-271560/lease-demo')
+    def lease_demo():
+        if not cases or not cases.orion.available() or cases.orion.lease_source is None:
+            abort(404)
+        state, demo = cases.orion.run_lease_demo(python=hosted.python if hosted else None)
+        return jsonify(demo=demo, report_html=reporting.report(state, 1))
+
     @app.post('/api/cases/<key>/open')
     def open_case(key):
         if cases is None:

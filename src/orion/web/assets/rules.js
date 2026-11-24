@@ -29,6 +29,8 @@ const isOrion=()=>state()?.case_study?.id===orionCaseId;
 const isOrionOverview=()=>isOrion()&&step===1&&!dealMode;
 let overviewGroup=null;
 let catalog=[];
+let leaseDemoResult=null;
+let leaseDemoReportURL=null;
 function addCaseOptions(){
   if(!hosted||!catalog.length)return;
   const labels={'logistics-alpha':'사례 A','spirits-beta':'사례 B'};
@@ -423,7 +425,47 @@ function renderFactDetail(root){
  form.onsubmit=async e=>{e.preventDefault();await action('fact',{id:f.id,...formValues(form)});};root.append(form);return true;
 }
 
-function renderAnalysis(root){const docs=state().documents;if(isOrion())renderOrionSummary(root);else if(state().case_study)renderCaseOverview(root);else root.append(metrics([['등록 자료',docs.length],['추출 원문 구간',units().length],['검토할 가설',state().hypotheses.length]]));
+async function runLeaseDemo(){
+ if(!guard())return;
+ await task('공시 PDF 추출·증빙 판정·보고서 생성 중…',async()=>{
+  const {demo,report_html}=await api('/case-sources/orion-271560/lease-demo',{});
+  if(leaseDemoReportURL)URL.revokeObjectURL(leaseDemoReportURL);
+  leaseDemoReportURL=URL.createObjectURL(new Blob([report_html],{type:'text/html;charset=utf-8'}));
+  leaseDemoResult=demo;
+  renderMain();
+  $('r-lease-demo-result').focus({preventScroll:true});
+  notify(demo.status+' · HTML 보고서 생성 완료');
+ });
+}
+
+function renderLeaseDemo(root){
+ if(!catalog.some(c=>c.id===orionCaseId&&c.lease_demo))return;
+ const demo=leaseDemoResult;
+ const panel=el('section',{class:'r-card r-lease-demo','aria-labelledby':'r-lease-demo-title'},
+  el('div',{class:'r-lease-demo-head'},el('div',{},el('h3',{id:'r-lease-demo-title'},'기말 데모 · 특수관계자 임차 공시'),
+   p('공시 PDF 추출 → 가설·실사 질문 갱신 → HTML 보고서 생성','r-muted')),
+   btn('공시 샘플로 기말 데모 실행',runLeaseDemo,true)));
+ if(demo){
+  const source=state().review_sources?.['related-party'];
+  const terms=demo.terms;
+  const result=el('div',{id:'r-lease-demo-result',tabindex:-1,'aria-label':'공시 데모 실행 결과'},
+   el('div',{class:'r-actions'},badge(demo.status,demo.applied?'r-good':'r-warn'),
+    source?btn('임차 공시 PDF 원문 보기',()=>showOrionSource(source,Number(demo.location?.match(/^\d+/)?.[0])||undefined)):null,
+    el('a',{class:'r-lease-report',href:leaseDemoReportURL,download:'Orion_lease_disclosure_demo.html'},'기말 데모 보고서 HTML 다운로드')),
+   metrics([['가설 확률 · 수업용 가정',prob(demo.before)+' → '+prob(demo.after)],
+    ['계약 종료일',terms?.end||'검토 필요'],['연간 임대료',terms?.rent_display||'검토 필요']]),
+   table(['검토 항목','반영 전','처리 후'],demo.questions.map(q=>[q.title,q.before,q.after])),
+   p('남은 증빙 · '+demo.open_evidence),
+   el('details',{},el('summary',{},'추출 위치와 판정 기준'),
+    p(`${demo.source.filename} · ${demo.location||'근거 구간 검토 필요'} · ${demo.source.parsed_units}/${demo.source.total_units}페이지 · ${demo.source.parser}`),
+    p(demo.rule+' '+demo.assumption),p('SHA-256 · '+demo.source.sha256),
+    ...demo.source.warnings.map(w=>p(w,'r-muted')),demo.quote?el('blockquote',{},demo.quote):null));
+  panel.append(result);
+ }
+ root.append(panel);
+}
+
+function renderAnalysis(root){const docs=state().documents;if(isOrion()){renderLeaseDemo(root);renderOrionSummary(root);}else if(state().case_study)renderCaseOverview(root);else root.append(metrics([['등록 자료',docs.length],['추출 원문 구간',units().length],['검토할 가설',state().hypotheses.length]]));
 const form=el('form',{id:'r-upload'},field('file','분석할 파일','','file',true),select('origin','자료 출처',[['company','회사 제공'],['counterparty','거래 상대방'],['independent','독립 출처'],['analyst','담당자 작성']],'company'),field('group','자료 의존 그룹 (기본: 파일명)','','text'),p('PDF·DOCX·PPTX·XLSX·TXT·MD·CSV / 파일당 10MB. 수식은 실행하지 않으며 스캔·복잡한 표는 검토가 필요합니다.','r-form-help'),el('button',{class:'r-primary'},'자료 등록·텍스트 추출'));
 form.querySelector('[name=file]').accept='.pdf,.docx,.pptx,.xlsx,.txt,.md,.csv';form.onsubmit=async e=>{e.preventDefault();const body=new FormData(form);body.set('version',project.version);await task('자료 추출 중…',async()=>{project=await api(`/api/projects/${project.id}/documents`,body);dirty=false;render();notify(project.notice||'자료를 등록했습니다. 아래에서 분석 규칙을 실행하세요.');});};root.append(card('투자자료 등록',form));
 root.append(el('div',{class:'r-actions'},btn('자료 분석·가설 초안 구성',()=>action('analyze'),true),btn('가설 검토로 이동 →',()=>jump(2))));

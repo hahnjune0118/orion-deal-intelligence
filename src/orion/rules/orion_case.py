@@ -1,13 +1,16 @@
 """Original-file source room for the Orion (271560) public-disclosure case."""
 from copy import deepcopy
+from datetime import date, timedelta
+from decimal import Decimal
 from functools import cached_property, lru_cache
 import json
 from pathlib import Path
+import re
 from shutil import which
 from subprocess import run, TimeoutExpired
 from uuid import NAMESPACE_URL, uuid5
 
-from . import engine, financial
+from . import engine, financial, parsing
 
 
 CASE_ID = 'orion-271560'
@@ -19,6 +22,31 @@ GROUPS = {
 }
 FORMATS = {'.pdf': 'application/pdf',
            '.xlsx': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'}
+LEASE_PACKET = 'related-party'
+KOREAN_DATE = r'(\d{4})\s*년\s*(\d{1,2})\s*월\s*(\d{1,2})\s*일'
+
+
+def lease_terms(span):
+    """Apply the sample's documented field rules to freshly extracted text."""
+    text = span['text']
+    if not all(re.search(pattern, text) for pattern in (
+        r'회사명\s*\(주\)\s*오리온홀딩스',
+        r'거래상대방\s*\(주\)\s*오리온\s+회사와의 관계\s*계열회사',
+        r'임대목적물\s*토지 및 건축물',
+        r'소재지\s*서울시 강남구 남부순환로 2745',
+        r'\(단위\s*:\s*백만\s*원\)',
+    )):
+        return None
+    period = re.search(r'임대기간\s*' + KOREAN_DATE + r'\s*~\s*' + KOREAN_DATE, text)
+    rent = re.search(r'연간임대료[ \t]+([0-9]{1,3}(?:,[0-9]{3})+|[0-9]+)[ \t]*$', text, re.M)
+    if not period or not rent:
+        return None
+    start, end = (date(*map(int, period.groups()[i:i+3])) for i in (0, 3))
+    amount = int(rent[1].replace(',', ''))
+    if end <= start or amount <= 0:
+        return None
+    return dict(start=start.isoformat(), end=end.isoformat(), rent_krw_million=amount,
+                rent_display=f'{amount:,}백만원({Decimal(amount) / 100:,.2f}억원)')
 
 
 @lru_cache(maxsize=10)
@@ -55,7 +83,17 @@ class OrionCase:
 
     def catalog_entry(self):
         return dict(id=CASE_ID, title=TITLE, period=self.manifest['period'],
-                    description='오리온 공개자료와 특수관계자·러시아 법인 후속 증빙')
+                    description='오리온 공개자료와 특수관계자·러시아 법인 후속 증빙',
+                    lease_demo=self.lease_source is not None)
+
+    @cached_property
+    def lease_source(self):
+        review_source = self.review_sources.get(LEASE_PACKET)
+        if review_source:
+            source = self.source(review_source['id'])
+            if source['format'] == '.pdf' and self.original_path(source).is_file():
+                return source
+        return None
 
     def open(self, store, *, copy=False):
         project_id = None if copy else uuid5(NAMESPACE_URL, 'orion-dd/' + self.manifest['archive_sha256']).hex
@@ -107,6 +145,70 @@ class OrionCase:
         if group not in case['active_groups']:
             self.register_group(state, group)
         engine.evidence_apply(state, review)
+
+    def run_lease_demo(self, *, python=None):
+        """Replay a clean case from real PDF bytes without editing the visitor's project."""
+        source = self.lease_source
+        if source is None:
+            raise ValueError('기말 데모용 임대 공시 PDF가 등록되지 않았습니다.')
+        with self.original_path(source).open('rb') as handle:
+            parsed = parsing.parse(handle.read(parsing.MAX_BYTES + 1), source['filename'], python=python)
+        if parsed['sha256'] != source['sha256']:
+            raise ValueError('공시 원본 SHA-256이 등록된 값과 일치하지 않습니다.')
+
+        state = self.initial_state()
+        before = engine.snapshot(state)
+        review = next(row for row in self.manifest['reviews'] if row['packet'] == LEASE_PACKET)
+        question = engine.find(state['questions'], review['question'], '질문')
+        followup = next(q for q in state['questions'] if q['parent'] == question['id'] and q['answer'] == 'contradict')
+        hyp = engine.find(state['hypotheses'], question['topic'], '가설')
+        doc = {**source, **parsed}
+        state['documents'].append(doc)
+        engine.audit(state, '공시 PDF 등록 및 추출', f"{doc['filename']} · {doc['parsed_units']}/{doc['total_units']}페이지")
+        engine.analyze(state)
+
+        candidates = []
+        for span in parsed['spans']:
+            try:
+                terms = lease_terms(span)
+            except ValueError:  # Invalid calendar date in the extracted text.
+                continue
+            if terms:
+                candidates.append((span, terms))
+        unit, terms = candidates[0] if len(candidates) == 1 else (None, None)
+        applied = False
+        if terms:
+            start, end = map(date.fromisoformat, (terms['start'], terms['end']))
+            applied = (start.year, start.month) == (2026, 6) and end - start >= timedelta(days=365)
+        if applied:
+            for row in (question, followup):
+                row['source_refs'].append(unit['id'])
+            engine.evidence_apply(state, dict(question=question['id'], outcome='contradict', span=unit['id'],
+                group=LEASE_PACKET, note=f"공시에서 {terms['start']}~{terms['end']} 도곡 임차와 연간 임대료 "
+                    f"{terms['rent_display']}을 확인했습니다. 리스부채와 정상화 손익은 추가 증빙이 필요합니다."))
+
+        after = engine.snapshot(state)
+        def question_state(snapshot, row):
+            status = snapshot['questions'][row['id']]
+            if not status['active']:
+                return '조건 충족 대기'
+            rank = snapshot['ranks'].get(row['id'])
+            return f"{status['status']} · {rank}순위" if rank else status['status']
+
+        result = dict(
+            applied=applied, status='가설 반박 증빙 반영' if applied else '검토 필요 · 가설 확률 유지',
+            source={k: doc[k] for k in ('id', 'filename', 'sha256', 'parser', 'parsed_units', 'total_units', 'warnings')},
+            terms=terms, location=unit['location'] if unit else None,
+            quote=unit['text'] if unit else None,
+            hypothesis=hyp['title'], assumption=hyp['prior_source'],
+            rule='도곡 특수관계자 임차가 2026년 6월에 시작하고 계약기간이 1년 이상이면 가설 반박으로 판정합니다.',
+            before=before['probabilities'][hyp['id']], after=after['probabilities'][hyp['id']],
+            questions=[dict(title=row['title'], before=question_state(before, row),
+                            after=question_state(after, row)) for row in (question, followup)],
+            open_evidence=followup['request'] if applied else question['request'],
+        )
+        state['disclosure_demo'] = result
+        return state, result
 
     def register_group(self, state, group):
         case = state.get('case_study', {})

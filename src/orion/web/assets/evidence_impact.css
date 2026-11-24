@@ -7,6 +7,15 @@
 .rules-app.r-orion-overview #r-step-kicker { display: none; }
 .rules-app.r-orion-overview #r-notice:empty { display: none; }
 .rules-app.r-orion-overview #r-notice { min-height: 25px; max-height: 46px; margin-bottom: 6px; line-height: 1.45; }
+.rules-app .r-lease-demo { border-color: #b2c8f0; background: #f6f9ff; }
+.rules-app .r-lease-demo-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; }
+.rules-app .r-lease-demo-head :is(h3,p) { margin: 0; }
+.rules-app .r-lease-demo #r-lease-demo-result { display: grid; gap: 10px; margin-top: 10px; overflow-wrap: anywhere; }
+.rules-app .r-lease-demo :is(.r-actions,.r-metrics,p) { margin: 0; }
+.rules-app .r-lease-demo .r-metrics { grid-template-columns: repeat(auto-fit,minmax(min(100%,225px),1fr)); }
+.rules-app .r-lease-demo .r-metric { background: white; font-variant-numeric: tabular-nums; }
+.rules-app .r-lease-demo blockquote { white-space: pre-wrap; margin-inline: 0; padding-inline-start: 10px; border-inline-start: 3px solid #b2c8f0; }
+.rules-app .r-lease-report { font-weight: 700; }
 .rules-app .r-overview { display: grid; gap: 13px; margin-bottom: 14px; }
 .rules-app .r-overview-kpis { display: grid; grid-template-columns: repeat(6,minmax(0,1fr)); gap: 8px; }
 .rules-app .r-overview-kpi, .rules-app .r-overview-panel {
