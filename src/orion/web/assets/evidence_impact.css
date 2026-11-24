@@ -63,6 +63,29 @@
 .rules-app .r-overview-priority .r-impact-rank-grid > :only-child { grid-column: 1 / -1; }
 .rules-app .r-overview-priority .r-impact-ranks li span small { color: #276346; }
 .rules-app .r-overview-priority .r-impact-new { color: #1a5d46; background: #e9f7ef; border-color: #aed9be; animation: r-overview-highlight 950ms ease-out both; }
+.rules-app .r-overview-tab .r-overview-kpis { grid-template-columns: repeat(auto-fit,minmax(min(130px,100%),1fr)); }
+.rules-app .r-overview-tab .r-overview-grid { grid-template-columns: minmax(0,1.18fr) minmax(0,1fr); }
+.rules-app .r-overview-tab .r-overview-priority .r-impact-rank-grid { grid-template-columns: minmax(0,1fr); }
+.rules-app .r-overview-value + .r-overview-value { margin-top: 8px; }
+.rules-app .r-overview-value h4 { margin-bottom: 4px; font-size: 13px; }
+.rules-app .r-overview-value-row { display: grid; grid-template-columns: 25px minmax(0,1fr) max-content; align-items: center; gap: 6px; font-size: 12px; }
+.rules-app .r-overview-value-row > span { color: #526782; }
+.rules-app .r-overview-value-row strong { min-width: 62px; text-align: right; font-variant-numeric: tabular-nums; }
+.rules-app .r-overview-value-track { position: relative; height: 8px; border-radius: 3px; background: #edf2f9; }
+.rules-app .r-overview-zero { position: absolute; top: -2px; bottom: -2px; border-left: 1px solid #546789; }
+.rules-app .r-overview-value-fill { position: absolute; top: 0; bottom: 0; border-radius: 3px; background: #a8b7cd; }
+.rules-app .r-overview-value-current { background: #567ac6; }
+.rules-app .r-overview-value-current.r-overview-up { background: #338771; }
+.rules-app .r-overview-value-current.r-overview-down { background: #b96345; }
+.rules-app .r-overview-value-current:is(.r-overview-up,.r-overview-down) { animation: r-overview-value-grow 650ms ease-out both; }
+@keyframes r-overview-value-grow { from { transform: scaleX(0); } }
+@media (min-width: 1025px) {
+  .rules-app.r-orion-workflow .r-shell { grid-template-columns: clamp(175px,15vw,218px) minmax(0,1fr) clamp(275px,23vw,390px); gap: 12px; }
+  .rules-app.r-orion-workflow #r-main { grid-template-rows: auto auto minmax(0,1fr); }
+  .rules-app.r-orion-workflow #r-content { grid-row: 3; }
+  .rules-app.r-orion-workflow .r-heading { padding-bottom: 8px; }
+  .rules-app.r-orion-workflow #r-notice:empty { display: none; }
+}
 @media (min-width: 1025px) and (max-height: 800px) {
   .rules-app .r-overview { gap: 10px; }
   .rules-app .r-overview-panel { padding: 10px 12px; }
@@ -74,11 +97,11 @@
 @media (max-width: 1024px) { .rules-app.r-orion-overview .r-shell { grid-template-columns: minmax(0,1fr); } }
 @media (max-width: 820px) { .rules-app .r-overview-kpis { grid-template-columns: repeat(3,minmax(0,1fr)); } }
 @media (max-width: 620px) {
-  .rules-app .r-overview-grid { grid-template-columns: minmax(0,1fr); }
+  .rules-app .r-overview-grid, .rules-app .r-overview-tab .r-overview-grid { grid-template-columns: minmax(0,1fr); }
   .rules-app .r-overview-kpis { grid-template-columns: repeat(2,minmax(0,1fr)); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .rules-app :is(.r-overview-changed,.r-overview-moving,.r-overview-priority .r-impact-new) { animation: none; }
+  .rules-app :is(.r-overview-changed,.r-overview-moving,.r-overview-priority .r-impact-new,.r-overview-value-current) { animation: none; }
 }
 
 .rules-app .r-impact-result {

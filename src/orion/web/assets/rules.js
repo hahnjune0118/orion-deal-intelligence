@@ -208,7 +208,26 @@ async function changeOverviewEvidence(sample,approved){
   }
 }
 
-function renderOrionSummary(root){
+function overviewValueBars(name,before,after,digits,unit){
+  const shown=[before,after].filter(Number.isFinite);
+  const min=Math.min(0,...shown),max=Math.max(0,...shown);
+  const span=max-min||1;
+  const zero=-min/span*100;
+  const changed=Boolean(overviewDelta(before,after,digits,''));
+  const series=[['이전',before],['현재',after]].map(([label,value],index)=>{
+    const position=(value-min)/span*100;
+    const tone=index&&changed?(after>before?' r-overview-up':' r-overview-down'):'';
+    return el('div',{class:'r-overview-value-row'},el('span',{},label),
+      el('div',{class:'r-overview-value-track','aria-hidden':'true'},
+        el('i',{class:'r-overview-zero',style:`left:${zero}%`}),
+        Number.isFinite(value)?el('i',{class:'r-overview-value-fill '+(index?'r-overview-value-current':'')+tone,
+          style:`left:${Math.min(zero,position)}%;width:${Math.abs(position-zero)}%;transform-origin:${value<0?'right':'left'}`}):null),
+      el('strong',{},Number.isFinite(value)?fmt(value,digits)+unit:'미계산'));
+  });
+  return el('section',{class:'r-overview-value'},el('h4',{},name),series);
+}
+
+function renderOrionSummary(root,stage=1){
   const [after,before=after]=project.snapshots;
   const rows=state().case_study.evidence_samples.map(sample=>{
     const question=after.questions[sample.question];
@@ -226,6 +245,7 @@ function renderOrionSummary(root){
   const oldQuestion=before.questions[selected.sample.question];
   const eq=selected.question;
   const evsiBefore=oldQuestion?.evsi?.unit===eq?.evsi?.unit?oldQuestion?.evsi?.net:null;
+  const evsiUnit=eq?.evsi?' '+eq.evsi.unit:'';
   const metric=(name,a,b,digits,unit)=>overviewKpi(name,a,b,n=>Number.isFinite(n)?fmt(n,digits)+unit:'미계산',overviewDelta(a,b,digits,''));
   const changedRank=Object.keys(after.ranks).some(id=>before.ranks[id]!==after.ranks[id])||
     Object.keys(before.ranks).some(id=>before.ranks[id]!==after.ranks[id]);
@@ -238,25 +258,36 @@ function renderOrionSummary(root){
         btn(approved?'반영 취소':'증빙 반영',()=>changeOverviewEvidence(sample,approved),!approved,
           {'data-evidence':sample.packet,'aria-label':label+(approved?' 반영 취소':' 증빙 반영')})),
       el('details',{},el('summary',{},'판정 근거'),p(approved?.note||sample.note)))));
-  root.append(el('div',{class:'r-overview'},
-    el('div',{class:'r-overview-kpis'},
-      rows.map(({topic,label})=>overviewKpi(label+' 가설',before.probabilities[topic],after.probabilities[topic],prob,
-        overviewDelta(before.probabilities[topic],after.probabilities[topic],1,'%p',100))),
-      metric('EIG',oldQuestion?.eig,eq?.eig,3,' bit'),
-      metric('EVSI · 비용 차감 후',evsiBefore,eq?.evsi?.net,1,eq?.evsi?' '+eq.evsi.unit:''),
-      metric('반영 증빙',count(before),count(after),0,' / '+rows.length),
-      metric('남은 실사 질문',Object.keys(before.ranks).length,Object.keys(after.ranks).length,0,'개')),
-    el('div',{class:'r-overview-grid'},
-      el('section',{class:'r-overview-panel'},el('div',{class:'r-overview-panel-head'},el('h3',{},'가설 확률'),selector),
-        rows.map(({topic,label})=>overviewProbability(label,before.probabilities[topic],after.probabilities[topic])),
-        el('div',{class:'r-overview-ticks','aria-hidden':'true'},el('span',{},'0%'),el('span',{},'25%'),el('span',{},'50%'),el('span',{},'75%'),el('span',{},'100%')),
-        p('확률과 효용은 수업용 가정입니다.','r-muted')),
-      evidencePanel),
-    el('section',{class:'r-overview-panel r-overview-priority'},el('h3',{},'다음 실사 질문'),
-      el('div',{class:'r-impact-rank-grid'},
-        changedRank?impactPriority('반영 전',before):null,
-        impactPriority(changedRank?'반영 후':'현재 우선순위',after,changedRank?before:null)))));
-  renderOrionSources(root);
+  const probabilityCards=rows.map(({topic,label})=>overviewKpi(label+' 가설',before.probabilities[topic],after.probabilities[topic],prob,
+    overviewDelta(before.probabilities[topic],after.probabilities[topic],1,'%p',100)));
+  const valueCards=[metric('EIG',oldQuestion?.eig,eq?.eig,3,' bit'),metric('EVSI · 비용 차감 후',evsiBefore,eq?.evsi?.net,1,evsiUnit)];
+  const evidenceCount=metric('반영 증빙',count(before),count(after),0,' / '+rows.length);
+  const questionCount=metric('남은 실사 질문',Object.keys(before.ranks).length,Object.keys(after.ranks).length,0,'개');
+  const probabilityPanel=el('section',{class:'r-overview-panel'},el('div',{class:'r-overview-panel-head'},
+    el('h3',{},'가설 확률'),stage===1?selector:null),
+    rows.map(({topic,label})=>overviewProbability(label,before.probabilities[topic],after.probabilities[topic])),
+    el('div',{class:'r-overview-ticks','aria-hidden':'true'},['0%','25%','50%','75%','100%'].map(mark=>el('span',{},mark))),
+    p('확률과 효용은 수업용 가정입니다.','r-muted'));
+  const priorityPanel=el('section',{class:'r-overview-panel r-overview-priority'},el('h3',{},'다음 실사 질문'),
+    el('div',{class:'r-impact-rank-grid'},changedRank?impactPriority('반영 전',before):null,
+      impactPriority(changedRank?'반영 후':'현재 우선순위',after,changedRank?before:null)));
+  const valuesPanel=el('section',{class:'r-overview-panel'},el('div',{class:'r-overview-panel-head'},
+    el('h3',{},'정보가치 변화'),stage===4?selector:null),
+    overviewValueBars('EIG · 기대정보이득',oldQuestion?.eig,eq?.eig,3,' bit'),
+    overviewValueBars('EVSI · 비용 차감 후',evsiBefore,eq?.evsi?.net,1,evsiUnit));
+  const cards={
+    1:[...probabilityCards,...valueCards,evidenceCount,questionCount],
+    2:probabilityCards,
+    3:[questionCount,evidenceCount],
+    4:valueCards,
+    5:[...probabilityCards,evidenceCount]
+  };
+  const primary={1:probabilityPanel,2:probabilityPanel,3:priorityPanel,4:valuesPanel,5:probabilityPanel};
+  root.append(el('section',{class:'r-overview'+(stage===1?'':' r-overview-tab'),'aria-label':'증빙 반영과 지표 변화'},
+    el('div',{class:'r-overview-kpis'},cards[stage]),
+    el('div',{class:'r-overview-grid'},primary[stage],evidencePanel),
+    stage===1?priorityPanel:null));
+  if(stage===1)renderOrionSources(root);
 }
 
 function impactPriority(title,snapshot,previous){
@@ -326,18 +357,6 @@ function evidenceImpact(value,{reveal=true,heading,showSource,animate=false}={})
       el('div',{},metric('EIG · 불확실성 감소','eig'),metric('EVSI · 비용 차감 후','evsi'))):null);
 }
 
-function reviewedEvidenceImpact(root){
-  const [after,before]=project.snapshots;
-  if(!after||!before)return;
-  const existing=new Set(before.evidence.map(row=>row.id));
-  const evidence=state().evidence.find(row=>row.status==='approved'&&!existing.has(row.id));
-  if(!evidence)return;
-  const hypothesis=state().hypotheses.find(h=>h.id===evidence.hypothesis)?.title;
-  const span=units().find(u=>u.id===evidence.span);
-  const showSource=span?.document.original?()=>showOrionSource(span.document,span.page):null;
-  root.append(evidenceImpact({before,after,evidence,hypothesis},{heading:'검토 결과 반영',showSource,animate:true}));
-}
-
 function orionSourceLink(source,page){
   return source.original?btn(page?'PDF '+page+'쪽 원본 보기':'문서 내 원본 보기',()=>showOrionSource(source,page)):null;
 }
@@ -366,13 +385,13 @@ function probabilityBar(value){return el('div',{class:'r-prob-track',role:'img',
 function scoreParts(q){const colors={importance:'#6e73d9',gap:'#e9a154',obtainability:'#4aada2',eig:'#71a5df'},names={importance:'중요도',gap:'증빙 공백',obtainability:'확보 가능성',eig:'EIG'};const divisor=q.eig===null?.75:1;return el('div',{},el('div',{class:'r-score-parts',role:'img','aria-label':'추천 점수 구성'},...Object.entries(q.parts).map(([key,value])=>el('span',{style:`width:${value/divisor*100}%;background:${colors[key]}`}))),el('div',{class:'r-legend'},...Object.keys(q.parts).map(k=>el('span',{},el('i',{style:'background:'+colors[k]}),names[k]))));}
 function jump(next){if(!guard())return;dealMode=false;step=next;preview=null;detail=null;render();$('r-content').scrollTop=0;}
 function render(){renderFrame();renderMain();renderRight();renderFiles();}
-function renderFrame(){document.body.classList.toggle('r-orion-overview',isOrionOverview());for(const [i,node] of [...$('r-nav').children].entries())node.setAttribute('aria-current',i+1===step?'step':'false');$('r-step-kicker').textContent='STEP '+String(step).padStart(2,'0')+' / 05';$('r-title').textContent=dealMode?'거래 구조·FDD 시각화':isOrionOverview()?'오리온 실사 대시보드':steps[step-1][0];$('r-description').textContent=isOrionOverview()?'증빙을 반영하고 가설 확률과 다음 질문의 변화를 확인하세요.':steps[step-1][1];$('r-project-heading').textContent=project?state().company+' · '+state().period:'근거에서 다음 질문으로';$('r-version').textContent=project?'저장됨 · v'+project.version:'';$('r-actions').replaceChildren();if(project){$('r-actions').append(el('a',{href:`/api/projects/${project.id}/export/csv`},'질문표 CSV'),el('a',{href:`/api/projects/${project.id}/export/json`},'검토 기록 JSON'),el('a',{href:`/api/projects/${project.id}/export/html`},'검토 보고서 HTML'));if(state().case_study)$('r-case').value=state().case_study.id;} }
+function renderFrame(){document.body.classList.toggle('r-orion-overview',isOrionOverview());document.body.classList.toggle('r-orion-workflow',isOrion()&&step>1&&!dealMode);for(const [i,node] of [...$('r-nav').children].entries())node.setAttribute('aria-current',i+1===step?'step':'false');$('r-step-kicker').textContent='STEP '+String(step).padStart(2,'0')+' / 05';$('r-title').textContent=dealMode?'거래 구조·FDD 시각화':isOrionOverview()?'오리온 실사 대시보드':steps[step-1][0];$('r-description').textContent=isOrionOverview()?'증빙을 반영하고 가설 확률과 다음 질문의 변화를 확인하세요.':steps[step-1][1];$('r-project-heading').textContent=project?state().company+' · '+state().period:'근거에서 다음 질문으로';$('r-version').textContent=project?'저장됨 · v'+project.version:'';$('r-actions').replaceChildren();if(project){$('r-actions').append(el('a',{href:`/api/projects/${project.id}/export/csv`},'질문표 CSV'),el('a',{href:`/api/projects/${project.id}/export/json`},'검토 기록 JSON'),el('a',{href:`/api/projects/${project.id}/export/html`},'검토 보고서 HTML'));if(state().case_study)$('r-case').value=state().case_study.id;} }
 function renderMain(){const root=$('r-content');root.replaceChildren();if(!project){root.append(el('div',{class:'r-empty'},el('h2',{},'다음에 무엇을 물어야 할까요?'),p('프로젝트를 선택하거나 새 자료를 등록하세요.'),catalog.some(c=>c.id===orionCaseId)?btn('오리온(271560) 사례 열기',()=>openCase(orionCaseId),true):btn('합성 검증 사례 열기',example,true)));return;}
-if(!isOrionOverview())root.append(el('div',{class:'r-stage-summary'},badge('자료 '+state().documents.length+'개'),badge('가설 '+state().hypotheses.length+'개'),badge('미해결 '+questions().filter(q=>q.eligible).length+'개'),badge('추천 '+state().recommendations.length+'개')));
-if(isOrion()&&!isOrionOverview())root.append(el('div',{class:'r-card r-demo'},badge('오리온(271560) · 실제 공개자료','r-blue'),p('확률·우도·효용·비용은 편집 가능한 수업 시연 가정입니다.','r-form-help')));
-else if(!isOrion()&&state().case_study)root.append(el('div',{class:'r-card r-demo'},badge('익명화 실제 딜','r-blue'),p('자료 기반 검토 초안 · 확률·효용은 별도 실습 가정입니다.','r-form-help')));
+if(!isOrion()||dealMode)root.append(el('div',{class:'r-stage-summary'},badge('자료 '+state().documents.length+'개'),badge('가설 '+state().hypotheses.length+'개'),badge('미해결 '+questions().filter(q=>q.eligible).length+'개'),badge('추천 '+state().recommendations.length+'개')));
+if(!isOrion()&&state().case_study)root.append(el('div',{class:'r-card r-demo'},badge('익명화 실제 딜','r-blue'),p('자료 기반 검토 초안 · 확률·효용은 별도 실습 가정입니다.','r-form-help')));
 if(state().demo)root.append(el('div',{class:'r-card r-demo'},badge('합성 예시','r-blue'),el('span',{},' 실제 기업 자료·실증 확률이 아닙니다. 입력 가정으로 계산 과정을 검증하는 사례입니다.')));
 if(dealMode){window.OrionDealVisuals.render({root,projectId:project.id,data:state().visual_workspace,hasBudget:!!state().case_study?.waterfall,questions:questions(),units,sourceButton,el,p,card,btn,badge,field,select,check,fmt,table,metrics,formValues,guard,onAction:action,chooseQuestion:id=>{jump(3);chooseQ(id);},openExample:async()=>{await example();dealMode=true;render();}});return;}
+if(isOrion()&&step>1)renderOrionSummary(root,step);
 if(step===1)renderAnalysis(root);if(step===2)renderHypotheses(root);if(step===3)renderQuestions(root);if(step===4)renderRanking(root);if(step===5)renderEvidence(root);}
 function renderFinancial(root){
  const facts=state().financial_facts||[],recon=state().reconciliations||[];
@@ -495,7 +514,7 @@ function compare(before,after){
  })));
  return panel;
 }
-function renderEvidence(root){if(!questions().length){root.append(p('가설과 질문을 먼저 구성하세요.','r-empty'));return;}if(isOrion()){reviewedEvidenceImpact(root);renderOrionSources(root,true);}else if(state().case_study){caseScenario(root);root.append(card('증거 반영 실습',p('현재 자료를 확인하는 예시와 가상 후속 증거를 구분합니다. 예시는 입력만 채우며, 미리보기와 검토 후 적용해야 합니다.','r-form-help'),...state().case_study.evidence_samples.map(sample=>btn(sample.label,()=>fillCaseEvidence(sample)))));}if(!currentQ())qid=state().recommendations[0]||questions()[0].id;const q=currentQ();
+function renderEvidence(root){if(!questions().length){root.append(p('가설과 질문을 먼저 구성하세요.','r-empty'));return;}if(isOrion()){const sources=el('details',{class:'r-card'},el('summary',{},'증빙 폴더와 원문'));renderOrionSources(sources,true);root.append(sources);}else if(state().case_study){caseScenario(root);root.append(card('증거 반영 실습',p('현재 자료를 확인하는 예시와 가상 후속 증거를 구분합니다. 예시는 입력만 채우며, 미리보기와 검토 후 적용해야 합니다.','r-form-help'),...state().case_study.evidence_samples.map(sample=>btn(sample.label,()=>fillCaseEvidence(sample)))));}if(!currentQ())qid=state().recommendations[0]||questions()[0].id;const q=currentQ();
 const picker=select('question','반영할 질문',questions().map(x=>[x.id,x.title]),qid);picker.querySelector('select').onchange=e=>{if(!guard()){e.target.value=qid;return;}qid=e.target.value;preview=null;renderMain();renderRight();};root.append(card('증거를 연결할 질문',picker,p(q.request,'r-muted'),p('판정 기준: '+q.criterion)));
 const u=units();const form=el('form',{id:'r-evidence-form'},el('input',{type:'hidden',name:'practice',value:'false'}),select('outcome','검토 결과',[['support','지지 증거 확인'],['contradict','반박 증거 확인'],['insufficient','불충분 · 확률 유지'],['reopen','질문 재개 · 확률 유지']],'support'),select('span','연결 원문 (또는 답변 직접 입력)',[['','답변 직접 입력 · 외부 검증 전'],...u.map(s=>[s.id,s.document.filename+' · '+s.location+' · '+s.text.slice(0,65)])],''),field('response','답변 원문 (원문 구간을 선택하지 않을 때)','','textarea'),field('group','증거 의존 그룹 (동일 원천은 같은 이름)','','text'),field('note','원문·판정 기준에 따른 검토 이유','','textarea',true),check('independent','이미 반영한 증거와 별개의 정보이며 독립성을 검토했습니다.'),p('독립성 미확인·동일 그룹은 추가 확률 반영을 보류합니다. 계약·검수·수금을 무조건 독립으로 인정하지 않습니다.','r-form-help'),isOrion()?null:check('reviewed','원문과 판정 기준을 검토했고, 아래 미리보기 결과의 적용/반려를 확인합니다.'),el('div',{class:'r-actions'},el('button',{class:'r-primary'},'적용 전 미리보기')));
 form.querySelector('[name=span]').onchange=e=>{const s=u.find(s=>s.id===e.target.value);if(s){detail={kind:'span',id:s.id};renderRight();}};
@@ -528,7 +547,7 @@ async function commitPreview(reject){
   const response=await action('evidence',data);
   if(!response)return;
   notify(reject?'반려 기록을 남겼습니다. 확률과 추천은 유지됩니다.':'증거를 적용하고 질문 상태·후속 질문·추천을 다시 계산했습니다.');
-  if(isOrion()&&!reject)$('r-content').querySelector('.r-impact-heading')?.focus();
+  if(isOrion()&&!reject)$('r-content').querySelector('.r-overview')?.scrollIntoView({block:'start'});
 }
 function renderRight(){const root=$('r-detail');root.replaceChildren();if(detail?.kind==='fact'&&renderFactDetail(root))return;if(!project){root.append(p('프로젝트를 만들고 자료·가설·질문을 선택하세요.'));return;}
 if(detail?.kind==='span'){const s=units().find(s=>s.id===detail.id);if(s){root.append(el('h3',{},s.document.filename),p(s.location,'r-muted'),badge(s.document.status),p(s.text,'r-quote'),orionSourceLink(s.document,s.page),s.cell?card('Excel 셀 메타데이터',p('원래 값: '+s.cell.raw),p('수식: '+(s.cell.formula||'없음')),p('저장된 계산값: '+(s.cell.cached??'없음')),p('표시 형식: '+s.cell.number_format),p('시트: '+s.cell.sheet_state),s.cell.cached!==null&&s.cell.cached!==''&&Number.isFinite(Number(s.cell.cached))?btn('이 셀을 재무 관측치로 등록',async()=>{const v=await action('fact_new',{span:s.id});if(v){detail={kind:'fact',id:'manual_'+''};const f=state().financial_facts.find(x=>x.span===s.id);detail.id=f.id;renderRight();}}):null):null,p((s.document.masked?'마스킹 텍스트 해시: ':'원본 해시: ')+s.document.sha256,'r-rule'),el('a',{href:`/api/projects/${project.id}/files/${s.document.id}`},downloadLabel(s.document)));return;}}
