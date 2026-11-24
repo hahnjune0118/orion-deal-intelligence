@@ -93,12 +93,12 @@ def _parse(source, filename):
                 parser='rules-local-1.0.0')
 
 
-def parse(source, filename):
+def parse(source, filename, *, python=None):
     if not source or len(source)>MAX_BYTES:
         raise ValueError('파일은 10MB 이하여야 합니다.')
     payload=json.dumps(dict(data=base64.b64encode(source).decode(),filename=filename))
     try:
-        completed=subprocess.run([sys.executable,'-m','orion.rules.parsing','--worker'],input=payload,
+        completed=subprocess.run([python or sys.executable,'-m','orion.rules.parsing','--worker'],input=payload,
                                  text=True,encoding='utf-8',capture_output=True,timeout=40)
     except subprocess.TimeoutExpired:
         raise ValueError('자료 처리 시간이 40초를 초과했습니다. 문서를 분할해 등록하세요.') from None
